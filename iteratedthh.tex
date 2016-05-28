@@ -1,0 +1,1347 @@
+\section{iterated topological Hochschild homology}
+We proceed to introduce topological Hochschild homology based on a space $X$ and the structure it carries for $X = T^n$ the $n$-dimensional torus, following \cite{brun2010covering} as well as \cite{carlsson2011higher}. For details on bicategories, confer \cite{benabou1967introduction} \comm{TODO add source! include the preprint on arxiv?}.
+\subsection{The Loday functor}
+A bicategory $\mathcal{C}$ is in part made up of a class of 0-cells, and for any two zero-cells $A,B$ a category $\mathcal{C}(A,B)$, whose objects form the 1-cells from $A$ to $B$ and whose morphisms form the 2-cells between two given 1-cells. The bicategory of spans $W$ has 0-cells all finite cells. Given finite sets $X,Y$ the 1-cells are given as spans $ X \leftarrow A \rightarrow Y$ for some finite set $A$, and a 2-cells between two spans from $X$ to $Y$  is given as the vertical map in the following commutative diagram:
+\[
+\xymatrix@R-=.5em{
+  %
+  &
+  %
+  A \ar[dl] \ar[dd] \ar[dr]
+  %
+  \\
+  X
+  &
+  %
+  &
+  Y
+  \\
+  %
+  &
+  A^\prime \ar[ul] \ar[ur]
+  &
+  %
+}
+\]
+Horizontal composition is given by a functorial and conrete choice of pullback applied to the 1-cells and taking the map induced by the 2-cells between pullbacks, \comm{[make clearer or scratch - this should explain horizontal composition of 2-cells!]}, while vertical composition is composition of maps.\\
+The bicategory $\operatorname{Cat}$ of small categories has small categories as 0-cells, functors as 1-cells and natural transformations as 2-cells.
+\comm{add all the technical things you need from covering homology:}\\
+spans, functor $\cJ$, nat traf $G^A_S$ (gamma spaces, hom space (fibrant replacement), $(\Lambda_X A)^G$ functor of conn. comm $S$-algebras that preserves conn. and has values in very special gamma spaces (Cor. 5.1.5 in Covering homology), how diagonal is constructed (Street rectification necessary! H-set, and so on...); adapt to orthogonal spectra!?
+\begin{defn}\label{def_loday_functor}
+We define the Loday functor for a finite set $S$ and a commutative $\bS$-algebra $A$ as hocolim category functor ...
+\end{defn}
+\section{Structure - Morphisms and Relations}
+\subsection{Restriction}
+Read up in bcd - higher top cyclic hom and  hm - k-theory fin alg over witt...
+part of reason for using isogenies: need subgroups $H$ of $G$ such that $G/H$ can be identified naturally with $G$, kernels of surj. homos with finite kernel are an example for that.
+\subsection{Frobenius}
+\begin{defn}\label{def_frobenius_and_functoriality}
+Let $G$ be a group, $A$ a connective commutative ring spectrum, and let $\alpha : G \to G$ be a surjective group homomorphism with finite kernel $L_\alpha$. For every other such morphism $\beta: G \to G$ we define the Frobenius map
+\[ F^\alpha \defas F^\alpha_{(\beta)}: \Lambda_G(A)^{ L_{\beta\alpha} } \to \Lambda_G(A)^{ L_\alpha } \]
+to be the inclusion of fixed points. This is functorial: Given $\gamma: G \to G$ as above, we have
+\[ F^\alpha\beta = F^\beta F^\alpha, \]
+or in more detail
+\[ F^{\gamma}_{\alpha\beta\gamma} = F^{\gamma}_{\beta\gamma} F^{\beta\gamma}_{\alpha\beta\gamma}. \]
+
+\end{defn}
+
+\subsection{Verschiebung}
+\subsection{Teichm\"uller}
+\begin{defn}\label{def_Delta_alpha}\cite[Sec. 6.2]{brun2010covering}
+\comm{[insert here def of $\Delta_\alpha: A \to T^\alpha$[}
+\end{defn}
+\begin{prop}\label{prop_iso_degree_0_structure_map_lambda}\cite[Prop. 6.2.4]{brun2010covering}
+\comm{[deduce iso $W_G A \to \Lambda_{X} \H A ^G$]}
+\end{prop}
+\subsection{Differentials}
+%
+%
+\begin{lem}\label{lem_decomp_matrix}\cite[Remark 3.2]{carlsson2011higher}
+There is a stable splitting \comm{add $\sigma$ unstable map}%
+$$\sT_+^k \simeq \bigvee_{T \subseteq \{1 \ldots k \} } S^{\abs{T}} \cong %
+  \bigvee_{j = 0}^k (S^j)^{\vee\binom{k}{j}}.$$
+\comm{[geometric torus $(=\bR^n/\bZ^n)$? fix notation!} Given $\alpha \in \M_{n \times k}(\bZ_p),$ this splitting yields the induced stable map of tori
+$\alpha_+: (\sT^k_p)_+ \to (\sT^n_p)_+$ as a Matrix $M$ with entries indexed by pairs of subsets
+$(S,T)$, $S \subseteq \ind{n}, T \subseteq \ind{k}$ with entries%
+$$ M_{S,T} = \left( \sum_{f:T \onto S} \sgn(f) \prod_{j \in T} \alpha_{f(j),j} \right) \eta^{\abs T - \abs S}.$$
+We will denote this process with a subindexed asterix, i.e. $(\alpha_+)_*$.% bazinga change this!!
+\end{lem}
+%
+%
+\begin{lem}\label{lem_decomp_matrix_funct}
+Assuming that $\eta$ is nullhomotopic, the above splitting is functorial with respect to matrix multiplication.
+\begin{proof}
+Let $a \in \M_{n \times k}(\bZ_p), b \in \M_{m \times n}(\bZ_p)$, and set $A \defas (a_+)_*$, $B \defas (b_+)_*$. Observe first that $A_{S,T}$ is zero unless $S$ and $T$ have the same cardinality: If $\abs{S} > \abs{T}$, the sum is empty; if $\abs{S} < \abs{T}$, we have a positive power of $\eta$, which by assumption is zero. Observe further that for $\abs{S} = \abs{T}$, we have $A_{S,T} = a_{S,T}$, the $(S,T)$-minor of $a$.\\
+Now we compute:
+$$(BA)_{S,T} = \sum_{X \subseteq \ind{n}} B_{S,X} A_{X,T} = \sum_{X \subseteq \ind{n}, \abs{X} = k} b_{S,X} a_{X,T},$$
+where $k = \abs{S} = \abs{T}$ and $(BA)_{S,T} = 0$ if $\abs{S} \neq \abs{T}$. On the other hand,
+$$((ba_+)_*)_{S,T} = (ba)_{S,T}$$ and these two terms are equal by the Binet-Cauchy formula from linear algebra, proving that%
+$$ (b_+)_*(a_+)_* = (ba_+)_*.$$
+\end{proof}
+\end{lem}
+%
+%
+\begin{lem}\label{lem_decomp_mult_2}\cite[Lemma 3.1]{carlsson2011higher}
+The multiplication on the $1$-torus $\sT^1_+ \wedge \sT^1_+ \to \sT^1_+$ with respect to the stable splitting is given by the matrix
+\begin{equation}\label{eq_torus_mult_2}\mu_* = %
+\left( \begin{array}{cccc}
+1 & 0 & 0 & 0 \\
+0 & 1 & 1 & \eta \\
+\end{array} \right): S^0 \wedge S^1 \wedge S^1 \wedge S^2 \to S^0 \wedge S^1 .\end{equation}
+\end{lem}
+%
+%
+%\begin{cor}\label{cor_decomp_mult_n}
+%Assuming that $\eta$ is nullhomotopic, the multiplication on the $n$-torus $\mu:\sT^n_+ \wedge \sT^n_+ \to \sT^n_+$ with respect to the basis obtained from the stable splitting has the following description. Let $A,B,C \subseteq \ind{n}$. Then
+%$$(\mu_*)_{(A,B),C} = \twopartdef %
+%{\sgn(A \cup B)\cdot\eta^k}		{A \cup B = C}%
+%{0}			{\mathrm{else}}$$%
+%where $k = \# A \cap B \cap C$.
+%\begin{proof}
+%We identify $$\sT^n_+ \wedge \sT^n_+ \simeq \bigvee_{X \subseteq \{1 \ldots n \} } S^{\abs{X}} \wedge \bigvee_{Y \subseteq \{1 \ldots n \} } S^{\abs{Y}} \simeq \bigvee_{T \subseteq \{1 \ldots 2n \} } S^{\abs{T}}$$ via the map $\psi: \cP(n) \x \cP(n) \to \cP(2n)$ sending $(A,B) \longmapsto A \cup (n + B)$, where $(n+i) \in (n+B)$ iff $i \in B$, and index %
+%$$ \bigwedge_{i=1}^n (S^0 \vee S^1) \simeq \bigvee_{T \subseteq \ind n} S^{\abs T} \simeq \sT^n_+$$ by choosing $S^1$ in the $i$-th smash-factor iff $i \in T$. Keeping these indexings in mind, one obtains the above formula for the $n$-fold tensor product of the matrix from equation (\ref{eq_torus_mult_2}).
+%\end{proof}
+%\end{cor}
+%
+%
+\begin{defn}\label{def_diffs} %get the p out? bazinga
+Let $A$ be a (naive) left $\sT^n$-spectrum. Note that $T^n = \Sigma^\infty T^n \in \Sp$ is semistable, hence given a stable class $x \in \pi^s_k(T^n)_+$, we may choose a representative $f: S^k \wedge S^m \to \sT^n \wedge S^m $\\
+%
+\comm{[can $m$ be chosen to be $k$ (relevant?)? does this definition agree with hesselholt?]}\\
+%
+of $x = [f]$, and define the operator
+	\[	d_x: \pi_0 A \to \pi_k A	\]
+as the composite
+	\[	\pi_0 A \oldto%
+		%\xrightarrow{\mathmakebox[1.8\trollo] {S^m \wedge S^k \wedge \blank} } %
+		\pi_{k+m} ( S^k \wedge S^m \wedge A ) %
+			\xrightarrow{\mathmakebox[1.8\trollo]{( (\tau \circ f) \wedge A)_*}} %
+		\pi_{k+m} ( S^m \wedge T^n \wedge A )
+			%
+	\]
+	\[
+			\xrightarrow{\mathmakebox[1.4\trollo]%
+				{(S^m \wedge \mu)_*}} %
+		\pi_{k+m} ( S^m \wedge A ) %
+			\myrightarrow{\chi_{k,m}} %
+		\pi_{m+k} (S^m \wedge A ) %
+			\oldto
+		\pi_k A,	\]
+where the first and last morphism are the natural suspension isomorphism of stable homotopy groups $ S^l \wedge \blank: \pi_k(X) \to \pi_{l+k} (S^l \wedge X)$ and its inverse, respectively, $\mu: \sT^n \wedge A \to A$ is the action map, $\tau: X \wedge Y \to Y \wedge X$ is the twisting map and $\chi_{k,m} \in \Sigma_{k+m}$ is the shuffle permutation permuting the block of the first $k$ numbers past the block of the last $m$ numbers, acting on $\pi_{k+m}$ by permuting the coordinates in the source sphere. Since we examine the effect of $f$ on stable homotopy groups, and since (regarding the suspension isomorphisms) the smash product is associative, this is independent of choice of representative. We will often blur the distinction between a representative $f$ and its class $[f]=x$.\\
+We restrict ourselves to a certain class of maps: Recall the stable splitting of the torus (cf. Lemma \ref{lem_decomp_matrix}). Assuming that $\eta$ is trivial, we only allow morphisms%
+\[f: S^k \to (\sT_p^n)_+ \simeq \bigvee_{T \subseteq \{1 \ldots n \} } S^{\abs{T}}\] with $(f_*)_T = 0$ for all $\abs{T} \neq k$, or equivalently $\pi_*(f)=0$ for all $* \neq k$, and denote this $\bZ_p$-submodule of $\SHC(S^k,(\sT^n_p)_+)$ as $C_k$. Their collection forms the graded $\bZ_p$-submodule $C_* \subseteq \SHC(S^*,(\sT^n_p)_+)$, where the $\bZ_p$-module structure comes from the isomorphism $\pi_0(\sT_p^n) \cong \bZ_p$. % bazinga [actually, for prime 2, need to include powers of $\eta$, they come up when multiplying elts (CHECK)]
+Note that this extends \cite[Definition 3.3]{carlsson2011higher}, which considers maps $$S^k \myrightarrow{\sigma} (\sT_p^k)_+ \myrightarrow{\alpha_+} (\sT_p^n)_+$$ where $\alpha:\bZ_p^k \to \bZ_p^n$ is a matrix and $\sigma$ refers to the stable splitting of the torus. In particular for $n=1$ the two definitions coincide.
+Furthermore we have $C_k = 0$ for $k \notin \{0 \ldots n\}$. % bazinga [allowing powers of $\eta$ admits morphisms from further up, are they automatically zero?]
+\end{defn}
+%
+%
+\begin{prop}\label{prop_diff_derivations}
+One-dimensional differentials are derivations, i.e. satisfy the Leibniz rule...
+\end{prop}
+\begin{proof}
+\comm{write precise statement, write proof}
+\end{proof}
+%
+\begin{lem}\label{lem_diff_alt_alg}
+Assume that $p$ is an odd prime. The collection $C \defas (C_k)_{k \in \bZ}$ of maps indexing the differentials form a free exterior algebra over $\bZ_p$ with generators $e_i: S^1 \to (\sT_p^n)_+$ for $i \in \ind{n}$, where $e_i \defas e_{\{i\}}$ and (more generally) $e_A: S^{\abs{A}} \to (\sT_p^n)_+$ becomes the identity after projecting onto the $A$-th summand for $A \subseteq \ind{n}$. The product is given by the smash product of two morphisms followed by postcomposition with the multiplication on $\sT_p^n$:
+$$\SHC(S^k, (\sT_p^n)_+) \otimes \SHC(S^l, (\sT_p^n)_+) \myrightarrow{\wedge}%
+\SHC(S^{k+l}, (\sT_p^n)_+ \wedge (\sT_p^n)_+) \myrightarrow{\mu_*}%
+\SHC(S^{k+l}, (\sT_p^n)_+).$$
+\begin{proof}
+We first show that $C_ *$ is isomorphic to the free graded $Z_{(p)}$-module generated by $e_A$ (in degree $\abs{A}$) for $A \subseteq \ind{n}$: We identify%
+$$\SHC(S^k, (\sT_p^n)_+) \myrightarrow{\simeq} \pi_k((\sT_p^n)_+)$$%
+via evaluation at the fundamental class $\iota_k \in \pi_k(S^k)$ and further identify via the stable splitting%
+$$(\sT_p^n)_+ \simeq \bigvee_{T \subseteq \ind{n}} S_p^{\abs{T}}.$$%
+By definition of $C_k$, postcomposition with the map induced by the projection onto $k$-dimensional summands%
+$$\bigvee_{T \subseteq \ind{n}} S_p^{\abs{T}} \to \bigvee_{T \subseteq \ind{n}, \abs{T}=k} S_p^{\abs{T}}$$%
+yields an isomorphism%
+$$C_k \to \pi_k  \bigvee_{T \subseteq \ind{n},\abs{T}=k} S_p^{\abs{T}} .$$
+Finally we compute
+$$\pi_k  \bigvee_{T \subseteq \ind{n},\abs{T}=k} S_p^{\abs{T}} \cong %
+    \bigoplus_{T \subseteq \ind{n},\abs{T}=k} \pi_k S_p^k \cong
+    \bigoplus_{T \subseteq \ind{n},\abs{T}=k} \bZ_p,$$%
+using that localization commutes with homotopy groups for symmetric spectra whose homotopy groups are finitely generated, which is the case for $S^k$.
+
+We proceed to prove that for $A,B \subseteq \ind{n}$ we have $e_A \cdot e_B = 0$ if $A \cap B \neq \varnothing$ and $e_A \cdot e_B = \sgn(A \cup B) e_{A\cup B}$ otherwise, where the signum is taken from the permutation bringing the tupel $(AB)$ into ascending order. We use the splitting%
+$$\sT^n_+ \simeq \bigwedge_{ A \subseteq \ind{n} } S^{\abs{A}} \simeq %
+\bigwedge_{ i \in \ind{n} } (S^0 \vee S^1),$$
+where we recall the last identification: The brackets on the right are resolved, and we obtain $S^{\abs{A}}$ by choosing $S^1$ in the $i$-th bracket if $i \in A$, and $S^0$ otherwise. We also recall Equation \ref{eq_torus_mult_2}, which describes the multiplication in terms of said splitting for $n=1$:
+\begin{equation*}\mu_* = %
+\left( \begin{array}{cccc}
+1 & 0 & 0 & 0 \\
+0 & 1 & 1 & \eta \\
+\end{array} \right): S^0 \wedge S^1 \wedge S^1 \wedge S^2 \to S^0 \wedge S^1 .\end{equation*}
+Let $A, B \subseteq \ind{n}$, $A = \{i_1, \ldots, i_k\}$, $B = \{j_i, \ldots, j_l \}$ with $i_1 \less \ldots \less i_k$, $j_1 \less \ldots \less j_l$. We analyze the following diagram:
+\[
+\xymatrix{
+  S^{\abs{A}} \wedge S^{\abs{B}} \ar[r]^-{e_A \wedge e_B} \ar[dr] & %
+  (\sT_p^n)_+ \wedge (\sT_p^n)_+ \ar[r]^(.55){\mu} \ar[d]^{\simeq} & %
+  (\sT_p^n)_+ \ar[d]^{\simeq} \\ %
+    %
+  & %
+  \bigwedge\limits_{i \in \n} (S^0 \vee S^1) \wedge %
+    \bigwedge\limits_{i \in \n} (S^0 \vee S^1) \ar[r] & %
+  \bigwedge\limits_{i \in \n} (S^0 \vee S^1).
+}
+\]
+Since the multiplication is defined entrywise, it becomes a smash-product of one-dimensional multiplications in the lower row, represented by the matrix above. Considering the $j$-th factor in the products in the lower row, the matrix decodes to the following: We get an identity if the target is $S^0$ and both sources are $S^0$, or if the target is $S^1$ and exactly one of the two sources is $S^1$. All other cases lead to zero (recall that $\eta$ is zero, since $p$ was chosen to be odd). So we need only look at the target sphere corresponding to $A \cup B$, and we may assume that $A \cap B = \varnothing$.
+
+Let $x \wedge y = (x_{i_1} \ldots x_{i_k}) \wedge (y_{j_1} \ldots y_{j_l}) \in S^{\abs{A}} \wedge S^{\abs{B}}$. Then the diagonal arrow takes this element to $ \tilde{x} \wedge \tilde{y}$, where $\tilde{x}_i = x_i$ if $i \in A$, and $\tilde(x)_i = \ast$, the non-basepoint of $S^0$, otherwise; $\tilde{y}$ is defined analogously. This, in turn, is taken to the element $z = (z_1 \ldots z_n)$ with
+\[ z_i = \left\{
+		\begin{array}{ll}
+			\ast & i \nin A \cup B \\
+			x_i & i \in A \\
+			y_i & i \in B
+		\end{array}
+	\right.\]
+hence the composotion $S^{\abs{A}} \wedge S^{\abs{B}} \to S^{A \cup B}$ has degree signum of the permutation bringing $(AB)$ into ascending order, and we obtain the claimed formula $e_A \cdot e_B = \sgn{(AB)} \cdot e_{A \cup B}$ for disjoint $A,B$.
+\end{proof}
+\end{lem}
+%
+%
+\begin{cor}\label{cor_diffs_ext_alg}
+Let $X$ be a $\sT_p^n$-spectrum. The morphism of graded abelian groups%
+  \[C_* \to \SHC(S^* \wedge X, X)\]%
+sending a map in $C_k$ to the corresponding differential $X \wedge S^k \to X$ is a morphism of graded rings, where multiplication of differentials is given by composition.
+\begin{proof}
+The assignment sending $f \in C_k$ to $\mu \circ (f \wedge X):S^k \wedge X \to X$, where $\mu$ refers to the action map $(\sT_p^n)_+ \wedge X \to X$, is by definition bijective and additive as a composition of additive maps. The multiplicativity follows from associativity of the torus action as well as functoriality of the smash product in both variables.
+\end{proof}
+\end{cor}
+%
+%
+\subsection{The Relations}
+%
+% add all the stuff coming from equivariant theory
+\comm{[add (algebraic) defnitions necessary for third relation, as well as relation itself]}\\
+\comm{[add remark about taking this from \cite{carlsson2011higher}]}
+\begin{defn}
+Given a matrix $A \in \cM_n$, we define its volume $\abs{A}$ to be the absolute value of its determinant, and we define the adjoint $A^\dagger \in \cM_n$ as the unique matrix such that $A A^\dagger = A^\dagger A = \abs{A} \cdot E_n$, where $E_n$ is the unit matrix.
+\end{defn}
+%
+%
+\begin{rem}
+Note that with the above definition, if $A \in \cM_n$ is diagonal with entries $a_1, \ldots, a_n$, then $\abs{A} = \prod_i a_i$ and hence $A^\dagger_j = \prod_{i \neq j} a_i$.
+\end{rem}
+%
+%
+\begin{lem}\cite[Lemma 3.17]{carlsson2011higher}
+Let $\alpha$, $\beta \in \cM_n \defas \M_n(\bZ_p) \cap \Gl_n(\bQ_p)$, $l \in \M_{n \times k}(\bZ_p)$. Then $F^\alpha d_l V_\alpha$ is homotopic to the composite
+$$\begin{xy}
+\xymatrix{
+  S^k \wedge T^\beta \ar[r]^-{\sigma} &%
+  (\sT^k_p)_+ \wedge T^\beta \ar[r]^-{l_+} &%
+  (\sT^n_p)_+ \wedge T^\beta \ar[r]^-{(\alpha_+)^\dagger} &%
+  (\sT^n_p)_+ \wedge T^\beta \ar[r]^-{\phi^\beta} &%
+  (\sT^n_p/L_\beta)_+ \wedge T^\beta \ar[r]^-{\mu} &%
+  T^\beta
+  }%
+\end{xy},$$
+where $(\alpha_+)^\dagger \defas \tr_\alpha\phi^\alpha_+$ and the map $\tr_\alpha: (\sT^n_p/L_\alpha)_+ \to (\sT^n_p)_+$ is the transfer.
+\end{lem}
+%
+%
+%%%%%%%% use the following remark as an explanation for why we have to extend the definition of differentials
+\begin{rem}\label{rem_dagger_as_matrix}
+Writing $\alpha = \tilde\gamma \delta \gamma$ with $\tilde\gamma,\gamma \in \Gl_n(\bZ_p)$ and $\delta$ a diagonal matrix with powers of $p\,$ as entries, using that for $\gamma \in \Gl_n(\bZ_p)$ we have $\phi^\gamma = \gamma^{-1}$ and $\tr_\gamma = \Id$, we obtain%
+$$(\alpha_+)^\dagger = (\gamma^{-1})_+ (\delta_+)^\dagger (\tilde\gamma^{-1})_+$$
+where (by \cite[Corollary 3.16]{carlsson2011higher}) the splitting $\sT^1 \simeq S^0 \vee S^1$ yields $(\delta_+)^\dagger = \bigotimes_j D^{(j)}$ with%
+\begin{equation}\label{eq_diag_dagger}D^{(j)} \defas %
+\left( \begin{array}{cc}
+\delta_{jj} & (\delta_{jj} - 1) \eta \\
+0 & 1 \\
+\end{array} \right).\end{equation}
+We consider the composite%
+$$\begin{xy}
+\xymatrix{
+  S^k \ar[r]^-{\sigma} &%
+  (\sT^k_p)_+ \ar[r]^-{l_+} &%
+  (\sT^n_p)_+ \ar[r]^-{(\alpha_+)^\dagger} &%
+  (\sT^n_p)_+%
+  }%
+\end{xy},$$
+our goal being to substitute the last two maps by a map induced by an $(n \times k)$ -- matrix with coefficients in $\bZ_p$ without changing the composite. We first write $(\delta_+)^\dagger$ in the basis given by Lemma \ref{lem_decomp_matrix}. For this we use the bijection
+$$\{0,1\}^n \to \cP(\ind{n}),\;\; (i_k) \longmapsto A \defas \{ x \in \ind{n} \with i_x = 1 \}$$%
+and obtain, after setting $\Delta \defas (\delta_+)^\dagger_*$:
+$$ \Delta_{S,T} = \prod_{j=1}^n D^{(j)}_{S(j),T(j)}\;,$$
+where $S,T$ are pulled back to functions $\ind{n} \to \{0,1\}$ by the above bijection, hence we have $S(j) = 0$ if $k \notin \ind{n}$ and $S(j) = 1$ if $k \in \ind{n}$ (likewise for $T$).\\
+We now assume $\eta$ to be nullhomotopic. If we have $S \neq T$, we pick a non-diagonal entry from one of the $D^{(j)}$s, hence the product $\Delta_{S,T}$ will be zero, so $(\delta_+)^\dagger_*$ is a diagonal matrix with entries
+\begin{equation}\label{eq_dagger_of_diagnoal_plus}
+	\Delta_{S,S} = \prod_{j \notin S} \delta_{jj}.
+\end{equation}
+Note that if we follow \cite[Def. 3.7]{carlsson2011higher} and define, for $f:A \to A$ an injective morphism of abelian groups, the morphism $f^\dagger: A \to A$ to be the unique morphism satisfying $f f^\dagger = f^\dagger f = \abs{f} \cdot \id$ (where $\abs{f}$ is the cardinality of the cokernel of $f$), we obtain that the 1-dimensional block of $\Delta = (\delta_+)^\dagger_*$ corresponds exactly to $\delta^\dagger$, or in formulas: $\Delta_{\{i\},\{j\}} = \delta_{i,j}$.\\
+Consider $(l_+)$ next. Since we precompose with $\sigma$, we need only consider the last column of $(l_+)_*$, which we denote $L$, and obtain
+\[L_S = \sum_{f:\ind{k} \onto S} (\sgn(f) \prod_{j=1}^k l_{f(j),j}) \eta^{k - \abs{S}}.\]
+Now if $k < \abs{S}$, the sum is empty, and if $k > \abs{S}$, we get a positive power of $\eta$, which is zero. Hence we need only consider the entries of $L$ with $\abs{S} = k$ (of course the same arguments show that for any entry of $(l_+)_*$ indexed by $(S,T)$ to be non-zero, we need to have $\abs{S} = \abs{T}$). In this case, $L_S$ is the $k$-minor of $l$ obtained by deleting all rows with index not in $S$, which we denote by $l_S \defas l_{S,\ind{k}}$. We use the notation $A_{S,T}$ for the $k$-minor of a matrix $A$ given by the rows indexed by $S$ and the columns indexed by $T$ (with $k=\abs{S}=\abs{T}$).\\
+How does $A \defas (a_+)_*$ for an $a \in \M_n(\bZ_p)$ act on such a vector $L$ with $L_S = 0$ if $\abs{S} \neq k$? Consider a row indexed by $X$ of $A$. Since only entries of $L$ indexed by a set of cardinality $k$ are non-zero, we need only consider entries of the $X$-th row of $A$ indexed by such sets. Yet by the above remark, these will be zero unless $\abs{X} = k$ as well. So letting $S, S^\prime \subseteq \ind{n}$ with $\abs{S} = \abs{S^\prime} = k$ we get
+$$A_{S^\prime,S} = \sum_{f:S \onto S^\prime} \sgn(f) \prod_{j \in S}a_{f(j),j} = a_{S^\prime, S}.$$
+Now we are ready to compute, using the functoriality of the decomposition as in Lemma \ref{lem_decomp_matrix_funct}.
+Recall that $$(\alpha_+)^\dagger = (\gamma^{-1})_+ (\delta_+)^\dagger (\tilde\gamma^{-1})_+.$$ We compute step by step: Let $S \subseteq \ind{n}$ with $\abs{S} = k$. To make the formulas more readable, all sums will run over subsets of $\ind{n}$.
+$$ ( (\tilde\gamma_+^{-1})_* L )_S = \sum_{\abs{S^\prime} = k } %
+		\gamma^{-1}_{S,S^\prime} \, l_{S^\prime},$$
+$$ ( (\delta_+)^\dagger_* (\tilde\gamma_+^{-1})_* L )_S = \Delta_{S,S} ( (\tilde\gamma_+^{-1})_* L )_S =%
+		\prod_{j \notin S} \delta_{jj} \sum_{ \abs{S^\prime} = k } \gamma^{-1}_{S,S^\prime}\, l_{S^\prime},$$
+$$ ( (\gamma_+^{-1})_* (\delta_+)^\dagger_* (\tilde\gamma_+^{-1})_* L )_S = %
+		\sum_{\abs{\tilde S} = k} \gamma^{-1}_{S,\tilde S} \prod_{j \notin \tilde S} \delta_{jj} \sum_{ \abs{S^\prime} = k } \gamma^{-1}_{\tilde S,S^\prime}\, l_{S^\prime}.$$
+We want to compare this to $( \alpha^\dagger_+ )_* L$. Observe that
+$ \alpha^\dagger = \tilde \gamma^{-1} \delta^\dagger \gamma^{-1},$ %
+so we compute the middle map. By definition (cf. \cite[Definition 3.7]{carlsson2011higher}), $\delta \delta^\dagger = \det(\delta) \Id_{\bZ_p^n}$, hence $\delta^\dagger$ is diagonal with $\delta^\dagger_{jj} = \prod_{k \neq j} \delta_{kk}$, and finally for $S,T \subseteq \ind{n}$ we have%
+$$ (\delta^\dagger_+)_{*\, S,T} = \sum_{f:T \onto S} \sgn(f) \prod_{j \in T} \delta^\dagger_{f(j),j}.$$
+Assuming none of the factors to be zero implies $S = T$ and $f = \Id_S$, hence we obtain a diagonal matrix with entries%
+$$ (\delta^\dagger_+)_{*\,S,S} = \prod_{j \in S} \delta^\dagger_{jj} = \prod_{j \in S} \prod_{k \neq j} \delta_{kk} = \det(\delta)^{\abs{S}-1} \prod_{j \notin S} \delta_{jj}.$$
+Overall we get for $S \subseteq \ind{n}, \abs{S} = k:$
+$$ ( (\tilde\gamma_+^{-1})_* (\delta^\dagger_+)_* (\gamma_+^{-1})_* L )_S = %
+\det(\delta)^{k-1} \sum_{\abs{\tilde S} = k} \gamma^{-1}_{S,\tilde S} \prod_{j \notin \tilde S} \delta_{jj} \sum_{ \abs{S^\prime} = k } \gamma^{-1}_{\tilde S,S^\prime}\, l_{S^\prime}.$$
+Summarizing this leads to
+\begin{equation}\label{eq_dagger_comparison}
+(\alpha_+)^\dagger l_+ \sigma = (\nicefrac{1}{\abs\alpha^{k-1}}\cdot\alpha^\dagger)_+ l_+ \sigma.\end{equation}
+While it is true for the entries of $\alpha^\dagger$ we are concerned about, it is not true in general that we can divide by $\nicefrac{1}{\abs\alpha^{k-1}}$. Yet letting $k$ vary and choosing specific $l \in \M_{n \times k}(\bZ_p)$, we obtain an equation of matrices: For every $1 \leq k \leq n$, and for every $S \subseteq \ind n$ with $\abs S = k$ choose $l^S \in \M_{n \times k}(\bZ_p)$ such that%
+$$L^S_T = \twopartdef{1}{T=S}{0}{T \neq S},$$%
+where $L^S$ is the last column of $(l^S_+)_*$. Set $L^\varnothing = e_1$. Applying (\ref{eq_diag_dagger}) to $l^S$ for all $S \subseteq \ind n$ leads to
+$$	(\alpha_+)^\dagger_*( L^\varnothing \ldots L^{\ind{n}} ) = %
+	( \; ( \diag( 1 \ldots \nicefrac{1}{\abs\alpha^{n-1}} ) \alpha^\dagger )_+ \; )_* %
+	  ( L^\varnothing \ldots L^{\ind{n}} )$$
+\end{rem}
+%
+%
+\begin{lem}\label{lem_rel_FdV_higher_differentials}
+[fix this] the third relation for a higher differentials $d_I$, $I \subset \ind{n}$ looks as follows, where for $A \subset I$ we define $B \coloneqq I \setminus A$: (ignoring indices for now)
+\begin{equation*}
+	F d_I V = \sum{J \subset I} d_A FV d_B
+\end{equation*}
+Note that in this situation, $FV = VF$ (honestly).
+\begin{proof}
+We mimic the proof of \cite[Thm. 3.21]{carlsson2011higher}:
+\end{proof}
+\end{lem}
+%
+%
+\begin{lem}\label{lem_rel_F_Delta}
+Let $A$ be a connective commutative ring spectrum. Given $a \in \pi_0 A$, $\alpha, \beta \in \cM_n$, then
+	\[ F_{\alpha\beta}^{\beta} \Delta_{\alpha\beta}(a) = \Delta_{\beta} (a)^{\abs{\alpha}} \in \pi_0(\Lambda_{\sT^n} A ^\beta), \]
+where $\abs{\alpha}$ denotes the cardinality of the cokernel of $\alpha$.
+\end{lem}
+\begin{proof}
+\comm{Should basically be in Covering homology... fill out details omitted in the paper!}
+Sketch: $F$ commutes with $\lambda$, $\Delta_\alpha = \lambda_\alpha \omega_\alpha$ where $\omega_\alpha: A \to W_\alpha A$ the Teichm\"uller map (multiplicative, $a \mapsto \omega_G(a)$), and $F_{\alpha\beta}^\beta \omega_{\alpha\beta}(a) = \omega_\beta(a)^{\abs{\alpha}}$ (reference to corresponding formula for F: \ref{def_witt_frob}) lol sketch whatever this is the proof.
+\end{proof}
+%
+%
+\comm{Add other relations, like Fd=dF and Vd=dV}\\
+\comm{add the isomorphism Witt vectors to $pi_0$ + commutes with structure}\\
+\comm{remark about $A$ being a conn. comm. ring spectrum unless stated ow?}
+\begin{lem}\label{lem_rel_V_d_F_d}
+Given $f \in C_k$ and $\alpha \in \M_n$, we have the two relations
+	\[ d_f F^\alpha = F^\alpha d_{\alpha_+ f} \]
+	\[ V_\alpha d_f = d_{\alpha_+ f} V_\alpha \]
+\end{lem}
+%
+%
+\begin{lem}\label{lem_pi_0_loday_HA_A}
+Let $S$ be a connected space, and for $X$ a finite set let
+	\[(c_\varnothing: X \to \ob \cI) \in \cI^X\]
+be the constant map with value the empty set, which induces a map
+\[
+	G_X^{\H A}(S^0)(c_\varnothing) \to \hocolim_{\cI^X} G_X^{\H A}(S^0) = %
+	\Lambda_X \H A (S^0)
+\]
+given by inclusion into the homotopy colimit and evaluated at $S^0$. Considering the latter map in every degree for all finite subspaces of $S$, we obtain an induced map
+  \[	\iota: G^{\H A}_S (S^0) (c_\varnothing) \to \Lambda_S \H A (S^0), \]
+which is an isomorphism on the zeroeth homotopy group.
+\begin{proof}
+%We assume that $S$ is a finite space.
+First note that we may assume, up to homotopy equivalece, that $S$ is reduced, i.e. $S_0 = \{\ast\}$ (\comm{add reference?}). Furthermore, we take $S$ to be finite. Remembering all the simplicial directions involved, we may interpret $\iota$ as a morphism of bisimplicial sets, where one direction is given by the simplicial direction of $S$, whilst the other is chosen to be the diagonal of the other two directions, i.e. the direction of the homotopy colimit (which is constant on the left hand side) as well as the last simplicial direction, yielding (e.g. for the right hand side) %
+	\[ \left( [p],[q] \longmapsto X_{p,q} \defas [\hocolim_{\cI^{S_q}} G^{\H A}_{S_q} (S^0)]_p \right) . \]
+We use the first quadrant spectral sequence of a bisimplicial set to compute the homotopy groups of its diagonal in terms of the iterated homtopy groups, cf. \cite[Thm. B5]{bousfield1978homotopy}:
+	\[	\mathrm{E}^2_{s,t} %
+	\cong \pi_t \left\{ [q] \mapsto \pi_s(X_{\ast,q}) \right\}	\]
+The bisimplicial set $X$ satisfies the $\pi_*$-Kan condition (cf. \cite[B.3.1]{bousfield1978homotopy}): For each $q \geq 0$ we have that $X_{\ast, q}$ is simple, as it is the underlying space of an $\Omega$-spectrum, hence an infinite loop space, so the first homotopy group is abelian and acts trivially on all higher homotopy groups in all path components. Furthermore, the map of simplicial sets $\pi_t^h(X)_{\mathrm{free}} \to \pi_0^h (X)$ is a Kan fibration, where $[\pi_t^h(X)]_k \defas \pi_t(X_{\ast,k})$ are the "horizontal" homotopy groups, and given a simplicial set $Y$, we let $\pi_t (Y)_\mathrm{free}$ be the set of unpointed homotopy classes of maps $S^t \to \abs{Y}$ with $\pi_t(Y)_\mathrm{free} \to \pi_0(Y)$ induced by collapsing $Y$ to its path-components: \comm{add arguement or delete!}.\\
+Since the spectral sequence converges and is of first quadrant type with differentials in the direction of the main diagonals, we have
+	\[	E^\infty_{0,0} = E^2_{0,0} = %
+	\pi_0 \{ [q] \oldmapsto \pi_0( [ \hocolim_{\cI^{S_q}} G^{\H A}_{S_q} (S^0) ]_0 ),	\]
+so in order to obtain $E^2_{0,0}$ we may calculate the coequalizer of the two maps%
+\[	%\SelectTips{cm}{10}
+	\xymatrix@C-=0.5cm{
+	\pi_0 \left[ \hocolim_{\cI^{S_1}} G^{\H A}_{S_1} (S^0) \right]
+			\ar@<-.5ex>[r] \ar@<.5ex>[r] &%
+	\pi_0 \left[ \hocolim_{\cI^{S_0}} G^{\H A}_{S_0} (S^0) \right]
+	}
+\]
+induced by the differentials $d_0, d_1: S_1 \to S_0$. Since $S_0 = \{ \ast \}$, we have $d_0 = d_1: S_1 \to S_0$ and hence the maps they induce are also identical by functoriality, so the coeqalizer is equal to the target
+\[ \pi_0 \left[ \hocolim_{\cI} G^{\H A}_{\{\ast\}} (S^0) \right]. \]
+The same argument and naturality of the spectral sequence imply that $\iota$ induces a map
+	\[	\pi_0 G_{\{\ast\}}^{\H A}(S^0)(\varnothing) \to %
+	\pi_0 \hocolim_{i \in \cI} G^{\H A}_{\{\ast\}}(S^0)(i).	\]
+Using B\"okstedt's Approximation Lemma (cf. e.g. \cite[Lemma 2.2.2.2]{dundas2012local}), we show that this map is an isomorphism: Note that any map $\ind{i} \to \ind{j}$ in $\cI$ just induces (an $i$-fold deloop of) the adjoint of the structure map of the spectrum $\H A$,
+	\[ G_{\{\ast\}}^{\H A}(S^0)(\ind{i}) = %
+	\Omega^{i}(\H A (S^i)) \to %
+	\Omega^{i}\Omega^{j-i}(\H A (S^j)) \cong %
+	G_{\{\ast\}}^{\H A}(S^0)(\ind{j}),	\]
+which is a weak equivalence, as $\H A$ is an $\Omega$-spectrum. So, by B\"okstedt's Lemma, $\iota$ is a weak equivalence, and in particular induces an isomorphism on $\pi_0$. The claim now follows for arbitrary connected spaces $S$ by noting that homotopy groups commute with filtered colimits. \comm{[add reference?]}\\
+\end{proof}
+\end{lem}
+This Lemmma is used in the following generalization of \cite[Lemma 1.5.6]{hesselholt1996p-typical} to iterated THH, following the strategy of the proof found there. One may ask if the same relation holds in the context of arbitrary (connective) commutative $S$-algebras as opposed to $\H A$ for a discrete ring $A$, but we limit ourselves to the latter case. We work with a simplicial model for the topological Hochschild homology, without realizing, as it gives us more pointset level control. \comm{explain more / explain action / why is this the action?} Here we pull back the $\sT^n / L_\beta$-action via
+	\[ \phi_\beta:\sT^n \myrightarrow{\cong} \sT^n / L_\beta, f \mapsto \widetilde{ (\beta^{-1}f) } + L_\beta.	\]
+\begin{prop}\label{prop_fdw_relation_dim1}
+Let $A$ be a commutative ring, $f = [\tilde{f}: S^1 \wedge S^m \to \sT^n \wedge S^m] \in C_1$, $\alpha,\beta \in \cM_n$, $a \in A$. Then
+\begin{equation*}
+  %F^\alpha d_f \Delta (a) = %
+  F_{\alpha\beta}^\beta d_f \Delta_{\alpha\beta} (a) =%
+  \Delta_{\beta} (a)^{\abs{\alpha} - 1} d_{(\alpha^\dagger)_+ f} \Delta_{\beta}(a)%
+  \in \pi_1 (\Lambda_{T^n} \H A ^{L_\beta}).%
+\end{equation*}
+\end{prop}
+\begin{proof}
+We shall prove this claim in several reductions. First, observe that both sides of the relation we intend to prove are additive in $f$, hence it suffices to show the claim for the inclusion of the top summand $\sigma: S^1 \wedge S^m \to \sT^1_+ \wedge S^m$ (cf. Lemma \ref{lem_decomp_matrix}) followed by the inclusion of the $i$-th coordinate $(e_i)_+: \sT^1_+ \to \sT^n_+$ for some $i \in \indset{n}$. We omit the plus sign in notation, both for $e_i$ and $\alpha^\dagger$, and abbreviate $d_i \defas d_{e_i}$. Note that no confusion is possible, as we are working in a one-dimensional context, where $(\alpha_+)^\dagger$ conincides with $(\alpha^\dagger)_+$ (cf. Remark \ref{rem_dagger_as_matrix}). %and denote the $i$-th column of $\alpha^dagger$ by $\alpha^\dagger e_i \asdef \alpha^dagger_i$.
+This leads to the new equation
+\[ F_{\alpha\beta}^\beta d_i \Delta_{\alpha\beta} (a) =%
+  \Delta_{\beta} (a)^{\abs{\alpha} - 1} d_{\alpha^\dagger e_i} \Delta_{\beta}(a)%
+  \in \pi_1 (\Lambda_{T^n} \H A ^{L_\beta}).%
+	\]
+We may also assume that $\alpha$ is diagonal, for we may deduce the general case from knowing the result for diagonal matrices: Assume $\alpha = \gamma \delta \epsilon$ with $\gamma, \epsilon \in \cM_n$ invertible and $\delta \in \cM_n$ a diagonal matrix. Recall that the Frobenius operators are contravariantly functorial (cf. Def. \ref{def_frobenius_and_functoriality}), commute with differentials as in Lemma \ref{lem_rel_V_d_F_d} and relate to $\Delta_\alpha$ according to Lemma \ref{lem_rel_F_Delta}. To enhace readibility, remember that we write $F^\alpha = F_{\alpha\beta}^\beta$.
+\begin{gather}\label{eq_Fdw_reduction_diagonal_alpha}
+	\nonumber %
+	F^{\alpha} d_i \Delta_{\alpha \beta} (a) = %
+	F^{\gamma\delta\epsilon} d_{e_i} \Delta_{\gamma\delta\epsilon\beta} (a) = %
+	F^{\epsilon} F^{\delta} F^{\gamma} d_{\gamma (\gamma^{-1} e_i)}%
+		\Delta_{\gamma\delta\epsilon\beta} (a) = %
+		\\%%%%%%%%%%%
+	\nonumber %
+	F^{\epsilon} F^{\delta} d_{\gamma^{-1} e_i} F^{\gamma} %
+		\Delta_{\gamma\delta\epsilon\beta} (a) = %
+	F^{\epsilon} F^{\delta} d_{\gamma^{-1} e_i} \Delta_{\delta\epsilon\beta} (a) =%
+		\\%%%%%%%%%%%
+	\nonumber %
+	F^{\epsilon} ( \Delta_{\epsilon\beta} (a)^{\abs{\delta}-1}%
+		d_{\delta^\dagger \gamma^{-1} e_i} \Delta_{\epsilon\beta}(a) ) = %
+	F^{\epsilon} \Delta_{\epsilon\beta} (a)^{\abs{\delta}-1}%
+		F^{\epsilon} d_{\epsilon( \epsilon^{-1} \delta^\dagger \gamma^{-1} e_i )}%
+		\Delta_{\epsilon\beta}(a) = %
+	\\%%%%%%%%%%
+	\Delta_{\beta}(a)^{\abs{\delta}-1} d_{\epsilon^{-1} \delta^\dagger \gamma^{-1} e_i}%
+		F^{\epsilon}\Delta_{\epsilon\beta}(a) = %
+	\Delta_{\beta}(a)^{\abs{\alpha}-1} d_{\alpha^\dagger e_i} \Delta_{\beta}(a)%
+\end{gather}
+We have used that $F$ is multiplicative, and that both $\abs{-}$ and $(-)^\dagger$ are multiplicative (the latter contravariantly), and that for invertible $\gamma \in \cM_n$ we have $\abs{\gamma} = 1$ and $\gamma^\dagger = \gamma^{-1}$. Note that this is logically fine: Assuming we have the formula for diagonal $\alpha$ and $d_i$, we may deduce the formula for arbitrary $d_f$ with $f: S^1 \to \sT^n$ by the first reduction and use it here to deduce the case of arbitrary $\alpha$. From here on out, we assume $\alpha$ to be diagonal with positive entries $\alpha_{i} \defas \alpha_{ii}$ for $i \in \{1,\ldots,n\}$ (and analogously for any other diagonal matrix).\\
+\begin{comment}	%incomplete variant of the above deduction with different notation
+\begin{gather*}
+	F^{\beta}_{\alpha\beta} d_i \Delta_{\alpha \beta} (a) = %
+	F^{\beta}_{\gamma\delta\epsilon\beta} d_i \Delta_{\gamma\delta\epsilon\beta} (a) = %
+	F^{\beta}_{\epsilon\beta} F^{\epsilon\beta}_{\delta\epsilon\beta}%
+		F^{\delta\epsilon\beta}_{\gamma\delta\epsilon\beta} d_{\gamma (\gamma^{-1} e_i)}%
+		\Delta_{\gamma\delta\epsilon\beta} (a) = %
+		\\%%%%%%%%%%%
+	F^{\beta}_{\epsilon\beta} F^{\epsilon\beta}_{\delta\epsilon\beta}%
+		 d_{\gamma^{-1} e_i} F^{\delta\epsilon\beta}_{\gamma\delta\epsilon\beta}%
+		\Delta_{\gamma\delta\epsilon\beta} (a) = %
+	F^{\beta}_{\epsilon\beta} F^{\epsilon\beta}_{\delta\epsilon\beta}%
+		 d_{\gamma^{-1} e_i} F^{\delta\epsilon\beta}_{\gamma\delta\epsilon\beta}%
+		\Delta_{\gamma\delta\epsilon\beta} (a) =%
+		\\%%%%%%%%%%%
+	F^{\beta}_{\epsilon\beta} F^{\epsilon\beta}_{\delta\epsilon\beta}%
+		 d_{\gamma^{-1} e_i} \Delta_{\delta\epsilon\beta} (a) =
+	F^{\beta}_{\epsilon\beta} ( \Delta_{\delta\epsilon\beta} (a)^{\abs{\delta}-1}%
+		d_{\delta^\dagger \gamma^{-1} e_i} \Delta_{\epsilon\beta}(a) ) = %
+\end{gather*}
+\end{comment}
+Next, we rewrite the formula for it to mirror the outcome of the reductions that are yet to come. The claim follows if we can establish that the following holds:
+\begin{equation}\label{eq_Fdw_one_dim_for_diagram}
+	F_{\alpha\beta}^\beta d_i \Delta_{\alpha\beta} (a) =%
+	\Delta_{\beta}(a)^{(\alpha_i-1)\alpha^\dagger_i} %
+		d_i (\Delta_{\beta}(a)^{\alpha^\dagger_i}),
+\end{equation}
+for by applying the Leibniz rule, using linearity of the differentials, and noting that $\alpha_i \alpha^\dagger_i = \abs{\alpha}$ we obtain
+\begin{gather*}
+	\Delta_{\beta}(a)^{(\alpha_i-1)\alpha^\dagger_i} %
+		d_i (\Delta_{\beta}(a)^{\alpha^\dagger_i}) = %
+	\alpha^\dagger_i \Delta_{\beta}(a)^%
+		{(\alpha_i-1)\alpha^\dagger_i+\alpha^\dagger_i-1} %
+		d_{e_i} \Delta_{\beta}(a) = %
+	\Delta_{\beta}(a)^{\abs{\alpha}} 	d_{\alpha^\dagger e_i} \Delta_{\beta}(a).%
+\end{gather*}
+We proceed to recall the abbreviation $[\Lambda_{\sT^n} \H A]^{L_\alpha} = T^\alpha$ and shall prove the relation by showing that the following diagram commutes:
+\begin{equation*}%\label{eq_diag_fdw_start}
+	\xymatrix@C-1em{
+		\pi_0 (T)
+			\ar[r]^{\Delta_{\alpha\beta}}
+			\ar[d]_{\Delta_* \circ \Delta_{\beta}}
+		&
+		\pi_0 (T^{\alpha\beta})
+			\ar[rr]^-{S^1 \wedge S^m \wedge \blank}
+		&
+		&
+		\pi_{1+m}( S^1 \wedge S^m \wedge T^{\alpha\beta} )
+			\ar[d]^-{ (\tau(e_i \wedge \id)\sigma \wedge \id)_*}
+		%
+		\\%%%%%%%%%%%%%%%%%%%%%
+		%
+		\pi_0 (T^{\beta}) \otimes %
+		\pi_0 (T^{\beta})
+			\ar[d]_{(-)^{(\alpha_i - 1)\alpha^\dagger_i} \otimes %
+				(-)^{\alpha^\dagger_i}}
+		&
+		%
+		&
+		&
+		\pi_{1+m}(S^m \wedge \sT^n_+ \wedge T^{\alpha\beta})
+			\ar[d]^{ (S^m \wedge \mu)_* }
+		%
+		\\%%%%%%%%%%%%%%%%%%%%%
+		%
+		\pi_0 (T^{\beta}) \otimes %
+		\pi_0 (T^{\beta})
+			\ar[d]_{ \id \otimes (S^1 \wedge S^m \wedge \blank) }
+		&
+		%
+		&
+		&
+		\pi_{1+m}(S^m \wedge T^{\alpha\beta})
+			\ar[d]^{ (S^m \wedge F_{\alpha\beta}^\beta)_* }
+		%
+		\\%%%%%%%%%%%%%%%%%%%%%
+		%
+		\pi_0 (T^{\beta}) \otimes %
+		\pi_{1+m} ( S^1 \wedge S^m \wedge T^{\beta} )
+			\ar[d]_{ \id \otimes (\tau (e_i \wedge \id) \sigma \wedge \id)_* }
+		&
+		%
+		&
+		&
+		\pi_{1+m}(S^m \wedge T^{\beta})
+			\ar[d]^{ \chi_{1,m} }
+		%
+		\\%%%%%%%%%%%%%%%%%%%%%
+		%
+		\pi_0 (T^{\beta}) \otimes %
+		\pi_{1+m} ( S^m \wedge \sT^n_+ \wedge T^{\beta} )
+			\ar[d]_{\id \otimes (S^m \wedge \mu)_*}
+		&
+		%
+		&
+		&
+		\pi_{m+1}(S^m \wedge T^{\beta})
+			\ar[d]^{ (S^m \wedge \blank)^{-1} }
+		%
+		%
+		\\%%%%%%%%%%%%%%%%%%%%%
+		%
+		\pi_0 (T^{\beta}) \otimes %
+		\pi_{1+m} ( S^m \wedge T^{\beta} )
+			\ar[rr]_-{\id \otimes (S^m \wedge \blank)^{-1} \circ \chi_{1,m}}
+		&
+		&
+		\pi_0 (T^{\beta}) \otimes %
+		\pi_{1} ( T^{\beta} )
+			\ar[r]_-{\mu}
+		&
+		\pi_1(T^\beta)
+	}
+\end{equation*}
+Here $\mu$ refers to the $\sT^n$-action on (fixed points of) $T$ as well as multiplication in the homotopy groups $\pi_* T^\beta$, while $(-)^q$ refers to the map raising an element to the $q$-th power; the map $\Delta$ is the diagonal of abelian groups $A \to A \otimes A$, and all tensor products are taken over the integers. The upper composite models the left hand side of (\ref{eq_Fdw_one_dim_for_diagram}), while the lower composite models the right hand side.\\
+One may verify immediately that the lower composite is equal to
+\begin{multline*}%\label{eq_diag_fdw_product}
+	\pi_0 (T) %
+		\crightarrow{1.2}{\Delta_* \circ \Delta_\beta} 	%
+	\pi_0 ( T^\beta \wedge T^\beta ) %
+		\crightarrow{1.4}{ (P_1 \wedge P_2)_*}
+	\pi_0 (  T^\beta \wedge T^\beta )
+		\crightarrow{1.8}{S^1 \wedge S^m \wedge \blank}%
+	\pi_{1+m} ( S^1 \wedge S^m \wedge T^\beta \wedge T^\beta )
+\\
+		\crightarrow{2.6}{[ (\tau (e_i \wedge \id) \sigma) \wedge \id]_*} %
+	\pi_{1+m} ( S^m \wedge T^\beta \wedge \sT^n_+ \wedge T^\beta ) %
+		\crightarrow{3.4}{(S^m \wedge \blank)^{-1} \circ \chi_{1,m} \circ (\id \wedge \mu)_*} %
+	\pi_1 (T^\beta \wedge T^\beta) %
+		\crightarrow{.8}{\mu_*} %
+	\pi_1 (T^\beta)
+\end{multline*}
+where $\Delta: X \to X \wedge X$ is the diagonal map of spectra and %
+\begin{equation}\label{eq_abbreviations_power_maps}
+  P_1 \defas P_{(\alpha_i - 1) \alpha^\dagger_i}\;\;%
+  P_2 \defas P_{\alpha^\dagger_i}
+\end{equation}
+are the respective power maps on $T^\beta$. We may also commute the inverse of the suspension isomorphism and the permutation with the effect of the multiplication map, as the former is natural, and the latter is given by precomposition with a permutation, while the effect of the multiplication map is given by postcomposition:
+	\[
+		\xymatrix@C+5em{
+		\pi_{1+m} (S^m \wedge T^\beta \wedge T^\beta)	%
+			\ar[r]^-{(S^m \wedge \blank)^{-1} \circ \chi_{1,m}}	%
+			\ar[d]_-{(S^m \wedge \mu)_*}	%
+		&
+		\pi_{1} (T^\beta \wedge T^\beta)	%
+			\ar[d]^-{(\mu)_*}	%
+		%
+		\\%%%%%%%
+		%
+		\pi_{1+m} (S^m \wedge T^\beta)	%
+			\ar[r]_-{(S^m \wedge \blank)^{-1} \circ \chi_{1.m}}	%
+		&
+		\pi_1 (T^\beta)	%
+		}
+	\]
+Hence we may cancel the suspension isomorphism and the permutation in the end of the diagram in our quest to show commutativity. To do the same to the suspension isomorphism up front, we need to commute it past $\Delta_\gamma$ (for some $\gamma$). Since the latter is not induced by a morphism of spectra, but by a morphism of spaces in degree zero, \comm{symm spec or gamma space?} %BAZINGA
+we need to evaluate at $S^0$ (cf. Def. \ref{def_Delta_alpha}): We write $X_0 \defas X(S^0)$ for a spectrum $X$ and consider the following diagram, in which the top and bottom line correspond to the three above diagrams combined and final suspension isomorphism and permutation omitted:
+\[
+	\xymatrix@C+3em{
+	\pi_0 (T)%
+		\ar[r]^-{\Delta_{\alpha\beta}}%
+	&
+	\pi_0 (T^{\alpha\beta})%
+		\ar[rr]%^-{d_f}%
+	&&
+	\pi_{1+m} ({S^m \wedge T^\beta})%
+	%
+	\\%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	%
+	\pi_0 (T_0)%
+		\ar[u]^{\cong}%
+		\ar[r]_-{(\Delta_{\alpha\beta})_*}%
+	&
+	\pi_0 (T_0^{\alpha\beta})%
+		\ar[u]_{\cong}
+		\ar[rr]%^-{d_f}%
+	&&
+	\pi_{1+m} ({S^m \wedge T_0^\beta})%
+		\ar[u]%
+	%
+	\\%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	%
+	\pi_0 (T_0)%
+		\ar@{=}[u]%
+		\ar[r]^-{(\Delta_\beta)_*}%
+		\ar[d]_{\cong}%
+	&
+	\pi_0 (T_0^{\beta})%
+		\ar[rr]%
+		\ar[d]_{\cong}
+	&&
+	\pi_{1+m} ({S^m \wedge T_0^\beta})%
+		\ar@{=}[u]%
+		\ar[d]%
+	%
+	\\%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	%
+	\pi_0 (T)%
+		\ar[r]_-{ \Delta_{\beta} }%
+	&
+	\pi_0 (T^{\beta})%
+		\ar[rr]%
+	&&
+	\pi_{1+m} ({S^m \wedge T^\beta})%
+	}
+\]
+The vertical non-identity arrows are the inclusions of the zeroeth term into the colimit defining the stable homotopy groups, hence the two squares commute (as $\Delta_{\alpha\beta}$ is defined thusly). The indication of an isomorphism is due to the fact that both $T$ and $T^{\gamma}$ are $\Omega$-spectra (for any $\gamma \in \cM_n$). The unlabeled inner horizontal arrows are the effects of the restrictions of the maps of spectra inducing the respective outer unlabeled arrows, hence the two long rectangles commute. So to prove commutativity of the outer square it suffices to prove commutativity of the middle rectangle. Due to the naturality of the suspension morphism and the fact that $\Delta_\gamma: T_0 \to T_0^\gamma$ is actually a map of spaces, we may now commute the suspension morphism to the front, resulting in
+\begin{equation*}
+\xymatrix@C+1.5em{
+	\pi_0 (T_0)%
+		\ar[r]^-{S^1 \wedge S^m \wedge \blank}%
+		\ar[d]_-{S^1 \wedge S^m \wedge \blank}%
+	&
+	\pi_{1+m} (S^1 \wedge S^m \wedge T_0)%
+		\ar[r]^-{ (\tau e_i \sigma) \wedge \Delta_{\alpha\beta} }%
+	&
+	\pi_{1+m} (S^m \wedge \sT^n_+ \wedge T_0^{\alpha\beta} )%
+		\ar[d]^-{\mu}%
+	%
+	\\%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	%
+	\pi_{1+m} (S^1 \wedge S^m \wedge T_0)%
+		\ar[d]_{\tau (e_i \sigma \wedge (P_1 \wedge P_2) \Delta \Delta_\beta)}%
+	&
+	%
+	&
+	\pi_{1+m} (S^m \wedge T_0^{\alpha\beta})%
+		\ar[d]^{F_{\alpha\beta}^\beta}%
+	%
+	\\%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	%
+	\pi_{1+m} (S^m \wedge T_0^\beta \wedge \sT^n_+ \wedge T_0^\beta)%
+		\ar[r]_-{\mu}%
+	&
+	\pi_{1+m} (S^m \wedge T_0^\beta \wedge T_0^\beta)%
+		\ar[r]_-{\mu}%
+	&
+	\pi_{1+m} (S^m \wedge T_0^\beta)%
+}
+\end{equation*}
+where we omitted noting identity morphisms and the effect of morphisms on homotopy groups. Using the inclusion into the homotopy colimit
+	\[ \iota: G_S^{\H A}(S^0)(c_\varnothing) \to \Lambda_S \H A	\]
+from Lemma \ref{lem_pi_0_loday_HA_A} we further reduce to
+	\[	\colim_{S \subset T^n} G_S^{\H A} (S_0) (c_\varnothing) \cong \Lambda_{T^n} A,	\]
+which we interpret as the Loday construction in the symmetric monoidal category of pointed sets together with smash product, $(\Set_*, \wedge, S^0)$, applied to $A$ as a commutative monoid under multiplication, pointed at $1 \in A$ \comm{[make precise what this means? refer to definition?]}. The isomorphism is induced by the evaluation at the non-base point of $S^0$
+\begin{equation*}
+  \hom_*(\Lambda_{s\in S} S^0, \Lambda_{s \in S} \H A(S^0) \to%
+    \Lambda_{s \in S} A,
+\end{equation*}
+using the identification $\H A(S^0) = A \otimes \tilde{\bZ}[S^0] \cong A$.\\
+Consider the following diagram, extending the preceding one, which is given by the outer rows, by the inner rows. Here we note fixed points under a group $L_\alpha$ by just a superindexed $\alpha$, abbreviate the suspension morphism as $\Sigma \defas ( S^k \wedge S^m \wedge \blank )$, still omit the $\ast$ symbol as indication of effect on homotopy groups and omit noting identity morphism, and abbreviate $\hat{T} \defas \Lambda_{T^n} A$:
+\begin{equation*}
+\xymatrix@C-1em{
+	\pi_0 (T_0)%
+		\ar[r]^-{\tau\sigma\Sigma}%
+	&
+	\pi_{1+m} (S^m \wedge \sT^1_+ \wedge T_0)%
+		\ar[r]^-{e_i \wedge \Delta_{\alpha\beta}}%
+	&
+	\pi_{1+m} (S^m \wedge \sT^n_+ \wedge T_0^{\alpha\beta})
+		\ar[r]^-{F_{\alpha\beta}^\beta \mu}%
+	&
+	\pi_{1+m} (S^m \wedge T_0^\beta)
+	%
+	\\%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	%
+	\pi_0 (\hat{T})%
+		\ar[u]^-{\iota}_{\cong}%
+		\ar[r]%
+		\ar@{=}[d]%
+	&
+	\pi_{1+m} (S^m \wedge \sT^1_+ \wedge \hat{T})%
+		\ar[r]%
+		\ar@{=}[d]%
+	&
+	\pi_{1+m} (S^m \wedge \sT^n_+ \wedge (\hat{T})^{\alpha\beta})%
+		\ar[r]%
+	&
+	\pi_{1+m} (S^m \wedge (\hat{T})^\beta)%
+		\ar[u]_{\iota}
+		\ar@{=}[d]
+	%
+	\\%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	%
+	\pi_0 (\hat{T})%
+		\ar[r]%
+		\ar[d]^-{\iota}_{\cong}%
+	&
+	\pi_{1+m} (S^m \wedge \sT^1_+ \wedge \hat{T})%
+		\ar[r]%
+	&
+	\pi_{1+m} (S^m \wedge \sT^n_+ \wedge (\hat{T})^\beta \wedge (\hat{T})^\beta)%
+		\ar[r]%
+	&
+	\pi_{1+m} (S^m \wedge (\hat{T})^\beta)%
+		\ar[d]_{\iota}
+	%
+	\\%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	%
+	\pi_0 (T_0)%
+		\ar[r]_-*!/d 3pt/\txt{$\labelstyle\tau\sigma\Sigma$}%
+	&
+	\pi_{1+m} (S^m \wedge \sT^1_+ \wedge T_0)%
+		\ar[r]_-*!/d 3pt/\txt{$\labelstyle e_i \wedge (P_1 \wedge P_2) \Delta \Delta_\beta$}%
+	&
+	\pi_{1+m} (S^m \wedge \sT^n_+ \wedge T_0^\beta \wedge T_0^\beta)
+		\ar[r]_-*!/d 3pt/\txt{$\labelstyle\mu \mu \tau$}%
+	&
+	\pi_{1+m} (S^m \wedge T_0^\beta)
+}
+\end{equation*}
+As before, $\mu$ refers first to the torus action, then to the multiplication. The vertical non-identity maps are, as indicated, isomorphisms, according to Lemma \ref{lem_pi_0_loday_HA_A}. The inner horizontal maps are induced by the component of $c_\varnothing$ of the respective morphisms of homotopy colimits inducing the outer maps, i.e. the top and bottom rectangle commute. Hence to prove that the top and bottom composition are equal, it suffices to prove that the (big) inner rectangle commutes.\\
+At this point we would like to modify the first square of the big inner rectangle, which immediately commutes. We substitute the composition $\tau \sigma \Sigma: \pi_0(\hat T) \to \pi_{1+m} (S^m \wedge \sT^1_+ \wedge \hat{T})$ according to the commutative diagram
+\begin{equation}
+\xymatrix{
+	\pi_0 \Lambda_{\sT^n} A%
+		\ar[r]^-{\Sigma}%
+		\ar[d]_-{(\iota_{c_0})_*^{-1}}%
+	&%
+	\pi_{1+m} (S^{1+m} \wedge \Lambda_{\sT^n} A)%
+		\ar[r]^-{\tau \sigma}%
+	&%
+	\pi_{1+m} (S^m \wedge \sT^1_+ \wedge \Lambda_{\sT^n} A)%
+	%
+	\\%%%%%
+	%
+	\pi_0 A%
+		\ar[r]_-{\Sigma}%
+	&%
+	\pi_0 (S^{1+m} \wedge A)
+		\ar[r]_-{\tau \sigma}%
+	&%
+	\pi_{1+m} (S^m \wedge \sT^1 \wedge A)%
+		\ar[u]_-{(\iota_{c_0})_*}%
+}
+\end{equation}
+where $A$ is taken to be the constant simplicial set, and $\iota_{c_0}: \pi_0 A = A \to \Lambda_{\sT^n} A$ sends an $a \in A = A_q$ to the tupel $(a, c_0)$ with $c_0: \Delta^q \to \gT[n]$ the constant singular simplex with image $0 \in \gT[n]$.
+
+We proceed by forgetting the first three maps of this composition and only regarding the rest of the rectangle. Now we may note that it suffices to prove that the corresponding diagram of spaces commutes. Although it is missing from the notation here, one may check immediately that in the resulting situation every morphism of the diagram acts as the identity on $S^m$, hence we may reduce to the same diagram without the sphere factor, and we finally obtain
+\begin{equation*}
+\xymatrix{
+	\sT^1_+ \wedge A%
+		\ar[r]^-{\iota_{c_0}}
+		\ar[d]_-{\iota_{c_0}}
+	&
+	*!(10,0){\sT^1_+ \wedge \Lambda_{\sT^n} A}%
+		\ar[r]^-{e_i \wedge \Delta_{\alpha\beta}}%
+	&
+	\sT^n_+ \wedge (\Lambda_{\sT^n} A)^{\alpha\beta}
+		\ar[r]^-{\mu}%
+	&
+	(\Lambda_{\sT^n} A)^{\alpha\beta}
+		\ar[dd]^{F_{\alpha\beta}^\beta}%
+	%
+	\\%%%%%%%%%%%%%%%%%%%%%%%
+	%
+	\sT^1_+ \wedge \Lambda_{\sT^n} A%
+		\ar[d]_{e_i \wedge ( P_1 \wedge P_2) \Delta \Delta_\beta }%
+	&
+	%
+	&
+	%
+	&
+	%
+	%
+	\\%%%%%%%%%%%%%%%%%%%%%%%
+	%
+	\sT^n_+ \wedge (\Lambda_{\sT^n} A)^\beta \wedge (\Lambda_{\sT^n} A)^\beta%
+		\ar[r]_-{\mu \tau}%
+	&
+	*!(-13,0){(\Lambda_{\sT^n} A)^\beta \wedge (\Lambda_{\sT^n} A)^\beta}%
+		\ar[rr]_-{\mu}%
+	&
+	%
+	&
+	(\Lambda_{\sT^n} A)^\beta
+}
+\end{equation*}
+It is time to touch elements, and for this we introduce the following notation. For a finite set $S$ and a pointed commutative monoid $A$, given a finite family $(s_i)_{i \in I}$, $(a_i)_{i \in I}$ in $S$ and $A$ respectively, we write
+	\[ \bigwedge_{i \in I} (a_i, s_i) \in \Lambda_S A 	\]
+for the element of $\Lambda_S A$ which at the point $s \in S$ has entry $\prod a_i$, where the product ranges over all $i \in I$ with $s_i = s$. This perhaps involved notation is due to the fact that we cannot always ensure that the $s_i$ are pair-wise different.\\
+Proceeding with the proof, one may deduce the case of an arbitrary $\beta \in \cM_n$ from the case $\beta = \id$. Given a finite group $G$ and a finite $H$-set $S$, the bijection
+	\[ \hom_{\Set} (S,A)^{H} \to \hom_{\Set} (S/H,A)\]
+(where $H$ acts trivially on $A$ and $G$ acts by $g f(s) \defas gf(g^{-1}s)$ for $f:S \to A, s \in S$ on morphisms) induces in our context ($H$ abelian, $S$ free $H$-space) an isomorphism
+	\[ \lambda_H: ( \Lambda_{S} A )^H \to \Lambda_{S / H} A \]
+	\[	\bigwedge_{h \in H} (a,h . s) \mapsto (a,sH) \]
+natural in $A$. Applied to the Loday functor this yields an equivariant isomorphism
+\begin{equation*}
+  \lambda_\beta: \Lambda_{\sT^n} A ^\beta \to %
+    \Lambda_{\sT^n / L_\beta} A,
+\end{equation*}
+where the torus acts on both sides via $\phi_\beta: \sT^n \to \sT^n / L_\beta$. In order to apply this map to fixed points we rewrite
+  \[%
+  \Lambda_{\sT^n} A^{\alpha\beta} = %
+    \left[\phi_\beta^*(\Lambda_{\sT^n} A ^\beta)\right]^%
+    { \nicefrac {L_{\alpha\beta}} {L_\beta} },%
+  \]%
+\begin{equation}\label{eq_iterated_fixed_points_identification}
+	\bigwedge\limits_{k \in L_{\alpha\beta}} (a,f+k) = %
+  \bigwedge\limits_{l + L_\beta \in (\nicefrac{L_{\alpha\beta}}{L_\beta}) } %
+    [ \bigwedge\limits_{h \in L_\beta} (a,f+h+l) ],
+\end{equation}
+utilizing the short exact sequence
+\begin{equation*}
+  L_\beta \myrightarrow{\mathrm{incl}} L_{\alpha\beta} \myrightarrow{\mathrm{proj}}%
+    L_{\alpha\beta}/L_\beta,
+\end{equation*}
+and taking iterated fixed points - with respect to the action on fixed points under $L_\beta$, induced by the morphism $\phi_\beta: \sT^n \to \sT^n/L_\beta$. We may now gather this into the composition
+\begin{equation*}
+  \Lambda_{\sT^n} A^{\alpha\beta} = %
+    \left[ \Lambda_{\sT^n} A ^\beta \right]^{ \nicefrac {L_{\alpha\beta}} {L_\beta} } %
+    \myrightarrow{\lambda_\beta} \Lambda_{\sT^n / L_\beta} A^{\nicefrac {L_{\alpha\beta}} {L_\beta}} \myrightarrow{\beta_*} %
+    \Lambda_{\sT^n} A^{\alpha},
+\end{equation*}
+where the second map is the isomorphism induced by $\beta: \sT^n \to \sT^n$, which takes $L_{\alpha\beta}/L_\beta$ isomorphically to $L_\alpha$. This composite allows us to consider the following diagram (omitting the precomposed map $\iota_{c_0}:A \to \Lambda_{\sT^n} A$ for the moment):
+\begin{equation*}
+\xymatrix@C-.8em{%
+	\sT^1_+ \wedge \Lambda_{\sT^n} A%
+		\ar[r]^-{e_i \wedge \Delta_{\alpha\beta}}%
+		\ar[d]^-{\Delta_\beta}%
+		\ar[dr]^{\beta_* \lambda_\beta \Delta_\beta}
+	&
+	{\sT^n_+ \wedge (\Lambda_{\sT^n} A)^{\alpha\beta}}%
+		\ar[r]^-{\phi_{\alpha\beta}}%
+		\ar[dr]^-{\beta_* \lambda_\beta}%
+	&
+		{(\sT^n / L_{\alpha\beta})_+%
+		%{(\nicefrac{\sT^n}{L_{\alpha\beta}})_+%
+		\wedge (\Lambda_{\sT^n} A)^{\alpha\beta}}%
+		\ar[r]^-{\mu}%
+	&
+	(\Lambda_{\sT^n} A)^{\alpha\beta}%
+		\ar[r]^{F_{\alpha\beta}^\beta}%
+		\ar[d]_{\beta_* \lambda_\beta}%
+	&
+	(\Lambda_{\sT^n} A)^\beta%
+		\ar[d]_{\beta_* \lambda_\beta}%
+	%
+	\\%%%%%%%%%%%%%%%%%%%%%%%
+	%
+	%
+	*!(0,8){\sT^1_+ \wedge (\Lambda_{\sT^n} A)^\beta} %
+		\ar[dd]^{e_i \wedge (P_1 \wedge P_2) \Delta }%
+	&
+	\sT^1_+ \wedge \Lambda_{\sT^n} A%
+		\ar[l]!(0,-10);[]^-{\beta_* \lambda_\beta}%
+		\ar[r]^-{e_i \wedge \Delta_{\alpha}}%
+		\ar[d]^{e_i \wedge (P_1 \wedge P_2) \Delta }%
+	&
+	\sT^n_+ \wedge (\Lambda_{\sT^n} A)^{\alpha}%
+		\ar[r]^-{\mu \phi_\alpha}%
+	&
+	(\Lambda_{\sT^n} A)^{\alpha}%
+		\ar[r]^{F_{\alpha \id}^{\id}}%
+	&
+	(\Lambda_{\sT^n} A)%
+		\ar@{=}[d]%
+	%
+	\\%%%%%%%%%%%%%%%%%%%%%%%
+	%
+	%
+	&
+	\sT^n_+ \wedge (\Lambda_{\sT^n} A)^{\wedge 2} % \wedge (\Lambda_{\sT^n} A)%
+		\ar[rr]_-{ \mu \tau }%
+	&
+	%
+	&
+	*!(10,0){(\Lambda_{\sT^n} A)^{\wedge 2}}% \wedge (\Lambda_{\sT^n} A)}%
+		\ar[r]_-{\mu}%
+	&
+	\Lambda_{\sT^n} A
+	%
+	\\%%%%%%%%%%%%%%%%%%%%%%%
+	%
+	\sT^n_+ \wedge ( (\Lambda_{\sT^n} A)^\beta )^{\wedge 2} % \wedge (\Lambda_{\sT^n} A)^\beta%
+		\ar[rr]_-{ \mu \phi_\beta \tau}%
+		\ar[ur]_-{\beta_*\lambda_\beta}%
+	&
+	%
+	&
+	( (\Lambda_{\sT^n} A)^\beta )^{\wedge 2}%
+		\ar[rr]_-{\mu}
+		\ar[ur]!(-10,0)_-{\beta_* \lambda_\beta}%
+	&
+	%
+	&
+	(\Lambda_{\sT^n} A)^\beta%
+		\ar[u]^-{\beta_* \lambda_\beta}%
+}
+\end{equation*}
+This diagram is in fact commutative, and we only need to inspect the upper left square, as the other parts commute due to naturality and equivariance of $\beta_* \lambda_\beta$. But the commutativity of that square may immediately be verified using the definitions of the morphisms involved and identification \ref{eq_iterated_fixed_points_identification}. Thus, after remembering and precomposing the morphism $\iota_{c_0}:A \to \Lambda_{\sT^n} A$, we have reduced the problem to the commutativity of this diagram:
+\begin{equation*}
+\xymatrix@C-.3em{
+	\sT^1_+ \wedge A%
+		\ar[r]^-{\iota_{c_0}}%
+		\ar[d]_-{\iota_{c_0}}%
+	&
+	\sT^1_+ \wedge \Lambda_{\sT^n} A%
+		\ar[r]^-{e_i \wedge \Delta_{\alpha}}%
+	&
+	\sT^n_+ \wedge (\Lambda_{\sT^n} A)^{\alpha}%
+		\ar[r]^-{\mu}%
+	&
+	(\Lambda_{\sT^n} A)^{\alpha}%
+		\ar[d]^{F_{\alpha\id}^{\id}}%
+	%
+	\\%%%%%%%%%%%%%%%%%%%%%%%
+	%
+	\sT^1_+ \wedge \Lambda_{\sT^n} A%
+		\ar[r]_-*!/d 3pt/\txt{$\labelstyle e_i \wedge (P_1 \wedge P_2) \Delta $}
+		%\ar[r]_-{e_i \wedge (P_1 \wedge P_2) \Delta }%
+	&
+	\sT^n_+ \wedge (\Lambda_{\sT^n} A) \wedge (\Lambda_{\sT^n} A)%
+		\ar[r]_-*!/d 3pt/\txt{$\labelstyle \mu \tau $}
+	&
+	(\Lambda_{\sT^n} A) \wedge (\Lambda_{\sT^n} A)%
+		\ar[r]_-*!/d 3pt/\txt{$\labelstyle \mu $}
+	&
+	(\Lambda_{\sT^n} A)%
+}
+\end{equation*}
+When one traces an element through the diagram at this stage, one will note that the upper composition yields a range of different singular simplices, while the lower composite does not. Speaking informally, there is too much space in the huge model that we are using, as compared to the model based on the simplicial circle $S^1_\cdot$ used in \cite{hesselholt1996p-typical}. Hence we introduce a map $\psi_\alpha: \gT[n] \to \gT[n]$ that will collect things, defined thusly \comm{[analogue for p-adic tours?]}. Recall that we reduced the proof to the case of a diagonal matrix $\alpha = \mathrm{diag}(\alpha_1, \ldots, \alpha_n)$ with $\alpha_i > 0$, and define
+	\[	\psi_\alpha: \gT[n] \to \gT[n], \]
+	\[ x \mapsto \psi_\alpha(x)_i = %
+		{\left\{
+			\begin{array}{ll}
+				\alpha_i x_i & 0 \leq x_i \leq \nicefrac{1}{\alpha_i} \\
+				1 & \nicefrac{1}{\alpha_i} \leq x_i \leq 1
+			\end{array}
+		\right.}%
+	\]
+This map is continuous as it is continuous in each component, and it is homotopic to the identity: A homotopy is given by
+	\[	H_\alpha: \gT[n] \times [0,1] \to \gT[n] \]
+	\[ (x,t) \mapsto H_\alpha(x,t)_i = %
+		{\left\{
+			\begin{array}{ll}
+				\alpha_i^t x_i & 0 \leq x_i \leq \nicefrac{1}{\alpha_i^t} \\
+				1 & \nicefrac{1}{\alpha_i^t} \leq x_i \leq 1
+			\end{array}
+		\right.}%
+	\]
+This is continuous, as the entries of the matrix were chosen to be positive. We insert the morphism $\psi_\alpha$ at the end of the upper composition of the diagram whose commutativity we are trying to prove (see below). As the map is homotopic to the identity, its effect will be the identity once we apply homotopy groups.\comm{[loday functor simplicial! add remark? add proof? source ($\Gamma$-spaces)?]}\\
+As we need to prove commutativity of the respective diagram of homotopy groups, we may precompose with a weak equivalence (smashed with $A$), namely
+	\[ S^1_\cdot \myrightarrow{\eta} \sin \abs{S^1_\cdot} \myrightarrow{\cong}%
+		\sin \bR/\bZ = \sT^1, 	\]
+where $\eta$ is the unit of the adjunction between simplicial sets and topological spaces given by geometric realization and the singular set, and the unnamed map is induced by a homeomorphism $\abs{S^1_\cdot} \to \bR/\bZ$, which we make precise as follows. The non-degenerate simplices of $S^1_\cdot = \Delta[1] / \del \Delta[1]$, the standard simplicial $1$-simplex with collapsed boundary, are exactly one simplex each in degree 1 (denoted $x$) and 0 ($d_0(x)$), hence we can give the map
+	\[	\abs{S^1_\cdot} = \quotient{\coprod\limits_{n} \Delta^n \times S^1_n}{\sim} \to \bR/\bZ		\]
+	as (identifying a representative $t \in \bR$ with its residue class in $\bR/\bZ$)
+	\[	\Delta^1 \times \{x\} \to \bR/\bZ,\;z = (z_0,z_1) \mapsto z, \]
+with the standard topological $1$-simplex given as $\Delta^1 = \{(z_0,z_1) \in \bR^2 \with z_0+z_1=1, 0 \leq z_0,z_1 \leq 1\}$. Applying this to the non-degenerate simplex $x \in S^1_1$, its image in $\sT^1$ is given by
+\[
+	f:\Delta^1 \to \bR/\bZ, z = (z_0,z_1) \mapsto z_0.
+\]
+Since it suffices to check comutativity on non-degenerate simplices, and as the simplex in degree 0 is a face of the one in degree 1, we may restrict ourselves to $x$.\\
+%
+%
+% so we proceed to describe these for $(S^1_\cdot)^k$. Considering simplices $x \in \Delta[1]_k = \hom_\Delta([k],[1])$ as tupels $x = (0, \ldots, 0,1,\dots,1) \in [1]^{[k]} = %
+% \{0,1\}^{\{0 \ldots k\}}$, we write $e^k_i \in \Delta[1]_k$ for the tupel with first 1 on the $i$-th position. Then a small calculation (cf. \cite[Lemma 2.2]{krasontovitsch2012signed}) \comm{[cite own thesis? put on arxiv? add calculation?]} shows that the non-degenerate simplices in $(S^1_\cdot)^k_k$ in top degree are - up to permutation of coordinates - given by (the class of)
+% 	\[ x^k = (e^k_1, \ldots, e^k_k), \]
+% and all other non-degenerate simplices are faces of these, hence it suffices to restrict ourselves to $x^k$ - we will see that the result of the diagram chase depends in a straight-forward manner on the permutation of the coordinates. In order to chase this simplex through the above composition $(S^1_\cdot)^k \to \sT^k$, we note that in $\Delta[1]$ we have
+% 	\[ e^k_i = s_k \ldots s_i s_0 \ldots s_0 (e^1_1)	\]
+% with $(i-1)$ applications of $s_0$, while for the cosimplicial space $\Delta^*$, given a $z = (z_0, \ldots, z_k) \in \Delta^k$, we have
+% 	\[s^0 \ldots s^0 s^i \ldots s^k (z) = (z_0 + \ldots + z_{i-1}, z_i + \ldots + z_k) \in \Delta^1, \]
+% and we abbreviate
+% \begin{equation}\label{eq_formula_degeneracy_topological_standard_simplex}
+% 	 z^{(i)} \defas z_0 + \ldots + z_{i-1}
+% \end{equation}
+% for $z \in \bR^{k+1}, i \in \{1, \ldots, k\}$. Now we chase, for the reader's convenience,  through this composition:
+% 	\[ (S^1_\cdot)^{k} \myrightarrow{\eta} \sin \abs{(S^1_\cdot)^k}  \myrightarrow{\cong}%
+% 		\sin \abs{S^1_\cdot}^k  \myrightarrow{\cong} \sin (\bR/\bZ)^k  \myrightarrow{\cong}%
+% 		\sin \bR^k/\bZ^k = \sT^k	\]
+% The unit takes the simplex $x^k$ to the map
+% 	\[\Delta^k \to \abs{(S^1_\cdot)^k},\;z \mapsto (z,x_k).\]
+% The projections induce
+% 	\[ \Delta^k \to \abs{S^1_\cdot}^k,\; z \mapsto ( (z,e^k_1), \ldots , (z,e^k_k) ).\]
+% We now identify
+% \begin{gather*}
+% 	(z,e^k_i) = (z, s_k \ldots s_i s_0 \ldots s_0 (e^1_1)) = \\%
+% 	(s^0 \ldots s^0 s^i \ldots s^k (z), e^1_1) = %
+% 		( (z_0 + \ldots + z_{i-1}, z_i + \ldots + z_k), e^1_1) \in \abs{S^1_\cdot}
+% \end{gather*}
+% and are able to apply the chosen isomorphism $\abs{S^1_\cdot} \to \bR/\bZ$ to obtain that $x_k$ is sent to (cf. \ref{eq_formula_degeneracy_topological_standard_simplex})
+% 	\[	f_k: \Delta^k \to (\bR/\bZ)^k \cong \bR^k/\bZ^k,\; z \mapsto (\mz{1}, \ldots, \mz{k}) \]%
+%
+%
+Under the identification of Lemma \ref{lem_pi_0_loday_HA_A} and the construction of $\Delta_H: \Lambda_{S} A (S^0) \to [\Lambda_{S} A (S^0)]^H$ (for a finite group $H$ and afinite $H$-set $S$) in \cite[Section 6.2]{carlsson2011higher}, given $\alpha \in \cM_n$, the corresponding
+	\[ \Delta_\alpha: \Lambda_{\sT^n} A \to (\Lambda_{\sT^n} A)^\alpha \]
+may be described for an $a \in A$, $f:\Delta^q \to \bR^n/\bZ^n$ by
+	\[ (a,f) \mapsto \bigwedge\limits_{h \in L_\alpha} (a, f+c_h).	\]
+We note further that the isomorphism $\phi_\alpha: \sT^n \to \sT^n/L_\alpha$ is given by $f \mapsto \widetilde{(\alpha^{-1} f)} + L_\alpha$, where $\widetilde{(\alpha^{-1} f)}$ is a lift of $(\alpha^{-1} f)$ against the projection $\bR^n/\bZ^n \to \quotient{(\bR^n/\bZ^n)}{L_\alpha}$, as illustrated in the following diagram:
+\[
+\xymatrix{
+	%
+	&
+	%
+	&
+	*!/r 3pt/+0{\bR/\bZ}%
+		\ar[d]^{\mathrm{quot}}% \rotatebox[origin=c]{90}{$\circlearrowleft$} L_\alpha%
+		\ar@(dr,ur)[du]_{L_\alpha}% arrow L_\alpha acts
+	%
+	\\
+	%
+	\Delta^q%
+		\ar[r]_-{f}%
+		\ar[rru]^{\widetilde{(\alpha^{-1}f)}}
+	&
+	\gT[n]%
+		\ar[r]_-{\alpha^{-1}}%
+	&
+	\quotient{(\gT[n])}{L_\alpha}
+}
+\]
+Note that the quotient map is a covering map with deck transformation group $L_\alpha$, and we take the residue class with respect to that action. The action of $\sT^n$ on $\Lambda_{\sT^n} A$ is point-wise, i.e. for $g \in \sT^n_q$, $(a,f) \in (\Lambda_{\sT^n} A)_q$ we have $g.(a,f) = (a, f+g)$, as can easily be traced through the isomorphism $G^{\H A}_S (S^0)(\const_\varnothing) \myrightarrow{\cong} \Lambda_S A$.\\
+We are now ready to chase through the diagram, which we recall:
+\begin{gather*}
+\xymatrix@C-.5em{
+	(S^1_\cdot)_+ \wedge A%
+		\ar[r]^-{\eta}%
+		\ar[d]_-{\eta}%
+	&
+	\sT^1_+ \wedge A%
+		\ar[r]^-{\iota_{c_0}}%
+	&
+	\sT^1_+ \wedge \Lambda_{\sT^n} A%
+		\ar[r]^-{e_i \wedge \Delta_{\alpha}}%
+	&
+	\sT^n_+ \wedge (\Lambda_{\sT^n} A) ^{\alpha}
+		\ar[r]^-{\mu}%
+	&
+	(\Lambda_{\sT^n} A)^{\alpha}
+		\ar[d]^-{F^{\id}_{\alpha \id}}
+	%
+	\\%%%%%%%%%
+	%
+	\sT^1_+ \wedge A
+		\ar[d]_-{\iota_{c_0}}%
+	&
+	%
+	&
+	%
+	&
+	%
+	&
+	\Lambda_{\sT^n} A%
+		\ar[d]^-{\psi_{\alpha}}%
+	%
+	\\%%%%%%%%%
+	%
+	\sT^1_+ \wedge \Lambda_{\sT^n} A%
+		%\ar[rr]_-{e_i \wedge (P_1 \wedge P_2) \Delta}%
+		\ar[rr]_-*!/d 3pt/\txt{$\labelstyle e_i \wedge (P_1 \wedge P_2) \Delta $}
+	&
+	%
+	&
+	\sT^n_+ \wedge \Lambda_{\sT^n} A \wedge \Lambda_{\sT^n} A%
+		%\ar[r]_-{(\id \wedge \mu) (\tau \wedge \id)}%
+		\ar[r]_-*!/d 3pt/\txt{$\labelstyle (\id \wedge \mu) (\tau \wedge \id) $}
+	&
+	\Lambda_{\sT^n} A \wedge \Lambda_{\sT^n} A%
+		%\ar[r]_-{\mu}%
+		\ar[r]_-*!/d 3pt/\txt{$\labelstyle \mu $}
+	&
+	\Lambda_{\sT^n} A
+}
+\end{gather*}
+where the upper $\mu$ is the composite
+	\[ 	\sT^n_+ \wedge (\Lambda_{\sT^n} A) ^{\alpha} \myrightarrow{\phi_\alpha} %
+		(\sT^n / L_\alpha)_+ \wedge (\Lambda_{\sT^n} A) ^{\alpha} \myrightarrow{\mu} %
+		(\Lambda_{\sT^n} A) ^{\alpha}, \]
+while in the lower composite the first $\mu$ refers to the torus action, the second one refers to the multiplication.\\
+With the above considerations, the upper composite is given on elements as
+\begin{gather*}
+	%\displaystyle%
+	x \wedge a \mapsto %
+	f \wedge (a, c_e) \mapsto %
+	e_i f \wedge \loday_{\mathclap{h \in L_\alpha} } (a,c_e + c_h) \mapsto \\%
+	\widetilde{(\alpha^{-1} e_i f)} + L_\alpha \wedge %
+		\loday_{\mathclap{h \in L_\alpha}} (a,c_h) \mapsto %
+	\loday_{\mathclap{h \in L_\alpha}} ( a , \widetilde{(\alpha^{-1} e_i f)} + c_h ) \mapsto \\ %
+	\loday_{\mathclap{h \in L_\alpha}} ( a , \psi_\alpha \circ (\widetilde{(\alpha^{-1} e_i f)} + c_h) )%
+\end{gather*}
+We proceed to analyze the resulting singular simplices. We first choose a lift
+	\[ \widetilde{(\alpha^{-1} e_i f)}: \Delta^1 \to \bR^n/\bZ^n,\; z \mapsto \widetilde{(\alpha^{-1} e_i f)}(z) \]
+with
+	\[\widetilde{(\alpha^{-1} e_i f)}(z)_j = \alpha_j^{-1} \cdot (e_i f(z))_j \]
+for $j \in \ind{n}$. While this term is zero for $j \neq i$, for $j = i$ we have%
+	\[ (e_i f (z))_i = f(z) =  z_0 \in [0,1], \] %
+in particular we have
+	\[ 0 \leq \alpha_i^{-1} \cdot (e_i f (z))_i \leq \alpha_i^{-1}. \]%
+Given $h \in L_\alpha$, and letting $(e_j)_{j \in \ind{n}}$ denote the standard basis vectors in $\bR^n$, for each ${j \in \ind{n}}$ there is a $k_j \in \{0, \ldots, \alpha_j -1\}$ with
+	\[ h = \sum_{j=1}^n \frac{k_j}{\alpha_j} \cdot e_j. \]
+Note that these $k_j$ depend on $h$, which we do note record in the notation.%
+% We further define $J_h \defas \{ j \in \{1, \ldots, n \} \with k_j \neq 0 \}$, and
+Recalling the definition of
+	\[	\psi_\alpha: \gT[n] \to \gT[n] \]
+	\[ x \mapsto \psi_\alpha(x)_j = %
+		{\left\{
+			\begin{array}{ll}
+				\alpha_j x_j & 0 \leq x_j \leq \nicefrac{1}{\alpha_j} \\
+				1 & \nicefrac{1}{\alpha_j} \leq x_j \leq 1
+			\end{array}
+		\right.},%
+	\]
+we may now conclude, for $h \in L_\alpha$ as above, $z \in \Delta^1$, and $j \in \{1,\ldots,n\}$, that
+	\[	\psi_\alpha( \widetilde{(\alpha^{-1} e_i f)}(z) + h )_j = %
+		{\left\{
+			\begin{array}{ll}
+				0 & j \neq i\\
+        f(z) & j = i, k_i = 0\\
+				0 & j=i, k_i \neq 0,
+			\end{array}
+		\right.}
+	\]
+and thus we obtain the formula
+  \[
+    \psi_\alpha( \widetilde{(\alpha^{-1} e_i f)} + c_h ) = %
+    {\left\{
+      \begin{array}{ll}
+        e_i f & k_i = 0\\
+        c_e & k_i \neq 0\\
+      \end{array}
+    \right.}
+  \]
+Counting how often each case occurs, we have exactly $\prod_{j \neq i} \alpha_j = \alpha^\dagger_i$ possibilities to choose $h \in L_\alpha$ with $k_i = 0$, and analogously $(\alpha_i - 1) \prod_{j \neq i} \alpha_j = (\alpha_i - 1) \alpha^\dagger_i$ possibilities for $h \in L_\alpha$ with $k_i \neq 0$, hence the upper composite evaluated at $(x,a)$ is equal to
+  \[ (a^{(\alpha_i - 1) \alpha^\dagger_i},c_e) \wedge (a^{\alpha^\dagger_i},f) \]
+and chasing the same element through the lower composite, which is now a straight forward affair, proves commutativity. To recall $P_1$ and $P_2$, the reader may kindly refer to Eq. \ref{eq_abbreviations_power_maps}.\\
+% \comm{[continue]} Defining, for an $A \subset \{1,\ldots,n\}$, a map $q_A: \bR^n/\bZ^n \to \bR^n/\bZ^n$ to set each coordinate $i \in A$ to zero and act as identity on the other coordinates, in symbols for $x \in \bR^n/\bZ^n$:
+% 	\[q_A(x)_i = %
+% 		{\left\{
+% 			\begin{array}{ll}
+% 				0 & i \in A \\
+% 				x_i & i \notin A
+% 			\end{array}
+% 		\right.},
+% 	\]
+% we may summarize
+% 	\[ \psi_\alpha( \widetilde{(\alpha^{-1} e_I f_k)} + c_h) = q_{I \cap J_h} e_I f_k. \]
+% Wishing to bring this into a more interpretable form, or in a form which reminds us of (lower-dimensional) differentials, we make the following observation which follows immediately by induction: Letting $A =\{j_1 ,\ldots , j_m\} \subset \{1,\ldots,k\}$ with $j_1 < \ldots < j_m$, we have the following commutative square:
+% \begin{equation*}
+% 	\xymatrix{
+% 	\Delta^k%
+% 		\ar[r]^-{f_k}%
+% 		\ar[d]_-{ s^{j_1 - 1} \ldots s^{j_m - 1} }%
+% 	&
+% 	\bR^k / \bZ^k%
+% 		\ar[d]^-{q_A}%
+% 	%
+% 	\\%%%%%%%%
+% 	%
+% 	\Delta^{k-m}%
+% 		\ar[r]_-{f_{k-m}}%
+% 	&
+% 	\bR^{k-m}/\bZ^{k-m}
+% }
+% \end{equation*}
+% where the $s^j$ are the codegeneracy maps (hence superindexed) of the cosimplicial topological space of geometrix simplices $\Delta^\cdot$ and are given (for all $0 \leq j \leq k-1$) by
+% 	\[ s^j: \Delta^k \to \Delta^{k-1}, %
+% 		(z_0, \ldots, z_k) \mapsto (z_0, \ldots, z_j + z_{j+1}, \ldots, z_k).\]
+% Rewriting as degeneracy maps $s_j$ in the singular complex we abbreviate $s_A \defas s_{j_m - 1} \ldots s_{j_1 - 1}$ ($s_\emptyset \defas \id$) and obtain for $J_h \cap I = \{j_1,\ldots,j_m\}$ with $j_m > \ldots > j_1$:
+% 	\[ q_{I \cap J_h} e_I f_k = s_{I \cap J_h} (e_{I \setminus (I \cap J_h)} f_{k-m}) \in \sT^n_k = \sin_k \bR^n / \bZ^n, \]
+% where we define $e_0: \gT[0] \to \gT[n]$ to \comm{[be the constant map to zero?]} send the single point to zero. Thus we have the singular simplex $s_A (e_{I \setminus A} f_{k-m})$ for every $A \subset I$ with $m \defas \abs{A}$. We determine the multiplicity of each such simplex. This depends on $h = \sum_{i=1}^n \nicefrac{k_i}{\alpha_i} \cdot e_i \in L_\alpha$, or more precisely on $J_h$, as $A = J_h \cap I$, i.e. on the number of $i \in I$ for which $k_i$ is non-zero. So given an $A \subset I$, to determine the number of $h \in L_\alpha$ with $J_h \cap I = A$ we note that $k_j \in \{0,\ldots,\alpha_i-1\}$ can be chosen freely for all $j \notin I$, while $k_i \neq 0$ if and only if $i \in A$ must hold.%
+% This amounts to \comm{[find better name for this number?]}
+% 	\[ \alpha_A \defas \prod_{j \notin I} \alpha_j \prod_{i \in A} (\alpha_i - 1) \]
+% as the number in question. Hence we may conclude the diagram chase through the upper composite by
+% 	\[ x_k \wedge a \mapsto %
+% 		\loday_{A \subset I} (a^{\alpha_A}, s_A (e_{I \setminus A} f_{k-m}) ) = %
+% 		\loday_{A \subset I} (a^{\alpha_A}, q_A e_I f_k ), \]
+% proving commutativty of the diagram in question.\\[4ex]
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+% \comm{next steps:}\\
+% \comm{solution for mistake in formula:} save the above by making this a proof of the relation for the case of a one-dimensional differential. then go on about the rest by just using the upper part of the diagram, and reducing "backwards". Or just change the lower composite to the more complicated formula, that actually turns out... and then reinterpret for higher-dimensional differentials (what will it reduce down from?), or should we reinterpret the one-dimensional case as well? at least give an argument? or we cut the proof by the reductions, just leaving the point-set level, and use that with new / modified reductions to recover the actual formula.\\
+\comm{explain(?)} why action is at is does (naturality of identification pointed sets and $c_\varnothing$
+%
+%
+\end{proof}
+Interestingly enough, the analogous statement for higher-dimensional differentials follows formally, using other relations, and is an easy
+\begin{cor}\label{cor_fdw_relation_arbitrary_dimensions}
+Let $A$ be a commutative ring, $f = [\tilde{f}: S^k \wedge S^m \to \sT^n \wedge S^m] \in C_k$, $\alpha,\beta \in \cM_n$, $a \in A$. Then
+\begin{equation*}
+  F_{\alpha\beta}^\beta d_f \Delta_{\alpha\beta} (a) =%
+  %\frac{1}{\abs{\alpha}}
+  \abs{\alpha}^{-1}d_{(\alpha^\dagger)_+ f} \Delta_{\beta}(a^{\abs{\alpha}})%
+  \in \pi_k (\Lambda_{T^n} \H A ^{L_\beta}).%
+\end{equation*}
+\begin{proof}
+\comm{[in fact notation unnecessary as not usable in proof]} First we should define what we mean by the right hand side, for it is mere notation: Analyzing the left hand side of the above formula one may assume that it is legal to divide through the volume of $\alpha$, and may conlcude the following heuristic. Recall that $\alpha \alpha^\dagger = \abs{\alpha} \id$. Then
+\begin{gather*}
+  F^\alpha d_f \Delta_{\alpha\beta} (a) = %
+    \abs{\alpha}^{-1} F^\alpha d_{\alpha \alpha^\dagger f}%
+      \Delta_{\alpha\beta} (a) = %
+    \abs{\alpha}^{-1} d_{\alpha^\dagger f} F^\alpha
+      \Delta_{\alpha\beta} (a) = %
+    \abs{\alpha}^{-1} d_{\alpha^\dagger f}
+      ( \Delta_{\beta} (a)^{\abs{\alpha}} ),%
+\end{gather*}
+which leads exactly to the above formula we are trying to prove. We will now define what we mean by the right hand side of the formula. Indeed, decomposing $f = \sum_I \lambda_I e_I$ and letting $I = \{i_1, \ldots , i_k$ with $i_1 < \ldots < i_k$ we obtain
+\begin{gather*}
+  d_{(\alpha^\dagger)_+ f} \Delta_{\beta}(a^{\abs{\alpha}}) = %
+  \sum_I \lambda_I d_{(\alpha^\dagger)_+ e_I} \Delta_{\beta}
+    (a^{\abs{\alpha}}) = %
+  \sum_I \lambda_I \alpha^\dagger_I d_I \Delta_{\beta}(a^{\abs{\alpha}}) = \\%
+  \sum_I \lambda_I \alpha^\dagger_I d_{I \setminus \{i_1\}} d_{i_1}
+    (\Delta_{\beta}(a)^{\abs{\alpha}}) = %
+  \sum_I \lambda_I \alpha^\dagger_I d_{I \setminus \{i_1\}} (
+    \abs{\alpha} \Delta_{\beta}(a)^{\abs{\alpha}-1} d_{i_1} \Delta_{\beta}(a) ) = \\%
+  \abs{\alpha} \sum_I \lambda_I \alpha^\dagger_I d_{I \setminus \{i_1\}}
+    (\Delta_{\beta}(a)^{\abs{\alpha}-1} d_{i_1} \Delta_{\beta}(a)),%
+\end{gather*}
+hence we may define
+\begin{equation*}
+	\abs{\alpha}^{-1} d_{(\alpha^\dagger)_+ f} \Delta_{\beta}(a^{\abs{\alpha}}) \defas %
+	\sum_I \lambda_I \alpha^\dagger_I d_{I \setminus \{i_1\}}
+    (\Delta_{\beta}(a)^{\abs{\alpha}-1} d_{i_1} \Delta_{\beta}(a)).
+\end{equation*}
+Obviously, this is not very elegant, and the reader may wonder why we choose to work with this notation. The reason is that it simplifies the following proof. Well, it's still not pretty, but simple. A possible solution (to the ugliness) is to figure out the iterated Leibniz rule for terms of the form $d_I (a^n)$; The inclined reader may try his or her hand at this, and see if it yields a more handy formula. \comm{[proof is not really simple; maybe i should do this myself]}\\
+We proceed by applying some reductions before proving the statement by induction. As already hinted above, we may apply linearity of the differentials in their subindex and reduce to
+\begin{equation*}
+  F_{\alpha\beta}^\beta d_I \Delta_{\alpha\beta} (a) =%
+  \abs{\alpha}^{-1}\alpha^\dagger_I d_I \Delta_{\beta}(a^{\abs{\alpha}})%
+\end{equation*}
+for some $I \subset \ind{n}$. Furthermore, we may reduce to the case of diagonal $\alpha = \diag(\alpha_1, \ldots, \alpha_n)$, and by inspecting Eq. \ref{eq_Fdw_reduction_diagonal_alpha} one may notice that the same proof holds when substituting $d_i$ with $d_I$. We are now ready to conclude by induction over the cardinality of $I$. The case $I = \{i\}$ was proven in Prop. \ref{prop_fdw_relation_dim1}. Let $\abs{I} >= 2$, and let $i \in I$ be maximal, $j\in I$ minimal, i.e. $d_I = d_i d_{I \setminus \{i,j\}} d_j$, abbreviate $I^\prime \defas I \setminus \{i\}$ and $I^{\prime\prime} \defas I \setminus \{i,j\}$, and write $\alpha = \hat \alpha \bar \alpha$ as the product of two diagonal matrices where $\hat \alpha$ agrees with $\alpha$ except in the $i$-th entry, which is equal to $1$, while $\bar \alpha$ has ones except in the $i$-th entry, which is $\alpha_i$; in symbols:
+\begin{equation*}
+	\hat \alpha = \diag(\alpha_1, \ldots, \alpha_{i-1}, 1, \alpha_{i+1}, \ldots, \alpha_n),\;%
+		\bar \alpha = \diag(1,\ldots,1,\alpha_i,1,\ldots,1).
+\end{equation*}
+We decompose $F^\alpha$ with respect to this product, which will allow us to commute it past some of the differentials, as follows:\\
+\comm{[leave out indices of Delta's? Write F's in short notation $F^\alpha$? add sign!]}
+\begin{gather*}
+	F_{\alpha\beta}^\beta d_I \Delta_{\alpha\beta}(a) = %
+	F_{\bar\alpha\beta}^{\beta} F^{\bar\alpha\beta}_{\hat\alpha\bar\alpha\beta} d_i  d_{I^\prime} \Delta_{\alpha\beta}(a) = %
+	F_{\bar\alpha\beta}^{\beta} d_i F^{\bar\alpha\beta}_{\hat\alpha\bar\alpha\beta}%
+		d_{I^\prime} \Delta_{\alpha\beta}(a) = \\%
+	F_{\bar\alpha\beta}^{\beta} d_i ( \hat\alpha^\dagger_{I^\prime} d_{I^{\prime\prime}}%
+		( \Delta_{\bar\alpha\beta}(a)^{\abs{\hat\alpha}-1} %
+		d_j \Delta_{\bar\alpha\beta}(a) ) = \\%
+	(-1)^l \hat\alpha^\dagger_{I^\prime} d_{I^{\prime\prime}} F_{\bar\alpha\beta}^\beta %
+		d_i ( \Delta_{\bar\alpha\beta}(a)^{\abs{\hat\alpha}-1} %
+		d_j \Delta_{\bar\alpha\beta}(a) ),%
+\end{gather*}
+where $l$ is the sign of permuting $i$ past $I^{\prime\prime}$. We note that $\hat\alpha^\dagger_{I^\prime} = \alpha^\dagger_I$ and proceed to analyze only the right part of the last term:
+\begin{gather*}
+	F_{\bar\alpha\beta}^\beta d_i ( \Delta_{\bar\alpha\beta}(a)^{\abs{\hat\alpha}-1} %
+		d_j \Delta_{\bar\alpha\beta}(a) ) = \\%
+	F_{\bar\alpha\beta}^\beta \left[ %
+    d_i ( \Delta_{\bar\alpha\beta}(a)^{\abs{\hat\alpha}-1} )%
+    d_j \Delta_{\bar\alpha\beta}(a) + %
+		\Delta_{\bar\alpha\beta}(a)^{\abs{\hat\alpha}-1} %
+		d_i d_j \Delta_{\bar\alpha\beta}(a) \right] = \\
+	F_{\bar\alpha\beta}^\beta d_i \Delta_{\bar\alpha\beta}(a^{\abs{\hat\alpha}-1}) %
+    F_{\bar\alpha\beta}^\beta d_j \Delta_{\bar\alpha\beta}(a) + %
+    F_{\bar\alpha\beta}^\beta \Delta_{\bar\alpha\beta}(a)^{\abs{\hat\alpha}-1} %
+    F_{\bar\alpha\beta}^\beta d_i d_j \Delta_{\bar\alpha\beta}(a) = \\%
+  \bar\alpha^\dagger_i %
+    \Delta_{\beta} (a)^{(\abs{\hat\alpha}-1)(\abs{\bar\alpha}-1)} %
+    d_i (\Delta_{\beta} (a)^{\abs{\hat\alpha}-1}) %
+    \bar\alpha^\dagger_j %
+    \Delta_{\beta} (a)^{\abs{\bar\alpha}-1} %
+    d_j \Delta_\beta (a) %
+    + %
+    \Delta_\beta(a)^{(\abs{\hat\alpha}-1)\abs{\bar\alpha}} %
+    (-1) d_j F_{\bar\alpha\beta}^\beta %
+    d_i \Delta_{\bar\alpha\beta}(a) = \\%
+  (\abs{\hat\alpha}-1)\bar\alpha^\dagger_j%
+    \Delta_\beta(a)^{\abs{\hat\alpha}\abs{\bar\alpha} - 2} %
+    d_i \Delta_\beta(a) d_j \Delta_\beta (a) %
+    + %
+    \Delta_\beta(a)^{(\abs{\hat\alpha}-1)\abs{\bar\alpha}} %
+    (-1) d_j ( \Delta_\beta(a)^{\abs{\bar\alpha}-1} %
+    d_i \Delta_\beta(a) ) = \\%
+  (\abs{\hat\alpha}-1)\bar\alpha^\dagger_j%
+    \Delta_\beta(a)^{\abs{\alpha} - 2} %
+    d_i \Delta_\beta(a) d_j \Delta_\beta (a) %
+    + \\%
+    \Delta_\beta(a)^{(\abs{\hat\alpha}-1)\abs{\bar\alpha}} %
+    (-1) \left( %
+    (\abs{\bar\alpha}-1) %
+    \Delta_\beta (a)^{\abs{\bar\alpha}-2} %
+    d_j \Delta_\beta (a) d_i \Delta_\beta (a) %
+    + %
+    \Delta_\beta(a)^{\abs{\bar\alpha}-1} %
+    d_j d_i \Delta_\beta(a)
+    \right) = \\%
+  (\abs{\hat\alpha}-1)\alpha_i%
+    \Delta_\beta(a)^{\abs{\alpha} - 2} %
+    d_i \Delta_\beta(a) d_j \Delta_\beta (a) %
+    + \\%
+    (\alpha_i-1) %
+    \Delta_\beta(a)^{\abs{\alpha}-2} %
+    d_i \Delta_\beta (a) d_j \Delta_\beta (a) %
+    + %
+    \Delta_\beta(a)^{\abs{\alpha}-1} %
+    d_i d_j \Delta_\beta(a) = \\%
+  (\abs{\alpha}-1)%
+    \Delta_\beta(a)^{\abs{\alpha} - 2} %
+    d_i \Delta_\beta(a) d_j \Delta_\beta (a) %
+    + %
+    \Delta_\beta(a)^{\abs{\alpha}-1} %
+    d_i d_j \Delta_\beta(a)%
+  \end{gather*}
+Applying $\alpha^\dagger_I d_{I^{\prime\prime}}$ to the above we obtain a certain expression. It is not hard to see that that exact expression can be obtained from
+\begin{equation*}
+  \alpha^\dagger_I d_{I \setminus j} %
+    ( \Delta_\beta(a)^{\abs{\alpha}-1} d_j \Delta_\beta (a) )
+\end{equation*}
+by isolating $d_i$, permuting it past $d_{I^{\prime\prime}}$, and applying the Leibniz rule once with respect to $d_i$. This completes the induction, and hence the really not aesthetic proof of this corollary.
+\end{proof}
+\end{cor}
+%
+%

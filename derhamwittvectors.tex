@@ -1,0 +1,77 @@
+\section{The Brunside-Witt vectors}
+\comm{Add an introduction! Dress Siebeneicher, Elliott, ...}
+\begin{thm}\cite{dress1988burnside}
+Given a pro-finite group $G$, there is a unique functor
+  \[	\bW_G: \bZ-\calg \to \bZ-\calg,\; A \mapsto \bW_G A	\]
+%assigning to a commutative ring $A$ a commutative ring $\bW_G A$,
+such that after forgetting to sets we have an identity of functors (here evaluated at $A$)
+  \[	U \circ \bW_G A = \left [ \prod_{H \leq G} A \right ]^G,	\]
+where the right hand side is the $G$-fixed points of the product of $A$ over the set of open subgroups of $G$, with $G$ permuting factors by conjugation, and further such that for every open subgroup $K \in G$, the following map is a natural transformation from $\bW_G$ to the identity functor:
+  \[	\phi^A_K: \bW_G A \to A,\]
+  \[	x = (x_H) \mapsto \phi^A_K(x) = \sum_{K \lesssim H} \abs{(G/H)^K}(x_H)^{[H:K]},	\]
+where the sum is taken over all equivalence classes under conjugation of open subgroups $H \leq G$ with $K$ subconjugate to $H$, i.e. there is a $g \in G$ s. th. $K \leq gHg^{-1}$. By $[H:K]$ we refer to the index of $K$ in $gHg^{-1}$, which is equal to $[G:K]/[G:H]$ and hence independent of $g$. The images of a Brunside-Witt vector under the maps $\phi_K$ are often referred to as its ghost coordinates, and they are readily used to verify certian identities inside the Burnside-Witt ring.
+\end{thm}
+%
+%
+\begin{rem}\label{rem_witt_ghost_generators_multiplication}
+In our case of interest, the group in question is $\hat\bZ^n$ and in particular abelian (which we will tacitly to be true for $G$ from now on), which simplifies the formula to
+\begin{equation}\label{eq_witt_ghost_coordinates}
+	\phi_K(x) = \sum_{K \leq H} [G:H](x_H)^{[H:K]}.
+\end{equation}
+Note also that letting $\omega_H(a) \in \bW_G A$ be the vector with entry $a \in A$ at the open subgroup $H \leq G$ and $0$ elsewhere, for $x \in \bW_G A$, we have
+\begin{equation}\label{eq_witt_sum}
+	x = \sum_{H \leq G} \omega_H(x_H)
+\end{equation}
+(in particular this series converges), which one may verify immediately using the above ghost coordinates. Using these generators, the multiplication (cf. \cite[Rem. 4.6]{elliott2006constructing}) can be expressed with the following formula: Given $H,K \leq G$ and $a,b \in A$ we have
+\begin{equation}\label{eq_witt_multiplication}
+	\omega_H (a) \omega_K (b) = \frac{[G:H][G:K]}{[G : H \cap K]} \omega_{H \cap K}%
+		(a^{ [H : H \cap K] } b^{ [K : H \cap K] }).
+\end{equation}
+\end{rem}
+%
+%
+The Burnside-Witt rings come with extra structure, which we now recollect, following \cite{elliott2006constructing}.\\
+\comm{instead of all remarks, just note identification: $\{$ fin. transitive $G$-sets $\} \to \{$ subgroups of $G \}$}
+\begin{defn}\label{def_witt_res}
+Given a projection $\pr: G \to G/N$ with respect to a normal, open subgroup $N \leq G$ there is a natural transformation of functors of rings, called the restriction map, given by
+\[	R_G^{G/N}: \bW_G A \to \bW_{G/N} A,\]
+\[	x = (x_H) \mapsto (x_{\pr^{-1}(K)})_K.	\]
+\end{defn}
+\begin{defn}\label{def_witt_frob}
+Given an open subgroup $H \leq G$, there is a natural ring morphism
+\[	F_G^H: \bW_G A \to \bW_H A, \]
+given by
+\[	\omega_K(a) \mapsto ( [G:K]/[H: H \cap K]) \cdot \omega_{H \cap K} (a^{[K : H \cap K]}).	\]
+This is called the Frobenius. \comm{[leave out? :]} It is uniquely determined by the above values due to naturality, as the $\omega_K(a)$ form a set of linearly independent topological generators for $A = \bZ$.
+\end{defn}
+\begin{rem}
+We obtain the above formula from the language of $\cite{elliott2006constructing}$ as follows. In the language of frames, the Frobenius is given as
+\[	F_G^H: \bW_G A \to \bW_H A	\]
+\[	\omega_T(a) \mapsto \sum_{U \in H \backslash T} \omega_U( a^{ [G:H] \abs{U} / \abs{T} } ).\]
+Letting $T \in \cF(G)$ correspond to $K \leq G$, taking the $H$-orbits of $T \cong G/K$ is the same as considering the double cosets $H \backslash G / K$, and the stabilizer of an element $hgK$ of an orbit $HgK$ is exactly $H \cap K$, implying that every orbit is isomorphic to the transitive $H$-set $H/(H \cap K)$, hence we have $[G:K]/[H: H \cap K]$ double cosets or $H$-orbits in $G/K$. Using elementary relations for indeces we finally obtain the exponent $[G:H] [H:H \cap K] / [G:K] = [K : H \cap K]$.
+\end{rem}
+\begin{defn}\label{def_witt_vers}
+Let $H$ be an open subgroup of $G$, then the Verschiebung map is the unique additive natural map
+	\[	V_H^G : \bW_H A \to \bW_G A \]
+given by
+	\[ \omega_K (a) \mapsto \omega_K (a) \]
+for $K \leq H$, $a \in A$.
+\end{defn}
+%
+%
+\begin{defn}\label{def_teichmueller_burnside_witt_vectors}
+Another piece of structure is the Teichm\"uller morphism
+\begin{gather*}
+	\tau_H: A \to \bW_H A,\\%
+	a \mapsto \tau_H(a)
+\end{gather*}
+where $\tau_H(a)_H = a$ and $\tau_H(a)_K = 0$ for $K \not\subset H$, which can immediately be seen to be multiplicative (but not additive) by Eq. \ref{eq_witt_multiplication}.
+\end{defn}
+%
+%
+\begin{rem}\label{rem_teichmueller_sum}
+With the Teichm\"uller morphisms we can give another interpretation for Eq. \ref{eq_witt_sum}, for we have $\omega_H (a) = V^G_H \tau_H (a) \in \bW_G A$ for any $a \in A$, $H \leq G$, hence given $x \in \bW_G A$ we may write
+\begin{equation}\label{eq_witt_teichmueller_sum}
+	x = \sum_{H \leq G} V_H^G \tau_H (x_H).
+\end{equation}
+\end{rem}
