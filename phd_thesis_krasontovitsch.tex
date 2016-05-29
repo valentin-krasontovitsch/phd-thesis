@@ -1,4 +1,5 @@
 \documentclass[10pt, a4paper, UKenglish]{article}
+
 %switch to koma class?
 %
 % notes
@@ -340,61 +341,15 @@
 \begin{document}
 
 \input{abstract}
-
-{\let\newpage\relax\maketitle}
-\maketitle
-
 \input{intro}
-\input{iteratedthh}
-\input{derhamwittvectors}
-\input{higherderhamwittcomplex}
-%
+\input{loday}
+\input{structure}
+\input{relations}
+% \input{derhamwittvectors}
+% \input{higherderhamwittcomplex}
+% \input{calculations}
 
-%
-\section{Calculations}
-We proceed to record calculations on the de Rham-Burnside-Witt complex. We assume the ground ring to be $\bF_p$, the field with $p$ elements, where $p$ is at least an odd prime, possibly even greater or equal to 5. We will at first only consider the case $n=2$. Since we're ultimately interested in $p$-complete calculations of TC, we reduce ourselves to $p$-adic subgroups given by diagonalized matrices.\\
-There is not a lot of hope of understanding the Burnside-Witt ring as a ring, even for the abelian groups $\bZ/p^n\bZ \times \bZ/p^m\bZ$ for $n,m \geq 2$, so we are going to treat these as underlying black boxes and try to use relations between the differentials and other structure morphism to gain an understanding of the dRBW-complex in positive degrees.\\
-We are working our way up from the bottom, starting with $G=\{e\}$, the trivial group, corresponding to $\alpha = \id$, the identity matrix. Here we have $W_G A = A$. Note that for any commutative ring $R$ with $\bZ \to R$ surjective, the module of K\"ahler differentials is zero, as the differential is zero on constants in $R$, i.e. elements of the form $n \cdot 1$ for $n \in \bZ$. This also holds, by construction, for one-dimensional and thus for all differentials in the higher de Rham complex on $W_G A = A$, hence $\cW_{\id}\Omega^* \cong 0$ for $* \geq 1$\\
-Let $\alpha = \diag(p^n, 1)$ or $\alpha = \diag(1,p^n)$ for some $n \geq 0$. Then $L_\alpha \cong \bZ/p^n\bZ$ and the Brunside-Witt vectors are isomorphic to the truncated $p$-typical Witt vectors, yielding $W_\alpha A \cong \bZ/p^{n+1}\bZ$ \comm{[add reference or make Lemma]}. But then $\bZ \to W_\alpha A$ is surjective, and as above we have $\cW_{\alpha}\Omega^* \cong 0$ for $* \geq 1$.\\
-In the following discussion, we will readily jump between matrices $\alpha \in \cM_n$, their kernels $L_\alpha \subset \gT^n$ as maps of the torus, and the "standard" p-groups they are isomorphic to. The latter description will be used to determine the subgroup lattice, the former to apply relations and structure maps. Note that we will write column vectors as row vectors as to make the exposition more readable. Note also that we discuss relations on the generators $\omega_H (a)$ for $H \leq G$ and $a \in A$ (cf. Rem. \ref{rem_witt_ghost_generators_multiplication}).
-The next case is $\alpha = \diag(p,p)$ with $L_\alpha = \langle (1/p,0), (0,1/p) \rangle \cong \bZ/p\bZ \times \bZ/p\bZ \asdef G$. The latter may be interpreted as $\bF_p^2$, the vector space of dimension 2 over $\bF_p$, and the subgroups are exactly given as subspaces, which are easily characterized as the two obvious ones, $0, G$, as well as the one-dimensional ones $H_k \defas \langle (k,1) \rangle \subset \bZ/p\bZ \times \bZ/p\bZ$ for $k \in \bF_p$ and $H_\infty \defas \langle (1,0) \rangle$. We have $H_k \cong \langle (k/p,1/p) \rangle = L_{\beta_k}$ with %
-$\beta_k = \left( \begin{smallmatrix} 1 & -k \\ 0 & p \end{smallmatrix} \right)$ and $\H_\infty \cong \langle (1/p,0) \rangle = L_{\beta_\infty}$ with $\beta_\infty = \diag(p,1)$.\\
-Our first strategy is to obtain information by pulling elements up from lower groups, which can be done with the Verschiebung operators $V_\gamma = V_{\beta}^{\gamma\beta}: W_\beta A \to W_{\gamma\beta} A$ (multiplying matrices potentially increases kernels!), using the relation%
-\[d_{\gamma v} V_\gamma = V_\gamma d_v\]%
-as well as the formula (cf. Def. \ref{def_witt_vers})
-\[ V_\gamma: W_H A \to W_G A, \; \omega_K (a) \mapsto \omega_K (a). \]
-We utilize that for any cyclic subgroup $H \leq G$, the differentials disappear on $W_H A$ (which itself is cyclic), hence using the above relation we can deduce that they disappear for any element pushed up by a Verschiebung $V_\gamma$ from such a $W_H A$, at least for those differentials that are indexed by / corespond to vectors in the image of $\gamma$. Indeed, for $x \in W_H A$ for $H$ cyclic we have
-\begin{equation*}
-	d_{\gamma v} V_\gamma (x) = V_\gamma d_v (x) = 0,
-\end{equation*}
-where it suffices to consider $v \in \{e_1,e_2\}$. Hence we just need to determine $\gamma_H$ for every cyclic subgroup $H$ to obtain the appropriate relations.\\
-Consider $H_\infty \cong L_{\beta_\infty}$. We are looking for $\gamma_\infty$ with $\alpha = \gamma_\infty\beta_\infty$, for then we may use
-\begin{equation*}
-	V_{\gamma_\infty} = V_{\beta_\infty}^{\gamma_\infty\beta_\infty} = %
-	V_{\beta_\infty}^{\alpha}: W_{H_\infty} A \to W_G A.
-\end{equation*}
-This is given by $\gamma_\infty = \diag(1,p)$, hence we obtain the relations
-\begin{equation}\label{eq_group_diag(p,p)_subgroup_diag(1,p)}
-	0 = d_1(\omega_{H_\infty}(a)) = p d_2 (\omega_{H_\infty}(a))
-\end{equation}
-for all $a \in A$. where we used linearity of a differential in its index.\\
-Similarly, we have $\gamma_k \defas \inmatrixtwo{p}{k}{0}{1}$ with $\alpha = \gamma_k \beta_k$, and hence
-\begin{equation}\label{eq_group_diag(p,p)_subgroup_(p,k_0,1)}
-	0 = p d_1  \omega_{H_k}(a) = (k d_1 + d_2) \omega_{H_k}(a).
-\end{equation}
-Denoting the trivial subgroup by abuse of notation as $e \defas \{e\} \leq G$, we observe that $\omega_e(a)$ is in the image of both $V_{\gamma_\infty}$ and $V_{H_0}$, hence we also obtain
-\begin{equation*}
-	0 = d_1(\omega_e(a)) = d_2 (\omega_e(a)).
-\end{equation*}
-We may deduce another relation, using the following: Note that the multiplication of elements of the form $\omega_G(a)$ is quite simply given by $\omega_G (a) \omega_G (b) = \omega_G (ab)$, cf. Remark \ref{rem_witt_ghost_generators_multiplication}, and that $\omega_G(1)$ is the unit of the multiplication in $W_G A$. Taking an $a \in A = \bF_p$, we have the identity $a^{p-1} = 1$ (and hence $a^p=a$), and using that $d_i$ is a derivation for $i \in \{1,2\}$, we get
-\begin{gather*}
-	d_i(\omega_G(a)) = d_i(\omega_G(a^p)) = d_i(\omega_G(a)^p) = p \omega_G(a)^{p-1} d_i(\omega_G(a)) = \\ %
-	p \omega_G(a^{p-1}) d_i(\omega_G(a)) = p \omega_G(1) d_i(\omega_G(a)) = p d_i(\omega_G(a)). %
-\end{gather*}
-\comm{[whatever that means!?]} In the not $p$-completed setting, over the usual torus, everything is just abelian groups, and the differentials are (a priori) free abelian groups, hence this literally just introduces the relation $(p-1)d_i (\omega_G(a)) = 0$. In the $p$-completed setting, everything is a module over the $p$-adic integers. They are a PID. But: modules can have torsion, even over PID's (duh). So still nothing more to say!? Not quite: have $p d_i (\omega_G(a)) = d_i (\omega_G(a))$, $\bZ_p$ local ring, Nakayama's Lemma implies that the finitely generated $\bZ_p$ module generated by $d_i (\omega_G(a))$ is zero, hence $d_i (\omega_G(a)) = 0$. ha! find reference for Nakayama's Lemma (lang?). Note that the above calculation does not depend on $G$, hence for any $G = L_\alpha$ we have $d_i(\omega_G(a)) = 0$ for all $i\in \ind{n},\, a \in A$, at least over $\bZ_p$.\\
-Let's move on to the next group.
-%%%%%%%%%%%%%%%%% bibliography %%%%%%%%%%%%%%%%%%%%
 \bibliographystyle{alpha}
 \bibliography{biblio}
-%%%%%%%%%%%%%%%%%%% the end %%%%%%%%%%%%%%%%%%%%%
+
 \end{document}

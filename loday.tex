@@ -1,0 +1,32 @@
+% !TEX root = phd_thesis_krasontovitsch.tex
+\section{Iterated THH - Loday Functor}
+We proceed to introduce topological Hochschild homology based on a space $X$ and the structure it carries for $X = T^n$ the $n$-dimensional torus, following \cite{brun2010covering} as well as \cite{carlsson2011higher}. For details on bicategories, confer \cite{benabou1967introduction}.\\
+A bicategory $\mathcal{C}$ is in part made up of a class of 0-cells, and for any two zero-cells $A,B$ a category $\mathcal{C}(A,B)$, whose objects form the 1-cells from $A$ to $B$ and whose morphisms form the 2-cells between two given 1-cells. The bicategory of spans $W$ has 0-cells all finite cells. Given finite sets $X,Y$ the 1-cells are given as spans $ X \leftarrow A \rightarrow Y$ for some finite set $A$, and a 2-cells between two spans from $X$ to $Y$  is given as the vertical map in the following commutative diagram:
+\[
+\xymatrix@R-=.5em{
+  %
+  &
+  %
+  A \ar[dl] \ar[dd] \ar[dr]
+  %
+  \\
+  X
+  &
+  %
+  &
+  Y
+  \\
+  %
+  &
+  A^\prime \ar[ul] \ar[ur]
+  &
+  %
+}
+\]
+Horizontal composition is given by a functorial and conrete choice of pullback applied to the 1-cells and taking the map induced by the 2-cells between pullbacks, \comm{[make clearer or scratch - this should explain horizontal composition of 2-cells!]}, while vertical composition is composition of maps.\\
+The bicategory $\operatorname{Cat}$ of small categories has small categories as 0-cells, functors as 1-cells and natural transformations as 2-cells.
+\comm{add all the technical things you need from covering homology:}\\
+spans, functor $\cJ$, nat traf $G^A_S$ (gamma spaces, hom space (fibrant replacement), $(\Lambda_X A)^G$ functor of conn. comm $S$-algebras that preserves conn. and has values in very special gamma spaces (Cor. 5.1.5 in Covering homology), how diagonal is constructed (Street rectification necessary! H-set, and so on...); adapt to orthogonal spectra!?
+\begin{defn}\label{def_loday_functor}
+We define the Loday functor for a finite set $S$ and a commutative $\bS$-algebra $A$ as hocolim category functor ...
+\end{defn}
