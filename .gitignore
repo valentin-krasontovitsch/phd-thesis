@@ -79,9 +79,6 @@ acs-*.bib
 # gnuplottex
 *-gnuplottex-*
 
-# hyperref
-*.brf
-
 # knitr
 *-concordance.tex
 *.tikz
@@ -101,16 +98,14 @@ acs-*.bib
 *.mtc
 *.mtc[0-9]
 *.mtc[1-9][0-9]
-
+.idea/**/*
 # minted
 _minted*
 *.pyg
-
+*.iml
 # morewrites
 *.mw
 
-# mylatexformat
-*.fmt
 
 # nomencl
 *.nlo
