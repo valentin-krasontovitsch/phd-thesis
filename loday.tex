@@ -1,9 +1,17 @@
 % !TEX root = phd_thesis_krasontovitsch.tex
+
+\newcommand{\myspan}[3]{\xymatrix{ #1 & #2 \ar[l] \ar[r] & #3 }}
+
 \section{Iterated THH - Loday Functor}
   We proceed to introduce topological Hochschild homology based on a space $X$ and the structure it carries for $X = T^n$ the $n$-dimensional torus, following \cite{brun2010covering} as well as \cite{carlsson2011higher}. For details on bicategories, confer \cite{benabou1967introduction}.\\
+  \comm{[Should have two subsections here: spans + bicategories?]}
+
+  \subsection{Spans of finite sets}
 
   \begin{defn}\label{def_cateogry_of_spans}
-    The category of spans $V$ ...
+    The category of spans $V$ has as objects the class of finite sets, while the morphism set $V(Y,X)$ for two finite sets $X,Y$ is given by the set of equivalence classes of diagrams of the form
+    \[ \xymatrix{ Y & A \ar[l] \ar[r] & X }, \]
+    also called spans. Two such diagrams $\myspan{Y}{A}{X}$, $\myspan{Y}{A^\prime}{X}$ are considered equivalent if there is a bijection $A \to A^\prime$ making the resulting triangles commutative.
   \end{defn}
 
   \begin{defn}\label{def_bicategory}
@@ -35,7 +43,7 @@
   \end{defn}
 
   \begin{defn}\label{def_functor_iW_to_Cat}
-    ...
+    functor from $iW$ to $Cat$ $\operatorname{Cat}$ ...
   \end{defn}
 
   \begin{defn}\label{def_pointed_stuff}
@@ -50,48 +58,123 @@
     We define J and the two functors...
   \end{defn}
 
-  \begin{defn}\label{def_left_lax_transformation}
-    A left lax transformation ...
-  \end{defn}
+  \subsection{Left lax transformations, bimodules and homotopy colimits}
 
-  A bicategory $\mathcal{C}$ is in part made up of a class of 0-cells, and for any two zero-cells $A,B$ a category $\mathcal{C}(A,B)$, whose objects form the 1-cells from $A$ to $B$ and whose morphisms form the 2-cells between two given 1-cells. The bicategory of spans $W$ has 0-cells all finite cells. Given finite sets $X,Y$ the 1-cells are given as spans $ X \leftarrow A \rightarrow Y$ for some finite set $A$, and a 2-cell between two spans from $X$ to $Y$  is given as the vertical map in the following commutative diagram:
-  \[
-  \xymatrix@R-=.5em{
-    %
-    &
-    %
-    A \ar[dl] \ar[dd] \ar[dr]
-    %
-    \\
-    X
-    &
-    %
-    &
-    Y
-    \\
-    %
-    &
-    A^\prime \ar[ul] \ar[ur]
-    &
-    %
-  }
-  \]
-  Horizontal composition is given by a functorial and conrete choice of pullback applied to the 1-cells and taking the map induced by the 2-cells between pullbacks, \comm{[make clearer or scratch - this should explain horizontal composition of 2-cells!]}, while vertical composition is composition of maps.\\
-  The bicategory $\operatorname{Cat}$ of small categories has small categories as 0-cells, functors as 1-cells and natural transformations as 2-cells.
-  \comm{add all the technical things you need from covering homology:}\\
-  spans, functor $\cJ$, nat traf $G^A_S$ (gamma spaces, hom space (fibrant replacement), $(\Lambda_X A)^G$ functor of conn. comm $S$-algebras that preserves conn. and has values in very special gamma spaces (Cor. 5.1.5 in Covering homology), how diagonal is constructed (Street rectification necessary! H-set, and so on...); adapt to orthogonal spectra!?
-  \begin{defn}\label{def_loday_functor}
-    We define the Loday functor for a finite set $S$ and a commutative $\bS$-algebra $A$ as hocolim category functor ...
+    \begin{defn}\label{def_left_lax_transformation}
+      A left lax transformation ...
+    \end{defn}
 
-  \end{defn}
+    \begin{rem}\label{rem_left_lax_transformation}
+      remark about notation of 2-arrows in diagrams, axioms of a left lax 2-transformation, ...
+    \end{rem}
 
-  \begin{defn}\label{def_loday_functor_in_symmetric_monoidal_category}
-    Let $(\mathcal{C},\smash, \mathbb{1})$ be a symmetric monoidal category.\\
-    \comm{TODO complete this}
-  \end{defn}
+    \begin{rem}\label{rem_left_lax_transform_functors_J_to_Cat}
+      Given two functors $E,F: J \to \Cat_*$ what does it mean to be a left lax transformation $E \Rightarrow F$?
+    \end{rem}
 
-  \begin{lem}\label{lem_loday_functor_is_simplicial}
-    The Loday functor is a simplicial functor.\\
+    \begin{defn}\label{def_category_of_bimodules}
+      category $\operatorname{Bimod}^J / E$ of bimodules (of $J$ over $E$?) consists of pairs $(F,G)$ ...
+      % TODO find general definition for such bimodules?
+    \end{defn}
 
-    \comm{[loday functor simplicial! add remark? add proof? add remark? source ($\Gamma$-spaces)?]}
-  \end{lem}
+    \begin{defn}\label{def_hocolim}
+      The homotopy colimit ...
+      % TODO find a good definition / model (i.e. source) to be used here
+    \end{defn}
+    % TODO do we need statements about the hocolim?
+
+    \begin{rem}\label{rem_bimod_for_constant_functor_and_hocolim}
+      Given a pointed small category $K$ with all small coproducts, we let $E = K$ be the constant functor $J \to \Cat_*$ ...
+    \end{rem}
+
+  \subsection{The left lax transformation $G^A$}
+
+    \begin{defn}\label{def_left_lax_transformation_S}
+      Let $\Sigma$ be the category of finite sets with bijections. We choose a strong symmetric monoidal functor $S: \Sigma \to \Top$
+    \end{defn}
+
+    NB We have to start working here!
+
+    \begin{defn}\label{def_left_lax_transformation_A}
+      Given a \hring $A$, we define a left lax transformation
+    \end{defn}
+
+    \begin{defn}\label{def_left_lax_transform_G^A}
+      We combine the two above definitions to obtain a left lax transformation $G^A$ ...
+    \end{defn}
+
+  \subsection{Rectification}
+
+    \begin{defn}\label{def_streets_first_construction}
+      Street's first construction looks as follows; We take a lax functor $F: J \to \Cat_*$ ...
+    \end{defn}
+
+  \subsection{The Loday functor for finite sets}
+    \begin{defn}\label{def_rectification_of_G^A}
+      Applying Street's first construction to ...
+    \end{defn}
+
+    \begin{defn}\label{def_loday_functor_finite_sets}
+      Given a finite set $S$ and a \hring $A$, we define the Loday functor of A at S to be ...
+    \end{defn}
+
+    \begin{lem}\label{lem_loday_functor_fixed_points}
+      Can drop r for fixed points under finite group...
+      \begin{proof}
+        should be formal?
+      \end{proof}
+    \end{lem}
+
+    \begin{lem}\label{lem_loday_functor_preserves_connectivity}
+      Th Loday functor (at a finite set) preserves connectivity of commutative ring spectra, sends stable equivalences to point-wise equivalences (check this statement!) and [comparison to smash product].
+      \begin{proof}
+        depends on connectivity of a map $S^1 \wedge A(S^n) \to A(S^{n+1})$ - corresponding map in orthogonal spectra context should be structure map. check definition of transformation $G^A$ or rather transformation $A$! Connection of connectivity to ``functors of simplicial sets''?
+      \end{proof}
+    \end{lem}
+
+    \begin{cor}\label{cor_loday_at_S_naturally_equivalent_to_tensor_with_S}
+      Let $A$ be a cofibrant? flat? \hring, then Loday of $A$ at $S$ is stably equivalent as a spectrum to $S \otimes A$, and the morphisms are natural in $S$.
+    \end{cor}
+
+
+    A bicategory $\mathcal{C}$ is in part made up of a class of 0-cells, and for any two zero-cells $A,B$ a category $\mathcal{C}(A,B)$, whose objects form the 1-cells from $A$ to $B$ and whose morphisms form the 2-cells between two given 1-cells. The bicategory of spans $W$ has 0-cells all finite cells. Given finite sets $X,Y$ the 1-cells are given as spans $ X \leftarrow A \rightarrow Y$ for some finite set $A$, and a 2-cell between two spans from $X$ to $Y$  is given as the vertical map in the following commutative diagram:
+    \[
+    \xymatrix@R-=.5em{
+      %
+      &
+      %
+      A \ar[dl] \ar[dd] \ar[dr]
+      %
+      \\
+      X
+      &
+      %
+      &
+      Y
+      \\
+      %
+      &
+      A^\prime \ar[ul] \ar[ur]
+      &
+      %
+    }
+    \]
+    Horizontal composition is given by a functorial and conrete choice of pullback applied to the 1-cells and taking the map induced by the 2-cells between pullbacks, \comm{[make clearer or scratch - this should explain horizontal composition of 2-cells!]}, while vertical composition is composition of maps.\\
+    The bicategory $\operatorname{Cat}$ of small categories has small categories as 0-cells, functors as 1-cells and natural transformations as 2-cells.
+    \comm{add all the technical things you need from covering homology:}\\
+    spans, functor $\cJ$, nat traf $G^A_S$ (gamma spaces, hom space (fibrant replacement), $(\Lambda_X A)^G$ functor of conn. comm $S$-algebras that preserves conn. and has values in very special gamma spaces (Cor. 5.1.5 in Covering homology), how diagonal is constructed (Street rectification necessary! H-set, and so on...); adapt to orthogonal spectra!?
+    \begin{defn}\label{def_loday_functor}
+      We define the Loday functor for a finite set $S$ and a commutative $\bS$-algebra $A$ as hocolim category functor ...
+
+    \end{defn}
+
+    \begin{defn}\label{def_loday_functor_in_symmetric_monoidal_category}
+      Let $(\mathcal{C},\smash, \mathbb{1})$ be a symmetric monoidal category.\\
+      \comm{TODO complete this}
+    \end{defn}
+
+    \begin{lem}\label{lem_loday_functor_is_simplicial}
+      The Loday functor is a simplicial functor.\\
+
+      \comm{[loday functor simplicial! add remark? add proof? add remark? source ($\Gamma$-spaces)?]}
+    \end{lem}
