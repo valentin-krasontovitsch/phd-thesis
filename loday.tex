@@ -1,7 +1,5 @@
 % !TEX root = phd_thesis_krasontovitsch.tex
 
-\newcommand{\myspan}[3]{\xymatrix{ #1 & #2 \ar[l] \ar[r] & #3 }}
-
 \section{Iterated THH - Loday Functor}
   We proceed to introduce topological Hochschild homology based on a space $X$ and the structure it carries for $X = T^n$ the $n$-dimensional torus, following \cite{brun2010covering} as well as \cite{carlsson2011higher}. For details on bicategories, confer \cite{benabou1967introduction}.\\
   \comm{[Should have two subsections here: spans + bicategories?]}
@@ -9,9 +7,19 @@
   \subsection{Spans of finite sets}
 
   \begin{defn}\label{def_cateogry_of_spans}
-    The category of spans $V$ has as objects the class of finite sets, while the morphism set $V(Y,X)$ for two finite sets $X,Y$ is given by the set of equivalence classes of diagrams of the form
-    \[ \xymatrix{ Y & A \ar[l] \ar[r] & X }, \]
-    also called spans. Two such diagrams $\myspan{Y}{A}{X}$, $\myspan{Y}{A^\prime}{X}$ are considered equivalent if there is a bijection $A \to A^\prime$ making the resulting triangles commutative.
+    The category of spans $V$ has as objects the class of finite sets, while the morphism set $V(Y,X)$ for two finite sets $X,Y$ is given by the set of equivalence classes of diagrams of the form $Y \ot A \to X$, called spans. Two such diagrams $Y \ot A \to X$, $Y \ot A^\prime \to X$ are said to be equivalent if there is a bijection $A \to A^\prime$ making the resulting triangles commutative. Composition of two maps represented by $[Y \ot A \to X]$ and $[X \ot B \to W]$ is given by taking the pullback of \comm{[complete this...]}
+    % Since we take equivalence classes of morphisms, this is well-defined, and it is straight-forward to check that this forms a category.
+  \end{defn}
+
+  \begin{lem}\label{lem_coproduct_product_in_V}
+    The product and coproduct in V are given by disjoint union.
+    % \begin{proof}
+      % Explain structure morphisms, comment on / explain universal properties
+    % \end{proof}
+  \end{lem}
+
+  \begin{defn}\label{defn_group_acting_on_object_in_V_morphism_phi}
+    Given a finite set $X$ with a left action of a group $G$, we define the action on $X$ through automorphisms in $V$ by mapping $g \mapsto [X \ot X \longrightarrow[g] X]$. % TODO fix arrows
   \end{defn}
 
   \begin{defn}\label{def_bicategory}

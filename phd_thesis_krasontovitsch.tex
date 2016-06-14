@@ -209,7 +209,8 @@
 
 %\newcommand{\cupdot}{\mathbin{\mathaccent\cdot\cup}}
 \newcommand{\oldto}{\to}
-\renewcommand{\to}{\longrightarrow}
+\renewcommand{\to}{\myrightarrow}
+\newcommand{\ot}{\myleftarrow}
 \newcommand{\oldmapsto}{\mapsto}
 \renewcommand{\mapsto}{\longmapsto}
 \newcommand{\del}{\operatorname{\partial}}
@@ -297,6 +298,16 @@
    \def\mycmd{\xrightarrow}%
   \else
    \def\mycmd{\xrightarrow[{\mathmakebox[\trollo]{#1}}]}%
+  \fi
+  \mycmd{\mathmakebox[\trollo]{#2}}%
+ }
+%
+\newcommand*{\myleftarrow}[2][]{%
+  \def\temp{#1}%
+  \ifx\temp\empty
+   \def\mycmd{\xleftarrow}%
+  \else
+   \def\mycmd{\xleftarrow[{\mathmakebox[\trollo]{#1}}]}%
   \fi
   \mycmd{\mathmakebox[\trollo]{#2}}%
  }
