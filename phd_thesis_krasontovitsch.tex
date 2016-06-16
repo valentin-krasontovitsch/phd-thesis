@@ -31,321 +31,321 @@
 
 %%% PACKAGES
 
-\usepackage[UKenglish]{babel}
-\usepackage{pdfsync}
-\synctex=1
-\usepackage{amssymb}
-\usepackage{amsthm}
-\usepackage{amsmath}
-\usepackage{amstext}
-\usepackage{latexsym}
-\usepackage{graphicx}
-\usepackage{units}
-\usepackage[mathscr]{eucal}
-\usepackage{mathtools}
-\usepackage{float}
-\usepackage[all]{xy}
-\usepackage{pb-diagram,pb-xy}
-\usepackage{MnSymbol}
-\usepackage{array}
-\usepackage{verbatim}
-\dgARROWLENGTH=1.5em
-\usepackage{pstricks}
-\usepackage{paralist}
-\usepackage[a4paper, hmargin=3cm, tmargin=3.2cm, bmargin=3.2cm]{geometry}
-%skip geometry if using koma class!
+  \usepackage[UKenglish]{babel}
+  \usepackage{pdfsync}
+  \synctex=1
+  \usepackage{amssymb}
+  \usepackage{amsthm}
+  \usepackage{amsmath}
+  \usepackage{amstext}
+  \usepackage{latexsym}
+  \usepackage{graphicx}
+  \usepackage{units}
+  \usepackage[mathscr]{eucal}
+  \usepackage{mathtools}
+  \usepackage{float}
+  \usepackage[all]{xy}
+  \usepackage{pb-diagram,pb-xy}
+  \usepackage{MnSymbol}
+  \usepackage{array}
+  \usepackage{verbatim}
+  \dgARROWLENGTH=1.5em
+  \usepackage{pstricks}
+  \usepackage{paralist}
+  \usepackage[a4paper, hmargin=3cm, tmargin=3.2cm, bmargin=3.2cm]{geometry}
+  %skip geometry if using koma class!
 
 %%%FORMATTING
 
-%\newcommand\mnote[1]{\marginpar{\tiny #1}}
-%\setlength{\marginparsep}{0.2cm}
-%\setlength{\marginparwidth}{2.5cm}
-%\setlength{\marginparpush}{0.5cm}
-%\setlength{\itemsep}{0cm}
-%\setlength{\parsep}{.5cm}
-\setlength{\parskip}{\baselineskip}
-\setlength{\parindent}{0pt}
+  %\newcommand\mnote[1]{\marginpar{\tiny #1}}
+  %\setlength{\marginparsep}{0.2cm}
+  %\setlength{\marginparwidth}{2.5cm}
+  %\setlength{\marginparpush}{0.5cm}
+  %\setlength{\itemsep}{0cm}
+  %\setlength{\parsep}{.5cm}
+  \setlength{\parskip}{\baselineskip}
+  \setlength{\parindent}{0pt}
 
-\numberwithin{equation}{section}
-\setcounter{secnumdepth}{1}
-\setcounter{tocdepth}{1}
+  \numberwithin{equation}{section}
+  \setcounter{secnumdepth}{1}
+  \setcounter{tocdepth}{1}
 
 
 %%%THEOREM STYLES
 
-\theoremstyle{plain}
-\newtheorem{thm}[equation]{Theorem}
-\newtheorem{lem}[equation]{Lemma}
-\newtheorem{prop}[equation]{Proposition}
-\newtheorem{cor}[equation]{Corollary}
+  \theoremstyle{plain}
+  \newtheorem{thm}[equation]{Theorem}
+  \newtheorem{lem}[equation]{Lemma}
+  \newtheorem{prop}[equation]{Proposition}
+  \newtheorem{cor}[equation]{Corollary}
 
-\theoremstyle{definition}
-\newtheorem{defn}[equation]{Definition}
-\newtheorem{quest}[equation]{Question}
-\newtheorem{rem}[equation]{Remark}
-\newtheorem{ex}[equation]{Example}
+  \theoremstyle{definition}
+  \newtheorem{defn}[equation]{Definition}
+  \newtheorem{quest}[equation]{Question}
+  \newtheorem{rem}[equation]{Remark}
+  \newtheorem{ex}[equation]{Example}
 
 %%% math symbols and definitions
 
-\newcommand{\bA}{\mathbb{A}}
-\newcommand{\cA}{\mathcal{A}}
-\newcommand{\bCF}{\mathbb{C}}
-\newcommand{\cC}{\mathcal{C}}
-\newcommand{\bD}{\mathbb{D}}
-\newcommand{\bF}{\mathbb{F}}
-\newcommand{\cF}{\mathcal{F}}
-\newcommand{\rH}{\mathrm{H}}
-\newcommand{\cI}{\mathcal{I}}
-\newcommand{\cJ}{\mathcal{J}}
-\newcommand{\cL}{\mathcal{L}}
-\newcommand{\bL}{\mathbb{L}}
-\newcommand{\cM}{\mathcal{M}}
-\newcommand{\bN}{\mathbb{N}}
-\newcommand{\cN}{\mathcal{N}}
-\newcommand{\bP}{\mathbb{P}}
-\newcommand{\cP}{\mathcal{P}}
-\newcommand{\bQ}{\mathbb{Q}}
-\newcommand{\bR}{\mathbb{R}}
-\newcommand{\bS}{\mathbb{S}}
-\newcommand{\cS}{\mathcal{S}}
-\newcommand{\cV}{\mathcal{V}}
-\newcommand{\bW}{\mathbb{W}}
-\newcommand{\cW}{\mathcal{W}}
-\newcommand{\bZ}{\mathbb{Z}}
+  \newcommand{\bA}{\mathbb{A}}
+  \newcommand{\cA}{\mathcal{A}}
+  \newcommand{\bCF}{\mathbb{C}}
+  \newcommand{\cC}{\mathcal{C}}
+  \newcommand{\bD}{\mathbb{D}}
+  \newcommand{\bF}{\mathbb{F}}
+  \newcommand{\cF}{\mathcal{F}}
+  \newcommand{\rH}{\mathrm{H}}
+  \newcommand{\cI}{\mathcal{I}}
+  \newcommand{\cJ}{\mathcal{J}}
+  \newcommand{\cL}{\mathcal{L}}
+  \newcommand{\bL}{\mathbb{L}}
+  \newcommand{\cM}{\mathcal{M}}
+  \newcommand{\bN}{\mathbb{N}}
+  \newcommand{\cN}{\mathcal{N}}
+  \newcommand{\bP}{\mathbb{P}}
+  \newcommand{\cP}{\mathcal{P}}
+  \newcommand{\bQ}{\mathbb{Q}}
+  \newcommand{\bR}{\mathbb{R}}
+  \newcommand{\bS}{\mathbb{S}}
+  \newcommand{\cS}{\mathcal{S}}
+  \newcommand{\cV}{\mathcal{V}}
+  \newcommand{\bW}{\mathbb{W}}
+  \newcommand{\cW}{\mathcal{W}}
+  \newcommand{\bZ}{\mathbb{Z}}
 
 
-\newcommand{\sT}{\mathbb{T}}		
+  \newcommand{\sT}{\mathbb{T}}		
 
-% \sin ( \abs{ (S^1)^k } ) simplicial torus
+  % \sin ( \abs{ (S^1)^k } ) simplicial torus
 
-% \bR / \bZ geometrical torus:
+  % \bR / \bZ geometrical torus:
 
-\def\empty{}
-\newcommand*{\gT}[1][]{
-	\def\temp{#1}%
-	\ifx\temp\empty
-		\def\mycmd{T}
-	\else
-		%\def\mycmd{\quotient{\bR^{#1}}{\bZ^{#1}}}
-		\def\mycmd{\bR^{#1}/\bZ^{#1}}
-	\fi
-	\mycmd
-}
+  \def\empty{}
+  \newcommand*{\gT}[1][]{
+  	\def\temp{#1}%
+  	\ifx\temp\empty
+  		\def\mycmd{T}
+  	\else
+  		%\def\mycmd{\quotient{\bR^{#1}}{\bZ^{#1}}}
+  		\def\mycmd{\bR^{#1}/\bZ^{#1}}
+  	\fi
+  	\mycmd
+  }
 
-\newcommand{\x}{\times}
-\newcommand{\I}{[0,1]}
-\newcommand{\TOP}{\mathit{Top}}
-\newcommand{\Top}{\mathit{Top}}
-\newcommand{\CGTOP}{\mathrm{CGTOP}}
-\newcommand{\Cat}{\mathit{Cat}}
-\newcommand{\gE}{\mathbf{E}}
+  \newcommand{\x}{\times}
+  \newcommand{\I}{[0,1]}
+  \newcommand{\TOP}{\mathit{Top}}
+  \newcommand{\Top}{\mathit{Top}}
+  \newcommand{\CGTOP}{\mathrm{CGTOP}}
+  \newcommand{\Cat}{\mathit{Cat}}
+  \newcommand{\gE}{\mathbf{E}}
 
-\newcommand{\superindexz}[1]{z^{(#1)}}
+  \newcommand{\superindexz}[1]{z^{(#1)}}
 
-\newcommand{\blank}{{\,-\,}}
-\newcommand{\norm}[1]{\left|\left|#1\right|\right|}	%norm
-\newcommand{\defas}{\coloneqq}  % :=
-\newcommand{\asdef}{\eqqcolon}      % =:
-\newcommand{\abs}[1]{\left\vert#1\right\vert}	%absolute value
-\newcommand{\with}{\mid}  % for set definitions {x \with ...}
-%\newcommand{\ind}[1]{\{1,\ldots,#1\}}
-\newcommand{\ind}[1]{\underline{#1}}
-\newcommand{\indset}[1]{\{1,\ldots,#1\}}
-\renewcommand{\k}{\ind{k}}
-\newcommand{\n}{\ind{n}}
-\newcommand{\onto}{\twoheadrightarrow}
-\renewcommand{\subset}{\subseteq}
-\newcommand{\SHC}{\mathcal{SHC}}
-\newcommand{\sk}{\mathrm{sk}}
-\newcommand{\ob}{\mathrm{ob}}
-\newcommand{\tr}{\mathrm{tr}}
-\newcommand{\sgn}{\operatorname{sgn}}
-\newcommand{\pr}{\operatorname{pr}}
-\newcommand{\id}{\operatorname{id}}
-\newcommand{\diff}{\operatorname{d}}
-\newcommand{\bez}{\mathrm{bez}}
-\renewcommand{\gcd}{\mathrm{gcd}}
-\newcommand{\lcm}{\mathrm{lcm}}
-%\newcommand{\det}{\mathrm{det}}
-\newcommand{\Hom}{\operatorname{Hom}}
-\renewcommand{\hom}{\operatorname{hom}}
-\newcommand{\Ho}{\operatorname{Ho}}
-\newcommand{\im}{\operatorname{im}}
-\newcommand{\M}{\mathrm{M}}
-\newcommand{\Gl}{\operatorname{Gl}}
-\newcommand{\Id}{\mathrm{Id}}
-\newcommand{\diag}{\mathrm{diag}}
-\newcommand{\comm}[1]{\colorbox{yellow}{#1}}
-\renewcommand{\H}{\mathrm{H}}
-\newcommand{\Sp}{\mathrm{Sp}^O}	%whatever our model of spectra is!
+  \newcommand{\blank}{{\,-\,}}
+  \newcommand{\norm}[1]{\left|\left|#1\right|\right|}	%norm
+  \newcommand{\defas}{\coloneqq}  % :=
+  \newcommand{\asdef}{\eqqcolon}      % =:
+  \newcommand{\abs}[1]{\left\vert#1\right\vert}	%absolute value
+  \newcommand{\with}{\mid}  % for set definitions {x \with ...}
+  %\newcommand{\ind}[1]{\{1,\ldots,#1\}}
+  \newcommand{\ind}[1]{\underline{#1}}
+  \newcommand{\indset}[1]{\{1,\ldots,#1\}}
+  \renewcommand{\k}{\ind{k}}
+  \newcommand{\n}{\ind{n}}
+  \newcommand{\onto}{\twoheadrightarrow}
+  \renewcommand{\subset}{\subseteq}
+  \newcommand{\SHC}{\mathcal{SHC}}
+  \newcommand{\sk}{\mathrm{sk}}
+  \newcommand{\ob}{\mathrm{ob}}
+  \newcommand{\tr}{\mathrm{tr}}
+  \newcommand{\sgn}{\operatorname{sgn}}
+  \newcommand{\pr}{\operatorname{pr}}
+  \newcommand{\id}{\operatorname{id}}
+  \newcommand{\diff}{\operatorname{d}}
+  \newcommand{\bez}{\mathrm{bez}}
+  \renewcommand{\gcd}{\mathrm{gcd}}
+  \newcommand{\lcm}{\mathrm{lcm}}
+  %\newcommand{\det}{\mathrm{det}}
+  \newcommand{\Hom}{\operatorname{Hom}}
+  \renewcommand{\hom}{\operatorname{hom}}
+  \newcommand{\Ho}{\operatorname{Ho}}
+  \newcommand{\im}{\operatorname{im}}
+  \newcommand{\M}{\mathrm{M}}
+  \newcommand{\Gl}{\operatorname{Gl}}
+  \newcommand{\Id}{\mathrm{Id}}
+  \newcommand{\diag}{\mathrm{diag}}
+  \newcommand{\comm}[1]{\colorbox{yellow}{#1}}
+  \renewcommand{\H}{\mathrm{H}}
+  \newcommand{\Sp}{\mathrm{Sp}^O}	%whatever our model of spectra is!
 
-\newcommand{\cndga}{\mathrm{c}n\mathrm{DGA}}
-\newcommand{\calg}{\mathrm{cALG}}
-\newcommand{\alg}{\mathrm{ALG}}
-\newcommand{\const}{\mathrm{const}}
+  \newcommand{\cndga}{\mathrm{c}n\mathrm{DGA}}
+  \newcommand{\calg}{\mathrm{cALG}}
+  \newcommand{\alg}{\mathrm{ALG}}
+  \newcommand{\const}{\mathrm{const}}
 
-% macro for higher de rham complex, input dim n, ring R, level k
-\newcommand{\omg}[3]{\Omega_{#1,#2}^{#3}}
+  % macro for higher de rham complex, input dim n, ring R, level k
+  \newcommand{\omg}[3]{\Omega_{#1,#2}^{#3}}
 
-%short macro for omega n A *
-\newcommand{\omgn}{\Omega_{A,n}}
+  %short macro for omega n A *
+  \newcommand{\omgn}{\Omega_{A,n}}
 
-\newcommand{\dprime}{{\prime\prime}}
-\newcommand{\tprime}{{\prime\prime\prime}}
-%\newcommand{\deg}{\mathrm{deg}}
+  \newcommand{\dprime}{{\prime\prime}}
+  \newcommand{\tprime}{{\prime\prime\prime}}
+  %\newcommand{\deg}{\mathrm{deg}}
 
-\newcommand{\oldto}{\to}
-\renewcommand{\to}{\myrightarrow}
-\newcommand{\ot}{\myleftarrow}
-\newcommand{\oldmapsto}{\mapsto}
-\renewcommand{\mapsto}{\longmapsto}
-\newcommand{\del}{\operatorname{\partial}}
-\newcommand{\sS}{\mathrm{sSet}}
-\newcommand{\Set}{\mathrm{Set}}
-\DeclareMathOperator*{\colim}{colim}
-\DeclareMathOperator*{\hocolim}{hocolim}
-\renewcommand{\d}{\operatorname{d}}
+  \newlength{\factorForArrowLength}
+  \settowidth{\factorForArrowLength}{\scriptsize$200000$}
 
-
-\newcommand{\operator}[1]{\mathop{\vphantom{\sum}\mathchoice
-{\vcenter{\hbox{\Large $#1$}}}
-{\vcenter{\hbox{\large $#1$}}}{#1}{#1}}\displaylimits}
-
-\newcommand{\loday}{\operator{\Lambda}}
-%\DeclareMathOperator*{\loday}{\Lambda}
-%\newcommand{\loday}{\mathop{\vphantom{\sum}\mathchoice
-%  {\vcenter{\hbox{\huge \Lambda}}}
-%  {\vcenter{\hbox{\Large \Lambda}}}{\Lambda}{\Lambda}}\displaylimits}
-%\DeclareMathOperator*{\loday}{\vs\Large \Lambda}
-
-%\newcommand{\cupdot}{\mathbin{\mathaccent\cdot\cup}}
-%\newcommand{\Hom}{\operatorname{Hom}}
-%\newcommand{\Ho}{\operatorname{Ho}}
-%\newcommand{\Supp}{\operatorname{supp}}
-% adding space on the inside of curly brackets used for sets
-%\DeclareRobustCommand{\{}{\ifmmode\lbrace\,\else\textbraceleft\fi}
-%\DeclareRobustCommand{\}}{\ifmmode\rbracespace\else\textbraceright\fi}
-%\newcommand*{\rbracespace}{\,\rbrace}
-
-\newcommand{\adj}[1][]{\def\ArgI{#1}\adjRelayI}
-\newcommand{\adjRelayI}[1][]{\def\ArgII{#1}\adjRelayII}
-\newcommand{\adjRelayII}[3][2.2em]{\ensuremath{\SelectTips{cm}{10}\xymatrix@C=#1@1{{#2}\, \ar@<.5ex>[r]^-{\ArgI}^-{}="1" & \;\,{#3} \ar@<.5ex>[l]^-{\ArgII}^-{}="2"}}}
+  % \newcommand{\oldto}{\to}
+  % \renewcommand{\to}{\xrightarrow{\makebox[\trollo]{}}}
+  \renewcommand{\to}{\xrightarrow{\makebox[.41\factorForArrowLength]{}}}
+  \newcommand{\ot}{\xleftarrow{\makebox[.41\factorForArrowLength]{}}}
+  \newcommand{\oldmapsto}{\mapsto}
+  \renewcommand{\mapsto}{\longmapsto}
+  \newcommand{\del}{\operatorname{\partial}}
+  \newcommand{\sS}{\mathrm{sSet}}
+  \newcommand{\Set}{\mathrm{Set}}
+  \DeclareMathOperator*{\colim}{colim}
+  \DeclareMathOperator*{\hocolim}{hocolim}
+  \renewcommand{\d}{\operatorname{d}}
 
 
-\newcommand{\inmatrixtwo}[4]{\left( \begin{smallmatrix} #1 & #2 \\ #3 & #4 \end{smallmatrix} \right)}
+  \newcommand{\operator}[1]{\mathop{\vphantom{\sum}\mathchoice
+  {\vcenter{\hbox{\Large $#1$}}}
+  {\vcenter{\hbox{\large $#1$}}}{#1}{#1}}\displaylimits}
 
-\newcommand{\twopartdef}[4]
-{
-	\left\{
-		\begin{array}{ll}
-			#1 & #2 \\
-			#3 & #4
-		\end{array}
-	\right.
-}
+  \newcommand{\loday}{\operator{\Lambda}}
+  %\DeclareMathOperator*{\loday}{\Lambda}
+  %\newcommand{\loday}{\mathop{\vphantom{\sum}\mathchoice
+  %  {\vcenter{\hbox{\huge \Lambda}}}
+  %  {\vcenter{\hbox{\Large \Lambda}}}{\Lambda}{\Lambda}}\displaylimits}
+  %\DeclareMathOperator*{\loday}{\vs\Large \Lambda}
 
-\newcommand\quotient[2]{
-	\mathchoice
-		{% \displaystyle
-			\text{\raise1ex\hbox{$#1$}\Big/\lower1ex\hbox{$#2$}}%
-		}
-		{% \textstyle
-			#1\,/\,#2
-		}
-		{% \scriptstyle
-			#1\,/\,#2
-		}
-		{% \scriptscriptstyle
-			#1\,/\,#2
-		}
-}
+  %\newcommand{\cupdot}{\mathbin{\mathaccent\cdot\cup}}
+  %\newcommand{\Hom}{\operatorname{Hom}}
+  %\newcommand{\Ho}{\operatorname{Ho}}
+  %\newcommand{\Supp}{\operatorname{supp}}
+  % adding space on the inside of curly brackets used for sets
+  %\DeclareRobustCommand{\{}{\ifmmode\lbrace\,\else\textbraceleft\fi}
+  %\DeclareRobustCommand{\}}{\ifmmode\rbracespace\else\textbraceright\fi}
+  %\newcommand*{\rbracespace}{\,\rbrace}
+
+  \newcommand{\adj}[1][]{\def\ArgI{#1}\adjRelayI}
+  \newcommand{\adjRelayI}[1][]{\def\ArgII{#1}\adjRelayII}
+  \newcommand{\adjRelayII}[3][2.2em]{\ensuremath{\SelectTips{cm}{10}\xymatrix@C=#1@1{{#2}\, \ar@<.5ex>[r]^-{\ArgI}^-{}="1" & \;\,{#3} \ar@<.5ex>[l]^-{\ArgII}^-{}="2"}}}
 
 
-\newcommand{\bigmod}[2]{{\left.\raisebox{.2em}{$#1$}\middle/\raisebox{-.2em}{$#2$}\right.}}
+  \newcommand{\inmatrixtwo}[4]{\left( \begin{smallmatrix} #1 & #2 \\ #3 & #4 \end{smallmatrix} \right)}
 
-\newcommand*{\Cdot}{%}[1][1.25]{%
-  {\mathpalette{\CdotAux{1.25}}\cdot}%
-}
-%
-\newcommand{\myrightrightarrows}{\substack{\longrightarrow\\[-1em] \longrightarrow}
-}
-%
-%\newcommand*{\myrightarrow}[2]{\xrightarrow{\mathmakebox[\trollo]{#1}}}
-%
-\newcommand*{\crightarrow}[2]{%
-	\xrightarrow{\mathmakebox[#1\trollo]{#2}}
-}
-%
-\newcommand*{\myrightarrow}[2][]{%
-  \def\temp{#1}%
-  \ifx\temp\empty
-   \def\mycmd{\xrightarrow}%
-  \else
-   \def\mycmd{\xrightarrow[{\mathmakebox[\trollo]{#1}}]}%
-  \fi
-  \mycmd{\mathmakebox[\trollo]{#2}}%
- }
-%
-\newcommand*{\myleftarrow}[2][]{%
-  \def\temp{#1}%
-  \ifx\temp\empty
-   \def\mycmd{\xleftarrow}%
-  \else
-   \def\mycmd{\xleftarrow[{\mathmakebox[\trollo]{#1}}]}%
-  \fi
-  \mycmd{\mathmakebox[\trollo]{#2}}%
- }
-%
-\newdimen\CdotAxis
-\newcommand*{\CdotAux}[3]{%
-  {%
-    \settoheight\CdotAxis{$#2\vcenter{}$}%
-    \sbox0{%
-      \raisebox\CdotAxis{%
-        \scalebox{#1}{%
-          \raisebox{-\CdotAxis}{%
-            $\mathsurround=0pt #2#3$%
+  \newcommand{\twopartdef}[4]
+  {
+  	\left\{
+  		\begin{array}{ll}
+  			#1 & #2 \\
+  			#3 & #4
+  		\end{array}
+  	\right.
+  }
+
+  \newcommand\quotient[2]{
+  	\mathchoice
+  		{% \displaystyle
+  			\text{\raise1ex\hbox{$#1$}\Big/\lower1ex\hbox{$#2$}}%
+  		}
+  		{% \textstyle
+  			#1\,/\,#2
+  		}
+  		{% \scriptstyle
+  			#1\,/\,#2
+  		}
+  		{% \scriptscriptstyle
+  			#1\,/\,#2
+  		}
+  }
+
+  \newcommand{\bigmod}[2]{{\left.\raisebox{.2em}{$#1$}\middle/\raisebox{-.2em}{$#2$}\right.}}
+
+  \newcommand*{\Cdot}{%}[1][1.25]{%
+    {\mathpalette{\CdotAux{1.25}}\cdot}%
+  }
+  \newdimen\CdotAxis
+  \newcommand*{\CdotAux}[3]{%
+    {%
+      \settoheight\CdotAxis{$#2\vcenter{}$}%
+      \sbox0{%
+        \raisebox\CdotAxis{%
+          \scalebox{#1}{%
+            \raisebox{-\CdotAxis}{%
+              $\mathsurround=0pt #2#3$%
+            }%
           }%
         }%
       }%
+      % Remove depth that arises from scaling.
+      \dp0=0pt %
+      % Decrease scaled height.
+      \sbox2{$#2\bullet$}%
+      \ifdim\ht2<\ht0 %
+        \ht0=\ht2 %
+      \fi
+      % Use the same width as the original \cdot.
+      \sbox2{$\mathsurround=0pt #2#3$}%
+      \hbox to \wd2{\hss\usebox{0}\hss}%
     }%
-    % Remove depth that arises from scaling.
-    \dp0=0pt %
-    % Decrease scaled height.
-    \sbox2{$#2\bullet$}%
-    \ifdim\ht2<\ht0 %
-      \ht0=\ht2 %
-    \fi
-    % Use the same width as the original \cdot.
-    \sbox2{$\mathsurround=0pt #2#3$}%
-    \hbox to \wd2{\hss\usebox{0}\hss}%
-  }%
-}
+  }
+  %\renewcommand*{\Cdot}{\raisebox{-0.25ex}{\scalebox{1.2}{$\cdot$}}}
 
-%\renewcommand*{\Cdot}{\raisebox{-0.25ex}{\scalebox{1.2}{$\cdot$}}}
+  %
+  \newcommand{\myrightrightarrows}{\substack{\longrightarrow\\[-1em] \longrightarrow}}
+  %\newcommand*{\myrightarrow}[2]{\xrightarrow{\mathmakebox[\trollo]{#1}}}
+  \newcommand*{\crightarrow}[2]{%
+  	\xrightarrow{\mathmakebox[#1\trollo]{#2}}
+  }
+  %
+  \newcommand*{\myrightarrow}[2][]{%
+    \def\temp{#1}%
+    \ifx\temp\empty
+     \def\mycmd{\xrightarrow}%
+    \else
+     \def\mycmd{\xrightarrow[{\mathmakebox[\trollo]{#1}}]}%
+    \fi
+    \mycmd{\mathmakebox[\trollo]{#2}}%
+   }
+  %
+  \newcommand*{\myleftarrow}[2][]{%
+    \def\temp{#1}%
+    \ifx\temp\empty
+     \def\mycmd{\xleftarrow}%
+    \else
+     \def\mycmd{\xleftarrow[{\mathmakebox[\trollo]{#1}}]}%
+    \fi
+    \mycmd{\mathmakebox[\trollo]{#2}}%
+   }
+  %
 
 %%% FACTORS
 
-\newlength{\trollo}
-\settowidth{\trollo}{\scriptsize$200000$}
-\newcommand{\pokescale}{0.09}
+  \newlength{\trollo}
+  \settowidth{\trollo}{\scriptsize$200000$}
+  \newcommand{\pokescale}{0.09}
 
 %%% TEXT MACROS
 
-\newcommand{\hring}{connective commutative ring spectrum}
+  \newcommand{\hring}{connective commutative ring spectrum}
 
 \begin{document}
 
-\input{abstract}
-\input{intro}
-\input{loday}
-% \input{structure}
-% \input{relations}
-% \input{derhamwittvectors}
-% \input{higherderhamwittcomplex}
-% \input{calculations}
+  \input{abstract}
+  \input{intro}
+  \input{loday}
+  \input{structure}
+  \input{relations}
+  \input{derhamwittvectors}
+  \input{higherderhamwittcomplex}
+  \input{calculations}
 
-\bibliographystyle{alpha}
-\bibliography{biblio}
+  \bibliographystyle{alpha}
+  \bibliography{biblio}
 
 \end{document}
