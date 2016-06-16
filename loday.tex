@@ -7,7 +7,7 @@
   \subsection{Spans of finite sets}
 
   \begin{defn}\label{def_cateogry_of_spans}
-    The category of spans $V$ has as objects the class of finite sets, while the morphism set $V(Y,X)$ for two finite sets $X,Y$ is given by the set of equivalence classes of diagrams of the form $Y \ot A \to X$, called spans. Two such diagrams $Y \ot A \to X$, $Y \ot A^\prime \to X$ are said to be equivalent if there is a bijection $A \to A^\prime$ making the resulting triangles commutative. Composition of two maps represented by $[Y \ot A \to X]$ and $[X \ot B \to W]$ is given by taking the pullback of \comm{[complete this...]}
+    The category of spans $V$ has as objects the class of finite sets, while the morphism set $V(Y,X)$ for two finite sets $X,Y$ is given by the set of equivalence classes of diagrams of the form $Y \ot A \to X$, called spans. Two such diagrams $Y \ot A \to X$, $Y \ot A^\prime \to X$ are said to be equivalent if there is a bijection $A \to A^\prime$ making the resulting triangles commutative. To compose two maps represented by $[Y \ot A \to X]$ and $[X \ot B \to W]$, we take the pullback $A \ot C \to B$ of $A \to X \ot B$ and compose with the maps $A \to Y$, $B \to W$ to obtain $[Y \ot C \to W]$.
     % Since we take equivalence classes of morphisms, this is well-defined, and it is straight-forward to check that this forms a category.
   \end{defn}
 
@@ -19,8 +19,20 @@
   \end{lem}
 
   \begin{defn}\label{defn_group_acting_on_object_in_V_morphism_phi}
-    Given a finite set $X$ with a left action of a group $G$, we define the action on $X$ through automorphisms in $V$ by mapping $g \mapsto [X \myleftarrow{\id_X} X \myrightarrow{g} X]$.
+    Given a finite set $X$ with a left action of a group $G$, we define the action on $X$ through automorphisms in $V$ by mapping $g \mapsto [X \myleftarrow{\id_X} X \myrightarrow{g} X]$, which can easily be seen to be a left action. Thus $G$ also acts (from the left) on $V(Y,X)$ for any finite set $Y$, by functoriality. We define a function
+    \begin{gather*}
+      \phi: V(Y,X/G) \to V(Y,X)^G \\
+      [Y \ot A \to X/G] \mapsto [Y \ot A \x_{X/G} X \to X].
+    \end{gather*}
+    This function is bijective.
   \end{defn}
+
+  % \begin{prop}\label{prop_phi_V(Y,X/G)_to_V(Y,X)^G_is_bijective}
+  %   The function $\phi$ defined above is bijective.
+  %   \begin{proof}
+  %
+  %   \end{proof}
+  % \end{prop}
 
   \begin{defn}\label{def_bicategory}
     A bicategory $\mathcal{C}$ consists of the following data:
