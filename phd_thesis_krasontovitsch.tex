@@ -198,9 +198,10 @@
   \settowidth{\factorForArrowLength}{\scriptsize$200000$}
 
   % \newcommand{\oldto}{\to}
-  % \renewcommand{\to}{\xrightarrow{\makebox[\trollo]{}}}
-  \renewcommand{\to}{\xrightarrow{\makebox[.41\factorForArrowLength]{}}}
-  \newcommand{\ot}{\xleftarrow{\makebox[.41\factorForArrowLength]{}}}
+  \renewcommand{\to}{\longrightarrow}
+  \newcommand{\ot}{\longleftarrow}
+  % \renewcommand{\to}[1][]{\xrightarrow{\makebox[.41\factorForArrowLength]{$#1$}}}
+  % \newcommand{\ot}[1][]{\xleftarrow{\makebox[.41\factorForArrowLength]{#1}}}
   \newcommand{\oldmapsto}{\mapsto}
   \renewcommand{\mapsto}{\longmapsto}
   \newcommand{\del}{\operatorname{\partial}}
