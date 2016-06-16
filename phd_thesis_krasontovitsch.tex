@@ -29,10 +29,11 @@
 \title{The de Rham-Burnside-Witt complex}
 \author{Valentin Krasontovitsch}
 
-\usepackage[UKenglish]{babel}
+%%% PACKAGES
 
-%\usepackage{mathrsfs}
-%\usepackage{color}
+\usepackage[UKenglish]{babel}
+\usepackage{pdfsync}
+\synctex=1
 \usepackage{amssymb}
 \usepackage{amsthm}
 \usepackage{amsmath}
@@ -44,24 +45,17 @@
 \usepackage{mathtools}
 \usepackage{float}
 \usepackage[all]{xy}
-%\SelectTips{cm}{10}
 \usepackage{pb-diagram,pb-xy}
 \usepackage{MnSymbol}
 \usepackage{array}
 \usepackage{verbatim}
-
 \dgARROWLENGTH=1.5em
-
 \usepackage{pstricks}
 \usepackage{paralist}
-
-%%%%%%%%%%%%%%%
-
-
-%formatting
-%%%%%%%%%%%
-%skip geometry if using koma class!
 \usepackage[a4paper, hmargin=3cm, tmargin=3.2cm, bmargin=3.2cm]{geometry}
+%skip geometry if using koma class!
+
+%%%FORMATTING
 
 %\newcommand\mnote[1]{\marginpar{\tiny #1}}
 %\setlength{\marginparsep}{0.2cm}
@@ -76,13 +70,25 @@
 \setcounter{secnumdepth}{1}
 \setcounter{tocdepth}{1}
 
-%%%%%%%%%%%
 
+%%%THEOREM STYLES
 
-% math symbols and definitions
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\theoremstyle{plain}
+\newtheorem{thm}[equation]{Theorem}
+\newtheorem{lem}[equation]{Lemma}
+\newtheorem{prop}[equation]{Proposition}
+\newtheorem{cor}[equation]{Corollary}
+
+\theoremstyle{definition}
+\newtheorem{defn}[equation]{Definition}
+\newtheorem{quest}[equation]{Question}
+\newtheorem{rem}[equation]{Remark}
+\newtheorem{ex}[equation]{Example}
+
+%%% math symbols and definitions
 
 \newcommand{\bA}{\mathbb{A}}
+\newcommand{\cA}{\mathcal{A}}
 \newcommand{\bCF}{\mathbb{C}}
 \newcommand{\cC}{\mathcal{C}}
 \newcommand{\bD}{\mathbb{D}}
@@ -91,6 +97,7 @@
 \newcommand{\rH}{\mathrm{H}}
 \newcommand{\cI}{\mathcal{I}}
 \newcommand{\cJ}{\mathcal{J}}
+\newcommand{\cL}{\mathcal{L}}
 \newcommand{\bL}{\mathbb{L}}
 \newcommand{\cM}{\mathcal{M}}
 \newcommand{\bN}{\mathbb{N}}
@@ -106,11 +113,12 @@
 \newcommand{\cW}{\mathcal{W}}
 \newcommand{\bZ}{\mathbb{Z}}
 
-%\renewcommand{\sin}{\mathrm{sin}}
 
-\newcommand{\sT}{\mathbb{T}}		% \sin ( \abs{ (S^1)^k } ) simplicial torus
+\newcommand{\sT}{\mathbb{T}}		
 
-%%%% \bR / \bZ geometrical torus:
+% \sin ( \abs{ (S^1)^k } ) simplicial torus
+
+% \bR / \bZ geometrical torus:
 
 \def\empty{}
 \newcommand*{\gT}[1][]{
@@ -124,7 +132,6 @@
 	\mycmd
 }
 
-
 \newcommand{\x}{\times}
 \newcommand{\I}{[0,1]}
 \newcommand{\TOP}{\mathit{Top}}
@@ -133,10 +140,7 @@
 \newcommand{\Cat}{\mathit{Cat}}
 \newcommand{\gE}{\mathbf{E}}
 
-\newcommand{\mz}[1]{z^{(#1)}}
-
-\newcommand{\cA}{\mathcal{A}}
-\newcommand{\cL}{\mathcal{L}}
+\newcommand{\superindexz}[1]{z^{(#1)}}
 
 \newcommand{\blank}{{\,-\,}}
 \newcommand{\norm}[1]{\left|\left|#1\right|\right|}	%norm
@@ -178,8 +182,8 @@
 \newcommand{\cndga}{\mathrm{c}n\mathrm{DGA}}
 \newcommand{\calg}{\mathrm{cALG}}
 \newcommand{\alg}{\mathrm{ALG}}
+\newcommand{\const}{\mathrm{const}}
 
-\newcommand{\inmatrixtwo}[4]{\left( \begin{smallmatrix} #1 & #2 \\ #3 & #4 \end{smallmatrix} \right)}
 % macro for higher de rham complex, input dim n, ring R, level k
 \newcommand{\omg}[3]{\Omega_{#1,#2}^{#3}}
 
@@ -190,24 +194,6 @@
 \newcommand{\tprime}{{\prime\prime\prime}}
 %\newcommand{\deg}{\mathrm{deg}}
 
-%\newcommand{\Hom}{\operatorname{Hom}}
-%\newcommand{\Ho}{\operatorname{Ho}}
-%\newcommand{\Supp}{\operatorname{supp}}
-
-
-\theoremstyle{plain}
-\newtheorem{thm}[equation]{Theorem}
-\newtheorem{lem}[equation]{Lemma}
-\newtheorem{prop}[equation]{Proposition}
-\newtheorem{cor}[equation]{Corollary}
-
-\theoremstyle{definition}
-\newtheorem{defn}[equation]{Definition}
-\newtheorem{quest}[equation]{Question}
-\newtheorem{rem}[equation]{Remark}
-\newtheorem{ex}[equation]{Example}
-
-%\newcommand{\cupdot}{\mathbin{\mathaccent\cdot\cup}}
 \newcommand{\oldto}{\to}
 \renewcommand{\to}{\myrightarrow}
 \newcommand{\ot}{\myleftarrow}
@@ -220,35 +206,33 @@
 \DeclareMathOperator*{\hocolim}{hocolim}
 \renewcommand{\d}{\operatorname{d}}
 
-%\DeclareMathOperator*{\loday}{\Lambda}
-%\newcommand{\loday}{\mathop{\vphantom{\sum}\mathchoice
-%  {\vcenter{\hbox{\huge \Lambda}}}
-%  {\vcenter{\hbox{\Large \Lambda}}}{\Lambda}{\Lambda}}\displaylimits}
 
 \newcommand{\operator}[1]{\mathop{\vphantom{\sum}\mathchoice
 {\vcenter{\hbox{\Large $#1$}}}
 {\vcenter{\hbox{\large $#1$}}}{#1}{#1}}\displaylimits}
 
 \newcommand{\loday}{\operator{\Lambda}}
-\newcommand{\hring}{connective commutative ring spectrum}
-
+%\DeclareMathOperator*{\loday}{\Lambda}
+%\newcommand{\loday}{\mathop{\vphantom{\sum}\mathchoice
+%  {\vcenter{\hbox{\huge \Lambda}}}
+%  {\vcenter{\hbox{\Large \Lambda}}}{\Lambda}{\Lambda}}\displaylimits}
 %\DeclareMathOperator*{\loday}{\vs\Large \Lambda}
-\newcommand{\const}{\mathrm{const}}
 
-%%%% adding space on the inside of curly brackets used for sets
-%
+%\newcommand{\cupdot}{\mathbin{\mathaccent\cdot\cup}}
+%\newcommand{\Hom}{\operatorname{Hom}}
+%\newcommand{\Ho}{\operatorname{Ho}}
+%\newcommand{\Supp}{\operatorname{supp}}
+% adding space on the inside of curly brackets used for sets
 %\DeclareRobustCommand{\{}{\ifmmode\lbrace\,\else\textbraceleft\fi}
 %\DeclareRobustCommand{\}}{\ifmmode\rbracespace\else\textbraceright\fi}
 %\newcommand*{\rbracespace}{\,\rbrace}
-%
-%\makeatletter
-%\let\saved@right\right
-%\renewcommand*{\right}{%
-%  \@ifnextchar\}{\,\saved@right\rbrace\@gobble}{\saved@right}%
-%}
-%\makeatletter
-%
-%%%%
+
+\newcommand{\adj}[1][]{\def\ArgI{#1}\adjRelayI}
+\newcommand{\adjRelayI}[1][]{\def\ArgII{#1}\adjRelayII}
+\newcommand{\adjRelayII}[3][2.2em]{\ensuremath{\SelectTips{cm}{10}\xymatrix@C=#1@1{{#2}\, \ar@<.5ex>[r]^-{\ArgI}^-{}="1" & \;\,{#3} \ar@<.5ex>[l]^-{\ArgII}^-{}="2"}}}
+
+
+\newcommand{\inmatrixtwo}[4]{\left( \begin{smallmatrix} #1 & #2 \\ #3 & #4 \end{smallmatrix} \right)}
 
 \newcommand{\twopartdef}[4]
 {
@@ -340,18 +324,16 @@
 
 %\renewcommand*{\Cdot}{\raisebox{-0.25ex}{\scalebox{1.2}{$\cdot$}}}
 
+%%% FACTORS
+
 \newlength{\trollo}
 \settowidth{\trollo}{\scriptsize$200000$}
-
-
 \newcommand{\pokescale}{0.09}
 
-\newcommand{\adj}[1][]{\def\ArgI{#1}\adjRelayI}
-\newcommand{\adjRelayI}[1][]{\def\ArgII{#1}\adjRelayII}
-\newcommand{\adjRelayII}[3][2.2em]{\ensuremath{\SelectTips{cm}{10}\xymatrix@C=#1@1{{#2}\, \ar@<.5ex>[r]^-{\ArgI}^-{}="1" & \;\,{#3} \ar@<.5ex>[l]^-{\ArgII}^-{}="2"}}}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-%
+%%% TEXT MACROS
+
+\newcommand{\hring}{connective commutative ring spectrum}
+
 \begin{document}
 
 \input{abstract}
