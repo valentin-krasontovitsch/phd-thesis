@@ -1,6 +1,7 @@
 ## Custom stuff
 *.kate*
 *.sublime-workspace
+*.pdf
 
 ## Core latex/pdflatex auxiliary files:
 *.aux

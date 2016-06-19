@@ -35,7 +35,14 @@
   % \end{prop}
 
   \begin{defn}\label{def_bicategory}
-    A bicategory $\mathcal{C}$ consists of the following data:
+    A bicategory $\cC$ consists of the following data:
+    \begin{itemize}
+      \item A class of objects $\ob\cC$, called 0-cells;
+      \item For any two objects $c, d \in \ob\cC$ a category $\cC(c,d)$;
+      \item For any object $c \in \ob\cC$ a distinguished $1_c \in \cC(c,c)$;
+      \item For any three objects $c,d,e \in \ob\cC$ a functor $\cC(d,e) \times \cC(c,d) \to \cC(c,e)$;
+    \end{itemize}
+    The elements of $\ob\cC$ are also called 0-cells, while the objects of $\cC(c,d)$ are 1-arrows or 1-cells and the morphisms between two 1-cells are called 2-cells or 2-arrows.
   \end{defn}
 
   \begin{ex}\label{ex_bicategory_of_categories}
