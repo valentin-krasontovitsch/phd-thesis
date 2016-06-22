@@ -37,13 +37,67 @@
   \begin{defn}\label{def_bicategory}
     A bicategory $\cC$ consists of the following data:
     \begin{itemize}
-      \item A class of objects $\ob\cC$, called 0-cells;
-      \item For any two objects $c, d \in \ob\cC$ a category $\cC(c,d)$;
-      \item For any object $c \in \ob\cC$ a distinguished $1_c \in \cC(c,c)$;
-      \item For any three objects $c,d,e \in \ob\cC$ a functor $\cC(d,e) \times \cC(c,d) \to \cC(c,e)$;
+      \item A class of objects, or 0-cells, of $\cC$, denoted $\cC_0$;
+      \item For any two objects $c, d \in \cC_0$ a category $\cC(c,d)$ whose objects $c \myrightarrow{f} d$ are called 1-morphisms, or 1-cells of $\cC$, and whose morphisms
+      \begin{displaymath}
+        \begin{xy}
+          \xymatrix{
+            c 
+              \ar@/_1pc/[r]_{g}^{}="g" 
+              \ar@/^1pc/[r]^{f}_{}="f" 
+            &
+            d
+            \ar@{=>} "f";"g" ^{\alpha}    
+          }
+        \end{xy}
+      \end{displaymath}
+      are called 2-morphisms, or 2-cells of $\cC$.
+      \item For any three objects $c,d,e \in \cC_0$ a functor $\cC(d,e) \times \cC(c,d) \to \cC(c,e)$, called composition, and written as
+      \begin{gather*}
+        (g,f) \mapsto g \circ f \asdef gf,\\
+        (\beta,\alpha) \mapsto \beta \ast \alpha,
+      \end{gather*}
+      where $f,g$ are one-morphisms and $\alpha,\beta$ are two-morphisms, or in diagram form:
+      \begin{gather*}
+        \xymatrix{
+          c% 
+            \ar@/_1pc/[r]_{f^\prime}^{}="fprime" 
+            \ar@/^1pc/[r]^{f}_{}="f" 
+              \ar@{=>} "f";"fprime" ^{\alpha}
+          &
+          d% 
+            \ar@/^1pc/[r]^{g}_{}="g" 
+            \ar@/_1pc/[r]_{g^\prime}^{}="gprime"
+              \ar@{=>} "g";"gprime" ^{\beta}
+          &
+          e%
+            \ar@{|->}[r]
+          &
+          c%
+            \ar@/^1pc/[rr]^{g \circ f}_{}="gf" 
+            \ar@/_1pc/[rr]_{g^\prime \circ f^\prime}^{}="gfprime"
+              \ar@{=>} "gf";"gfprime" ^{\beta \ast \alpha}
+          &&
+          e% 
+        }
+      \end{gather*}
+      \item For each object $c \in \cC_0$ a $1_c \in \cC(c,c)$, the identity 1-morphism on $c$;
+      \item For each triple $\myrightarrow{f}\myrightarrow{g}\myrightarrow{h}$ of 1-morphisms an isomorphism%
+      \begin{displaymath}
+        \begin{xy}
+          \xymatrix{
+            \ar@/_1.5pc/[rr]_{(hg)f}^{}="g" \ar@/^1.5pc/[rr]^{h(gf)}_{}="f" &&
+            \ar@{=>} "f";"g" ^{\alpha_{h,g,f}}
+          }
+        \end{xy}
+      \end{displaymath}
     \end{itemize}
-    The elements of $\ob\cC$ are also called 0-cells, while the objects of $\cC(c,d)$ are 1-arrows or 1-cells and the morphisms between two 1-cells are called 2-cells or 2-arrows.
+    The elements of $\cC_0$ are also called 0-cells, while the objects of $\cC(c,d)$ are 1-arrows or 1-cells and the morphisms between two 1-cells are called 2-cells or 2-arrows.
   \end{defn}
+
+  \begin{rem}
+    Drawing out the diagrams for the axioms one may notice two different compositions of 2-morphisms, the first being internal to a category $\cC(c,d)$ which we will call vertical composition, the second being due to the functor called composition, which we will call horizontal composition.
+  \end{rem}
 
   \begin{ex}\label{ex_bicategory_of_categories}
     The strict bicategory of small categories
