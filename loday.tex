@@ -57,7 +57,7 @@
         (g,f) \mapsto g \circ f \asdef gf,\\
         (\beta,\alpha) \mapsto \beta \ast \alpha,
       \end{gather*}
-      where $f,g$ are one-morphisms and $\alpha,\beta$ are two-morphisms, or in diagram form:
+      where $f,g$ are 1-morphisms and $\alpha,\beta$ are 2-morphisms, or in diagram form:
       \begin{gather*}
         \xymatrix{
           c% 
@@ -81,18 +81,89 @@
           e% 
         }
       \end{gather*}
-      \item For each object $c \in \cC_0$ a $1_c \in \cC(c,c)$, the identity 1-morphism on $c$;
-      \item For each triple $\myrightarrow{f}\myrightarrow{g}\myrightarrow{h}$ of 1-morphisms an isomorphism%
+      \item For each object $c \in \cC_0$ an 1-morphism $1_c \in \cC(c,c)$, taking the role of the identity on $c$;
+      \item For each triple $a\myrightarrow{h}b\myrightarrow{g}c\myrightarrow{f}d$ of 1-morphisms an isomorphism in the category $\cC(a,d)$%
       \begin{displaymath}
         \begin{xy}
           \xymatrix{
-            \ar@/_1.5pc/[rr]_{(hg)f}^{}="g" \ar@/^1.5pc/[rr]^{h(gf)}_{}="f" &&
-            \ar@{=>} "f";"g" ^{\alpha_{h,g,f}}
+            a \ar@/_1.5pc/[rr]_{h \circ (g \circ f)}^{}="g" 
+              \ar@/^1.5pc/[rr]^{(h \circ g) \circ f}_{}="f" 
+            && 
+            d
+              \ar@{=>} "f";"g" ^{\alpha_{h,g,f}}
           }
         \end{xy}
       \end{displaymath}
+      called the associativity coherence isomorphism;
+      \item For each 1-morphism $c \myrightarrow{f} d$, two isomorphisms in $\cC(c,d)$
+      \begin{displaymath}
+         \begin{xy}
+          \xymatrix{
+            c \ar@/_1.5pc/[rr]_{f}^{}="f1"
+              \ar@/^1.5pc/[rr]^{1_D \circ f}_{}="1_D \circ f" 
+            && 
+            d
+              \ar@{=>} "1_D \circ f";"f1" ^{\lambda_f}
+            &&
+            c \ar@/_1.5pc/[rr]_{f}^{}="f2"
+              \ar@/^1.5pc/[rr]^{f \circ 1_c}_{}="f \circ 1_c" 
+            && 
+            d
+              \ar@{=>} "f \circ 1_c";"f2" ^{\rho_f}
+          }
+        \end{xy}
+      \end{displaymath}
+      the unit coherence isomorphisms, indicating left and right cancellation of the unit 1-arrows.
     \end{itemize}
-    The elements of $\cC_0$ are also called 0-cells, while the objects of $\cC(c,d)$ are 1-arrows or 1-cells and the morphisms between two 1-cells are called 2-cells or 2-arrows.
+    This data is subject to the following relations: 
+    \begin{itemize}
+      \item The coherence isomorphisms $\alpha_{f,g,h}, \lambda_f and \rho_f$ are natural in $f,g,h$ and $f$, respectively;
+      \item Given four composable 1-arrows $\bullet\myrightarrow{i}\bullet\myrightarrow{h}\bullet\myrightarrow{g}\bullet\myrightarrow{f}\bullet$, we have the following commutative diagram
+      % TODO port the \scriptsize to other places in relations where you used \txt
+      \begin{displaymath}
+        \begin{xy}
+          \xymatrix@C-=2em{
+            %
+            &
+            %
+            &
+            (i \circ h) \circ (g \circ f)
+              \ar@{=>}[drr]^-*!/ur 3pt/\txt<50pt\scriptsize>{$\alpha_{i,h,g \circ f}$}
+            &
+            %
+            &
+            %
+            \\
+            ((i \circ h) \circ g) \circ f
+              \ar@{=>}[urr]^-*!/ul 3pt/\txt<50pt\scriptsize>{$\alpha_{i \circ h,g,f}$}
+              \ar@{=>}[dr]_-*!/dl 3pt/\txt<50pt\scriptsize>{$\alpha_{i,h,g} \ast \id_f$}
+            &
+            %
+            &
+            %
+            &
+            %
+            &
+            i \circ (h \circ (g \circ f))
+            \\
+            %
+            &
+            (i \circ (h \circ g)) \circ f
+              % \ar@{=>}[rr]_{\alpha_{i,h \circ g, f}}
+              \ar@{=>}[rr]_-*!/d 3pt/\txt<50pt\scriptsize>{$\alpha_{i,h \circ g, f}$}%
+            &
+            %
+            &
+            i \circ ((h \circ g) \circ f)
+              % \ar@{=>}[ur]_{\id_i \ast \alpha_{h,g,f}}
+              \ar@{=>}[ur]_*!/dr 3pt/\txt<50pt\scriptsize>{$\id_i \ast \alpha_{h,g,f}$}
+            &
+            %
+            }
+        \end{xy}
+      \end{displaymath}
+      where $\id_f$ is the 2-arrow identity on the object $f$ in its morphism category.
+    \end{itemize}
   \end{defn}
 
   \begin{rem}
