@@ -82,7 +82,7 @@
         }
       \end{gather*}
       \item For each object $c \in \cC_0$ an 1-morphism $1_c \in \cC(c,c)$, taking the role of the identity on $c$;
-      \item For each triple $a\myrightarrow{h}b\myrightarrow{g}c\myrightarrow{f}d$ of 1-morphisms an isomorphism in the category $\cC(a,d)$%
+      \item For each triple $a\myrightarrow{f}b\myrightarrow{g}c\myrightarrow{h}d$ of 1-morphisms an isomorphism in the category $\cC(a,d)$%
       \begin{displaymath}
         \begin{xy}
           \xymatrix{
@@ -117,12 +117,12 @@
     \end{itemize}
     This data is subject to the following relations: 
     \begin{itemize}
-      \item The coherence isomorphisms $\alpha_{f,g,h}, \lambda_f and \rho_f$ are natural in $f,g,h$ and $f$, respectively;
-      \item Given four composable 1-arrows $\bullet\myrightarrow{i}\bullet\myrightarrow{h}\bullet\myrightarrow{g}\bullet\myrightarrow{f}\bullet$, we have the following commutative diagram
+      \item The coherence isomorphisms $\alpha_{f,g,h}$, $\lambda_f$ and $\rho_f$ are natural in $f,\,g,\,h$ and $f$, respectively;
+      \item Given four composable 1-arrows $\bullet\myrightarrow{f}\bullet\myrightarrow{g}\bullet\myrightarrow{h}\bullet\myrightarrow{i}\bullet$, we have the following commutative diagram
       % TODO port the \scriptsize to other places in relations where you used \txt
       \begin{displaymath}
         \begin{xy}
-          \xymatrix@C-=2em{
+          \xymatrix@C=0.2em{
             %
             &
             %
@@ -162,7 +162,8 @@
             }
         \end{xy}
       \end{displaymath}
-      where $\id_f$ is the 2-arrow identity on the object $f$ in its morphism category.
+      where the 2-arrow $\id_f$ is the identity morphism on the object $f$ in its morphism category.
+    \item Given two composable 1-arrows $\bullet\myrightarrow{g}\bullet\myrightarrow{f}\bullet$
     \end{itemize}
   \end{defn}
 
@@ -217,7 +218,7 @@
     \end{defn}
 
     \begin{rem}\label{rem_left_lax_transformation}
-      remark about notation of 2-arrows in diagrams, axioms of a left lax 2-transformation, ...
+      remark about notation of 2-arrows in diagrams, axioms of a left lax 2-transf, ...
     \end{rem}
 
     \begin{rem}\label{rem_left_lax_transform_functors_J_to_Cat}
@@ -311,7 +312,11 @@
       %
     }
     \]
-    Horizontal composition is given by a functorial and conrete choice of pullback applied to the 1-cells and taking the map induced by the 2-cells between pullbacks, \comm{[make clearer or scratch - this should explain horizontal composition of 2-cells!]}, while vertical composition is composition of maps.\\
+    Horizontal composition is given by a functorial and conrete choice of pullback applied to the 1-cells and taking the map induced by the 2-cells between pullbacks,
+
+    \comm{[make clearer or scratch - this should explain horizontal composition of 2-cells!]}
+
+    while vertical composition is composition of maps.\\
     The bicategory $\operatorname{Cat}$ of small categories has small categories as 0-cells, functors as 1-cells and natural transformations as 2-cells.
     \comm{add all the technical things you need from covering homology:}\\
     spans, functor $\cJ$, nat traf $G^A_S$ (gamma spaces, hom space (fibrant replacement), $(\Lambda_X A)^G$ functor of conn. comm $S$-algebras that preserves conn. and has values in very special gamma spaces (Cor. 5.1.5 in Covering homology), how diagonal is constructed (Street rectification necessary! H-set, and so on...); adapt to orthogonal spectra!?
@@ -327,6 +332,5 @@
 
     \begin{lem}\label{lem_loday_functor_is_simplicial}
       The Loday functor is a simplicial functor.\\
-
       \comm{[loday functor simplicial! add remark? add proof? add remark? source ($\Gamma$-spaces)?]}
     \end{lem}

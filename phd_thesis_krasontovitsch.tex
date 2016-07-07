@@ -50,10 +50,15 @@
   \usepackage{array}
   \usepackage{verbatim}
   \dgARROWLENGTH=1.5em
-  \usepackage{pstricks}
   \usepackage{paralist}
   \usepackage[a4paper, hmargin=3cm, tmargin=3.2cm, bmargin=3.2cm]{geometry}
   %skip geometry if using koma class!
+  \usepackage{ifpdf}
+  \ifpdf
+    \usepackage[off]{auto-pst-pdf}
+  \else
+    \usepackage{pstricks}
+  \fi
 
 %%%FORMATTING
 
