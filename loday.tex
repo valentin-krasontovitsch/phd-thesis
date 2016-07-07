@@ -100,10 +100,10 @@
          \begin{xy}
           \xymatrix{
             c \ar@/_1.5pc/[rr]_{f}^{}="f1"
-              \ar@/^1.5pc/[rr]^{1_D \circ f}_{}="1_D \circ f" 
+              \ar@/^1.5pc/[rr]^{1_d \circ f}_{}="1_d \circ f" 
             && 
             d
-              \ar@{=>} "1_D \circ f";"f1" ^{\lambda_f}
+              \ar@{=>} "1_d \circ f";"f1" ^{\lambda_f}
             &&
             c \ar@/_1.5pc/[rr]_{f}^{}="f2"
               \ar@/^1.5pc/[rr]^{f \circ 1_c}_{}="f \circ 1_c" 
@@ -117,8 +117,8 @@
     \end{itemize}
     This data is subject to the following relations: 
     \begin{itemize}
-      \item The coherence isomorphisms $\alpha_{f,g,h}$, $\lambda_f$ and $\rho_f$ are natural in $f,\,g,\,h$ and $f$, respectively;
-      \item Given four composable 1-arrows $\bullet\myrightarrow{f}\bullet\myrightarrow{g}\bullet\myrightarrow{h}\bullet\myrightarrow{i}\bullet$, we have the following commutative diagram
+      \item The coherence isomorphisms $\alpha_{f,g,h}$, $\lambda_f$ and $\rho_f$ are natural in $f,\,g,\,h$, and $f$, respectively;
+      \item Given four composable 1-arrows $\bullet\myrightarrow{f}\bullet\myrightarrow{g}\bullet\myrightarrow{h}\bullet\myrightarrow{i}\bullet$, we have the following commutative diagram (called pentagon axiom)
       % TODO port the \scriptsize to other places in relations where you used \txt
       \begin{displaymath}
         \begin{xy}
@@ -163,16 +163,39 @@
         \end{xy}
       \end{displaymath}
       where the 2-arrow $\id_f$ is the identity morphism on the object $f$ in its morphism category.
-    \item Given two composable 1-arrows $\bullet\myrightarrow{g}\bullet\myrightarrow{f}\bullet$
+    \item Given two composable 1-arrows $\bullet\myrightarrow{f}\bullet\myrightarrow{g}\bullet$, we have the following commutative diagram (called triangle axiom)
+          \begin{displaymath}
+        \begin{xy}
+          \xymatrix@C=0.2em{
+            (g \circ 1_d) \circ f
+              \ar@{=>}[rr]^-*!/u 2pt/\txt<50pt\scriptsize>{$\alpha_{g,1_d,f}$}%
+              % \ar@{=>}[rr]^{\alpha_{g,1_d,f}}%
+              \ar@{=>}[dr]_{\rho_g \ast \id_f}
+            &
+            %
+            &
+            g \circ (1_d \circ f)
+              % \ar@{=>}[dl]^*!/dr 3pt/\txt<50pt\scriptsize>{$\id_g \ast \lambda_f$}
+              \ar@{=>}[dl]^{\id_g \ast \lambda_f}
+            \\
+            %
+            &
+            g \circ f
+            &
+            %
+            }
+        \end{xy}
+      \end{displaymath}
     \end{itemize}
+    A bicateory is called \emph{strict} if all coherence isomorphisms are identities.
   \end{defn}
 
-  \begin{rem}
-    Drawing out the diagrams for the axioms one may notice two different compositions of 2-morphisms, the first being internal to a category $\cC(c,d)$ which we will call vertical composition, the second being due to the functor called composition, which we will call horizontal composition.
-  \end{rem}
+  % \begin{rem}
+  %   Drawing out the diagrams for the axioms one may notice two different compositions of 2-morphisms, the first being internal to a category $\cC(c,d)$ which we will call vertical composition, the second being due to the functor called composition, which we will call horizontal composition.
+  % \end{rem}
 
   \begin{ex}\label{ex_bicategory_of_categories}
-    The strict bicategory of small categories
+    The strict bicategory $\Cat$ of small categories has as objects all small categories, while the morphism category $\Cat(\cC,\cD)$ is the category of functors and natural transformations between the two categories.
   \end{ex}
 
   \begin{defn}\label{def_bicategory_functor}
