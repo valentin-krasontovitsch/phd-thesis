@@ -187,7 +187,7 @@
         \end{xy}
       \end{displaymath}
     \end{itemize}
-    A bicateory is called \emph{strict} if all coherence isomorphisms are identities.
+    A bicateory is called \emph{strict} if all coherence isomorphisms $\alpha, \lambda, \rho$ are identities.
   \end{defn}
 
   \begin{rem}
@@ -253,9 +253,82 @@
     % TODO add explicit description of composition functor? two choices, both equal because of naturality; proof of functoriality? have notes, see pic on phone (A3)
   \end{ex}
 
+  % TODO add more examples?
+
   \begin{defn}\label{def_bicategory_functor}
-    A functor $F: \mathcal{C} $% \mathcal{D}$ is a weak / strict / lax / ? functor...
+    Given two bicategieres $\cC$, $\cD$ a lax functor $F = (F, \phi): \mathcal{C} \to \mathcal{D}$ consists of
+    \begin{itemize}
+      \item a map $F_0: \cC_0 \to \cD_0$ (denoted $F$);
+      \item for each $a,b \in \cC_0$ a functor $F_{a,b}: \cC(a,b) \to \cD(F(a), F(b))$ (also denoted $F$),
+      \item for each composable pair of 1-morphisms $(f,g)$ in $\cC$ a 2-morphism $\phi_{g,f}:F(g)\circ~F(f)\to~F(g\circ~f)$,
+      \item for each $a \in \cC_0$, a 2-morphism $\phi_a: 1_{F(a)} \to F(1_a)$,
+    \end{itemize}
+    such that $\phi$ is natural both in 1-morphisms and in objects, and the following diagrams commute for all composable morphisms $a \myrightarrow{f} b \myrightarrow{g} c \myrightarrow {h} d$:
+    \begin{gather*}
+      \xymatrix@C+3em@R+1em{
+        (F(h) \circ F(g)) \circ F(f)
+          \ar[r]^-{\phi_{h,g} \ast \id_{F(f)}}
+          \ar[d]_{\alpha_{F(h),F(g),F(f)}}
+        &
+        F(h \circ g) \circ F(f)
+          \ar[r]^{\phi_{h \circ g, f}}
+        &
+        F(h \circ (g \circ f))
+          \ar[d]^{F(\alpha_{h,g,f})}
+        \\
+        F(h) \circ (F(g) \circ F(f))
+          \ar[r]_-{\id_{F(h)} \ast \phi_{g,f}}
+        &
+        F(h) \circ F(g \circ f)
+          \ar[r]_{\phi_{h, g \circ f}}
+        &
+        F(h \circ (g \circ f)),
+      }
+    \end{gather*}
+    \begin{gather*}
+      \xymatrix@C+3em@R+1em{
+        F(f) \circ 1_{F(a)}
+          \ar[r]^-{\id_{F(f)} \ast \phi_a}
+          \ar[d]_{\rho_{F(f)}}
+        &
+        F(f) \circ F(1_a)
+          \ar[r]^-{\phi_{f,1_a}}
+        &
+        F(f \circ 1_a)
+          \ar[d]^{F(\rho_f)}
+        \\
+        F(f)
+          \ar@{=}[rr]
+        &
+        %
+        &
+        F(f),
+      }
+    \end{gather*}
+    \begin{gather*}
+      \xymatrix@C+3em@R+1em{
+        1_{F(b)} \circ F(f)
+          \ar[r]^-{\phi_b \ast \id_{F(f)}}
+          \ar[d]_{\lambda_{F(f)}}
+        &
+        F(1_b) \circ F(f)
+          \ar[r]^-{\phi_{1_b,f}}
+        &
+        F(1_b \circ f)
+          \ar[d]^{F(\lambda_f)}
+        \\
+        F(f)
+          \ar@{=}[rr]
+        &
+        %
+        &
+        F(f).
+       }
+    \end{gather*}
+    %TODO strict, weak functor...
   \end{defn}
+
+  % TODO add examples for functors
 
   \begin{defn}\label{def_bicategory_of_spans}
     The bicategory of spans $W$ ...
