@@ -190,12 +190,67 @@
     A bicateory is called \emph{strict} if all coherence isomorphisms are identities.
   \end{defn}
 
-  % \begin{rem}
-  %   Drawing out the diagrams for the axioms one may notice two different compositions of 2-morphisms, the first being internal to a category $\cC(c,d)$ which we will call vertical composition, the second being due to the functor called composition, which we will call horizontal composition.
-  % \end{rem}
+  \begin{rem}
+    The composition of 2-arrows induced by the composition functor is denoted by an asteriks as 2-arrows enjoy an internal composition stemming from the fact that they are morphisms in a category, namely $\cC(c,d)$ for two objects $c,\,d$ of a bicategory $\cC$. Drawing out the diagrams involved in the definition of functoriality for the composition functor,
+    \begin{gather*}
+        \xymatrix{
+          c% 
+            \ar@/^2pc/[rr]^{f}_{}="f" 
+            \ar[rr]^{}="f_prime_upper"^(.65){f^\prime}_{}="f_prime_lower"
+            \ar@/_2pc/[rr]_{f^\dprime}^{}="f_dprime" 
+              \ar@{=>} "f";"f_prime_upper" _{\alpha}
+              \ar@{=>} "f_prime_lower";"f_dprime" ^{\alpha^\prime}
+          &
+          %
+          &
+          d% 
+            \ar@/^2pc/[rr]^{g}_{}="g"
+            \ar[rr]^{}="g_prime_upper"^(.65){g^\prime}_{}="g_prime_lower"
+            \ar@/_2pc/[rr]_{g^\dprime}^{}="g_dprime"
+              \ar@{=>} "g";"g_prime_upper" _{\beta}
+              \ar@{=>} "g_prime_lower";"g_dprime" ^{\beta^\prime}
+          &
+          %
+          &
+          e%
+            \ar@{|->}[r]
+          &
+          c%
+            \ar@/^2pc/[rr]^{g \circ f}_{}="gf"
+            \ar[rr]^{}="gf_prime_upper"^(.7){g^\prime \circ f^\prime}_{}="gf_prime_lower"
+            \ar@/_2pc/[rr]_{g^\dprime \circ f^\dprime}^{}="gf_dprime"
+              \ar@{=>} "gf";"gf_prime_upper" _{\beta \ast \alpha}
+              \ar@{=>} "gf_prime_lower";"gf_dprime" ^(.4){\beta^\prime \ast \alpha^\prime}
+          &&
+          e,% 
+        }
+      \end{gather*}
+    we see that functoriality of the composition functor implies commutativity of the following diagram
+    \begin{gather*}
+      \xymatrix{
+        g \circ f
+          \ar[r]^{\beta \ast \alpha}
+          \ar[dr]_(.4){(\beta^\prime \circ \beta) \ast (\alpha^\prime \circ \alpha)}
+        &
+        g^\prime \circ f^\prime
+          \ar[d]^{\beta^\prime \ast \alpha^\prime}
+        \\
+        %
+        &
+        g^\dprime \circ f^\dprime,
+      }
+    \end{gather*}
+    or in formulas
+    \begin{displaymath}
+      (\beta^\prime \ast \alpha^\prime) \circ (\beta \ast \alpha) = (\beta^\prime \circ \beta) \ast (\alpha^\prime \circ \alpha)
+    \end{displaymath}
+
+    demanding compatibility of the internal composition with the external composition of 2-morphisms.
+  \end{rem}
 
   \begin{ex}\label{ex_bicategory_of_categories}
     The strict bicategory $\Cat$ of small categories has as objects all small categories, while the morphism category $\Cat(\cC,\cD)$ is the category of functors and natural transformations between the two categories.
+    % TODO add explicit description of composition functor? two choices, both equal because of naturality; proof of functoriality? have notes, see pic on phone (A3)
   \end{ex}
 
   \begin{defn}\label{def_bicategory_functor}
