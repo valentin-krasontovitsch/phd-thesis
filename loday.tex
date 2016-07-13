@@ -263,7 +263,7 @@
       \item for each composable pair of 1-morphisms $(f,g)$ in $\cC$ a 2-morphism $\phi_{g,f}:F(g)\circ~F(f)\to~F(g\circ~f)$,
       \item for each $a \in \cC_0$, a 2-morphism $\phi_a: 1_{F(a)} \to F(1_a)$,
     \end{itemize}
-    such that $\phi$ is natural both in 1-morphisms and in objects, and the following diagrams commute for all composable morphisms $a \myrightarrow{f} b \myrightarrow{g} c \myrightarrow {h} d$:
+    such that $\phi_{g,f}$ and $\phi_a$ are natural in $g,f$ and $a$, respectively, and the following diagrams commute for all composable morphisms $a \myrightarrow{f} b \myrightarrow{g} c \myrightarrow {h} d$:
     \begin{gather*}
       \xymatrix@C+3em@R+1em{
         (F(h) \circ F(g)) \circ F(f)
@@ -325,7 +325,7 @@
         F(f).
        }
     \end{gather*}
-    %TODO strict, weak functor...
+    A colax functor may be defined dually. A functor (in particular a lax functor) between bicategories is called a strict or weak functor if the structure maps $\phi_{g,f}$ and $\phi_a$ are isomorphisms or identity morphisms, respectively, for all composable $g,f$ and all $a \in \cC_0$.
   \end{defn}
 
   % TODO add examples for functors
