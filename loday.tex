@@ -7,7 +7,7 @@
   \subsection{Spans of finite sets}
 
   \begin{defn}\label{def_cateogry_of_spans}
-    The category of spans $V$ has as objects the class of finite sets, while the morphism set $V(Y,X)$ for two finite sets $X,Y$ is given by the set of equivalence classes of diagrams of the form $Y \ot A \to X$, called spans. Two such diagrams $Y \ot A \to X$, $Y \ot A^\prime \to X$ are said to be equivalent if there is a bijection $A \to A^\prime$ making the resulting triangles commutative. To compose two maps represented by $[Y \ot A \to X]$ and $[X \ot B \to W]$, we take the pullback $A \ot C \to B$ of $A \to X \ot B$ and compose with the maps $A \to Y$, $B \to W$ to obtain $[Y \ot C \to W]$.
+    The category of spans $V$ has as objects the class of finite sets, while the morphism set $V(X,Y)$ for two finite sets $X,Y$ is given by the set of equivalence classes of diagrams called spans of the form $X \ot A \to Y$. Two such diagrams $X \ot A \to Y$, $X \ot A^\prime \to Y$ are said to be equivalent if there is a bijection $A \to A^\prime$ making the resulting triangles commute. To compose two maps represented by $[X \ot A \to Y]$ and $[Y \ot B \to Z]$, we take the pullback $A \ot C \to B$ of $A \to Y \ot B$ and compose with the maps $X \to A$, $B \to Z$ to obtain $[X \ot C \to W]$.
     % Since we take equivalence classes of morphisms, this is well-defined, and it is straight-forward to check that this forms a category.
   \end{defn}
 
@@ -19,10 +19,10 @@
   \end{lem}
 
   \begin{defn}\label{defn_group_acting_on_object_in_V_morphism_phi}
-    Given a finite set $X$ with a left action of a group $G$, we define the action on $X$ through automorphisms in $V$ by mapping $g \mapsto [X \myleftarrow{\id_X} X \myrightarrow{g} X]$, which can easily be seen to be a left action. Thus $G$ also acts (from the left) on $V(Y,X)$ for any finite set $Y$, by functoriality. We define a function
+    Given a finite set $Y$ with a left action of a group $G$, we define the action on $Y$ through automorphisms in $V$ by mapping $g \mapsto [Y \myleftarrow{\id_Y} Y \myrightarrow{g} Y]$, which can easily be seen to be a left action. Thus $G$ also acts (from the left) on $V(X,Y)$ for any finite set $X$, by functoriality. We define a function
     \begin{gather*}
-      \phi: V(Y,X/G) \to V(Y,X)^G \\
-      [Y \ot A \to X/G] \mapsto [Y \ot A \x_{X/G} X \to X].
+      \phi: V(X,Y/G) \to V(X,Y)^G \\
+      [X \ot A \to Y/G] \mapsto [X \ot A \x_{Y/G} Y \to Y].
     \end{gather*}
     This function is bijective.
   \end{defn}
@@ -331,7 +331,71 @@
   % TODO add examples for functors
 
   \begin{defn}\label{def_bicategory_of_spans}
-    The bicategory of spans $W$ ...
+    The bicategory of spans of finite sets, denoted $W$, has as objects the class of finite sets. Given two finite sets $X,Y$, we define the morphism category $W(X,Y)$ to have as objects spans $f = (Y \myleftarrow{f_1} A \myrightarrow{f_2} X)$, while a morphism between two spans $\alpha: f \to g$ with $g = (Y \myleftarrow{g_1} B \myrightarrow{g_2} X)$ is given by a map $\alpha: A \to B$ making the triangles in the following diagram commute:
+    \begin{displaymath}
+      \xymatrix@R-1em@C+1em{
+        %
+        &
+        A
+          \ar[dl]_{f_1}
+          \ar[dd]_{\alpha}
+          \ar[dr]^{f_2}
+        &
+        %
+        \\
+        X
+        &
+        %
+        &
+        Y
+        \\
+        %
+        &
+        B
+          \ar[ul]^{g_1}
+          \ar[ur]_{g_2}
+        &
+        %
+      }
+    \end{displaymath}
+    and composition of these is the usual composition of maps, forming a category. The composition functor $W(X,Y) \times W(Y,Z) \to W(X,Z)$ may be described as follows: We begin with a diagram representing spans $(f,g), (f^\prime, g^\prime) \in W(X,Y) \times W(Y,Z)$ and morphisms of spans $\alpha: f \to f^\prime$, $\beta: g \to g^\prime$:
+    \begin{gather}\label{diag_composition_functor_in_W}
+      \xymatrix@C+1em@R-1em{
+        %
+        &
+        A
+          \ar[dl]_{f_1}
+          \ar[dr]^{f_2}
+          \ar[dd]_{\alpha}
+        &
+        %
+        &
+        B
+          \ar[dl]_{g_1}
+          \ar[dr]^{g_2}
+          \ar[dd]_{\beta}
+        &
+        %
+        \\
+        X & & Y & & Z
+        \\
+        %
+        &
+        A^\prime
+          \ar[ul]^{f_1^\prime}
+          \ar[ur]_{f_2^\prime}
+        &
+        %
+        &
+        B^\prime
+          \ar[ul]^{g_1^\prime}
+          \ar[ur]_{g_2^\prime}
+        &
+        %
+      }
+    \end{gather}
+    In this situation, we take the (functorial!) pullback of $A \myrightarrow{f_2} Y \myleftarrow{g_1} B$ given by $A \ot A \times_Y B \to B$ with %
+    $A \times_Y B = \{(a,b) \in A \times B \with f_2(a) = g_1(b) \in Y \}$ and the two maps induced by the respective projections. Composing with $f_1$ and $g_2$ we obtain a new span $X \ot A \times_Y B \to Z)$, and applying the same construction to the lower part of diagram \ref{diag_composition_functor_in_W} one may observe that the maps $\alpha$ and $\beta$ induce a map $\alpha \times_Y \beta: A \times_Y \beta \to A^\prime \times_Y B^\prime$ which we take as the definition of $\beta \ast \alpha$.
   \end{defn}
 
   \begin{defn}\label{def_subcategories_of_epimorphisms_and_isomorphisms}
