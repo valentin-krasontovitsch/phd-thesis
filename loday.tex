@@ -395,7 +395,12 @@
       }
     \end{gather}
     In this situation, we take the (functorial!) pullback of $A \myrightarrow{f_2} Y \myleftarrow{g_1} B$ given by $A \ot A \times_Y B \to B$ with %
-    $A \times_Y B = \{(a,b) \in A \times B \with f_2(a) = g_1(b) \in Y \}$ and the two maps induced by the respective projections. Composing with $f_1$ and $g_2$ we obtain a new span $X \ot A \times_Y B \to Z)$, and applying the same construction to the lower part of diagram \ref{diag_composition_functor_in_W} one may observe that the maps $\alpha$ and $\beta$ induce a map $\alpha \times_Y \beta: A \times_Y \beta \to A^\prime \times_Y B^\prime$ which we take as the definition of $\beta \ast \alpha$.
+    $A \times_Y B = \{(a,b) \in A \times B \with f_2(a) = g_1(b) \in Y \}$ and the two maps induced by the respective projections. Composing with $f_1$ and $g_2$ we obtain a new span $X \ot A \times_Y B \to Z)$, and applying the same construction to the lower part of diagram \ref{diag_composition_functor_in_W} one may observe that the maps $\alpha$ and $\beta$ induce a map $\alpha \times_Y \beta: A \times_Y \beta \to A^\prime \times_Y B^\prime$ which we take as the definition of $\beta \ast \alpha$. The functorial choice of pullback assures that this in fact defines a functor.\\
+    The identity 1-morphism associated to a finite set $X$ is the span %
+    \begin{displaymath}
+      1_X = (\xymatrix{ X & X \ar@{=}[l] \ar@{=}[r] & X});
+    \end{displaymath}
+    The associativity coherence isomorphism is the natural isomorphism describing associativity of the pullback, while the identity coherence isomorphisms $\lambda_f: 1_Y \circ f \Longrightarrow f$ and $\rho_f: f \circ 1_X \Longrightarrow f$ for a span $f=(X\ot~A\to~Y)$ are given by the isomorphisms $A \times_Y Y \to A$ and $X \times_X A \to A$ respectively, both induced by the projection onto $A$, hence natural. That the pentagon and triangle diagrams commute in this context is self-evident.
   \end{defn}
 
   \begin{defn}\label{def_subcategories_of_epimorphisms_and_isomorphisms}
