@@ -7,8 +7,7 @@
   \subsection{Spans of finite sets}
 
   \begin{defn}\label{def_cateogry_of_spans}
-    The category of spans $V$ has as objects the class of finite sets, while the morphism set $V(X,Y)$ for two finite sets $X,Y$ is given by the set of equivalence classes of diagrams called spans of the form $X \ot A \to Y$. Two such diagrams $X \ot A \to Y$, $X \ot A^\prime \to Y$ are said to be equivalent if there is a bijection $A \to A^\prime$ making the resulting triangles commute. To compose two maps represented by $[X \ot A \to Y]$ and $[Y \ot B \to Z]$, we take the pullback $A \ot C \to B$ of $A \to Y \ot B$ and compose with the maps $X \to A$, $B \to Z$ to obtain $[X \ot C \to W]$.
-    % Since we take equivalence classes of morphisms, this is well-defined, and it is straight-forward to check that this forms a category.
+    The category of spans $V$ has as objects the class of finite sets, while the morphism set $V(X,Y)$ for two finite sets $X,Y$ is given by the set of equivalence classes of diagrams called spans of the form $X \ot A \to Y$. Two such diagrams $X \ot A \to Y$, $X \ot A^\prime \to Y$ are said to be equivalent if there is a bijection $A \to A^\prime$ making the resulting triangles commute. The identity on $X$ is given by $[ X = X = X]$. To compose two maps represented by $[X \ot A \to Y]$ and $[Y \ot B \to Z]$, we take a pullback $A \ot C \to B$ of $A \to Y \ot B$ and compose with the maps $X \to A$, $B \to Z$ to obtain $[X \ot C \to W]$. Since we take equivalence classes of spans, this is well-defined, and it is straight-forward to check that this forms a category using the universal property of pull-backs.
   \end{defn}
 
   \begin{lem}\label{lem_coproduct_product_in_V}
@@ -81,7 +80,7 @@
           e% 
         }
       \end{gather*}
-      \item For each object $c \in \cC_0$ an 1-morphism $1_c \in \cC(c,c)$, taking the role of the identity on $c$;
+      \item For each object $c \in \cC_0$ a 1-morphism $1_c \in \cC(c,c)$, taking the role of the identity on $c$;
       \item For each triple $a\myrightarrow{f}b\myrightarrow{g}c\myrightarrow{h}d$ of 1-morphisms an isomorphism in the category $\cC(a,d)$%
       \begin{displaymath}
         \begin{xy}
@@ -261,7 +260,7 @@
     \begin{itemize}
       \item a map $F_0: \cC_0 \to \cD_0$ (denoted $F$);
       \item for each $a,b \in \cC_0$ a functor $F_{a,b}: \cC(a,b) \to \cD(F(a), F(b))$ (also denoted $F$),
-      \item for each composable pair of 1-morphisms $(f,g)$ in $\cC$ a 2-morphism $\phi_{g,f}:F(g)\circ~F(f)\to~F(g\circ~f)$,
+      \item for each pair of composable 1-morphisms $(f,g)$ a 2-morphism $\phi_{g,f}:F(g)\circ F(f)\to F(g\circ f)$,
       \item for each $a \in \cC_0$, a 2-morphism $\phi_a: 1_{F(a)} \to F(1_a)$,
     \end{itemize}
     such that $\phi_{g,f}$ and $\phi_a$ are natural in $g,f$ and $a$, respectively, and the following diagrams commute for all composable morphisms $a \myrightarrow{f} b \myrightarrow{g} c \myrightarrow {h} d$:
@@ -327,6 +326,7 @@
        }
     \end{gather*}
     A colax functor may be defined dually. A functor (in particular a lax functor) between bicategories is called a strict or weak functor if the structure maps $\phi_{g,f}$ and $\phi_a$ are isomorphisms or identity morphisms, respectively, for all composable $g,f$ and all $a \in \cC_0$.
+    % TODO remove remark about colax - not in article, not necessary
   \end{defn}
 
   % TODO add examples for functors
@@ -401,15 +401,19 @@
     \begin{displaymath}
       1_X = (\xymatrix{ X & X \ar@{=}[l] \ar@{=}[r] & X});
     \end{displaymath}
-    The associativity coherence isomorphism is the natural isomorphism describing associativity of the pullback, while the identity coherence isomorphisms $\lambda_f: 1_Y \circ f \Longrightarrow f$ and $\rho_f: f \circ 1_X \Longrightarrow f$ for a span $f=(X\ot~A\to~Y)$ are given by the isomorphisms $A \times_Y Y \to A$ and $X \times_X A \to A$ respectively, both induced by the projection onto $A$, hence natural. That the pentagon and triangle diagrams commute in this context is self-evident.
+    The associativity coherence isomorphism is the natural isomorphism describing associativity of the pullback, while the identity coherence isomorphisms $\lambda_f: 1_Y \circ f \Longrightarrow f$ and $\rho_f: f \circ 1_X \Longrightarrow f$ for a span $f=(X\ot~A\to~Y)$ are given by the isomorphisms $A \times_Y Y \to A$ and $X \times_X A \to A$ respectively, both induced by the projection onto $A$, hence natural. Commutativity of the pentagon and triangle diagrams in this context is self-evident.
   \end{defn}
 
   \begin{defn}\label{def_subcategories_of_epimorphisms_and_isomorphisms}
-    subcategories of epimorphisms and isomorphisms of spans;
+    We define two sub-biactegories $iW \subset eW \subset W$ differ from $W$ only in the 2-morphisms: while $eW$ only permits those 2-morphisms in $W$ that are epimorphisms, $iW$ only permits isomorphisms.
   \end{defn}
 
+  \begin{lem}\label{lem_discrete_bicategory}
+    Given a category $\cC$, we may define a bicategory $\cC$ by taking the 0-cells to be the objects of $C$, and declaring the morphism class to be a discrete category. Composition and identity 1-arrows are composition and identity morphisms in $\cC$, structure morphisms are equalities, hence the axioms of a bicategory are trivially satisfied. 
+  \end{lem}
+
   \begin{defn}\label{def_lax_functor_V_to_eW}
-    the lax functor from bicategory of spans to subcategory of epimorphisms
+    We may consider $V$, the category of spans of finite sets, as a bicategory by making the set of morphisms $V(X,Y)$ between two finite sets into a category with only identity morphisms, also called a discrete category (cf. \ref{lem_discrete_bicategory}. With this we may define a lax functor $L: V \to W$ by 
   \end{defn}
 
   \begin{defn}\label{def_functors_finite_sets_to_iW}
