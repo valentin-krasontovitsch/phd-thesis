@@ -273,7 +273,7 @@
         F(h \circ g) \circ F(f)
           \ar[r]^{\phi_{h \circ g, f}}
         &
-        F(h \circ (g \circ f))
+        F((h \circ g) \circ f)
           \ar[d]^{F(\alpha_{h,g,f})}
         \\
         F(h) \circ (F(g) \circ F(f))
@@ -413,7 +413,11 @@
   \end{lem}
 
   \begin{defn}\label{def_lax_functor_V_to_eW}
-    We may consider $V$, the category of spans of finite sets, as a bicategory by making the set of morphisms $V(X,Y)$ between two finite sets into a category with only identity morphisms, also called a discrete category (cf. \ref{lem_discrete_bicategory}. With this we may define a lax functor $L: V \to W$ by 
+    We may consider $V$, the category of spans of finite sets, as a bicategory by making the set of morphisms $V(X,Y)$ between two finite sets into a category with only identity morphisms, also called a discrete category (cf. \ref{lem_discrete_bicategory}). With this we may define a lax functor $L: V \to W$ as follows: We map finite sets to themselves, and map a class of spans $f = [X \myleftarrow{f_1} A \myrightarrow{f_2} Y]$ with indicated representative to the span $ L(f) = (X \ot LA \to{Y})$, where 
+    \begin{displaymath}
+      LA \defas \{ (x,y) \in X \times Y \with \exists a \in A : f_1(a) = x,\; f_2(a) = y \} = \im (f_1,f_2)
+    \end{displaymath}
+    and the two maps are induced by the respective projections. One may immediately verify that this definition does not depend on the representative. As $V$ only has identity 2-morphisms, these are necessarily sent to the respective identities in $W$. Given another 1-arrow in $V$, $g = [y \myleftarrow{g_1} B \myrightarrow{g_2} Z]$, we observe that the structure map $L(g) \circ L(f) \to L(g \circ f)$ is given by projecting away from $Y$ in $LA \times_Y LB \to L(A \times_Y B)$, $((x,y),(y,z)) \mapsto (x,z)$ and is at most an epimorphism, i.e. there are examples where this map fails to be injective. The structure morphism for identity morphisms is given by the diagonal $X \to LX = \im (\id_X, \id_X)$. The diagram relating associativity and functoriality structure morphisms commutes, as only projections and rearraging of parantheses are involved. For the unit structure morphisms the reader may convince herself that the map $L(f \circ 1_X) \to L(f)$ is the identity, or rather that the sets $L(X \times_X A)$ and $LA$ are equal, which implies the commutativity of the respective diagram, and a similar argument holds for the dual situation. 
   \end{defn}
 
   \begin{defn}\label{def_functors_finite_sets_to_iW}
