@@ -325,8 +325,7 @@
         F(f).
        }
     \end{gather*}
-    A colax functor may be defined dually. A functor (in particular a lax functor) between bicategories is called a strict or weak functor if the structure maps $\phi_{g,f}$ and $\phi_a$ are isomorphisms or identity morphisms, respectively, for all composable $g,f$ and all $a \in \cC_0$.
-    % TODO remove remark about colax - not in article, not necessary
+    A lax functor is called a strict or weak if the structure maps $\phi_{g,f}$ and $\phi_a$ are isomorphisms or identity morphisms, respectively, for all composable $g,f$ and all $a \in \cC_0$.
   \end{defn}
 
   % TODO add examples for functors
@@ -408,9 +407,13 @@
     We define two sub-biactegories $iW \subset eW \subset W$ differ from $W$ only in the 2-morphisms: while $eW$ only permits those 2-morphisms in $W$ that are epimorphisms, $iW$ only permits isomorphisms.
   \end{defn}
 
-  \begin{lem}\label{lem_discrete_bicategory}
-    Given a category $\cC$, we may define a bicategory $\cC^\prime$ by taking the 0-cells to be the objects of $\cC^\prime$, and by letting the discrete category formed by the morphisms $\cC(c,d)$ between two objects $c,d \in \ob \cC$ be the morphism category $\cC^\prime(c,d)$. We let composition and identity 1-arrows be composition and identity morphisms in $\cC$, and choose structure morphisms to be equalities.
-  \end{lem}
+  \begin{rem}\label{rem_discrete_bicategory}
+    Given a category $\cC$ we may define a bicategory $\cC^\prime$ by taking the 0-cells to be the objects of $\cC^\prime$, i.e. $\cC^\prime_0 \defas \ob \cC$, and by letting the discrete category formed by the morphisms $\cC(c,d)$ between two objects $c,d \in \ob \cC$ be the morphism category $\cC^\prime(c,d)$. We let composition and identity 1-arrows be composition and identity morphisms in $\cC$, and choose structure morphisms (necessarily) to be identities. This definition then satisfies the axioms of a strict bicategory, and will be referred to as discrete bicategory on $\cC$.
+  \end{rem}
+
+  \begin{rem}\label{rem_discrete_bicategories_functors}
+    Let $F: \cC \to \cD$ be a functor between two categories. We define a lax functor between the discrete bicategories on $\cC$ and $\cD$, $F^\prime: \cC^\prime \to \cD^\prime$, by using the given assignments for objects and 1-morphisms, noting that assignment of 2-morphisms is forced by the axioms of a functor since the only 2-morphisms are identities, and choosing the structure morphisms as identities. We thus obtain a strict functor of bicategories.
+  \end{rem}
 
   \begin{defn}\label{def_lax_functor_V_to_eW}
     We may consider $V$, the category of spans of finite sets, as a bicategory by making the set of morphisms $V(X,Y)$ between two finite sets into a category with only identity morphisms, also called a discrete category (cf. \ref{lem_discrete_bicategory}). With this we may define a lax functor $L: V \to W$ as follows: We map finite sets to themselves, and map a class of spans $f = [X \myleftarrow{f_1} A \myrightarrow{f_2} Y]$ with indicated representative to the span $ L(f) = (X \ot LA \to{Y})$, where 
