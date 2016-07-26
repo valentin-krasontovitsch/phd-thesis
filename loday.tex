@@ -407,6 +407,8 @@
     We define two sub-biactegories $iW \subset eW \subset W$ differ from $W$ only in the 2-morphisms: while $eW$ only permits those 2-morphisms in $W$ that are epimorphisms, $iW$ only permits isomorphisms.
   \end{defn}
 
+
+  % TODO can we formulate the two following remarks as a statement of adjoint functors? Is the discrete functor from categories to strict bicategories a left-adjoint? is the right-adjoint the forgetful functor, if the latter is well-defined? are we talking functors of categories, or 2-categories? this should be written somewhere...
   \begin{rem}\label{rem_discrete_bicategory}
     Given a category $\cC$ we may define a bicategory $\cC^\prime$ by taking the 0-cells to be the objects of $\cC^\prime$, i.e. $\cC^\prime_0 \defas \ob \cC$, and by letting the discrete category formed by the morphisms $\cC(c,d)$ between two objects $c,d \in \ob \cC$ be the morphism category $\cC^\prime(c,d)$. We let composition and identity 1-arrows be composition and identity morphisms in $\cC$, and choose structure morphisms (necessarily) to be identities. This definition then satisfies the axioms of a strict bicategory, and will be referred to as discrete bicategory on $\cC$.
   \end{rem}
