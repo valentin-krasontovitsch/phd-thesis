@@ -430,7 +430,35 @@
   \end{defn}
 
   \begin{defn}\label{def_functor_iW_to_Cat}
-    functor from $iW$ to $Cat$ $\operatorname{Cat}$ ...
+    % TODO work on this remark
+    We are now going to define an abstraction of the Loday functor as it is known on finite sets. It helps to remember the combinatorics of the basic example, as nothing else is going on here.\\
+    We let $\cB$ be a category with chosen finite coproducts, and we let $\cC \subset \cB$ be a subcategory that contains all isomorphisms in $\cB$, in particular it has all objects of $\cB$. We proceed to define a weak functor of bicategories
+    \begin{displaymath}
+      \cC: iW \to \Cat
+    \end{displaymath}
+    by sending a finite set $X$ to $\cC(X) \defas \cC^X$, the $X$-fold product of $\cC$ with itself. Given a span $f = (X \myleftarrow{f_1} A \myrightarrow{f_2} Y)$, we define a functor
+    \begin{displaymath}
+      \cC(f): \cC(X) = \cC^X \to \cC^Y = \cC(Y)
+    \end{displaymath}
+    by assigning to an object $(c: X \to \ob \cC) \in \ob \cC^X$ (a tuple, written as a map) the object 
+    \begin{displaymath}
+      \cC(f)(c): Y \to \cC, y \mapsto \coprod_{a \in f_2^{-1}(y)} c(f_1(a)).
+    \end{displaymath}
+    For a map of tupels $\phi: c \to c^\prime$, the same formula may be used to define $\cC(\phi)$. Recall that $\phi \in \prod_{x \in X} \cC(c(x),c^\prime(x))$. With this, we may define the $y$-th coordinate of $\cC(f)(\phi):\cC(f)(c) \to \cC(f)(c^\prime)$ as the map
+    \begin{displaymath}
+      \coprod_{a \in f_2^{-1}(y)} c(f_1(a))%
+        \crightarrow{2.5}{\coprod_{a \in f_2^{-1}(y)} \phi(f_1(a))}%
+      \coprod_{a \in f_2^{-1}(y)} c^\prime(f_1(a)).%
+    \end{displaymath}
+    It's straightforward to check that this is indeed a functor.\\
+    For an invertible two-morphism $\alpha: f \to f^\prime = (X \myleftarrow{f_1^\prime} A^\prime \myrightarrow{f_2^\prime} Y)$ of spans, we need a natural transformation of functors $\cC(f) \Rightarrow \cC(f^\prime): \cC^X \to \cC^Y$, i.e. for every object $c \in \cC^X$ a natural morphism in $\cC^Y$, $\cC(f)(c) \to \cC(f^\prime)(c)$. For every $y \in Y$ we are seeking a morphism
+    \begin{displaymath}
+      \coprod_{a \in f_2^{-1}(y)} c(f_1(a)) \to%
+        %\crightarrow{2.5}{\coprod_{a \in f_2^{-1}(y)} \phi(f_1(a))}%
+      \coprod_{a^\prime \in (f^\prime_2)^{-1}(y)} c(f^\prime_1(a^\prime)).%
+    \end{displaymath}
+    To see that we may choose such a morphism naturally with respect to $c$, we observe that $\alpha: A \to A^\prime$ is a bijection, as $\alpha$ is an invertible 2-morphism, in particular $\alpha$ induces a bijection of sets $f_2^{-1}(y) \to (f_2^\prime)^{-1}(y)$ by $a \mapsto \alpha(a)$, and we also have $f^\prime_1(\alpha(a)) = f_1(a) \in X$, hence there is a natural (in $c$) isomorphism as we desire, induced by $\alpha$, and given as a reordering of summands in the coproduct.
+    %TODO check axioms of weak! functor.
   \end{defn}
 
   \begin{defn}\label{def_pointed_stuff}
