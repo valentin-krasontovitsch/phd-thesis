@@ -408,7 +408,7 @@
   \end{defn}
 
 
-  % TODO can we formulate the two following remarks as a statement of adjoint functors? Is the discrete functor from categories to strict bicategories a left-adjoint? is the right-adjoint the forgetful functor, if the latter is well-defined? are we talking functors of categories, or 2-categories? this should be written somewhere...
+  % TODO can we formulate the two following remarks as a statement of adjoint functors? Is the discrete functor from categories to strict bicategories a left-adjoint? is the right-adjoint the forgetful functor, if the latter is well-defined? are we talking functors of categories, or 2-categories? this should be written somewhere... let the functor take values in strict, locally small (i.e. morphism categories are small) categories, then we have a forgetful functor, at least on objects. haven't checked morphisms (or 2-morphisms)! adjoint? don't know...
   \begin{rem}\label{rem_discrete_bicategory}
     Given a category $\cC$ we may define a bicategory $\cC^\prime$ by taking the 0-cells to be the objects of $\cC^\prime$, i.e. $\cC^\prime_0 \defas \ob \cC$, and by letting the discrete category formed by the morphisms $\cC(c,d)$ between two objects $c,d \in \ob \cC$ be the morphism category $\cC^\prime(c,d)$. We let composition and identity 1-arrows be composition and identity morphisms in $\cC$, and choose structure morphisms (necessarily) to be identities. This definition then satisfies the axioms of a strict bicategory, and will be referred to as discrete bicategory on $\cC$.
   \end{rem}
