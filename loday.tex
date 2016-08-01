@@ -325,7 +325,7 @@
         F(f).
        }
     \end{gather*}
-    A lax functor is called a strict or weak if the structure maps $\phi_{g,f}$ and $\phi_a$ are isomorphisms or identity morphisms, respectively, for all composable $g,f$ and all $a \in \cC_0$.
+    A lax functor is called \emph{weak} or \emph{strict} if the structure maps $\phi_{g,f}$ and $\phi_a$ are isomorphisms or identity morphisms, respectively, for all composable $g,f$ and all $a \in \cC_0$.
   \end{defn}
 
   % TODO add examples for functors
@@ -460,14 +460,30 @@
       \coprod_{a \in f_2^{-1}(y)} c^\prime(f_1(a)).%
     \end{displaymath}
     It's straightforward to check that this is indeed a functor.\\
+    %
     For an invertible two-morphism $\alpha: f \to f^\prime = (X \myleftarrow{f_1^\prime} A^\prime \myrightarrow{f_2^\prime} Y)$ of spans, we need a natural transformation of functors $\cC(f) \Rightarrow \cC(f^\prime): \cC^X \to \cC^Y$, i.e. for every object $c \in \cC^X$ a natural morphism in $\cC^Y$, $\cC(f)(c) \to \cC(f^\prime)(c)$. For every $y \in Y$ we are seeking a morphism
     \begin{displaymath}
       \coprod_{a \in f_2^{-1}(y)} c(f_1(a)) \to%
         %\crightarrow{2.5}{\coprod_{a \in f_2^{-1}(y)} \phi(f_1(a))}%
       \coprod_{a^\prime \in (f^\prime_2)^{-1}(y)} c(f^\prime_1(a^\prime)).%
     \end{displaymath}
-    To see that we may choose such a morphism naturally with respect to $c$, we observe that $\alpha: A \to A^\prime$ is a bijection, as $\alpha$ is an invertible 2-morphism, in particular $\alpha$ induces a bijection of sets $f_2^{-1}(y) \to (f_2^\prime)^{-1}(y)$ by $a \mapsto \alpha(a)$, and we also have $f^\prime_1(\alpha(a)) = f_1(a) \in X$, hence there is a natural (in $c$) isomorphism as we desire, induced by $\alpha$, and given as a reordering of summands in the coproduct.
-    %TODO check axioms of weak! functor.
+    To see that we may choose such a morphism naturally with respect to $c$, we observe that $\alpha: A \to A^\prime$ is a bijection, as $\alpha$ is an invertible 2-morphism, in particular $\alpha$ induces a bijection of sets $f_2^{-1}(y) \to (f_2^\prime)^{-1}(y)$ by $a \mapsto \alpha(a)$, and we also have $f^\prime_1(\alpha(a)) = f_1(a) \in X$, hence there is a natural (in $c$) isomorphism as we desire, induced by $\alpha$, and given as a reordering of summands in the coproduct.\\
+    %
+    Given two composable spans $f = (X \myleftarrow{f_1} A \myrightarrow{f_2} Y)$, %
+    $g = (Y \myleftarrow{g_1} B \myrightarrow{g_2} Z)$, we specify the natural isomorphism $ \phi_{g,f}: \cC(g) \circ \cC(f) \to \cC(g \circ f)$ by considering (just plug in the definitions) that we should find a map as follows for a $c: X \to \ob \cC$ and any $z \in Z$:
+    \begin{displaymath}
+      \coprod_{b \in g_2^{-1}(z)}\left( \coprod_{a \in f_2^{-1}(g_1(b))} c(f_1(a)) \right) \to %
+      \coprod_{(a,b) \in (g_2 \circ \pr_B)^{-1}(z)} c(f_1 \circ \pr_A(a,b)),
+    \end{displaymath}
+    where the left hand side corresponds to composition of functors, while the right hand side represents compositon of spans (pullback!). Now we simply note that $f_1 \circ \pr_A(a,b) = f_1(b)$, and that the indexing sets for the two coproducts coincide, or in formulas:
+    \begin{displaymath}
+      \{ (a,b) \with g_2(b) = z,\, f_2(a) = g_1(b) \} = \{ (a,b) \in A \times_Y B \with g_2(b) = z \},
+    \end{displaymath}
+    hence we may again find a natural isomorphism given by rearranging the summands as necessary.\\
+    %
+    The 2-morphism $\phi_X: 1_{\cC(X)} \to \cC(1_X)$ can be chosen as the identity natural transformation, as the two endofunctors of $\cC^X$ coincide.\\
+    %
+    As $\Cat$ is a strict category, it is straight-forward to believe that the axioms for a functor of bicategories are satisfied by the just defined structure.
   \end{defn}
 
   \begin{defn}\label{def_pointed_stuff}
