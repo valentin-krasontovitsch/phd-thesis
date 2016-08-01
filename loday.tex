@@ -429,9 +429,18 @@
     There are two functors $\Fin \to V$, $\Fin^\op \to V$, given by sending $f:X \to Y$ to $ f_* = [ X = X \myrightarrow{f} Y]$ and $ f^* = [ Y \myleftarrow{f} X = X ]$, respectively. It is straightforward to check that these are functorial. As described in Remark \ref{rem_discrete_bicategories_functors}, we may interpret these as functors of bicategories. Composing each with $L: V \to W$ we note that we obtain weak functors, or equivalently that the compositions have image in $iW$.
   \end{defn}
 
+  % TODO work on this remark
+  We are now going to define an abstraction of the Loday functor as it is known on finite sets. It helps to remember the combinatorics of the basic example, as apart from bookkeeping, not much more is going on here. To this end, recall that the Loday functor based on a commutative ring $A$
+  \begin{displaymath}
+    \Lambda A: \Fin \to \Ab
+  \end{displaymath}
+  is given by assigning to a map of finite sets $f: X \to Y$ the map of abelian groups $A^X \to A^Y$ which sends a tuple $(a_x)_{x \in X}$ to the tuple $(b_y)_{y \in Y}$ with 
+  \begin{displaymath}
+    b_y \defas \prod_{x \in f^{-1}(y)} a_x,
+  \end{displaymath}
+  where the above product is interpreted as the unit in $A$ whenever taken over the empty set. After this digression, we formulate
+  
   \begin{defn}\label{def_functor_iW_to_Cat}
-    % TODO work on this remark
-    We are now going to define an abstraction of the Loday functor as it is known on finite sets. It helps to remember the combinatorics of the basic example, as nothing else is going on here.\\
     We let $\cB$ be a category with chosen finite coproducts, and we let $\cC \subset \cB$ be a subcategory that contains all isomorphisms in $\cB$, in particular it has all objects of $\cB$. We proceed to define a weak functor of bicategories
     \begin{displaymath}
       \cC: iW \to \Cat
