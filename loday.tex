@@ -497,8 +497,28 @@
       (-)_+ : \Cat \to \Cat_*,
     \end{displaymath}
     sending a category $\cC$ to the category $\cC_+$ which compared to $\cC$ has an extra object $0$, the adjoint basepoint, and extra morphisms $c \to 0$ and $0 \to c$ for every object $c \in \cC_0$. Functors and natural transformations of categories are uniquely extended to their respective pointed versions.
-    % forgetful functor bifunctor: yes! adjoint functor bifunctor? check! is it a strict functor? check the adjointness! -< TODO
+    % forgetful functor bifunctor: yes! adjoint functor bifunctor? check! is it a strict functor? check the adjointness! Integrate this into above definition? <- TODO
   \end{defn}
+
+  \begin{def}\label{def_extending_functor_iW-to-Cat_to_eW-to-Cat_*}
+    Given a weak functor of bicategories $F: iW \to \Cat$, we would like to extend this functor along the inclusion $\iota: iW \to eW$ as displayed in the following diagram:
+    \begin{displaymath}
+      \xymatrix{
+        iW
+          \ar[d]_{F}
+          \ar[r]^{\iota}
+        &
+        eW
+          \ar[d]^{F_+}
+        \\
+        \Cat
+          \ar[r]_{(-)_+}
+        &
+        \Cat_*
+      }
+    \end{displaymath}
+    where the bottom arrow refers to the functor found in Def. \ref{def_pointed_stuff}. The value of $F_+$ on objects, 1-arrows and invertible 2-arrows is determined if we ask for the above diagram to commute. Hence we need merely indicate the images of non-invertible 2-arrows in $eW$ under $F_+$.
+  \end{def}
 
   \begin{defn}\label{def_J_and_functors_from_finite_sets_to_pointed_categories}
     We define J and the two functors...
