@@ -255,9 +255,8 @@
 
   % TODO add more examples?
 
-  % TODO add name 2-functor, and use it!
   \begin{defn}\label{def_bicategory_functor}
-    Given two bicategieres $\cC$, $\cD$ a lax functor $F = (F, \phi): \mathcal{C} \to \mathcal{D}$ consists of
+    Given two bicategieres $\cC$, $\cD$ a \emph{lax functor}, or \emph{lax 2-functor}, $F = (F, \phi): \mathcal{C} \to \mathcal{D}$ consists of
     \begin{itemize}
       \item a map $F_0: \cC_0 \to \cD_0$ (denoted $F$);
       \item for each $a,b \in \cC_0$ a functor $F_{a,b}: \cC(a,b) \to \cD(F(a), F(b))$ (also denoted $F$),
@@ -326,7 +325,7 @@
         F(f).
        }
     \end{gather*}
-    A lax functor is called \emph{weak} or \emph{strict} if the structure maps $\phi_{g,f}$ and $\phi_a$ are isomorphisms or identity morphisms, respectively, for all composable $g,f$ and all $a \in \cC_0$.
+    A lax functor is called \emph{weak} or \emph{strict} if the structure maps $\phi_{g,f}$ and $\phi_a$ are isomorphisms or identity morphisms, respectively, for all composable $g,f$ and all $a \in \cC_0$. Note that there is a dual notion of colax functor, which we do not need. We will hence drop the word lax from our notation.
   \end{defn}
 
   % TODO add examples for functors
