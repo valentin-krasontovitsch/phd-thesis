@@ -440,7 +440,7 @@
   \end{displaymath}
   where the above product is interpreted as the unit in $A$ whenever taken over the empty set. After this digression, we formulate
   
-  \begin{defn}\label{def_functor_iW_to_Cat}
+  \begin{defn}\label{def_functor_iW_to_Cat_aka_abstract_loday}
     We let $\cB$ be a category with chosen finite coproducts, and we let $\cC \subset \cB$ be a subcategory that contains all isomorphisms in $\cB$, in particular it has all objects of $\cB$. We proceed to define a weak functor of bicategories
     \begin{displaymath}
       \cC: iW \to \Cat
@@ -527,6 +527,9 @@
   \end{def}
 
   \begin{defn}\label{def_J_and_functors_from_finite_sets_to_pointed_categories}
+    Consider the full subcategory of finite sets $\cF$ consisting of all sets of the from $\ind{n} = \{ 1, \ldots , n\}$. We choose a coproduct in $\cF$ by taking the sum of two sets, or more precisely, given integers $n,m > 0$, we let $\ind{n} \coprod \ind{m} \defas \ind{n+m}$ with inclusions given by mapping the first summand $\ind{n}$ identically onto the first $n$ elements, and mapping the second summand $\ind{m}$ identically onto the last $m$ elements.\\
+    We let $\cC \defas \cI$ be the subcategory of $\cF$ given by all inclusions (in particular, all objects of $\cF$ are in $\cI$) and apply the constructions described in Def. \ref{def_functor_iW_to_Cat_aka_abstract_loday} (abstract Loday functor) as well as Def. \ref{def_extending_functor_iW-to-Cat_to_eW-to-Cat_*} (adding a basepoint) to obtain a functor $\cI_+: eW \to \Cat$. 
+    % TODO comment on chosen finite coproducts in $\cF$
     We define J and the two functors...
   \end{defn}
 
