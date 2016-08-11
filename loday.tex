@@ -328,6 +328,7 @@
     A lax functor is called \emph{weak} or \emph{strict} if the structure maps $\phi_{g,f}$ and $\phi_a$ are isomorphisms or identity morphisms, respectively, for all composable $g,f$ and all $a \in \cC_0$. Note that there is a dual notion of colax functor, which we do not need. We will hence drop the word lax from our notation.
   \end{defn}
 
+  % TODO add remark about composition of 2-functors being a 2-functor
   % TODO add examples for functors
 
   \begin{defn}\label{def_bicategory_of_spans}
@@ -449,7 +450,7 @@
     \begin{displaymath}
       \cC(f): \cC(X) = \cC^X \to \cC^Y = \cC(Y)
     \end{displaymath}
-    by assigning to an object $(c: X \to \ob \cC) \in \ob \cC^X$ (a tuple, written as a map) the object 
+    by assigning to a $(c: X \to \ob \cC) \in \ob \cC^X$ (a tuple, written as a map) the object 
     \begin{displaymath}
       \cC(f)(c): Y \to \cC, y \mapsto \coprod_{a \in f_2^{-1}(y)} c(f_1(a)).
     \end{displaymath}
@@ -506,7 +507,7 @@
     sending a category $\cC$ to the category $\cC_+$ which compared to $\cC$ has an extra object $0$, the adjoint basepoint, and extra morphisms $c \to 0$ and $0 \to c$ for every object $c \in \cC_0$. Functors and natural transformations of categories are uniquely extended to their respective pointed versions. A simple verification of the axioms shows that this defines a strict 2-functor, and the adjointness is also straight-forward.
   \end{defn}
 
-  \begin{def}\label{def_extending_functor_iW-to-Cat_to_eW-to-Cat_*}
+  \begin{defn}\label{def_extending_functor_iW_to_Cat_to_pointed_version}
     Given a weak functor of bicategories $F: iW \to \Cat$, we would like to extend this functor along the inclusion $\iota: iW \to eW$ as displayed in the following diagram:
     \begin{displaymath}
       \xymatrix{
@@ -524,13 +525,28 @@
       }
     \end{displaymath}
     where the bottom arrow refers to the functor found in Def. \ref{def_pointed_stuff}. The value of $F_+$ on objects, 1-arrows and invertible 2-arrows is determined if we ask for the above diagram to commute. Hence we merely need to indicate the images of non-invertible 2-arrows in $eW$ under $F_+$. We send these to the zero natural transformation, i.e. the transformation that is given on any object as the unique map factoring through the zero object. This is in fact a weak functor: All necessary data is given, and the assignment of 1-arrows and 2-arrows is a functor, as composition with the zero transformation results in the zero transformation (only need to check what happens for non-invertible two-arrows). For the axioms, note that the structure morphisms of $F_+$ are the uniquely determined pointed extensions of the structure morphisms of $F$, namely natural transformations extended by the identity on the zero object. In particular the axioms are satisfied and the structure morphisms are isomorphisms.
-  \end{def}
+  \end{defn}
 
   \begin{defn}\label{def_J_and_functors_from_finite_sets_to_pointed_categories}
-    Consider the full subcategory of finite sets $\cF$ consisting of all sets of the from $\ind{n} = \{ 1, \ldots , n\}$. We choose a coproduct in $\cF$ by taking the sum of two sets, or more precisely, given integers $n,m > 0$, we let $\ind{n} \coprod \ind{m} \defas \ind{n+m}$ with inclusions given by mapping the first summand $\ind{n}$ identically onto the first $n$ elements, and mapping the second summand $\ind{m}$ identically onto the last $m$ elements.\\
-    We let $\cC \defas \cI$ be the subcategory of $\cF$ given by all inclusions (in particular, all objects of $\cF$ are in $\cI$) and apply the constructions described in Def. \ref{def_functor_iW_to_Cat_aka_abstract_loday} (abstract Loday functor) as well as Def. \ref{def_extending_functor_iW-to-Cat_to_eW-to-Cat_*} (adding a basepoint) to obtain a functor $\cI_+: eW \to \Cat$. 
-    % TODO comment on chosen finite coproducts in $\cF$
-    We define J and the two functors...
+    Consider the full subcategory $\cF \subset \Fin$ of finite sets of the from $\ind{n} = \{ 1, \ldots , n\}$. We choose a coproduct in $\cF$ by taking the sum of two sets: More precisely, given integers $n,m > 0$, we let $\ind{n} \sqcup \ind{m} \defas \ind{n+m}$ with inclusions given by mapping the first summand $\ind{n}$ identically onto the first $n$ elements, i.e. $\ind{n} \to \ind{n+m}, i \mapsto i$, and mapping the second summand $\ind{m}$ identically onto the last $m$ elements, i.e. $\ind{m} \to \ind{n+m}, j \mapsto n+j$.\\
+    We let $\cI$ be the subcategory of $\cF$ given by all inclusions (in particular, all objects of $\cF$ are in $\cI$) and apply the constructions described in Def. \ref{def_functor_iW_to_Cat_aka_abstract_loday} (abstract Loday functor) with $\cC \defas \cI$ as well as Def. \ref{def_extending_functor_iW_to_Cat_to_pointed_version} (adding a basepoint) to obtain a functor 
+    \begin{displaymath}
+      \cI_+: eW \to \Cat, X \mapsto (\cI^X)_+.
+    \end{displaymath}
+    We continue by precomposing with the lax functor $L: V \to eW$ defined in Def. \ref{def_lax_functor_V_to_eW} (sending a class of spans $[X \ot A \to Y]$ to $(X \ot LA \to Y)$), resulting in 
+    \begin{displaymath}
+      \cJ \defas L \cI_+: V \to \Cat_*
+    \end{displaymath}
+    which still sends a set $X \mapsto \cJ(X) = (\cI^X)_+$.\\
+    Finally we may precompose with the inclusions of the (opposite) category of finite sets to $V$, obtaining two different functors: Taking the covariant inclusion $\Fin \to V$ mapping an $f:X \to Y$ to the class of spans $[ (X = X \myrightarrow{f} Y) ]$ yields a weak functor
+    \begin{gather*}
+      \Fin \to \Cat_*,% 
+      ( X \myrightarrow{f} Y ) \mapsto %
+      \left ( (\cI^X)_+ \myrightarrow{\cJ(f_*)} (\cI^Y)_+ \right),\\
+      (c: X \to \cI) \mapsto \left\{ y \mapsto \coprod_{x \in f^{-1}(y)} c(x) \right\}
+    \end{gather*}
+    with structure maps given by 
+    % We define J and the two functors...
   \end{defn}
 
   \subsection{Left lax transformations, bimodules and homotopy colimits}
