@@ -507,7 +507,7 @@
   \end{defn}
 
   \begin{defn}\label{def_extending_functor_iW_to_Cat_to_pointed_version}
-    Given a weak functor of bicategories $F: iW \to \Cat$, we would like to extend this functor along the inclusion $\iota: iW \to eW$ as displayed in the following diagram:
+    Given a weak functor of bicategories $F: iW \to \Cat$, we would like to extend this functor along the inclusion $\iota: iW \to eW$ to a weak functor $F_+: eW \to \Cat_*$ as displayed in the following diagram:
     \begin{displaymath}
       \xymatrix{
         iW
@@ -527,8 +527,15 @@
   \end{defn}
 
   \begin{defn}\label{def_J_and_functors_from_finite_sets_to_pointed_categories}
-    Consider the full subcategory $\cF \subset \Fin$ of finite sets of the from $\ind{n} = \{ 1, \ldots , n\}$. We choose a coproduct in $\cF$ by taking the sum of two sets: More precisely, given integers $n,m > 0$, we let $\ind{n} \sqcup \ind{m} \defas \ind{n+m}$ with inclusions given by mapping the first summand $\ind{n}$ identically onto the first $n$ elements, i.e. $\ind{n} \to \ind{n+m}, i \mapsto i$, and mapping the second summand $\ind{m}$ identically onto the last $m$ elements, i.e. $\ind{m} \to \ind{n+m}, j \mapsto n+j$.\\
-    We let $\cI$ be the subcategory of $\cF$ given by all inclusions (in particular, all objects of $\cF$ are in $\cI$) and apply the constructions described in Def. \ref{def_functor_iW_to_Cat_aka_abstract_loday} (abstract Loday functor) with $\cC \defas \cI$ as well as Def. \ref{def_extending_functor_iW_to_Cat_to_pointed_version} (adding a basepoint) to obtain a functor 
+    Consider the full subcategory $\cF \subset \Fin$ of finite sets of the from $\ind{n} = \{ 1, \ldots , n\}$. We choose a coproduct in $\cF$ by taking the sum of two sets: More precisely, given integers $n,m > 0$, we let $\ind{n} \sqcup \ind{m} \defas \ind{n+m}$ with inclusions given by mapping the first summand $\ind{n}$ identically onto the first $n$ elements, i.e. 
+    \begin{displaymath}
+      \ind{n} \to \ind{n+m},\; i \mapsto i,
+    \end{displaymath}
+    and mapping the second summand $\ind{m}$ identically onto the last $m$ elements, i.e.
+    \begin{displaymath}
+      \ind{m} \to \ind{n+m},\; j \mapsto n+j.
+    \end{displaymath}
+    We let $\cI$ be the subcategory of $\cF$ given by all inclusions (in particular, all objects of $\cF$ are in $\cI$) and apply the constructions described in Def. \ref{def_functor_iW_to_Cat_aka_abstract_loday} (abstract Loday functor) with $\cC \defas \cI$ as well as Def. \ref{def_extending_functor_iW_to_Cat_to_pointed_version} (adding a basepoint) to obtain a weak functor 
     \begin{displaymath}
       \cI_+: eW \to \Cat, X \mapsto (\cI^X)_+.
     \end{displaymath}
@@ -539,12 +546,16 @@
     which still sends a set $X \mapsto \cJ(X) = (\cI^X)_+$.\\
     Finally we may precompose with the inclusions of the (opposite) category of finite sets to $V$, obtaining two different functors: Taking the covariant inclusion $\Fin \to V$ mapping an $f:X \to Y$ to the class of spans $[ (X = X \myrightarrow{f} Y) ]$ yields a weak functor
     \begin{gather*}
-      \Fin \to \Cat_*,% 
+      \Fin \to \Cat_*,\\% 
       ( X \myrightarrow{f} Y ) \mapsto %
-      \left ( (\cI^X)_+ \myrightarrow{\cJ(f_*)} (\cI^Y)_+ \right),\\
-      (c: X \to \cI) \mapsto \left\{ y \mapsto \coprod_{x \in f^{-1}(y)} c(x) \right\}
+      \left ( (\cI^X)_+ \myrightarrow{\cJ(f_*)} (\cI^Y)_+ \right),
     \end{gather*}
-    with structure maps given by 
+    where the functor $\cJ(f_*)$ may be described as
+    \begin{displaymath}
+      (c: X \to \cI) \mapsto \left\{ y \mapsto \coprod_{x \in f^{-1}(y)} c(x) \right\}.
+    \end{displaymath}
+    The structure maps of this bifunctor are given as follows: 
+    % Composition of weak functors? When is an inclusion of bicategories a weak functor?
     % We define J and the two functors...
   \end{defn}
 
