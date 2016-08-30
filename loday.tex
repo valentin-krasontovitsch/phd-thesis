@@ -554,7 +554,13 @@
     \begin{displaymath}
       (c: X \to \cI) \mapsto \left\{ y \mapsto \coprod_{x \in f^{-1}(y)} c(x) \right\}.
     \end{displaymath}
-    The structure maps of this bifunctor are given as follows: 
+    For two composable maps of sets $X \myrightarrow{f} Y \myrightarrow{g} Z$ the structure natural transformation $\cJ(g) \circ \cJ(Y) \to \cJ(g \circ f)$ is given as a reordering: On $c_x \in (\cI^X)_+$, we map
+    \begin{gather*}
+      (\cI^Z)_+ \to (\cI^Z)_+\\
+      \left[\coprod_{y \in g^{-1}(z)} \left( \coprod_{x \in f^{-1}(y)} c_x \right)  \right]_{z \in Z} \to
+        \left[ \coprod_{x \in (gf)^{-1}(z)} c_x \right]_{z \in Z}
+    \end{gather*}
+    via the natural bijection which exists between the two indexing sets. 
     % Composition of weak functors? When is an inclusion of bicategories a weak functor?
     % We define J and the two functors...
   \end{defn}
