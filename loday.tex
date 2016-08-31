@@ -327,7 +327,7 @@
     \end{gather*}
     A lax functor is called \emph{weak} or \emph{strict} if the structure maps $\phi_{g,f}$ and $\phi_a$ are isomorphisms or identity morphisms, respectively, for all composable $g,f$ and all $a \in \cC_0$. Note that there is a dual notion of colax functor, which we do not need. We will hence drop the word lax from our notation. It is a lengthy but rather straight forward exercise to verify that the composition of two composable 2-functors is again a 2-functor.
   \end{defn}
-
+  % TODO make last statement into a Lemma, specifying the structure morphisms of the composition
   % TODO add examples for functors
 
   \begin{defn}\label{def_bicategory_of_spans}
@@ -527,7 +527,7 @@
   \end{defn}
 
   \begin{defn}\label{def_J_and_functors_from_finite_sets_to_pointed_categories}
-    Consider the full subcategory $\cF \subset \Fin$ of finite sets of the from $\ind{n} = \{ 1, \ldots , n\}$. We choose a coproduct in $\cF$ by taking the sum of two sets: More precisely, given integers $n,m > 0$, we let $\ind{n} \sqcup \ind{m} \defas \ind{n+m}$ with inclusions given by mapping the first summand $\ind{n}$ identically onto the first $n$ elements, i.e. 
+    Consider the full subcategory $\cF \subset \Fin$ of finite sets of the from $\ind{n} = \{ 1, \ldots , n\}$. We choose a finite coproduct in $\cF$ by taking the sum of two sets: More precisely, given integers $n,m > 0$, we let $\ind{n} \sqcup \ind{m} \defas \ind{n+m}$ with inclusions given by mapping the first summand $\ind{n}$ identically onto the first $n$ elements, i.e. 
     \begin{displaymath}
       \ind{n} \to \ind{n+m},\; i \mapsto i,
     \end{displaymath}
@@ -554,13 +554,22 @@
     \begin{displaymath}
       (c: X \to \cI) \mapsto \left\{ y \mapsto \coprod_{x \in f^{-1}(y)} c(x) \right\}.
     \end{displaymath}
-    For two composable maps of sets $X \myrightarrow{f} Y \myrightarrow{g} Z$ the structure natural transformation $\cJ(g) \circ \cJ(Y) \to \cJ(g \circ f)$ is given as a reordering: On $c_x \in (\cI^X)_+$, we map
+    For two composable maps of sets $X \myrightarrow{f} Y \myrightarrow{g} Z$ the structure natural transformation $\cJ(g) \circ \cJ(Y) \to \cJ(g \circ f)$ is given as a reordering: On $c_x \in (\cI^X)_+$, we map (omitting from the notation that the sums are taken over all tuples with $f(x)=y$ and $g(y)=z$, respectively)
     \begin{gather*}
-      (\cI^Z)_+ \to (\cI^Z)_+\\
-      \left[\coprod_{y \in g^{-1}(z)} \left( \coprod_{x \in f^{-1}(y)} c_x \right)  \right]_{z \in Z} \to
-        \left[ \coprod_{x \in (gf)^{-1}(z)} c_x \right]_{z \in Z}
+      (\cI^Z)_+ %
+        \crightarrow{3}{\phi^{\cI_+}_{L(g_*),L(f_*)}} (\cI^Z)_+ %
+        \crightarrow{3}{\cI_+(\phi^L_{g_*,f_*})} (\cI^Z)_+ \\
+      \left[\coprod_{(y,g(y))} %
+        \left( \coprod_{(x,f(x))} c_x \right)  \right]_{z \in Z} \to %
+      \left[ \coprod_{(x,f(x),gf(x))} c_x \right]_{z \in Z} \to %
+      \left[ \coprod_{(x,gf(x))} c_x \right]_{z \in Z}
+      % \left[\coprod_{(y,g(y)) \in pr_2^{-1}(z)} %
+      %   \left( \coprod_{(x,f(x)) \in pr_2^{-1}(y)} c_x \right)  \right]_{z \in Z} \to %
+      % \left[ \coprod_{(x,f(x),gf(x)) \in (pr_2 pr_2)^{-1}(z)} c_x \right]_{z \in Z} \to %
+      % \left[ \coprod_{(x,gf(x)) \in pr_2^{-1}(z)} c_x \right]_{z \in Z}
     \end{gather*}
-    via the natural bijection which exists between the two indexing sets. 
+    first via the natural bijection between the two indexing sets, and then by projecting away from the middle coordinate, which in this case is a bijection.
+
     % Composition of weak functors? When is an inclusion of bicategories a weak functor?
     % We define J and the two functors...
   \end{defn}
