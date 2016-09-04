@@ -553,7 +553,14 @@
     \end{gather*}
     where the functor $\cJ(f_*)$ may be described as
     \begin{displaymath}
-      (c: X \to \cI) \mapsto \left\{ y \mapsto \coprod_{x \in f^{-1}(y)} c(x) \right\}.
+      % TODO add arrow Y \to \cI above
+      (c: X \to \cI) \mapsto %
+      \left\{ %
+        \begin{array}{c} %
+        Y \myrightarrow{} \cI, \\ %
+        y \mapsto \coprod\limits_{x \in f^{-1}(y)} c(x) %
+        \end{array} %
+       \right\}.
     \end{displaymath}
     For two composable maps of sets $X \myrightarrow{f} Y \myrightarrow{g} Z$ the structure natural transformation $\cJ(g) \circ \cJ(Y) \to \cJ(g \circ f)$ is given as a reordering: On $c_x \in (\cI^X)_+$, we map (omitting from the notation that the sums are taken over all tuples with $f(x)=y$ and $g(y)=z$, respectively)
     \begin{gather*}
