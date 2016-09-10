@@ -582,8 +582,22 @@
   \end{defn}
 
   \subsection{Left lax transformations, bimodules and homotopy colimits}
-
+    % TODO add an introductory section here!?
+    % TODO change formatting for itemize environment: less line spacing!
     \begin{defn}\label{def_left_lax_transformation}
+      Given two lax functors $F,F^\prime: \cB \to \cC$, a \emph{left lax transformation} $\sigma: F \to F^\prime$ consists of the following data:
+      \begin{itemize}
+        \item for every object $b \in \cB_0$ a 1-morphism $F(b) \myrightarrow{\sigma_b} F^\prime(b)$
+        \item For every 1-morphism $f: b \to b^\prime$ a 2-morphism $F^\prime(f) \circ \sigma_b \myrightarrow{\sigma_f} \sigma_{b^\prime} \circ F(f)$ that fills the following square:
+        \begin{displaymath}
+          \xymatrix{
+            F(b) &
+            F^\prime(b) \\
+            F(b^\prime) &
+            F^\prime(b^\prime)
+          }
+        \end{displaymath}
+      \end{itemize}
       A left lax transformation ...
     \end{defn}
 
