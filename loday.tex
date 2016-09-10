@@ -591,9 +591,16 @@
         \item For every 1-morphism $f: b \to b^\prime$ a 2-morphism $F^\prime(f) \circ \sigma_b \myrightarrow{\sigma_f} \sigma_{b^\prime} \circ F(f)$ that fills the following square:
         \begin{displaymath}
           \xymatrix{
-            F(b) &
-            F^\prime(b) \\
-            F(b^\prime) &
+            F(b)
+              \ar[r]^{\sigma_b}
+              \ar[d]_{F(f)}
+            &
+            F^\prime(b)
+              \ar[d]^{F^\prime(f)}
+            \\
+            F(b^\prime) 
+              \ar[r]_{\sigma_{b^\prime}}
+            &
             F^\prime(b^\prime)
           }
         \end{displaymath}
