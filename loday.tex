@@ -528,7 +528,8 @@
   \end{defn}
 
   \begin{defn}\label{def_J_and_functors_from_finite_sets_to_pointed_categories}
-    Consider the full subcategory $\cF \subset \Fin$ of finite sets of the from $\ind{n} = \{ 1, \ldots , n\}$. We choose a finite coproduct in $\cF$ by taking the sum of two sets: More precisely, given integers $n,m > 0$, we let $\ind{n} \sqcup \ind{m} \defas \ind{n+m}$ with inclusions given by mapping the first summand $\ind{n}$ identically onto the first $n$ elements, i.e. 
+    Consider the skeletal category $\cF$ of finite sets, i.e. the full subcategory of finite sets with objects given by sets of the form $\{1, \ldots, n\}$, for all $n \geq 0$ (taking the empty set for $n=0$). We may choose a finite coproduct on this category with the property that the for any set $X \in \cF$ and any singleton set $\{*\}$, we have $\coprod_{\{*\}} X = X$, for example by induction, choosing a well-ordering on every finite set. We proceed to the subcategory given by all injections in $\cF$ and denote it $\cI$.
+    Consider the skeletal subcategory $\cF \subset \Fin$ of finite sets of the from $\ind{n} = \{ 1, \ldots , n\}$. We choose a finite coproduct in $\cF$ by taking the sum of two sets: More precisely, given integers $n,m > 0$, we let $\ind{n} \sqcup \ind{m} \defas \ind{n+m}$ with inclusions given by mapping the first summand $\ind{n}$ identically onto the first $n$ elements, i.e. 
     \begin{displaymath}
       \ind{n} \to \ind{n+m},\; i \mapsto i,
     \end{displaymath}
