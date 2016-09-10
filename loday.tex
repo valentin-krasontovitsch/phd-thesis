@@ -476,7 +476,7 @@
       \coprod_{b \in g_2^{-1}(z)}\left( \coprod_{a \in f_2^{-1}(g_1(b))} c(f_1(a)) \right) \to %
       \coprod_{(a,b) \in (g_2 \circ \pr_B)^{-1}(z)} c(f_1 \circ \pr_A(a,b)),
     \end{displaymath}
-    where the left hand side corresponds to composition of functors, while the right hand side represents compositon of spans (pullback!). Now we simply note that $f_1 \circ \pr_A(a,b) = f_1(b)$, and that the indexing sets for the two coproducts coincide, or in formulas:
+    where the left hand side corresponds to composition of functors, while the right hand side represents compositon of spans (given by pullback). Now we simply note that $f_1 \circ \pr_A(a,b) = f_1(b)$, and that the indexing sets for the two coproducts coincide, or in formulas:
     \begin{displaymath}
       \{ (a,b) \with g_2(b) = z,\, f_2(a) = g_1(b) \} = \{ (a,b) \in A \times_Y B \with g_2(b) = z \},
     \end{displaymath}
@@ -561,12 +561,15 @@
     \end{displaymath}
     For two composable maps of sets $X \myrightarrow{f} Y \myrightarrow{g} Z$ the structure natural transformation $\cJ(g) \circ \cJ(Y) \to \cJ(g \circ f)$ is given as a reordering: On $c_x \in (\cI^X)_+$, we map (omitting from the notation that the sums are taken over all tuples with $f(x)=y$ and $g(y)=z$, respectively)
     \begin{gather*}
-      (\cI^Z)_+ %
-        \crightarrow{3}{\phi^{\cI_+}_{L(g_*),L(f_*)}} (\cI^Z)_+ %
-        \crightarrow{3}{\cI_+(\phi^L_{g_*,f_*})} (\cI^Z)_+ \\
+    % TODO substitute the categories with the actual objects!
+      \cI_+ L (g_*) \circ \cI_+ L (f_*) (c_x)  %
+        \crightarrow{2}{\phi^{\cI_+}_{L(g_*),L(f_*)}} %
+      \cI_+( L(g_*) \circ L(f_*)) (c_x)%
+        \crightarrow{2}{\cI_+(\phi^L_{g_*,f_*})} %
+      \cI_+ L (g \circ f)_* (c_x)\\
       \left[\coprod_{(y,g(y))} %
-        \left( \coprod_{(x,f(x))} c_x \right)  \right]_{z \in Z} \to %
-      \left[ \coprod_{(x,f(x),gf(x))} c_x \right]_{z \in Z} \to %
+        \left( \coprod_{(x,f(x))} c_x \right)  \right]_{z \in Z} \crightarrow{2}{} %
+      \left[ \coprod_{((x,f(x)),(y,gf(y)))} c_x \right]_{z \in Z} \crightarrow{2}{} %
       \left[ \coprod_{(x,gf(x))} c_x \right]_{z \in Z}
       % \left[\coprod_{(y,g(y)) \in pr_2^{-1}(z)} %
       %   \left( \coprod_{(x,f(x)) \in pr_2^{-1}(y)} c_x \right)  \right]_{z \in Z} \to %
@@ -574,11 +577,9 @@
       % \left[ \coprod_{(x,gf(x)) \in pr_2^{-1}(z)} c_x \right]_{z \in Z}
     \end{gather*}
     first via the natural bijection between the two indexing sets, and then by projecting away from the middle coordinate, which in this case is a bijection.
-    The identity 1-arrow structure morphism on a finite set $X$, $\phi^{\cJ(-_)*}_X = \cI_+(\phi^{L}_X) \circ \phi^{\cI_+}_{L(X)}$, is the composition of two isomorphisms, and hence an isomorphism itself.\\
-    On the other hand, taking the contravariant inclusion $\Fin \to V$ which sends a map $f:X \to Y$ to the class of spans $ f^* = [ Y \myleftarrow{f} X = X]$, results in the functor $\cJ(f^*): (\cI^Y)_+ \to (\cI^X)_+$ sending a tuple $(c_y)_{y \in Y}$ to the tuple $y \mapsto \coprod_{(f(x),x) \in pr_2^{-1}(x)} c_{f(x)}$, where the last coproduct is take over a singleton set and is hence naturally isomorphic to $c_{f(x)}$.
-
-    % Composition of weak functors? When is an inclusion of bicategories a weak functor?
-    % We define J and the two functors...
+    The identity 1-arrow structure morphism on a finite set $X$, $\phi^{\cJ(-)_*}_X = \cI_+(\phi^{L}_X) \circ \phi^{\cI_+}_{L(X)}: 1_{\cJ(X)} \to \cJ(1_X)$, is the composition of two isomorphisms, and hence an isomorphism itself.\\
+    On the other hand, taking the contravariant inclusion $\Fin \to V$ which sends a map $f:X \to Y$ to the class of spans $ f^* = [ Y \myleftarrow{f} X = X]$, results in the functor $\cJ(f^*): (\cI^Y)_+ \to (\cI^X)_+$ sending a tuple $(c_y)_{y \in Y}$ to the tuple $y \mapsto \coprod_{(f(x),x) \in pr_2^{-1}(x)} c_{f(x)}$, where the last coproduct is take over a singleton set and is hence naturally isomorphic to $c_{f(x)}$. Thus the last functor may naturally be described as precomposition with $f$. A study the involved maps shows, as above, that the structure morphisms are indeed isomorphisms.
+    % TODO the latter should be a strict!! functor
   \end{defn}
 
   \subsection{Left lax transformations, bimodules and homotopy colimits}
