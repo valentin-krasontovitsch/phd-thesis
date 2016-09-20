@@ -589,7 +589,7 @@
       Given two lax functors $F,F^\prime: \cB \to \cC$, a \emph{left lax transformation} $\sigma: F \to F^\prime$ consists of the following data:
       \begin{itemize}
         \item for every object $b \in \cB_0$ a 1-morphism $F(b) \myrightarrow{\sigma_b} F^\prime(b)$ in $\cC$
-        \item For every 1-morphism $f: b \to b^\prime$ a 2-morphism $F^\prime(f) \circ \sigma_b \myrightarrow{\sigma_f} \sigma_{b^\prime} \circ F(f)$ as in the following square in $\cC$:
+        \item for every 1-morphism $f: b \to b^\prime$ a 2-morphism $F^\prime(f) \circ \sigma_b \myrightarrow{\sigma_f} \sigma_{b^\prime} \circ F(f)$ as in the following square in $\cC$:
         \begin{displaymath}
           \xymatrix{
             F(b)
@@ -609,32 +609,32 @@
           }
         \end{displaymath}
       \end{itemize}
-      These data is subject to the following relations, which we express in composition and unit diagrams: For composable $A \myrightarrow{f} B \myrightarrow{g} C$
+      This data is subject to the following relations, which we express in composition and unit diagrams: For composable $A \myrightarrow{f} B \myrightarrow{g} C$
       \begin{displaymath}
         \begin{xy}
-          \xymatrix{
+          \xymatrix@C+=3em{
             F^\prime(g) \circ (F^\prime(f) \circ \sigma_a)
               \ar[r]^{\alpha}
-              \ar[d]_{F^\prime(g) \circ \sigma_f}
+              \ar[d]_-{F^\prime(g) \circ \sigma_f}
             &
             (F^\prime(g) \circ F^\prime(f)) \circ \sigma_A
-              \ar[r]^{F^\prime(g,f) \circ \sigma_A}
+              \ar[r]^-{F^\prime(g,f) \circ \sigma_A}
             &
             F^\prime(g \circ f) \circ \sigma_A
-              \ar[dr]
+              \ar[dr]^{\sigma_{g \circ f}}
             &
             %
             \\
             F^\prime(g) \circ (\sigma_B \circ F(f))
-              \ar[d]^{\alpha}
+              \ar[d]_-{\alpha}
             &&&
             \sigma_C \circ F(gf)
             \\
             (F^\prime(g) \circ \sigma_B) \circ F(f)
-              \ar[r]_{\sigma_g \circ F(f)}
+              \ar[r]_-{\sigma_g \circ F(f)}
             &
             (\sigma_C \circ F(g)) \circ F(f)
-              \ar[r]_{\alpha}
+              \ar[r]_-{\alpha}
             &
             \sigma_C \circ (F(g) \circ F(f))
               \ar[ur]_{\sigma_C \circ F(g,f)}
@@ -643,16 +643,47 @@
           }
         \end{xy}
       \end{displaymath}
-      commutes, while for $b \in \cB_0$,
+      commutes, with $\alpha$ indicating the appropriate associativity morphisms. For $b \in \cB_0$,
       \begin{displaymath}
         \begin{xy}
           \xymatrix{
-
+            & F^\prime(\id_A) \circ \sigma_A
+              \ar[dd]^{\sigma_{\id_A}}
+            \\
+            \sigma_A
+              \ar[ur]^{F^\prime \circ \sigma_A}
+              \ar[dr]_{\sigma_A \circ F_A}
+            &
+            %
+            \\
+            & \sigma_A \circ F(\id_A)
           }
         \end{xy}
       \end{displaymath}
-      is required to commmute.
-      A left lax transformation ...
+      is required to commmute.\\
+      Dually, a \emph{right lax transformation} consists of
+      \begin{itemize}
+        \item for every object $b \in \cB_0$ a 1-morphism $F(b) \myrightarrow{\rho_b} F^\prime(b)$ in $\cC$
+        \item for every 1-morphism $f: b \to b^\prime$ a 2-morphism $F^\prime(f) \circ \rho_b \myleftarrow{\rho_f} \rho_{b^\prime} \circ F(f)$.
+        \end{itemize}
+      Observe the reversed direction:
+      \begin{displaymath}
+        \xymatrix{
+          F(b)
+            \ar[r]^{\rho_b}
+            \ar[d]_{F(f)}
+            \ar@{}[dr]|*\objectbox{\rotatebox{225}{$\Leftarrow$}}
+          &
+          F^\prime(b)
+            \ar[d]^{F^\prime(f)}
+          \\
+          F(b^\prime) 
+            \ar[r]_{\rho_{b^\prime}}
+          &
+          F^\prime(b^\prime)
+        }
+      \end{displaymath}
+      This data is also subject to composition and unit relations, which we omit to display as they are analogous to the two above diagrams.
     \end{defn}
 
     \begin{rem}\label{rem_left_lax_transformation}
