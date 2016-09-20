@@ -609,35 +609,35 @@
           }
         \end{displaymath}
       \end{itemize}
-      This data is subject to the following relations, which we express in composition and unit diagrams: For composable $A \myrightarrow{f} B \myrightarrow{g} C$
+      This data is subject to the following relations, which we express in composition and unit diagrams: For arrows $b \myrightarrow{f} {b^\prime} \myrightarrow{g} {b^\dprime}$ in $\cB$,
       \begin{displaymath}
         \begin{xy}
           \xymatrix@C+=3em{
-            F^\prime(g) \circ (F^\prime(f) \circ \sigma_a)
+            F^\prime(g) \circ (F^\prime(f) \circ \sigma_b)
               \ar[r]^{\alpha}
               \ar[d]_-{F^\prime(g) \circ \sigma_f}
             &
-            (F^\prime(g) \circ F^\prime(f)) \circ \sigma_A
-              \ar[r]^-{F^\prime(g,f) \circ \sigma_A}
+            (F^\prime(g) \circ F^\prime(f)) \circ \sigma_b
+              \ar[r]^-{F^\prime(g,f) \circ \sigma_b}
             &
-            F^\prime(g \circ f) \circ \sigma_A
+            F^\prime(g \circ f) \circ \sigma_b
               \ar[dr]^{\sigma_{g \circ f}}
             &
             %
             \\
-            F^\prime(g) \circ (\sigma_B \circ F(f))
+            F^\prime(g) \circ (\sigma_{b^\prime} \circ F(f))
               \ar[d]_-{\alpha}
             &&&
-            \sigma_C \circ F(gf)
+            \sigma_{b^\dprime} \circ F(gf)
             \\
-            (F^\prime(g) \circ \sigma_B) \circ F(f)
+            (F^\prime(g) \circ \sigma_{b^\prime}) \circ F(f)
               \ar[r]_-{\sigma_g \circ F(f)}
             &
-            (\sigma_C \circ F(g)) \circ F(f)
+            (\sigma_{b^\dprime} \circ F(g)) \circ F(f)
               \ar[r]_-{\alpha}
             &
-            \sigma_C \circ (F(g) \circ F(f))
-              \ar[ur]_{\sigma_C \circ F(g,f)}
+            \sigma_{b^\dprime} \circ (F(g) \circ F(f))
+              \ar[ur]_{\sigma_{b^\dprime} \circ F(g,f)}
             &
             %
           }
@@ -647,16 +647,16 @@
       \begin{displaymath}
         \begin{xy}
           \xymatrix{
-            & F^\prime(\id_A) \circ \sigma_A
-              \ar[dd]^{\sigma_{\id_A}}
+            & F^\prime(\id_b) \circ \sigma_b
+              \ar[dd]^{\sigma_{\id_b}}
             \\
-            \sigma_A
-              \ar[ur]^{F^\prime \circ \sigma_A}
-              \ar[dr]_{\sigma_A \circ F_A}
+            \sigma_b
+              \ar[ur]^{F^\prime \circ \sigma_b}
+              \ar[dr]_{\sigma_b \circ F_b}
             &
             %
             \\
-            & \sigma_A \circ F(\id_A)
+            & \sigma_b \circ F(\id_b)
           }
         \end{xy}
       \end{displaymath}
