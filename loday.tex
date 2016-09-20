@@ -1,5 +1,7 @@
 % !TEX root = phd_thesis_krasontovitsch.tex
 
+% TODO remove all xy environments, as they seem unnecessary
+
 \section{Iterated THH - Loday Functor}
   We proceed to introduce topological Hochschild homology based on a space $X$ and the structure it carries for $X = T^n$ the $n$-dimensional torus, following \cite{brun2010covering} as well as \cite{carlsson2011higher}. For details on bicategories, confer \cite{benabou1967introduction}.\\
   \comm{[Should have two subsections here: spans + bicategories?]}
@@ -585,7 +587,7 @@
   \subsection{Left lax transformations, bimodules and homotopy colimits}
     % TODO add an introductory section here!?
     % TODO change formatting for itemize environment: less line spacing!
-    \begin{defn}\label{def_left_lax_transformation}
+    \begin{defn}\label{def_lax_transformation}
       Given two lax functors $F,F^\prime: \cB \to \cC$, a \emph{left lax transformation} $\sigma: F \to F^\prime$ consists of the following data:
       \begin{itemize}
         \item for every object $b \in \cB_0$ a 1-morphism $F(b) \myrightarrow{\sigma_b} F^\prime(b)$ in $\cC$
@@ -643,7 +645,7 @@
           }
         \end{xy}
       \end{displaymath}
-      commutes, with $\alpha$ indicating the appropriate associativity morphisms. For $b \in \cB_0$,
+      commutes, with $\alpha$ indicating the appropriate associativity isomorphisms. For $b \in \cB_0$,
       \begin{displaymath}
         \begin{xy}
           \xymatrix{
@@ -687,8 +689,130 @@
     \end{defn}
 
     \begin{rem}\label{rem_left_lax_transformation}
-      remark about notation of 2-arrows in diagrams, axioms of a left lax 2-transf, ...
-    \end{rem}
+      Keeping the notation from Def. \ref{def_lax_transformation}, and ignoring associativity isomorphisms and identity 2-cells the composition and unit relations from said definition amount to stating that
+      % TODO (luxury) move 2-arrow indicators a bit over, have done it in relations i think
+      \begin{displaymath}
+        \xymatrix{
+          F(b)
+            \ar[rr]^-{\sigma_b}
+            \ar[dd]_-{F(gf)}
+            \ar[dr]^-{F(f)}
+            \ar@{}[rrrd]|*\objectbox{\overset{\sigma_f}{\Leftarrow}}
+            \ar@{}[rdd]|*\objectbox{\overset{\phi^F_{g,f}}{\Leftarrow}}
+          &
+          %
+          &
+          F^\prime(b)
+            \ar[dr]^{F^\prime(f)}
+          &
+          %
+          \\
+          %
+          &
+          F(b^\prime)
+            \ar[rr]^{\sigma_{b^\prime}}
+            \ar[dl]^{F(g)}
+            \ar@{}[rd]|*\objectbox{\overset{\sigma_g}{\Leftarrow}}
+          &
+          %
+          &
+          F^\prime(b^\prime)
+            \ar[dl]^{F^\prime(g)}
+          \\
+          F(b^\dprime)
+            \ar[rr]_{\sigma_{b^\dprime}}
+          &
+          %
+          &
+          F^\prime(b^\dprime)
+        }
+      \end{displaymath}
+      and
+      \begin{displaymath}
+        \xymatrix{
+          F(b)
+            \ar[rr]^-{\sigma_b}
+            \ar[dd]_-{F(gf)}
+            \ar@{}[rrdd]|*\objectbox{\overset{\sigma_{gf}}{\Leftarrow}}
+          &
+          %
+          &
+          F^\prime(b)
+            \ar[dr]^{F^\prime(f)}
+            \ar[dd]_{F^\prime(gf)}
+            \ar@{}[rdd]|*\objectbox{\overset{\phi^{F^\prime}_{g,f}}{\Leftarrow}}
+          &
+          %
+          \\
+          %
+          &
+          %
+          &
+          %
+          &
+          F^\prime(b^\prime)
+            \ar[dl]^{F^\prime(g)}
+          \\
+          F(b^\dprime)
+            \ar[rr]_{\sigma_{b^\dprime}}
+          &
+          %
+          &
+          F^\prime(b^\dprime)
+          &
+          %
+        }
+      \end{displaymath}
+      are equal for the composition, while for the unit the two diagrams
+      \begin{displaymath}
+        % TODO change matrix to double row column size instead of empty entries
+        \xymatrix{
+          F(b)
+            \ar[rr]^-{\sigma_b}
+            \ar@/_1.5pc/[dd]_-{F(\id_b)}
+            \ar@{}[rrdd]!(-15,0)|*\objectbox{\overset{\sigma_f}{\Leftarrow}}
+          &
+          %
+          &
+          F^\prime(b)
+            \ar@{=}[dd]_{\overset{\phi^{F^\prime}_b}{\Leftarrow} }
+            \ar@/_1.5pc/[dd]_{F^\prime(\id_b)}
+          \\
+          &
+          &
+          \\
+          F(b)
+            \ar[rr]_{\sigma_b}
+          &
+          %
+          &
+          F^\prime(b)
+        }
+        \xymatrix{
+          F(b)
+            \ar[rr]^-{\sigma_b}
+            \ar@{=}[dd]_{\overset{\phi^{F}_b}{\Leftarrow} }
+            \ar@/_1.5pc/[dd]_-{F(\id_b)}
+            % \ar@{}[rrdd]!(-15,0)|*\objectbox{\overset{\sigma_f}{\Leftarrow}}
+          &
+          %
+          &
+          F^\prime(b)
+            \ar@{=}[dd]
+          \\
+          &
+          &
+          \\
+          F(b)
+            \ar[rr]_{\sigma_b}
+          &
+          %
+          &
+          F^\prime(b)
+        }
+      \end{displaymath}
+      are equal.
+      \end{rem}
 
     \begin{rem}\label{rem_left_lax_transform_functors_J_to_Cat}
       Given two functors $E,F: J \to \Cat_*$ what does it mean to be a left lax transformation $E \Rightarrow F$?
