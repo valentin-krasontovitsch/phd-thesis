@@ -690,7 +690,6 @@
 
     \begin{rem}\label{rem_left_lax_transformation}
       Keeping the notation from Def. \ref{def_lax_transformation}, and ignoring associativity isomorphisms and identity 2-cells the composition and unit relations from said definition amount to stating that
-      % TODO (luxury) move 2-arrow indicators a bit over, have done it in relations i think
       \begin{displaymath}
         \xymatrix{
           F(b)
@@ -698,7 +697,7 @@
             \ar[dd]_-{F(gf)}
             \ar[dr]^-{F(f)}
             \ar@{}[rrrd]|*\objectbox{\overset{\sigma_f}{\Leftarrow}}
-            \ar@{}[rdd]|*\objectbox{\overset{\phi^F_{g,f}}{\Leftarrow}}
+            \ar@{}[rdd]!(-5,0)|*\objectbox{\overset{\phi^F_{g,f}}{\Leftarrow}}
           &
           %
           &
@@ -740,7 +739,7 @@
           F^\prime(b)
             \ar[dr]^{F^\prime(f)}
             \ar[dd]_{F^\prime(gf)}
-            \ar@{}[rdd]|*\objectbox{\overset{\phi^{F^\prime}_{g,f}}{\Leftarrow}}
+            \ar@{}[rdd]!(-5,0)|*\objectbox{\overset{\phi^{F^\prime}_{g,f}}{\Leftarrow}}
           &
           %
           \\
@@ -815,7 +814,7 @@
       \end{rem}
 
     \begin{rem}\label{rem_left_lax_transform_functors_J_to_Cat}
-      We further inspect the definition of left lax transformation and specify to the situation of two functors $E,F: \cJ \to \Cat_*$ for some small category $\cJ$. Then a left lax transformation $G: F \Rightarrow E$ is given by 
+      We further inspect the definition of left lax transformation and specify to the situation of two functors $E,F: \cJ \to \Cat_*$ for some small category $\cJ$. We invite the reader to verify that in this situation, a left lax transformation $G: F \Rightarrow E$ is given by 
     \end{rem}
 
     \begin{defn}\label{def_category_of_bimodules}
