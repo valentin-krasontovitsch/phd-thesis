@@ -332,6 +332,11 @@
   % TODO make last statement into a Lemma, specifying the structure morphisms of the composition
   % TODO add examples for functors
 
+  \begin{defn}\label{def_modification}
+  Let $F,G: \cB \to \cC$ be lax functors between two bicategories, and let $\alpha,\beta: F \Rightarrow G$ be two (left? right? doesn't matter?) lax transformations. A modification $\eta: \alpha \to \beta$ ...
+  % TODO complete definition
+  \end{defn}
+
   \begin{defn}\label{def_bicategory_of_spans}
     The bicategory of spans of finite sets, denoted $W$, has as objects the class of finite sets. Given two finite sets $X,Y$, we define the morphism category $W(X,Y)$ to have as objects spans $f = (Y \myleftarrow{f_1} A \myrightarrow{f_2} X)$, while a morphism between two spans $\alpha: f \to g$ with $g = (Y \myleftarrow{g_1} B \myrightarrow{g_2} X)$ is given by a map $\alpha: A \to B$ making the triangles in the following diagram commute:
     \begin{displaymath}
@@ -824,7 +829,7 @@
       We proceed to define the category $\operatorname{Bimod}^J / K$ of bimodules \comm{[TODO: analogy bimodules over (commutative) ring?]}. 
       The objects of this category are pairs $(F,G)$, where $F:\cJ \to \Cat_*$ is a functor and $G: F^e \Rightarrow K$ is a left lax transformation (compare Rem. \ref{rem_left_lax_transform_functors_J_to_Cat}).
       A morphism $(\epsilon, \eta) \colon (F,G) \to (F^\prime,G^\prime)$ between two such pairs consists of a natural transformation $\epsilon \colon F \to F^\prime$ and a modification $\eta \colon G \to G^\prime \epsilon^e$.
-      
+
 
       category  consists of pairs $(F,G)$ ...
       % TODO find general definition for such bimodules?
