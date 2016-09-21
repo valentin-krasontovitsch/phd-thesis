@@ -814,11 +814,11 @@
       \end{rem}
 
     \begin{rem}\label{rem_left_lax_transform_functors_J_to_Cat}
-      We further inspect the definition of left lax transformation and specify to the situation of two functors $E,F: \cJ \to \Cat_*$ for some small category $\cJ$. We consider the above data as 2-categorical data by assuming discrete morphism categories and corresponding structure, as described in Rem. \ref{rem_discrete_bicategory} and \ref{rem_discrete_bicategories_functors}. We invite the reader to verify that in this situation, a left lax transformation $G: F \Rightarrow E$ is given by a functor $G_i \colon F(i) \to E(i)$ for each $i \in \cJ$ and a natural transformation $G_f: E(f) \circ G_i \Rightarrow G_j \circ F(f)$ for every $f: i \to j$ in $\cJ$, satisfying $G_g G_f = G_{gf}$ for $g: j \to k$ in $\cJ$ and $G_{\id_i} = \id_{G_i}$.
+      We further inspect the definition of left lax transformation and specify to the situation of two functors $E,F: \cJ \to \Cat_*$, taking values in the category of small pointed categories and functors, for some small category $\cJ$. We consider the above data as 2-categorical by assuming discrete morphism categories and corresponding structure, as described in Rem. \ref{rem_discrete_bicategory} and \ref{rem_discrete_bicategories_functors}. We invite the reader to verify that in this situation, a left lax transformation $G: F \Rightarrow E$ is given by a functor $G_i \colon F(i) \to E(i)$ for each $i \in \cJ$ and a natural transformation $G_f: E(f) \circ G_i \Rightarrow G_j \circ F(f)$ for every $f: i \to j$ in $\cJ$, satisfying $G_g G_f = G_{gf}$ for $g: j \to k$ in $\cJ$ and $G_{\id_i} = \id_{G_i}$.
     \end{rem}
 
     \begin{defn}\label{def_category_of_bimodules}
-      Recall the following notation: Given $F: \cJ \to \Cat_*$, we denote by $J^e: \cJ \to \Cat_*$ the functor sending $j \mapsto F(j)^e = F(j)^{\op} \wedge F(j)$. We proceed to define the category $\operatorname{Bimod}^J / E$ of bimodules \comm{[TODO: analogy bimodules over (commutative) ring?]}
+      Recall the following notation: Given $F: \cJ \to \Cat_*$, we denote by $J^e: \cJ \to \Cat_*$ the functor sending $j \mapsto F(j)^e = F(j)^{\op} \wedge F(j)$. We proceed to define the category $\operatorname{Bimod}^J / E$ of bimodules \comm{[TODO: analogy bimodules over (commutative) ring?]}. The objects of this category are pairs $(F,G)$, where $F:\cJ \to \Cat_*$ is a functor, 
 
       category  consists of pairs $(F,G)$ ...
       % TODO find general definition for such bimodules?
