@@ -845,9 +845,17 @@
       \begin{displaymath}
         \hocolim: \operatorname{Bimod}^{\cD} / K \to [\cD \times \Delta^{\mathrm{op}}, K]
       \end{displaymath}
-      where the codomain is the category of functors and natural transformations between the two indicated categories. The functor sends an object, given by a pair of lax transformation and  $(F,G)$
+      where the codomain is the category of functors and natural transformations between the two indicated categories. The functor sends an object, given by a pair of functor and lax left transformation $(F: \cD \to \Cat_*, G: F^e \Rightarrow K)$, to the functor sending a pair of object and simplex $(j,[q]) \in \cD \times \Delta^\mathrm{op}$ to
+      \begin{displaymath}
+        \bigvee_{x_0, \ldots, x_q \in \ob F(j)} %
+          G_j(x_0,x_q) \wedge %
+          \hom_{F(j)}(x_1,x_0) \wedge \ldots \wedge \hom_{F(j)}(x_q,x_{q-1}),
+          %F(j)(x_1,x_0) \wedge \ldots \wedge F(j)(x_q,x_{q-1}),
+      \end{displaymath}
+      the object $G_j(x_0,x_q)$ of $K$ tensored with the smash product of the morphism sets $F(j)(x_i,x_{i-1})$, where the wedge sum is taken over all tuples $(x_0, \ldots, x_q) \in (\ob F(j))^{q+1}$.
       % TODO add definition of tensored, or at least look it up
       % TODO find a good definition / model (i.e. source) to be used here
+      % TODO figure out if tuples is correct here: compare to usual def of hocolim!
     \end{defn}
     % TODO do we need statements about the hocolim?
 
