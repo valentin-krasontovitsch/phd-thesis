@@ -819,16 +819,16 @@
       \end{rem}
 
     \begin{rem}\label{rem_left_lax_transform_functors_J_to_Cat}
-      We further inspect the definition of left lax transformation and specify to the situation of two functors $E,F: \cJ \to \Cat_*$, taking values in the category of small pointed categories and functors, for some small category $\cJ$. We consider the above data as 2-categorical by assuming discrete morphism categories and corresponding structure, as described in Rem. \ref{rem_discrete_bicategory} and \ref{rem_discrete_bicategories_functors}. We invite the reader to verify that in this situation, a left lax transformation $G: F \Rightarrow E$ is given by a functor $G_i \colon F(i) \to E(i)$ for each $i \in \cJ$ and a natural transformation $G_f: E(f) \circ G_i \Rightarrow G_j \circ F(f)$ for every $f: i \to j$ in $\cJ$, satisfying $G_g G_f = G_{gf}$ for $g: j \to k$ in $\cJ$ and $G_{\id_i} = \id_{G_i}$.
+      We further inspect the definition of left lax transformation and specify to the situation of two functors $E,F: \cD \to \Cat_*$, taking values in the category of small pointed categories and functors, for some small category $\cD$. We consider the above data as 2-categorical by assuming discrete morphism categories and corresponding structure, as described in Rem. \ref{rem_discrete_bicategory} and \ref{rem_discrete_bicategories_functors}. We invite the reader to verify that in this situation, a left lax transformation $G: F \Rightarrow E$ is given by a functor $G_i \colon F(i) \to E(i)$ for each $i \in \cD$ and a natural transformation $G_f: E(f) \circ G_i \Rightarrow G_j \circ F(f)$ for every $f: i \to j$ in $\cD$, satisfying $G_g G_f = G_{gf}$ for $g: j \to k$ in $\cD$ and $G_{\id_i} = \id_{G_i}$.
     \end{rem}
 
     \begin{defn}\label{def_category_of_bimodules}
-      Let $\cJ$ be a small category, and let $K: \cJ \to Cat_*$ be a functor.
+      Let $\cD$ be a small category, and let $K: \cD \to Cat_*$ be a functor.
       Recall the following notation: 
-      Given $F: \cJ \to \Cat_*$, we denote by $J^e: \cJ \to \Cat_*$ the functor sending $j \mapsto F(j)^e = F(j)^{\op} \wedge F(j)$. 
-      We proceed to define the category $\operatorname{Bimod}^J / K$ of bimodules \comm{[TODO: analogy bimodules over (commutative) ring?]}. 
-      The objects of this category are pairs $(F,G)$, where $F:\cJ \to \Cat_*$ is a functor and $G: F^e \Rightarrow K$ is a left lax transformation (compare Rem. \ref{rem_left_lax_transform_functors_J_to_Cat}).
-      A morphism $(\epsilon, \eta) \colon (F,G) \to (F^\prime,G^\prime)$ between two such pairs consists of a natural transformation $\epsilon \colon F \to F^\prime$ and a modification $\eta \colon G \to G^\prime \epsilon^e$. Recall (cf. Def. \ref{def_modification}) that a modification as above is given by a natural transformation $\eta_i: G_i \Rightarrow G_i^\prime \epsilon_i^e$ for every $i \in \ob \cJ$ satisfying that for every $f \colon i \to j$ in $\cJ$ the two transformations
+      Given $F: \cD \to \Cat_*$, we denote by $F^e: \cD \to \Cat_*$ the functor sending $j \mapsto F(j)^e = F(j)^{\op} \wedge F(j)$. 
+      We proceed to define the category $\operatorname{Bimod}^{\cD} / K$ of bimodules \comm{[TODO: analogy bimodules over (commutative) ring?]}. 
+      The objects of this category are pairs $(F,G)$, where $F:\cD \to \Cat_*$ is a functor and $G: F^e \Rightarrow K$ is a left lax transformation (compare Rem. \ref{rem_left_lax_transform_functors_J_to_Cat}).
+      A morphism $(\epsilon, \eta) \colon (F,G) \to (F^\prime,G^\prime)$ between two such pairs consists of a natural transformation $\epsilon \colon F \to F^\prime$ and a modification $\eta \colon G \to G^\prime \epsilon^e$. Recall (cf. Def. \ref{def_modification}) that a modification as above is given by a natural transformation $\eta_i: G_i \Rightarrow G_i^\prime \epsilon_i^e$ for every $i \in \ob \cD$ satisfying that for every $f \colon i \to j$ in $\cD$ the two transformations
       \begin{displaymath}
         \eta_j G_f = G^\prime_f \eta_i \colon %
           G^\prime \epsilon_j^e F^e(f) \Rightarrow %
@@ -840,7 +840,13 @@
     The next step in our construction will be to functorially find an object in the above category for every finite set, and apply the functor found in the following
 
     \begin{defn}\label{def_hocolim}
-      Assume $K$ to be 
+      Keeping the notation of Def. \ref{def_category_of_bimodules}, we assume $K$ to be a pointed category with small coproducts, and choose a (small) coproduct on $K$. Then $K$ is tensored over pointed sets: For a pointed set $S$ and an object $k$ in $K$ we write $S \wedge k$ for the coproduct of $k$ with itself over the non-basepoint elements of $S$.
+      We proceed to consider $K$ as a constant functor from $\cD$ to $\Cat_*$ and consider the category of bimodules in this context, defining a functor
+      \begin{displaymath}
+        \hocolim: \operatorname{Bimod}^{\cD} / K \to [\cD \times \Delta^{\mathrm{op}}, K]
+      \end{displaymath}
+      where the codomain is the category of functors and natural transformations between the two indicated categories. The functor sends an object, given by a pair of lax transformation and  $(F,G)$
+      % TODO add definition of tensored, or at least look it up
       % TODO find a good definition / model (i.e. source) to be used here
     \end{defn}
     % TODO do we need statements about the hocolim?
