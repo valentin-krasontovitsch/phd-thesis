@@ -840,19 +840,23 @@
     The next step in our construction will be to functorially find an object in the above category for every finite set, and apply the functor found in the following
 
     \begin{defn}\label{def_hocolim}
-      Keeping the notation of Def. \ref{def_category_of_bimodules}, we assume $K$ to be a pointed category with small coproducts, and choose a (small) coproduct on $K$. Then $K$ is tensored over pointed sets: For a pointed set $S$ and an object $k$ in $K$ we write $S \wedge k$ for the coproduct of $k$ with itself over the non-basepoint elements of $S$.
+      Keeping the notation of Def. \ref{def_category_of_bimodules}, we assume $K$ to be a pointed category with small coproducts, and choose a (small) coproduct on $K$.
+      Then $K$ is tensored over pointed sets: For a pointed set $S$ and an object $k$ in $K$ we write $S \wedge k$ for the coproduct of $k$ with itself over the non-basepoint elements of $S$.
       We proceed to consider $K$ as a constant functor from $\cD$ to $\Cat_*$ and consider the category of bimodules in this context, defining a functor
       \begin{displaymath}
         \hocolim: \operatorname{Bimod}^{\cD} / K \to [\cD \times \Delta^{\mathrm{op}}, K]
       \end{displaymath}
-      where the codomain is the category of functors and natural transformations between the two indicated categories. The functor sends an object, given by a pair of functor and lax left transformation $(F: \cD \to \Cat_*, G: F^e \Rightarrow K)$, to the functor sending a pair of object and simplex $(j,[q]) \in \cD \times \Delta^\mathrm{op}$ to
+      where the codomain is the category of functors and natural transformations between the two indicated categories.
+      The functor sends an object, given by a pair of functor and lax left transformation $(F: \cD \to \Cat_*, G: F^e \Rightarrow K)$, to the functor sending a pair of object and simplex $(j,[q]) \in \cD \times \Delta^\mathrm{op}$ to
       \begin{displaymath}
         \bigvee_{x_0, \ldots, x_q \in \ob F(j)} %
           G_j(x_0,x_q) \wedge %
           \hom_{F(j)}(x_1,x_0) \wedge \ldots \wedge \hom_{F(j)}(x_q,x_{q-1}),
           %F(j)(x_1,x_0) \wedge \ldots \wedge F(j)(x_q,x_{q-1}),
       \end{displaymath}
-      the object $G_j(x_0,x_q)$ of $K$ tensored with the smash product of the morphism sets $F(j)(x_i,x_{i-1})$, where the wedge sum is taken over all tuples $(x_0, \ldots, x_q) \in (\ob F(j))^{q+1}$.
+      the object $G_j(x_0,x_q)$ of $K$ tensored with the smash product of the morphism sets $F(j)(x_i,x_{i-1})$, where the wedge sum is taken over all tuples $(x_0, \ldots, x_q) \in (\ob F(j))^{q+1}$.\\
+      Considering functoriality in $\cD$, let $f: i \to j$ be a morphism in $\cD$.
+
       % TODO add definition of tensored, or at least look it up
       % TODO find a good definition / model (i.e. source) to be used here
       % TODO figure out if tuples is correct here: compare to usual def of hocolim!
