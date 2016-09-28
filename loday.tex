@@ -842,9 +842,10 @@
       Keeping the notation of Def. \ref{def_category_of_bimodules}, we assume $K$ to be a pointed category with small coproducts, and choose a (small) coproduct on $K$.
       Then $K$ is tensored over pointed sets: For a pointed set $S$ and an object $k$ in $K$ we write $S \wedge k$ for the coproduct of $k$ with itself over the non-basepoint elements of $S$.
       We proceed to consider $K$ as a constant functor from $\cD$ to $\Cat_*$ and consider the category of bimodules in this context, defining a functor
-      \begin{displaymath}
-        \hocolim: \operatorname{Bimod}^{\cD} / K \to [\cD \times \Delta^{\mathrm{op}}, K]
-      \end{displaymath}
+      \begin{gather*}
+        \hocolim: \operatorname{Bimod}^{\cD} / K \to [\cD \times \Delta^{\mathrm{op}}, K]\\
+        (F,G) \mapsto \hocolim_F G
+      \end{gather*}
       where the codomain is the category of functors and natural transformations between the two indicated categories.
       The functor sends an object, given by a pair of functor and lax left transformation $(F: \cD \to \Cat_*, G: F^e \Rightarrow K)$, to the functor sending a pair of object and simplex $(j,[q]) \in \cD \times \Delta^\mathrm{op}$ to
       \begin{displaymath}
@@ -876,7 +877,20 @@
       \begin{displaymath}
         (\epsilon, \eta) \colon (F,G) \to (F^\prime, G^\prime)
       \end{displaymath}
-      be a natural transformation and a modification.
+      be a natural transformation and a modification. We shall define a natural transformation denoted
+      \begin{displaymath}
+        \hocolim_\epsilon \eta \colon \hocolim_F G \to \hocolim_{F^\prime} G^\prime
+      \end{displaymath}
+      by using the morphism
+      \begin{displaymath}
+        \xymatrix{
+          G_j(x_0,x_q) \wedge \bigwedge_{i=1}^q \hom_{F(j)}(x_i,x_{i-1}) %
+            \ar[d]_{\eta_j \wedge}^{\bigwedge_i \epsilon_j}
+          \\
+          G_j^\prime(\epsilon_j(x_0),\epsilon_j(x_q)) \wedge %
+            \bigwedge_{i=1}^q \hom_{F^\prime(j)}(\epsilon_j(x_i),\epsilon_j(x_{i-1})),  
+        }
+      \end{displaymath}      
       % TODO check axioms for functorialities, at least on paper
       % TODO add definition of tensored, or at least look it up
       % TODO find a good definition / model (i.e. source) to be used here
