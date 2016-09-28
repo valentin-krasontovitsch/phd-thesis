@@ -867,7 +867,8 @@
       \end{displaymath}
       using the lax transformation $G$ on the first factor and the functor $F$ on the morphism sets.
       Including into the respective sum and doing this for every summand gives the desired morphism.\\
-      For functoriality in $\Delta^{\mathrm{op}}$, we specify a simplicial structure as follows. Degeneracy maps from degree $q$ to degree $q+1$ are induced by first adding a smash factor $S^0$, followed by the pointed morphism $S^0 \to \hom_{F(j)}(x_i,x_i)$ mapping the non-basepoint to the identity in the morphism set, for $i \in \{ 1, \ldots, q \}$.
+      For functoriality in $\Delta^{\mathrm{op}}$, we specify a simplicial structure as follows. Degeneracy maps from degree $q$ to degree $q+1$ are induced by first adding a smash factor $S^0$, followed by the pointed morphism $S^0 \to \hom_{F(j)}(x_i,x_i)$ mapping the non-basepoint to the identity in the morphism set, for $i \in \{ 0, \ldots, q \}$.
+      Face maps from degree $q$ to degree $q-1$ are induced by the composition $\hom_{F(j)}(x_i,x_{i-1}) \wedge \hom_{F(j)}(x_{i+1},x_i) \to \hom_{F(j)}(x_{i+1},x_{i-1})$ for $i \in \{ 1, \ldots, q-1 \}$. To define $d_0$ and $d_q$ we use functoriality of $G_j$ in $x_0$ and in $x_q$, respectively:
       % TODO check axioms for functorialities, at least on paper
       % TODO add definition of tensored, or at least look it up
       % TODO find a good definition / model (i.e. source) to be used here
