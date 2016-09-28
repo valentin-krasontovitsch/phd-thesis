@@ -828,11 +828,11 @@
       Given $F \colon \cD \to \Cat_*$, we denote by $F^e \colon \cD \to \Cat_*$ the functor sending $j \mapsto F(j)^e = F(j)^{\op} \wedge F(j)$. 
       We proceed to define the category $\operatorname{Bimod}^{\cD} / K$ of bimodules \comm{[TODO: analogy bimodules over (commutative) ring?]}. 
       The objects of this category are pairs $(F,G)$, where $F \colon \cD \to \Cat_*$ is a functor and $G \colon F^e \Rightarrow K$ is a left lax transformation (compare Rem. \ref{rem_left_lax_transform_functors_J_to_Cat}).
-      A morphism $(\epsilon, \eta) \colon (F,G) \to (F^\prime,G^\prime)$ between two such pairs consists of a natural transformation $\epsilon \colon F \to F^\prime$ and a modification $\eta \colon G \to G^\prime \epsilon^e$. Recall (cf. Def. \ref{def_modification}) that a modification as above is given by a natural transformation $\eta_i \colon G_i \Rightarrow G_i^\prime \epsilon_i^e$ for every $i \in \ob \cD$ satisfying that for every $f \colon i \to j$ in $\cD$ the two transformations
+      A morphism $(\epsilon, \eta) \colon (F,G) \to (F^\prime,G^\prime)$ between two such pairs consists of a natural transformation $\epsilon \colon F \to F^\prime$ and a modification $\eta \colon G \to G^\prime \epsilon^e$. Recall (cf. Def. \ref{def_modification}) that a modification as above is given by a natural transformation $\eta_j \colon G_j \Rightarrow G_j^\prime \epsilon_j^e$ for every $j \in \ob \cD$ satisfying that for every $f \colon j \to k$ in $\cD$ the two transformations
       \begin{displaymath}
-        \eta_j G_f = G^\prime_f \eta_i \colon %
-          G^\prime \epsilon_j^e F^e(f) \Rightarrow %
-          G^\prime_j (F^\prime(f)\epsilon_i)^e
+        \eta_k G_f = G^\prime_f \eta_j \colon %
+          G^\prime \epsilon_k^e F^e(f) \Rightarrow %
+          G^\prime_k (F^\prime(f)\epsilon_j)^e
       \end{displaymath}
       are equal.
       % TODO find general definition for such bimodules? [comment from the future: what does that mean?]
