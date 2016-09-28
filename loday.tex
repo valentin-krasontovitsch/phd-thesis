@@ -823,12 +823,12 @@
     \end{rem}
 
     \begin{defn}\label{def_category_of_bimodules}
-      Let $\cD$ be a small category, and let $K: \cD \to Cat_*$ be a functor.
+      Let $\cD$ be a small category, and let $K \colon \cD \to Cat_*$ be a functor.
       Recall the following notation: 
-      Given $F: \cD \to \Cat_*$, we denote by $F^e: \cD \to \Cat_*$ the functor sending $j \mapsto F(j)^e = F(j)^{\op} \wedge F(j)$. 
+      Given $F \colon \cD \to \Cat_*$, we denote by $F^e \colon \cD \to \Cat_*$ the functor sending $j \mapsto F(j)^e = F(j)^{\op} \wedge F(j)$. 
       We proceed to define the category $\operatorname{Bimod}^{\cD} / K$ of bimodules \comm{[TODO: analogy bimodules over (commutative) ring?]}. 
-      The objects of this category are pairs $(F,G)$, where $F:\cD \to \Cat_*$ is a functor and $G: F^e \Rightarrow K$ is a left lax transformation (compare Rem. \ref{rem_left_lax_transform_functors_J_to_Cat}).
-      A morphism $(\epsilon, \eta) \colon (F,G) \to (F^\prime,G^\prime)$ between two such pairs consists of a natural transformation $\epsilon \colon F \to F^\prime$ and a modification $\eta \colon G \to G^\prime \epsilon^e$. Recall (cf. Def. \ref{def_modification}) that a modification as above is given by a natural transformation $\eta_i: G_i \Rightarrow G_i^\prime \epsilon_i^e$ for every $i \in \ob \cD$ satisfying that for every $f \colon i \to j$ in $\cD$ the two transformations
+      The objects of this category are pairs $(F,G)$, where $F \colon \cD \to \Cat_*$ is a functor and $G \colon F^e \Rightarrow K$ is a left lax transformation (compare Rem. \ref{rem_left_lax_transform_functors_J_to_Cat}).
+      A morphism $(\epsilon, \eta) \colon (F,G) \to (F^\prime,G^\prime)$ between two such pairs consists of a natural transformation $\epsilon \colon F \to F^\prime$ and a modification $\eta \colon G \to G^\prime \epsilon^e$. Recall (cf. Def. \ref{def_modification}) that a modification as above is given by a natural transformation $\eta_i \colon G_i \Rightarrow G_i^\prime \epsilon_i^e$ for every $i \in \ob \cD$ satisfying that for every $f \colon i \to j$ in $\cD$ the two transformations
       \begin{displaymath}
         \eta_j G_f = G^\prime_f \eta_i \colon %
           G^\prime \epsilon_j^e F^e(f) \Rightarrow %
@@ -838,7 +838,6 @@
       % TODO find general definition for such bimodules? [comment from the future: what does that mean?]
     \end{defn}
     The next step in our construction will be to functorially find an object in the above category for every finite set, and apply the functor found in the following
-
     \begin{defn}\label{def_hocolim}
       Keeping the notation of Def. \ref{def_category_of_bimodules}, we assume $K$ to be a pointed category with small coproducts, and choose a (small) coproduct on $K$.
       Then $K$ is tensored over pointed sets: For a pointed set $S$ and an object $k$ in $K$ we write $S \wedge k$ for the coproduct of $k$ with itself over the non-basepoint elements of $S$.
@@ -868,11 +867,16 @@
       using the lax transformation $G$ on the first factor and the functor $F$ on the morphism sets.
       Including into the respective sum and doing this for every summand gives the desired morphism.\\
       For functoriality in $\Delta^{\mathrm{op}}$, we specify a simplicial structure as follows. Degeneracy maps from degree $q$ to degree $q+1$ are induced by first adding a smash factor $S^0$, followed by the pointed morphism $S^0 \to \hom_{F(j)}(x_i,x_i)$ mapping the non-basepoint to the identity in the morphism set, for $i \in \{ 0, \ldots, q \}$.
-      Face maps from degree $q$ to degree $q-1$ are induced by the composition $\hom_{F(j)}(x_i,x_{i-1}) \wedge \hom_{F(j)}(x_{i+1},x_i) \to \hom_{F(j)}(x_{i+1},x_{i-1})$ for $i \in \{ 1, \ldots, q-1 \}$. To define $d_0$ and $d_q$ we use functoriality of $G_j$ in $x_0$ (contravariant!) and in $x_q$, respectively: Given a morphism $f: x_1 \to x_0$ in $F(j)$, we obtain a morphism $G_j(f,\id_{x_q}): G_j(x_0,x_q) \to G_j(x_1,x_q)$, and apply these to get a map
+      Face maps from degree $q$ to degree $q-1$ are induced by the composition $\hom_{F(j)}(x_i,x_{i-1}) \wedge \hom_{F(j)}(x_{i+1},x_i) \to \hom_{F(j)}(x_{i+1},x_{i-1})$ for $i \in \{ 1, \ldots, q-1 \}$. To define $d_0$ and $d_q$ we use functoriality of $G_j$ in $x_0$ (contravariant!) and in $x_q$, respectively: Given a morphism $f: x_1 \to x_0$ in $F(j)$, we obtain a morphism $G_j(f,\id_{x_q}) \colon G_j(x_0,x_q) \to G_j(x_1,x_q)$, and apply these to get a map
       \begin{displaymath}
         G_j(x_0,x_q) \wedge F(j)(x_1,x_0) \to G_j(x_1,x_q).
       \end{displaymath}
       One may proceed similarly to obtain $d_q$.
+      For functoriality in the category of bimodules, let
+      \begin{displaymath}
+        (\epsilon, \eta) \colon (F,G) \to (F^\prime, G^\prime)
+      \end{displaymath}
+      be a natural transformation and a modification.
       % TODO check axioms for functorialities, at least on paper
       % TODO add definition of tensored, or at least look it up
       % TODO find a good definition / model (i.e. source) to be used here
