@@ -884,9 +884,11 @@
       be a natural transformation and a modification.
       We shall define a natural transformation denoted
       \begin{displaymath}
-        \hocolim_\epsilon \eta \colon \hocolim_F G \to \hocolim_{F^\prime} G^\prime
+        \hocolim_\epsilon \eta \colon \hocolim_F G \to \hocolim_{F^\prime} G^\prime:
       \end{displaymath}
-      by using the morphism
+      Recall that $\epsilon \colon F \to F^\prime$ a natural transformation implies that for every $j \in \cD$, we have a functor $\epsilon_j \colon F(j) \to F^\prime(j)$.
+      Furthermore, $\eta \colon G \to G^\prime \epsilon^e$ a modification implies that for every $j \in \cD$, we have a natural transformation $\eta_j \colon G_j \to G^\prime_j\epsilon^e_j$.
+      We hence have a morphism
       \begin{displaymath}
         \xymatrix{
           G_j(x_0,x_q) \wedge \bigwedge_{i=1}^q \hom_{F(j)}(x_i,x_{i-1}) %
