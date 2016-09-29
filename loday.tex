@@ -829,6 +829,26 @@
       We proceed to define the category $\operatorname{Bimod}^{\cD} / K$ of bimodules \comm{[TODO: analogy bimodules over (commutative) ring?]}. 
       The objects of this category are pairs $(F,G)$, where $F \colon \cD \to \Cat_*$ is a functor and $G \colon F^e \Rightarrow K$ is a left lax transformation (compare Rem. \ref{rem_left_lax_transform_functors_J_to_Cat}).
       A morphism $(\epsilon, \eta) \colon (F,G) \to (F^\prime,G^\prime)$ between two such pairs consists of a natural transformation $\epsilon \colon F \to F^\prime$ and a modification $\eta \colon G \to G^\prime \epsilon^e$.
+      Composition of two such morphisms
+      \begin{displaymath}
+        (F,G) \myrightarrow{(\epsilon_1, \eta_1)} %
+        (F^\prime,G^\prime) \myrightarrow{(\epsilon_2, \eta_2)}%
+        (F^\dprime,G^\dprime)
+      \end{displaymath}
+      is composition of natural transformations $\epsilon_2 \circ \epsilon_1$ in the first component, while composition in the second component is given by
+      \begin{displaymath}
+        \xymatrix{
+          G 
+            \ar[rr]
+            \ar[dr]_{\eta_1}
+          &&
+          G^\dprime \epsilon_2^e \epsilon_1^e
+          \\
+          & 
+          G^\prime \epsilon_1^e
+            \ar[ur]_{\eta_2 \ast \id_{\eta_1^e}}
+        }
+      \end{displaymath}
       % Recall (cf. Def. \ref{def_modification}) that a modification as above is given by a natural transformation $\eta_j \colon G_j \Rightarrow G_j^\prime \epsilon_j^e$ for every $j \in \ob \cD$ satisfying that for every $f \colon j \to k$ in $\cD$ the two transformations
       % \begin{displaymath}
       %   \eta_k G_f = G^\prime_f \eta_j \colon %
@@ -899,7 +919,7 @@
             \bigwedge_{i=1}^q \hom_{F^\prime(j)}(\epsilon_j(x_i),\epsilon_j(x_{i-1})),  
         }
       \end{displaymath}
-      which assemble into the desired natural transformation.
+      which assemble into the desired natural transformation, and is obviously functorial in the category of bimodules.
       % TODO check axioms for functorialities, at least on paper
       % TODO add definition of tensored, or at least look it up
       % TODO find a good definition / model (i.e. source) to be used here
