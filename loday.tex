@@ -952,7 +952,7 @@
           \Cat_* \ar[r] & \Cat_*
         }
       \end{displaymath}
-    where $\Sigma_+ \colon \Fin \to \Cat_*$ is the weak functor obtained by applying Def. \ref{def_functor_iW_to_Cat_aka_abstract_loday} to the inclusion $\Sigma \to \Fin$ and Def. \ref{def_added_basepoint_extending_functor} to the resulting functor, and finally precomposing with the inclusions $\Fin \to iW \to eW$, while $\sS_*$ is used to denote the constant functor with image pointed simplicial sets.
+    where $\Sigma_+ \colon \Fin \to \Cat_*$ is the weak functor obtained by applying Def. \ref{def_functor_iW_to_Cat_aka_abstract_loday} to the inclusion $\Sigma \to \Fin$ and Def. \ref{def_added_basepoint_extending_functor} to the resulting functor, and finally precomposing with the functors $\Fin \myrightarrow{(-)_*} V \myrightarrow{L} iW \myrightarrow{\iota} eW$ (cf. Def. \ref{def_functors_finite_sets_to_iW}), while $\sS_*$ is used to denote the constant functor with image pointed simplicial sets.
     The left lax transformation itself is given for a finite set $X$ by the formula
       \begin{gather*}
         S_X \colon (\Sigma^X)_+ \to \sS_* \\
@@ -964,7 +964,11 @@
       \bigwedge_{x \in X} S(j(x)) \to %
       \bigwedge_{x \in X} S(k(x))
     \end{displaymath}
-    For a morphism $f: X \to Y$ of finite sets,
+    For a morphism $f \colon X \to Y$ of finite sets, we have a natural transformation $S_f \colon S_X \Rightarrow S_Y \circ \Sigma_+(f)$ given for $j \colon X \to \ob \Sigma$ in $(\Sigma^X)_+$ by the isomorphism 
+    \begin{displaymath}
+      \bigwedge_{x \in X} S(j(x)) \to \bigwedge_{y \in Y} S( \coprod_{x \in f^{-1}(y)} j(x)) = \bigwedge_{y \in Y} \bigwedge_{x \in f^{-1}(y)} S(j(x))
+    \end{displaymath}
+    adding in $S^0$ for every $y \in Y$ not in the image of $f$. This clearly satisfies the axioms of a left lax transformation
     \end{defn}
 
     \begin{defn}\label{def_left_lax_transformation_A}
