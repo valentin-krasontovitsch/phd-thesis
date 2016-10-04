@@ -987,9 +987,21 @@
       keeping the notation of Def. \ref{def_left_lax_transformation_S}. We define
       \begin{gather*}
         A_X \colon (\Sigma^X)_+ \to \sS_* \\
-        (j \colon X \to \Sigma) \mapsto \bigwedge_{x \in X} S(j(x))
+        (j \colon X \to \Sigma) \mapsto %
+          \bigwedge_{x \in X} A_{\abs{j(x)}}
       \end{gather*}
+      and let $A_X$ map any map $f \colon j \to k$ in $\Sigma^X$ to the identity.
+      For a morphism of finite sets $f \colon X \to Y$ we use the multiplication on $A$ to define a natural transformation $A_X \to A_Y \circ \Sigma_+ (f)$:
+      For $j \in \Sigma^X$, we use
+      \begin{displaymath}
+        A_X(j) = \bigwedge_{x \in X} A_{\abs{j(x)}} \cong %
+        \bigwedge_{y \in Y} \bigwedge_{x \in f^{-1}(y)} A_{\abs{j(x)}} \myrightarrow{\bigwedge_{y \in Y} \mu} % \to %
+        \bigwedge_{y \in Y} %
+          A_{\abs{\coprod_{x \in f^{-1}(y)} j(x)}}
+      \end{displaymath}
+      Note that as $A$ is commutative, this composition does not depend on the permutation we choose for reshuffling $X$. Since multiplication is associative, this satisfies the axioms of a left lax transformation (cf. Rem. \ref{rem_left_lax_transform_functors_J_to_Cat}).
     \end{defn}
+    % TODO here and in def above, vary variable name f!
 
     \begin{defn}\label{def_left_lax_transform_G^A}
       We combine the two above definitions to obtain a left lax transformation $G^A$ ...
