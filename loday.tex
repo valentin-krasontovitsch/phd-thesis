@@ -952,7 +952,12 @@
           \Cat_* \ar[r] & \Cat_*
         }
       \end{displaymath}
-    where $\Sigma_+: \Fin \to \Cat_*$ is the weak functor obtained by applying the constructions from Defs. \ref{def_functor_iW_to_Cat_aka_abstract_loday} and \ref{def_added_basepoint_extending_functor} to the inclusion
+    where $\Sigma_+: \Fin \to \Cat_*$ is the weak functor obtained by applying Def. \ref{def_functor_iW_to_Cat_aka_abstract_loday} to the inclusion $\Sigma \to \Fin$ and Def. \ref{def_added_basepoint_extending_functor} to the resulting functor, and finally precomposing with the inclusions $\Fin \to iW \to eW$, while $\sS_*$ is used to denote the constant functor with image pointed simplicial sets. The left lax transformation itself is given for a finite set $X$ by the formula
+      \begin{gather*}
+        S_X: (\Sigma^X)_+ \to \sS_* \\
+        (j: X \to \Sigma) \mapsto \bigwedge_{x \in X} S(j(x))
+      \end{gather*}
+    A morphism ...
     \end{defn}
 
     NB We have to start working here!
