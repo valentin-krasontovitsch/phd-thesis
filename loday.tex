@@ -964,10 +964,27 @@
       \bigwedge_{x \in X} S(j(x)) \to %
       \bigwedge_{x \in X} S(k(x))
     \end{displaymath}
+    For a morphism $f: X \to Y$ of finite sets,
     \end{defn}
 
     \begin{defn}\label{def_left_lax_transformation_A}
-      Given a \hring $A$, we define a left lax transformation
+      Given a \hring $A$, we would like to define a left lax transformation
+      \begin{displaymath}
+        \xymatrix{
+          \Fin 
+            \ar@{=}[r] 
+            \ar[d]_{\Sigma_+} 
+            \ar@{}[rd]|{\overset{A}{\Rightarrow}} 
+          & 
+          \Fin \ar[d]^{\sS_*} \\
+          \Cat_* \ar[r] & \Cat_*
+        }
+      \end{displaymath}
+      keeping the notation of Def. \ref{def_left_lax_transformation_S}. We define
+      \begin{gather*}
+        A_X \colon (\Sigma^X)_+ \to \sS_* \\
+        (j \colon X \to \Sigma) \mapsto \bigwedge_{x \in X} S(j(x))
+      \end{gather*}
     \end{defn}
 
     \begin{defn}\label{def_left_lax_transform_G^A}
