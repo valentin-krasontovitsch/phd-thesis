@@ -1005,7 +1005,12 @@
     % TODO here and in def above, vary variable name f!
 
     \begin{defn}\label{def_left_lax_transform_G^A}
-      Given two pointed simplicial sets $X$ and $Y$, we define a symmetric spetrum of functions $\Hom(X,Y)$ given in degree $n$ by the pointed simplicial function object $\map_*(X,Y \wedge S^n)$. One may check that this coincides with the internal hom object of symmetric spectra as found in Example 3.38 of 
+      Given two pointed simplicial sets $X$ and $Y$, we define a \emph{symmetric spetrum} of functions $\Hom(X,Y)$ given in degree $n$ by the internal hom object of pointed simplicial sets $\Hom_{\sS_*}(X,Y \wedge S^n)$, $\Sigma_n$ acting on the $n$-sphere, and structure maps of assembly type
+      \begin{gather*}
+      \Hom_{\sS_*}(X,Y \wedge S^n) \wedge S^1 \to \Hom_{\sS_*}(X,Y \wedge S^{n+1})\\
+      (f \colon X \to Y \wedge S^n) \wedge t \mapsto (x \mapsto f(x) \wedge t)
+      \end{gather*}
+      One may check that this coincides with the internal hom object of symmetric spectra as found in Example 3.38 of \cite{schwede2012symmetric} when applied to $\Sigma^\infty X$ and $\Sigma^\infty Y$.\\
       We combine the two above definitions to obtain a left lax transformation $G^A$ ...
     \end{defn}
 
