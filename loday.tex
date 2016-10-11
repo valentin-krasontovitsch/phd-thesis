@@ -1019,7 +1019,8 @@
       Let $T$ be a finite set. We define a pointed functor
       \begin{gather*}
         G^A_T \colon \cJ(T) = (\cI^T)_+ \to \SpS \\
-        (i \colon T \to \cI) \mapsto 
+        (i \colon T \to \cI) \mapsto %
+          \Hom(\bigwedge_{t \in T} S^{i(t)}, \bigwedge_{t \in T} A_{\abs{i(t)}} )
       \end{gather*}
 
     \end{defn}
