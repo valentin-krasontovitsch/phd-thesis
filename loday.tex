@@ -1043,14 +1043,15 @@
             \ar[d]^-{\cong} \\
           \Hom(\bigwedge\limits_{t \in T} S^{i(t)} \wedge S^{j(t) \setminus \im \alpha_t}, %
             \bigwedge\limits_{t \in T} A_{i(t)} \wedge S^{j(t) \setminus \im \alpha_t}) 
-            \ar[d]^{(\cong, \bigwedge\limits_{t \in T} \sigma^A_{i(t),j(t)\setminus\im\alpha_t})} \\
+            \ar[d]^-{(\cong, \bigwedge\limits_{t \in T} \sigma^A_{i(t),j(t)\setminus\im\alpha_t})} \\
+          \Hom(\bigwedge\limits_{t \in T} S^{j(t)}, \bigwedge\limits_{t \in T} A_{i(t) \coprod (j(t)\setminus \im \alpha_t)})
+            \ar[d]^{(\bigwedge\limits_{t \in T} \chi_t)_*} \\
           \Hom(\bigwedge\limits_{t \in T} S^{j(t)}, \bigwedge\limits_{t \in T} A_{j(t)})
         }
       \end{displaymath}
-      where the second map is induced by permutation isomorphisms, and the third map is induced by the isomorphism $S(j(t) \setminus \im \alpha_t \coprod i(t)) \cong S(j(t))$ in the first variable and the respective structure maps in the second variable.\\
-      This defines a morphism of symmetric spectra, as we just use morphisms of pointed simplicial sets and functoriality of the $\Hom$ functor.
+      where the second map is induced by permutation isomorphisms, the third map is induced by the isomorphism $S(j(t) \setminus \im \alpha_t \coprod i(t)) \cong S(j(t))$ in the first variable and the respective structure maps in the second variable, and the last map is induced by the action of the shuffle permutation $\chi_t \colon \im \alpha_t \coprod (j(t)\setminus \im \alpha_t) \to j(t)$ rearranging the elements into order (recall that the elements of $\cI$ are sets of the form $\{1 , \ldots, n\}$, i.e. we may consider them ordered).\\
+      This defines a morphism of symmetric spectra as we use morphisms of pointed simplicial sets and functoriality of the $\Hom$ functor.
       It is functorial: Let $\beta \colon j \to k$ be another morphism in $\cI^T$.
-      \comm{last map should require a permutation action: how are $i(t)$ and $j(t) \setminus \im \alpha_t$ arranged?}\\
     \end{defn}
 
   \subsection{Rectification}
