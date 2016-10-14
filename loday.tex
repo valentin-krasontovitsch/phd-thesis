@@ -975,13 +975,15 @@
     adding in $S^0$ for every $y \in Y$ not in the image of $f$. This clearly satisfies the axioms of a left lax transformation (cf. Rem. \ref{rem_left_lax_transform_functors_J_to_Cat}).
     \end{defn}
 
-    % \begin{rem}\label{rem_notation_for_functor_S}
-    %   Considering the above functor $S: \Sigma \to \sS_*$, we will write $S^X \defas S(X)$, intending to indicate a sphere of dimension cardinality of $X$, as we have a homeomorphism
-    %   \begin{displaymath}
-    %     S(X) = S( \coprod_{x \in X} \{x\}) = \bigwedge_{x \in X} S(\{x\}) \cong %
-    %       \bigwedge_{x \in X} S(\{1\}) = \bigwedge_{x \in X} S^1.
-    %   \end{displaymath}
-    % \end{rem}
+    \begin{rem}\label{rem_notation_for_functor_S}
+      Considering the above strict(!) symmetric monoidal functor $S: \Sigma \to \sS_*$, we have
+      \begin{displaymath}
+        S(X) = S( \coprod_{x \in X} \{x\}) = \bigwedge_{x \in X} S(\{x\})
+      \end{displaymath}
+      \comm{The first equality is not an equality, only an iso! $X \neq \coprod_{x \in X} \{x\}$}\\
+      \comm{Have a chosen coproduct on $\cF$, skeletal category - does $S$ need to be defined on $\Sigma$?}\\
+      and the bijection $\{1\} \cong \{x\}$ for $x \in X$ induces a homeomorphism $S^1 = S(\{1\}) \cong S(\{x\})$. Using this homeomorphism and the above equality we may thus interpret $S(X)$ as a sphere of dimensionality $\abs{X}$ the cardinality of $X$. This will often be implicit.
+    \end{rem}
 
     \begin{defn}\label{def_left_lax_transformation_A}
       Given a \hring~$A$, we would like to define a left lax transformation
