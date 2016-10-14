@@ -939,7 +939,11 @@
 
     \begin{defn}\label{def_left_lax_transformation_S}
       Let $\Sigma$ be the category of finite sets (including the empty set) with bijections (the empty set has no endomorphisms, hence they all are bijections by tautology), equipped with the structure of a monoidal category by disjoint union of sets, and let $\sS_*$ be the category of pointed simplicial sets, equipped with the structure of a monoidal category by smash product of simplicial sets.
-      We choose a strong symmetric monoidal functor $S: \Sigma \to \sS_*$ with $S(\{1\}) = S^1$ (one possible such choice is to let $S(X) = \bigwedge_{x \in X} S^1$ for any finite set $X$).
+      We choose a strong symmetric monoidal functor $S: \Sigma \to \sS_*$ with $S(\{1\}) = S^1$, one possible such choice being letting
+      \begin{displaymath}
+        S(X) = \bigwedge_{x \in X} S^1
+      \end{displaymath}
+      for any finite set $X$.
       This gives rise to a left lax transformation
       \begin{displaymath}
         \xymatrix{
