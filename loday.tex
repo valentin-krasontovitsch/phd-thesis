@@ -1024,7 +1024,7 @@
       \end{displaymath}
       given in degree $n$ by the internal hom-object of pointed simplicial sets $\Hom_{\sS_*}(X,Y \wedge S^n)$, $\Sigma_n$ acting on the $n$-sphere, and structure maps of assembly type
       \begin{gather*}
-      \Hom_{\sS_*}(X,Y \wedge S^n) \wedge S^1 \to \Hom_{\sS_*}(X,Y \wedge S^{n+1})\\
+      \Hom_{\sS_*}(X,Y \wedge S^n) \wedge S^1 \to \Hom_{\sS_*}(X,Y \wedge S(n+1))\\
       (f \colon X \to Y \wedge S^n) \wedge t \mapsto (x \mapsto f(x) \wedge t).
       \end{gather*}
       One may check that this coincides with the internal hom object of symmetric spectra as found in Example 3.38 of \cite{schwede2012symmetric} when applied to $\Sigma^\infty X$ and $\Sigma^\infty Y$; In particular, this definition is functorial in both variables.\\
@@ -1033,24 +1033,24 @@
       \begin{gather*}
         G^A_T \colon \cJ(T) = (\cI^T)_+ \to \SpS \\
         (i \colon T \to \cI) \mapsto %
-          \Hom(\bigwedge_{t \in T} S^{i(t)}, \bigwedge_{t \in T} A_{i(t)} )
+          \Hom(\bigwedge_{t \in T} S(i(t)), \bigwedge_{t \in T} A_{\abs{i(t)}} )
       \end{gather*}
       which sends a morphism $(\alpha_t \colon i(t) \to j(t))_{t \in T}$ in $\cI^T$ to the map
       \begin{displaymath}
         \xymatrix{
-          \Hom(\bigwedge\limits_{t \in T} S^{i(t)}, \bigwedge\limits_{t \in T} A_{i(t)})
-            \ar[d]^-{ \operatorname{-} \wedge \bigwedge\limits_{t \in T} S^{j(t) \setminus \im \alpha_t} } \\
-          \Hom(\bigwedge\limits_{t \in T} S^{i(t)} \wedge %
-            \bigwedge\limits_{t \in T} S^{j(t) \setminus \im \alpha_t}, %
-            \bigwedge\limits_{t \in T} A_{i(t)} \wedge %
-            \bigwedge\limits_{t \in T} S^{j(t) \setminus \im \alpha_t})
+          \Hom(\bigwedge\limits_{t \in T} S(i(t)), \bigwedge\limits_{t \in T} A_{\abs{i(t)}})
+            \ar[d]^-{ \operatorname{-} \wedge \bigwedge\limits_{t \in T} S(j(t) \setminus \im \alpha_t) } \\
+          \Hom(\bigwedge\limits_{t \in T} S(i(t)) \wedge %
+            \bigwedge\limits_{t \in T} S(j(t) \setminus \im \alpha_t), %
+            \bigwedge\limits_{t \in T} A_{\abs{i(t)}} \wedge %
+            \bigwedge\limits_{t \in T} S(j(t) \setminus \im \alpha_t))
             \ar[d]^-{\cong} \\
-          \Hom(\bigwedge\limits_{t \in T} S^{i(t)} \wedge S^{j(t) \setminus \im \alpha_t}, %
-            \bigwedge\limits_{t \in T} A_{i(t)} \wedge S^{j(t) \setminus \im \alpha_t}) 
-            \ar[d]^-{(\cong, \bigwedge\limits_{t \in T} \sigma^A_{i(t),j(t)\setminus\im\alpha_t})} \\
-          \Hom(\bigwedge\limits_{t \in T} S^{j(t)}, \bigwedge\limits_{t \in T} A_{i(t) \coprod (j(t)\setminus \im \alpha_t)})
+          \Hom(\bigwedge\limits_{t \in T} S(i(t)) \wedge S(j(t) \setminus \im \alpha_t), %
+            \bigwedge\limits_{t \in T} A_{\abs{i(t)}} \wedge S(j(t) \setminus \im \alpha_t)) 
+            \ar[d]^-{(\cong, \bigwedge\limits_{t \in T} \sigma^A_{\abs{i(t),j(t)\setminus\im\alpha_t}})} \\
+          \Hom(\bigwedge\limits_{t \in T} S(j(t)), \bigwedge\limits_{t \in T} A_{\abs{i(t) \coprod (j(t)\setminus \im \alpha_t)}})
             \ar[d]^{(\bigwedge\limits_{t \in T} \chi_t)_*} \\
-          \Hom(\bigwedge\limits_{t \in T} S^{j(t)}, \bigwedge\limits_{t \in T} A_{j(t)})
+          \Hom(\bigwedge\limits_{t \in T} S(j(t)), \bigwedge\limits_{t \in T} A_{\abs{j(t)}})
         }
       \end{displaymath}
       where the second map is induced by permutation isomorphisms, the third map is induced by the isomorphism $S(j(t) \setminus \im \alpha_t \coprod i(t)) \cong S(j(t))$ in the first variable and the respective structure maps in the second variable, and the last map is induced by the action of the shuffle permutation $\chi_t \colon \im \alpha_t \coprod (j(t)\setminus \im \alpha_t) \to j(t)$ rearranging the elements into order (recall that the elements of $\cI$ are sets of the form $\{1 , \ldots, n\}$, i.e. we may consider them ordered).\\
@@ -1083,7 +1083,7 @@
     \begin{lem}\label{lem_loday_functor_preserves_connectivity}
       The Loday functor (at a finite set) preserves connectivity of commutative ring spectra, sends stable equivalences to point-wise equivalences (check this statement!) and [comparison to smash product].
       \begin{proof}
-        depends on connectivity of a map $S^1 \wedge A(S^n) \to A(S^{n+1})$ - corresponding map in orthogonal spectra context should be structure map. check definition of transformation $G^A$ or rather transformation $A$! Connection of connectivity to ``functors of simplicial sets''?
+        depends on connectivity of a map $S^1 \wedge A(S^n) \to A(S(n+1))$ - corresponding map in orthogonal spectra context should be structure map. check definition of transformation $G^A$ or rather transformation $A$! Connection of connectivity to ``functors of simplicial sets''?
       \end{proof}
     \end{lem}
 
