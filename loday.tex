@@ -978,11 +978,13 @@
     \begin{rem}\label{rem_notation_for_functor_S}
       Considering the above strict(!) symmetric monoidal functor $S: \Sigma \to \sS_*$, we have
       \begin{displaymath}
-        S(X) = S( \coprod_{x \in X} \{x\}) = \bigwedge_{x \in X} S(\{x\})
+        S(X) \cong S( \coprod_{x \in X} \{x\}) = \bigwedge_{x \in X} S(\{x\}) \cong \bigwedge_{x \in X} S(\{1\}) = \bigwedge_{x \in X} S^1,
       \end{displaymath}
-      \comm{The first equality is not an equality, only an iso! $X \neq \coprod_{x \in X} \{x\}$}\\
-      \comm{Have a chosen coproduct on $\cF$, skeletal category - does $S$ need to be defined on $\Sigma$?}\\
-      and the bijection $\{1\} \cong \{x\}$ for $x \in X$ induces a homeomorphism $S^1 = S(\{1\}) \cong S(\{x\})$. Using this homeomorphism and the above equality we may thus interpret $S(X)$ as a sphere of dimensionality $\abs{X}$ the cardinality of $X$. This will often be implicit.
+      where the first map is a natural isomorphism induced by the natural bijection 
+      \begin{displaymath}
+        \coprod_{x \in X} \{ x \} \myrightarrow{\coprod \incl} X
+      \end{displaymath}
+      and the last isomorphism is induced by the unique bijection $\{x\} \to \{1\}$. Using this natural homeomorphism we may interpret $S(X)$ as a sphere of dimension $\abs{X}$ the cardinality of $X$. This will often be used implicit in the context of a symmetric spectrum $A$, using for instance the structure map $A_n \wedge S(X) \to A_{n + \abs{X}}$ for some finite set $X$.
     \end{rem}
 
     \begin{defn}\label{def_left_lax_transformation_A}
