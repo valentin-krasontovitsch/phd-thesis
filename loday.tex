@@ -1097,7 +1097,11 @@
       \end{displaymath}
       That this indeed constitutes a natural transformation is a tedious, but not deep exercise in writing large diagrams, playing with the permutations involved and using that multiplication in $A$ is commutative.\\
       Assembling the data defined above yields a left lax tranformation from the functor $S \mapsto \cJ(S) = (\cI^S)_+$ to the constant functor $\Fin \to \Cat_*$ with value in symmetric spectra.
-      To verify the axioms (cf. Rem. \ref{rem_left_lax_transformation}), 
+      To verify the axioms (cf. Rem. \ref{rem_left_lax_transformation}), consider two maps of finite sets
+      \begin{displaymath}
+        S \myrightarrow{\phi} T \myrightarrow{\psi} U.
+      \end{displaymath}
+      Jotting down the composition corresponding to $G^A_\psi \ast \id_{\cJ(\phi_*)} \circ G^A_\phi$ and $G^A_{\psi \phi}$, one can see that the difference is precisely given by permuting the involved smash factors according to the structure map $\cJ_{\psi,\phi}^{-1}$, hence the first axiom (cf. Rem. \ref{rem_left_lax_transformation}) is satisfied. The unital property of a left lax transformation is given trivially, since 
     \end{defn}
 
   \subsection{Rectification}
