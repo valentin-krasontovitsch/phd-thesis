@@ -460,7 +460,7 @@
     \begin{displaymath}
       \cC(f)(c): Y \to \cC, y \mapsto \coprod_{a \in f_2^{-1}(y)} c(f_1(a)).
     \end{displaymath}
-    For a map of tupels $\phi: c \to c^\prime$, the same formula may be used to define $\cC(\phi)$. Recall that $\phi \in \prod_{x \in X} \cC(c(x),c^\prime(x))$. With this, we may define the $y$-th coordinate of $\cC(f)(\phi):\cC(f)(c) \to \cC(f)(c^\prime)$ as the map
+    For a map of tuples $\phi: c \to c^\prime$, the same formula may be used to define $\cC(\phi)$. Recall that $\phi \in \prod_{x \in X} \cC(c(x),c^\prime(x))$. With this, we may define the $y$-th coordinate of $\cC(f)(\phi):\cC(f)(c) \to \cC(f)(c^\prime)$ as the map
     \begin{displaymath}
       \coprod_{a \in f_2^{-1}(y)} c(f_1(a))%
         \crightarrow{2.5}{\coprod_{a \in f_2^{-1}(y)} \phi(f_1(a))}%
@@ -1109,7 +1109,12 @@
   \subsection{Rectification}
 
     \begin{defn}\label{def_streets_first_construction}
-      Let $\cD$ be a category, and let $F: \cD \to \Cat_*$ be a flax functor. Following Street's example, we construct a functor (!) $\tilde{F}: \cJ \to \Cat_*$
+      Let $\cD$ be a small category, and let $F: \cD \to \Cat_*$ be a lax functor (with values in small! pointed categories). Following Street's example, we construct a functor (!) $\tilde{F}: \cJ \to \Cat_*$.
+      For $d$ and object of $\cD$ we define the pointed category $\tilde{F}(d)$ to have as objects the set 
+      \begin{displaymath}
+        \bigvee_{d_1 \in \ob \cD} \hom_{\cD}(d_1,d) \wedge \ob F(d_1).
+      \end{displaymath}
+      Let $(\phi_1: d_1 \to d, x_1 \in \ob F(d_1))$ and $(\phi_0: d_0 \to d, x_0 \in \ob F(d_0))$ be two objects in $\tilde{F}(d)$, then a morphism $(\psi, \alpha) \colon (\phi_1,x_1) \to (\phi_0,x_0)$ is given by a morphism $\psi: d_1 \to d_0$ in $\cD$ (observe the contraintuitive direction) such that $\phi_0 = \phi_1 \circ \psi$ and a morphism $\alpha \colon x_1 \to F(\psi)(x_0)$. Note that we collapse all morphisms of the form $(\psi,0)$ to the zero morphism.
     \end{defn}
 
   \subsection{The Loday functor for finite sets}
