@@ -1143,6 +1143,15 @@
         F(\psi_1) \circ F(\psi_2) (x_0).
       \end{displaymath}
       This definition becomes obvious once one jots down the objects and arrows involved, at which point one also realizes that it satisfies the axioms of a pointed category.
+      Given a map $g: d \to d^\prime$ in $\cD$, we define a functor
+      \begin{displaymath}
+        \tilde{F}(g) \colon \tilde{F}(d) \to \tilde{F}(d^\prime)
+      \end{displaymath}
+      by mapping an object according to the formula
+      \begin{displaymath}
+        (d_1 \myrightarrow{\phi} d, x \in F(d_1)) \mapsto (d_1 \myrightarrow{\phi} d \myrightarrow{f} d^\prime, x \in F(d_1)),
+      \end{displaymath}
+      and acting as the identity on morphisms.
     \end{defn}
 
   \subsection{The Loday functor for finite sets}
