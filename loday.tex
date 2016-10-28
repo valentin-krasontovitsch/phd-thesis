@@ -1109,12 +1109,40 @@
   \subsection{Rectification}
 
     \begin{defn}\label{def_streets_first_construction}
-      Let $\cD$ be a small category, and let $F: \cD \to \Cat_*$ be a lax functor (with values in small! pointed categories). Following Street's example, we construct a functor (!) $\tilde{F}: \cJ \to \Cat_*$.
+      Let $\cD$ be a small category, and let $F: \cD \to \Cat_*$ be a lax functor (with values in small pointed categories). Following Street's example, we construct a functor $\tilde{F}: \cD \to \Cat_*$.
       For $d$ and object of $\cD$ we define the pointed category $\tilde{F}(d)$ to have as objects the set 
       \begin{displaymath}
-        \bigvee_{d_1 \in \ob \cD} \hom_{\cD}(d_1,d) \wedge \ob F(d_1).
+        \ob \tilde{F}(d) = \bigvee_{d_1 \in \ob \cD} \hom_{\cD}(d_1,d) \wedge \ob F(d_1).
       \end{displaymath}
-      Let $(\phi_1: d_1 \to d, x_1 \in \ob F(d_1))$ and $(\phi_0: d_0 \to d, x_0 \in \ob F(d_0))$ be two objects in $\tilde{F}(d)$, then a morphism $(\psi, \alpha) \colon (\phi_1,x_1) \to (\phi_0,x_0)$ is given by a morphism $\psi: d_1 \to d_0$ in $\cD$ (observe the contraintuitive direction) such that $\phi_0 = \phi_1 \circ \psi$ and a morphism $\alpha \colon x_1 \to F(\psi)(x_0)$. Note that we collapse all morphisms of the form $(\psi,0)$ to the zero morphism.
+      Let 
+      be two objects in $\tilde{F}(d)$, then a morphism 
+      \begin{displaymath}
+        (\psi, \alpha) \colon (\phi_1,x_1) \to (\phi_0,x_0) \in \hom_{\tilde{F}(d)}((\phi_1,x_1), (\phi_0,x_0))
+      \end{displaymath}  
+      is given by a morphism 
+      \begin{displaymath}
+        \psi: d_0 \to d_1 \in \hom_{\cD}(d_0,d_1)
+      \end{displaymath}  
+      (observe the contraintuitive direction - not a surprise, since $d$ is fixed, so we are using the first variable in $\hom_{\cD}(d_1,d)$) such that 
+      \begin{displaymath}
+        \xymatrix{
+          d_1 \ar[d]_{\phi_1} & d_0 \ar[l]_{\psi} \ar[dl]^{\phi_0} \\
+          d
+        }
+        % \phi_0 = \phi_1 \circ \psi
+      \end{displaymath}  
+      commutes, and - in order to compare $x_1 \to x_0$, we bring one of them into the context of the other - a morphism 
+      \begin{displaymath}
+        \alpha \colon x_1 \to F(\psi)(x_0);
+      \end{displaymath}  
+      We collapse all morphisms of the form $(\psi,0)$ to the zero morphism (note that $\cD$ is a priori just a category and hence presumably does not have any zero morphisms).
+      Given two morphisms $(\psi_i,\alpha_i)\colon(\phi_1,x_1) \to (\phi_0,x_0)$ we define their composition as the pair $(\psi_2 \circ \psi_1, \beta)$, where $\beta$ is the in this context natural way of comparing $x_2 \to x_0$ and given by
+      \begin{displaymath}
+        x_2 \crightarrow{1.5}{\alpha_2} %
+        F(\psi_1)(x_1) \crightarrow{1.5}{F(\psi_1)(\alpha_1)} %
+        F(\psi_1) \circ F(\psi_2) (x_0).
+      \end{displaymath}
+      This definition becomes obvious once one jots down the objects and arrows involved, at which point one also realizes that it satisfies the axioms of a pointed category.
     \end{defn}
 
   \subsection{The Loday functor for finite sets}
