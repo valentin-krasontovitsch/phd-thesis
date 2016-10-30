@@ -327,7 +327,10 @@
         F(f).
        }
     \end{gather*}
-    A lax functor is called \emph{weak} or \emph{strict} if the structure maps $\phi_{g,f}$ and $\phi_a$ are isomorphisms or identity morphisms, respectively, for all composable $g,f$ and all $a \in \cC_0$. Note that there is a dual notion of colax functor, which we do not need. We will hence drop the word lax from our notation. It is a lengthy but rather straight forward exercise to verify that the composition of two composable 2-functors is again a 2-functor.
+    A lax functor is called \emph{weak} or \emph{strict} if the structure maps $\phi_{g,f}$ and $\phi_a$ are isomorphisms or identity morphisms, respectively, for all composable $g,f$ and all $a \in \cC_0$. 
+    Note that there is a dual notion of colax functor, which is not used in this work - we will hence drop the word lax from notation. 
+    It is a lengthy but rather straight forward exercise to verify that the composition of two composable 2-functors is again a 2-functor. 
+    We may denote the structure morphisms by the functor, as in $F_{g,f} \defas \phi_{g,f}$ and $F_a \defas \phi_a}$, whenever we need the symbol $\phi$ elsewhere.
   \end{defn}
   % TODO make last statement into a Lemma, specifying the structure morphisms of the composition
   % TODO add examples for functors
@@ -1151,7 +1154,26 @@
       \begin{displaymath}
         (d_1 \myrightarrow{\phi} d, x \in F(d_1)) \mapsto (d_1 \myrightarrow{\phi} d \myrightarrow{f} d^\prime, x \in F(d_1)),
       \end{displaymath}
-      and acting as the identity on morphisms.
+      and acting as the identity on morphisms.\\
+      For every object $d \in \cD$ there is a functor
+      \begin{displaymath}
+        e_d \colon \tilde{F}(d) \to F(d)
+      \end{displaymath}
+      sending an object $(\phi \colon d_1 \to d, x \in F(d_1)) \in \ob \tilde{F}(d)$ to 
+      \begin{displaymath}
+        e_d(\phi,x) = F(\phi)(x) \in \ob F(d)
+      \end{displaymath}
+      and a morphism 
+      \begin{displaymath}
+        (\psi \colon d_0 \to d_1, \alpha \colon x_1 \to F(\psi)(x_0)) %
+        \colon (\phi_1, x_1) \to (\phi_0, x_0)
+      \end{displaymath}
+      to
+      \begin{displaymath}
+        F(\phi_1)(x_1) \myrightarrow{F(\phi_1)(\alpha)} %
+        F(\phi_1) \circ F(\psi)(x_0) \myrightarrow{F_{\phi_1,\psi}} %
+        F(\phi_1 \circ \psi)(x_0) = F(\phi_0)(x_0).
+      \end{displaymath}
     \end{defn}
 
   \subsection{The Loday functor for finite sets}
