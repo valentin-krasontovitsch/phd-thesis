@@ -330,7 +330,7 @@
     A lax functor is called \emph{weak} or \emph{strict} if the structure maps $\phi_{g,f}$ and $\phi_a$ are isomorphisms or identity morphisms, respectively, for all composable $g,f$ and all $a \in \cC_0$. 
     Note that there is a dual notion of colax functor, which is not used in this work - we will hence drop the word lax from notation. 
     It is a lengthy but rather straight forward exercise to verify that the composition of two composable 2-functors is again a 2-functor. 
-    We may denote the structure morphisms by the functor, as in $F_{g,f} \defas \phi_{g,f}$ and $F_a \defas \phi_a}$, whenever we need the symbol $\phi$ elsewhere.
+    We may denote the structure morphisms by the functor, as in $F_{g,f} \defas \phi_{g,f}$ and $F_a \defas \phi_a$, whenever we need the symbol $\phi$ elsewhere.
   \end{defn}
   % TODO make last statement into a Lemma, specifying the structure morphisms of the composition
   % TODO add examples for functors
@@ -1155,7 +1155,8 @@
         (d_1 \myrightarrow{\phi} d, x \in F(d_1)) \mapsto (d_1 \myrightarrow{\phi} d \myrightarrow{f} d^\prime, x \in F(d_1)),
       \end{displaymath}
       and acting as the identity on morphisms.\\
-      For every object $d \in \cD$ there is a functor
+      %
+      For every object $d \in \cD$ there is a pointed functor
       \begin{displaymath}
         e_d \colon \tilde{F}(d) \to F(d)
       \end{displaymath}
@@ -1172,8 +1173,10 @@
       \begin{displaymath}
         F(\phi_1)(x_1) \myrightarrow{F(\phi_1)(\alpha)} %
         F(\phi_1) \circ F(\psi)(x_0) \myrightarrow{F_{\phi_1,\psi}} %
-        F(\phi_1 \circ \psi)(x_0) = F(\phi_0)(x_0).
+        F(\phi_1 \circ \psi)(x_0) = F(\phi_0)(x_0),
       \end{displaymath}
+      where $F_{\phi_1,\psi} \colon F(\phi_1) \circ F(\psi) \to F(\phi_1 \circ \psi)$ is the compositional structure morphism, here evaluated at the object $x_0$.
+      The collection of these functors constitutes a left lax transformation $e \colon \tilde{F} \to F$:
     \end{defn}
 
   \subsection{The Loday functor for finite sets}
