@@ -1176,7 +1176,29 @@
         F(\phi_1 \circ \psi)(x_0) = F(\phi_0)(x_0),
       \end{displaymath}
       where $F_{\phi_1,\psi} \colon F(\phi_1) \circ F(\psi) \to F(\phi_1 \circ \psi)$ is the compositional structure morphism, here evaluated at the object $x_0$.
-      The collection of these functors constitutes a left lax transformation $e \colon \tilde{F} \to F$:
+      Furthermore, given a map $f \colon d \to d^\prime$, there is a natural transformation
+      \begin{displaymath}
+          \xymatrix{
+            \tilde{F}(d)
+              \ar[r]^{e_d}
+              \ar[d]_{F(f)}
+              % \ar@{}[dr]|*\objectbox{\rotatebox{45}{hey}}
+              \ar@{}[dr]|*\objectbox{\rotatebox{45}{$\overset{e_f}{\Leftarrow}$}}
+            &
+            F(d)
+              \ar[d]^{F(f)}
+            \\
+            \tilde{F}(d^\prime) 
+              \ar[r]_{e_{d^\prime}}
+            &
+            F(d^\prime)
+          }
+      \end{displaymath}
+      given on an object $(\phi,x)$ by
+      \begin{displaymath}
+        F(f) \circ e_d (\phi,x) = F(f) \circ F(\phi) (x) \myrightarrow{F_{f, \phi}} F(f \circ \phi)(x) = e_{d^\prime} \circ F(f) (\phi,x)
+      \end{displaymath}
+      the compositional structure morphism of $F$. Together, the above data constitutes a left lax transformation $e \colon \tilde{F} \to F$.
     \end{defn}
 
   \subsection{The Loday functor for finite sets}
