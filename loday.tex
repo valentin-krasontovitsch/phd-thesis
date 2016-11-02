@@ -1207,7 +1207,28 @@
       \begin{displaymath}
         \id_{F(d)} (x) = x \to F(\id_d)(x) = e_d(\id_d, x),
       \end{displaymath}
-      which we interpret as an object of the category $x/e_d$.
+      which we interpret as an object of the comma category $x/e_d$ (cf. Def. \ref{def_comma_category}). Given another object of the above comma category $\gamma: x \to F(\phi)(y)$ (a morphism in $F(d)$) for some $(\phi: d_1 \to d, y \in F(d_1)) \in \ob \tilde{F}(d)$, assume that there is a morphism in $x / e_d$
+      \begin{displaymath}
+        (x \myrightarrow{(F_d)_x} F(\id_d)(x)) \to (\gamma: x \to F(\phi)(y)).
+      \end{displaymath}
+      This is given by a $(\psi,\alpha) \colon (\id_d, x) \to (\phi \colon d_1 \to d,y)$, i.e. a map $\psi \colon d_1 \to d$ such that $\psi \circ \id_d = \phi$ and $\alpha \colon x \to F(\psi)(y) = F(\phi)(y)$. Being a morphism in the comma category implies that the diagram
+      \begin{displaymath}
+          \xymatrix{
+            x
+              \ar[r]^-{(F_d)_x}
+              \ar@{=}[d]
+            &
+            F(\id_d)(x)
+              \ar[d]^-{e_d(\phi,\alpha)}
+            \\
+            x
+              \ar[r]_-{\gamma}
+            &
+            F(\phi)(y)
+          }
+      \end{displaymath}
+      commutes, and plugging in the definition of the functor $e_d$ on morphisms, and using first naturality and then the unitality property of $F_d$ in the above diagram we may conclude that $\alpha = \gamma$.
+      Hence $x \to F(\id_d)(x)$ is an initial object in the comma category $x/e_d$ and hence the functor $e_d$ is cofinal (cf. Def. \ref{def_cofinal} and Rem. \ref{rem_functor_cofinal_if_comma_categories_have_initial_object}).
     \end{defn}
 
     \begin{defn}\label{def_comma_category}
