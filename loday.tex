@@ -1211,23 +1211,43 @@
     \end{defn}
 
     \begin{defn}\label{def_comma_category}
-      Given two functors $F:\cC \to \cD$ and $G: \cE \to \cD$, the comma category $(F \downarrow G)$ is defined as  ...
-      % TODO write def
+      Given two functors $F:\cC \to \cD$ and $G: \cE \to \cD$, the \emph{comma category} $(F \downarrow G)$ is defined by having objects given by morphisms 
+      \begin{displaymath}
+        f \colon F(c) \to G(e)
+      \end{displaymath}
+      in $\cD$ for some $c \in \ob \cC$ and $e \in \cE$ and morphims 
+      \begin{displaymath}
+        (f \colon F(c) \to G(e)) \to (f^\prime \colon F(c^\prime) \to G(e^\prime) )
+      \end{displaymath}
+      given by a pair $\alpha \colon c \to c^\prime$ in $\cC$, $\beta \colon e \to e^\prime$ in $\cE$ such that the diagram
+      \begin{displaymath}
+          \xymatrix{
+            F(c)
+              \ar[r]^{f}
+              \ar[d]_{F(\alpha)}
+            &
+            G(e)
+              \ar[d]^{F(\beta)}
+            \\
+            F(c^\prime) 
+              \ar[r]_{f^\prime}
+            &
+            G(e^\prime)
+          }
+      \end{displaymath}
+      commutes.
       % TODO move to right place
     \end{defn}
 
     \begin{defn}\label{def_cofinal}
-      A functor $F: \cC \to \cD$ is called cofinal if ...
-      % TODO write def
+      A functor $F: \cC \to \cD$ is called cofinal if for every element $d \in \cD$ the comma category $(d \downarrow F)$ is non-empty and connected. In $(d \downarrow F)$ the symbol $d$ stands for the functor from the category with exactly one object and only identity morphism to $\cD$ with value the object $d$. Recall that a category is non-empty if it has at least one object, and connected if any two objects may be connected by a sequence of morphisms.
       % TODO move to right place
     \end{defn}
 
-    \begin{lem}\label{lem_functor_cofinal_iff_comma_categories_have_initial_object}
-      Let $F:\cC \to \cD$ be a functor. Then $F$ is cofinal if and only if for every $d \in \ob \cD$ the comma category $(d \downarrow F)$ has an initial object.
-      % TODO write lemma
-      % TODO prove or find ref
+    \begin{rem}\label{rem_functor_cofinal_if_comma_categories_have_initial_object}
+      Recall that a category $\cC$ is non-empty if it has at least one object, and connected if for any two objects $c,d \in \ob \cC$ there is a finite sequence of object $X_i$ in $\cC$ for $i \in \{0, \ldots, n\}$ for some $n \geq 0$ and for every $i \in \{0, \ldots, n-1\}$ an arrow $f_i \colon X_i \to X_{i+1}$ or an arrow $g_i \colon X_{i+1} \to X_i$ in $\cC$ such that $X_0 = c$ and $X_n = d$. Note then that a category with an initial object fulfills these two properties.
       % TODO move to right place
-    \end{lem}
+    \end{rem}
 
   \subsection{The Loday functor for finite sets}
     \begin{defn}\label{def_rectification_of_G^A}
