@@ -1201,8 +1201,11 @@
       \begin{displaymath}
         F(f) \circ e_d (\phi,x) = F(f) \circ F(\phi) (x) \myrightarrow{F_{f, \phi}} F(f \circ \phi)(x) = e_{d^\prime} \circ F(f) (\phi,x)
       \end{displaymath}
-      the compositional structure morphism of $F$. Together, the above data constitutes a left lax transformation $e \colon \tilde{F} \to F$. The first axiom degenerates to the compatability of associativity and compositional structure morphisms for $F$, while the unitality condition degenerates to the unitality condifiton for $F$ (as $F$ is an honest functor, and $e_f$ is given by a structural morphism of $F$).\\
-      Considering the unital structure morphisms of $F$ for an object $d \in \cD$, which is a natural transformation
+      the compositional structure morphism of $F$. Together, the above data constitutes a left lax transformation $e \colon \tilde{F} \to F$. The first axiom degenerates to the compatability of associativity and compositional structure morphisms for $F$, while the unitality condition degenerates to the unitality condifiton for $F$ (as $F$ is an honest functor, and $e_f$ is given by a structural morphism of $F$).
+      \end{defn}
+      %
+      \begin{rem}\label{rem_streets_construction_e_is_cofinal}
+      In the context of the above Def. \ref{def_streets_first_construction_transformation}, considering the unital structure morphisms of $F$ for an object $d \in \cD$, which is a natural transformation
       \begin{displaymath}
         \id_{F(d)} \to F(\id_d),
       \end{displaymath}
@@ -1210,11 +1213,12 @@
       \begin{displaymath}
         \id_{F(d)} (x) = x \to F(\id_d)(x) = e_d(\id_d, x),
       \end{displaymath}
-      which we interpret as an object of the comma category $x/e_d$ (cf. Def. \ref{def_comma_category}). Given another object of the above comma category $\gamma: x \to F(\phi)(y)$ (a morphism in $F(d)$) for some $(\phi: d_1 \to d, y \in F(d_1)) \in \ob \tilde{F}(d)$, assume that there is a morphism in $x / e_d$
+      which we may interpret as an object of the comma category $x/e_d$ (cf. Def. \ref{def_comma_category}). Given another object of the above comma category $\gamma: x \to F(\phi)(y)$ (a morphism in $F(d)$) for some $(\phi: d_1 \to d, y \in F(d_1)) \in \ob \tilde{F}(d)$, assume that there is a morphism in $x / e_d$
       \begin{displaymath}
         (x \myrightarrow{(F_d)_x} F(\id_d)(x)) \to (\gamma: x \to F(\phi)(y)).
       \end{displaymath}
-      This is given by a $(\psi,\alpha) \colon (\id_d, x) \to (\phi \colon d_1 \to d,y)$, i.e. a map $\psi \colon d_1 \to d$ such that $\psi \circ \id_d = \phi$ and $\alpha \colon x \to F(\psi)(y) = F(\phi)(y)$. Being a morphism in the comma category implies that the diagram
+      This is given by a $(\psi,\alpha) \colon (\id_d, x) \to (\phi \colon d_1 \to d,y)$, i.e. a map $\psi \colon d_1 \to d$ such that $\psi \circ \id_d = \phi$ and $\alpha \colon x \to F(\psi)(y) = F(\phi)(y)$.
+      Being a morphism in the comma category implies that the diagram
       \begin{displaymath}
           \xymatrix{
             x
@@ -1232,7 +1236,7 @@
       \end{displaymath}
       commutes, and plugging in the definition of the functor $e_d$ on morphisms, and using first naturality and then the unitality property of $F_d$ in the above diagram we may conclude that $\alpha = \gamma$.
       Hence $x \to F(\id_d)(x)$ is an initial object in the comma category $x/e_d$ and hence the functor $e_d$ is cofinal (cf. Def. \ref{def_cofinal} and Rem. \ref{rem_functor_cofinal_if_comma_categories_have_initial_object}).
-    \end{defn}
+    \end{rem}
     %
     \begin{defn}\label{def_streets_construction_right_transformations}
       Given ...
