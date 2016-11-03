@@ -1111,7 +1111,7 @@
 
   \subsection{Rectification}
 
-    \begin{defn}\label{def_streets_first_construction}
+    \begin{defn}\label{def_streets_first_construction_functor}
       Let $\cD$ be a small category, and let $F: \cD \to \Cat_*$ be a lax functor (with values in small pointed categories).
       Following Street's example, we construct a functor $\tilde{F}: \cD \to \Cat_*$.
       For $d$ and object of $\cD$ we define the pointed category $\tilde{F}(d)$ to have as objects the set 
@@ -1154,9 +1154,12 @@
       \begin{displaymath}
         (d_1 \myrightarrow{\phi} d, x \in F(d_1)) \mapsto (d_1 \myrightarrow{\phi} d \myrightarrow{f} d^\prime, x \in F(d_1)),
       \end{displaymath}
-      and acting as the identity on morphisms.\\
-      % TODO split this up into a new definition!?
-      For every object $d \in \cD$ there is a pointed functor
+      and acting as the identity on morphisms.
+    \end{defn}
+    %
+    \begin{defn}\label{def_streets_first_construction_transformation}
+      In keeping with the notation from Def. \ref{def_streets_first_construction_functor}, we let $F \colon D \to \Cat_*$ be a lax functor.
+      Then for every object $d \in \cD$ there is a pointed functor
       \begin{displaymath}
         e_d \colon \tilde{F}(d) \to F(d)
       \end{displaymath}
