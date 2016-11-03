@@ -1112,7 +1112,8 @@
   \subsection{Rectification}
 
     \begin{defn}\label{def_streets_first_construction}
-      Let $\cD$ be a small category, and let $F: \cD \to \Cat_*$ be a lax functor (with values in small pointed categories). Following Street's example, we construct a functor $\tilde{F}: \cD \to \Cat_*$.
+      Let $\cD$ be a small category, and let $F: \cD \to \Cat_*$ be a lax functor (with values in small pointed categories).
+      Following Street's example, we construct a functor $\tilde{F}: \cD \to \Cat_*$.
       For $d$ and object of $\cD$ we define the pointed category $\tilde{F}(d)$ to have as objects the set 
       \begin{displaymath}
         \ob \tilde{F}(d) = \bigvee_{d_1 \in \ob \cD} \hom_{\cD}(d_1,d)_+ \wedge \ob F(d_1).
@@ -1132,7 +1133,6 @@
           d_1 \ar[d]_{\phi_1} & d_0 \ar[l]_{\psi} \ar[dl]^{\phi_0} \\
           d
         }
-        % \phi_0 = \phi_1 \circ \psi
       \end{displaymath}  
       commutes, and - in order to compare $x_1 \to x_0$, we bring one of them into the context of the other - a morphism 
       \begin{displaymath}
