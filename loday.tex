@@ -1257,6 +1257,22 @@
         \rho: F \to F^\prime
       \end{displaymath}
       of functors $F,F^\prime \colon \cD \to \Cat_*$.
+      We wish to define a natural transformation $\tilde{\rho}$ of functors $\tilde{F}, \tilde{F^\prime} \colon \cD \to \Cat_*$.
+      For a $d \in \cD$, we define a functor
+      \begin{displaymath}
+        \tilde{\rho}_d: \tilde{F}(d) \to \tilde{F^\prime}(d)
+      \end{displaymath}
+      by mapping an object $(\phi_1: d_1 \to d, x_1 \in F(d_1))$ in $\tilde{F}(d)$ to
+      \begin{displaymath}
+        \tilde{\rho}_d(\phi_1,x_1) = (\phi_1 \colon d_1 \to d, \rho_{d_1}(x_1) \in \ob F^\prime(d_1)) \in \ob \tilde{F^\prime}(d)
+      \end{displaymath}
+      and mapping a morphism $(\psi \colon d_0 \to d_1, \alpha \colon x_1 \to F(\psi)(x_0)) \colon (\phi_1,x_1) \to (\phi_0, x_0)$ to the map $(\phi_1, \rho_{d_1}(x_1)) \to (\phi_0, \rho_{d_0}(x_0))$ given by the tuple consisting of $\psi$ in the first entry and the composition
+      \begin{displaymath}
+        \rho_{d_1}(x_1) \myrightarrow{\rho_{d_1}(\alpha)} %
+        \rho_{d_1} \circ F(\psi)(x_0) \myrightarrow{(\rho_{\psi})_{x_0}} %
+        F^\prime(\psi) \circ \rho_{d_0}(x_0)
+      \end{displaymath}
+      in the second entry.
     \end{defn}
     %
     \begin{defn}\label{def_comma_category}
