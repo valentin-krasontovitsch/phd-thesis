@@ -972,7 +972,11 @@
           \CAT_* \ar[r] & \CAT_*
         }
       \end{displaymath}
-    where $\Sigma_+ \colon \Fin \to \CAT_*$ is the weak functor obtained by applying Def. \ref{def_functor_iW_to_Cat_aka_abstract_loday} to the inclusion $\Sigma \to \Fin$ and Def. \ref{def_added_basepoint_extending_functor} to the resulting functor, and finally precomposing with the functors $\Fin \myrightarrow{(-)_*} V \myrightarrow{L} iW \myrightarrow{\iota} eW$ (cf. Def. \ref{def_functors_finite_sets_to_iW}) and , while $\sS_*$ is used to denote the constant functor with image pointed simplicial sets.
+    where $\Sigma_+ \colon \Fin \to \CAT_*$ is the weak functor obtained by applying Def.~\ref{def_functor_iW_to_Cat_aka_abstract_loday} to the inclusion $\Sigma \to \Fin$ and Def. \ref{def_added_basepoint_extending_functor} to the resulting functor, postcomposing with the inclusion $\Cat_* \to \CAT_*$ and finally precomposing with the functors 
+    \begin{displaymath}
+      \Fin \myrightarrow{(-)_*} V \myrightarrow{L} iW \myrightarrow{\iota} eW
+    \end{displaymath}
+    (cf. Def.~\ref{def_functors_finite_sets_to_iW}), while $\sS_*$ is used to denote the constant functor with image pointed simplicial sets.
     The left lax transformation itself is given for a finite set $X$ by the formula
       \begin{gather*}
         S_X \colon (\Sigma^X)_+ \to \sS_* \\
@@ -1279,7 +1283,7 @@
       \end{displaymath}
       in the second entry.
       Note that this definition does not depend on $d \in \ob \cD$, indeed it is rather easy to verify that the above defines a natural transformation as desired:
-      Given a morphism $f \colon d \to d^\prime$, recall that $\tilde{F}(f)$ was given by post-composition in the first entry on objects and the identity on morphisms, while $\tilde{\rho}_d$ only acts on the second entry on objects, and is (in particular) independent of $d$ for morphisms.
+      Given a morphism $f \colon d \to d^\prime$, recall that $\tilde{F}(f)$ was given by postcomposition in the first entry on objects and the identity on morphisms, while $\tilde{\rho}_d$ only acts on the second entry on objects, and is (in particular) independent of $d$ for morphisms.
     \end{defn}
     %
     \begin{defn}\label{def_comma_category}
