@@ -1054,7 +1054,16 @@
       One may check that this coincides with the internal hom object of symmetric spectra as found in Example 3.38 of \cite{schwede2012symmetric} when applied to $\Sigma^\infty X$ and $\Sigma^\infty Y$; In particular, this definition is functorial in both variables.\\
       We combine the two above definitions to obtain a left lax transformation
       \begin{displaymath}
-        G^A \colon \iota \cJ \circ (-)_* \to \Sp^\Sigma
+        G^A \colon \iota \circ \cJ \circ (-)_* \to \Sp^\Sigma,
+      \end{displaymath}
+      or as a diagram
+      \begin{displaymath}
+        \xymatrix{
+          \Fin \ar@{=}[r] \ar[d]_{(-)_*} \ar@{}[rddd]|{\overset{G^A}{\Rightarrow}} & F \ar[ddd]^{\Sp^{\Sigma}} \\
+          V \ar[d]_{\cJ} & \\
+          \Cat_* \ar[d]_{\iota} & \\
+          \CAT_* \ar@{=}[r] & \CAT_*
+        }
       \end{displaymath}
       for a \hring~$A$, where $\cJ(-_*) \colon \Fin \to \CAT_*$ is the covariant weak functor defined in Def.~\ref{def_J_and_functors_from_finite_sets_to_pointed_categories}, we postcompose with the inclusion $\iota \colon \Cat_* \to \CAT_*$, and $\SpS$ denotes the constant functor with value in symmetric spectra of simplicial sets: Let $T$ be a finite set. We define a pointed functor
       \begin{gather*}
