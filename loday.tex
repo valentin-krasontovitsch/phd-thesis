@@ -843,17 +843,17 @@
       are equal.
       \end{rem}
 
-    \begin{rem}\label{rem_left_lax_transform_functors_J_to_Cat}
-      We further inspect the definition of left lax transformation and specify to the situation of two functors $E,F: \cD \to \Cat_*$, taking values in the category of small pointed categories and functors, for some small category $\cD$. We consider the above data as 2-categorical by assuming discrete morphism categories and corresponding structure, as described in Rem.~\ref{rem_discrete_bicategory} and \ref{rem_discrete_bicategories_functors}. We invite the reader to verify that in this situation, a left lax transformation $G: F \Rightarrow E$ is given by a functor $G_i \colon F(i) \to E(i)$ for each $i \in \cD$ and a natural transformation $G_f: E(f) \circ G_i \Rightarrow G_j \circ F(f)$ for every $f: i \to j$ in $\cD$, satisfying $G_g G_f = G_{gf}$ for $g: j \to k$ in $\cD$ and $G_{\id_i} = \id_{G_i}$.
+    \begin{rem}\label{rem_left_lax_transform_functors_J_to_CAT}
+      We further inspect the definition of left lax transformation and specify to the situation of two functors $E,F: \cD \to \CAT_*$, taking values in the category of pointed categories and functors, for some small category $\cD$. We consider the above data as 2-categorical by assuming discrete morphism categories and corresponding structure, as described in Rem.~\ref{rem_discrete_bicategory} and \ref{rem_discrete_bicategories_functors}. We invite the reader to verify that in this situation, a left lax transformation $G: F \Rightarrow E$ is given by a functor $G_i \colon F(i) \to E(i)$ for each $i \in \cD$ and a natural transformation $G_f: E(f) \circ G_i \Rightarrow G_j \circ F(f)$ for every $f: i \to j$ in $\cD$, satisfying $G_g G_f = G_{gf}$ for $g: j \to k$ in $\cD$ and $G_{\id_i} = \id_{G_i}$.
     \end{rem}
     % TODO rename variables E,F above - specify further to E constant functor?
 
     \begin{defn}\label{def_category_of_bimodules}
-      Let $\cD$ be a small category, and let $K \colon \cD \to Cat_*$ be a functor.
+      Let $\cD$ be a small category, and let $K \colon \cD \to \CAT_*$ be a functor.
       Recall the following notation: 
-      Given $F \colon \cD \to \Cat_*$, we denote by $F^e \colon \cD \to \Cat_*$ the functor sending $j \mapsto F(j)^e = F(j)^{\op} \wedge F(j)$. 
+      Given $F \colon \cD \to \CAT_*$, we denote by $F^e \colon \cD \to \CAT_*$ the functor sending $j \mapsto F(j)^e = F(j)^{\op} \wedge F(j)$. 
       We proceed to define the category $\operatorname{Bimod}^{\cD} / K$ of bimodules \comm{[TODO: analogy bimodules over (commutative) ring?]}. 
-      The objects of this category are pairs $(F,G)$, where $F \colon \cD \to \Cat_*$ is a functor and $G \colon F^e \Rightarrow K$ is a left lax transformation (compare Rem.~\ref{rem_left_lax_transform_functors_J_to_Cat}).
+      The objects of this category are pairs $(F,G)$, where $F \colon \cD \to \CAT_*$ is a functor and $G \colon F^e \Rightarrow K$ is a left lax transformation (compare Rem.~\ref{rem_left_lax_transform_functors_J_to_CAT}).
       A morphism $(\epsilon, \eta) \colon (F,G) \to (F^\prime,G^\prime)$ between two such pairs consists of a natural transformation $\epsilon \colon F \to F^\prime$ and a modification $\eta \colon G \to G^\prime \epsilon^e$.
       Composition of two such morphisms
       \begin{displaymath}
@@ -889,13 +889,13 @@
     \begin{defn}\label{def_hocolim}
       Keeping the notation of Def.~\ref{def_category_of_bimodules}, we assume $K$ to be a pointed category with small coproducts, and choose a (small) coproduct on $K$.
       Then $K$ is tensored over pointed sets: For a pointed set $S$ and an object $k$ in $K$ we write $S \wedge k$ for the coproduct of $k$ with itself over the non-basepoint elements of $S$.
-      We proceed to consider $K$ as a constant functor from $\cD$ to $\Cat_*$ and consider the category of bimodules in this context, defining a functor
+      We proceed to consider $K$ as a constant functor from $\cD$ to $\CAT_*$ and consider the category of bimodules in this context, defining a functor
       \begin{gather*}
         \hocolim: \operatorname{Bimod}^{\cD} / K \to [\cD \times \Delta^{\mathrm{op}}, K]\\
         (F,G) \mapsto \hocolim_F G
       \end{gather*}
       where the codomain is the category of functors and natural transformations between the two indicated categories.
-      The functor sends an object, given by a pair of functor and lax left transformation $(F: \cD \to \Cat_*, G: F^e \Rightarrow K)$, to the functor sending a pair of object and simplex $(j,[q]) \in \cD \times \Delta^\mathrm{op}$ to
+      The functor sends an object, given by a pair of functor and lax left transformation $(F: \cD \to \CAT_*, G: F^e \Rightarrow K)$, to the functor sending a pair of object and simplex $(j,[q]) \in \cD \times \Delta^\mathrm{op}$ to
       \begin{displaymath}
         \bigvee_{x_0, \ldots, x_q \in \ob F(j)} %
           G_j(x_0,x_q) \wedge %
@@ -914,7 +914,7 @@
         }
       \end{displaymath}
       using the lax transformation $G$ on the first factor and the functor $F$ on the morphism sets.
-      Including into the respective sum and doing this for every summand gives the desired morphism. This is indeed functorial in $\cD$, obviously so for $F$, and also for $G$ (cf. Rem.~\ref{rem_left_lax_transform_functors_J_to_Cat})\\
+      Including into the respective sum and doing this for every summand gives the desired morphism. This is indeed functorial in $\cD$, obviously so for $F$, and also for $G$ (cf. Rem.~\ref{rem_left_lax_transform_functors_J_to_CAT})\\
       For functoriality in $\Delta^{\mathrm{op}}$, we specify a simplicial structure as follows.
       Degeneracy maps from degree $q$ to degree $q+1$ are induced by first adding a smash factor $S^0$, followed by the pointed morphism $S^0 \to \hom_{F(j)}(x_i,x_i)$ mapping the non-basepoint to the identity in the morphism set, for $i \in \{ 0, \ldots, q \}$.
       Face maps from degree $q$ to degree $q-1$ are induced by the composition $\hom_{F(j)}(x_i,x_{i-1}) \wedge \hom_{F(j)}(x_{i+1},x_i) \to \hom_{F(j)}(x_{i+1},x_{i-1})$ for $i \in \{ 1, \ldots, q-1 \}$.
@@ -992,7 +992,7 @@
     \begin{displaymath}
       \bigwedge_{x \in X} S(j(x)) \to \bigwedge_{y \in Y} S( \coprod_{x \in f^{-1}(y)} j(x)) = \bigwedge_{y \in Y} \bigwedge_{x \in f^{-1}(y)} S(j(x))
     \end{displaymath}
-    adding in $S^0$ for every $y \in Y$ not in the image of $f$. This clearly satisfies the axioms of a left lax transformation (cf. Rem.~\ref{rem_left_lax_transform_functors_J_to_Cat}).
+    adding in $S^0$ for every $y \in Y$ not in the image of $f$. This clearly satisfies the axioms of a left lax transformation (cf. Rem.~\ref{rem_left_lax_transform_functors_J_to_CAT}).
     \end{defn}
 
     \begin{rem}\label{rem_notation_for_functor_S}
@@ -1036,7 +1036,7 @@
           A_{\abs{\coprod_{x \in f^{-1}(y)} j(x)}}
       \end{displaymath}
       Note that as $A$ is commutative, this composition does not depend on the permutation we choose for reshuffling $X$. 
-      Since multiplication is associative, this satisfies the axioms of a left lax transformation (cf. Rem.~\ref{rem_left_lax_transform_functors_J_to_Cat}).\\
+      Since multiplication is associative, this satisfies the axioms of a left lax transformation (cf. Rem.~\ref{rem_left_lax_transform_functors_J_to_CAT}).\\
     We take the liberty of dropping the cardinality signs from the notation and may write $A_X \defas A_{\abs{X}}$ for a finite set $X$.
     \end{defn}
     % TODO here and in def above, vary variable name f!
@@ -1128,7 +1128,7 @@
           \bigwedge_{t \in T} A_{\abs{ \coprod_{s \in f^{-1}(t)} i(s)}}).
       \end{displaymath}
       That this indeed constitutes a natural transformation is a tedious, but not deep exercise in writing large diagrams, playing with the permutations involved and using that multiplication in $A$ is commutative.\\
-      The data defined above yields a left lax tranformation from the functor $S \mapsto \cJ(S) = (\cI^S)_+$ to the constant functor $\Fin \to \Cat_*$ with value in symmetric spectra.
+      The data defined above yields a left lax tranformation from the functor $S \mapsto \cJ(S) = (\cI^S)_+$ to the constant functor $\Fin \to \CAT_*$ with value in symmetric spectra.
       To verify the axioms (cf. Rem.~\ref{rem_left_lax_transformation}), consider two maps of finite sets
       \begin{displaymath}
         S \myrightarrow{\phi} T \myrightarrow{\psi} U.
@@ -1426,9 +1426,12 @@
       \end{displaymath}
       We introduce the notation $\cG^A \defas G^A \circ p_2$ for the sake of brevity.
     \end{defn}
-
+    We are finally ready to formulate the following
     \begin{defn}\label{def_loday_functor_finite_sets}
-      Given a finite set $S$ and a \hring $A$, we define the Loday functor of A at S to be ...
+      Given a finite set $S$ and a \hring $A$, we define the \emph{Loday functor of $A$ at $S$} to be given by the symmetric spectrum
+      \begin{displaymath}
+        \hocolim
+      \end{displaymath}
     \end{defn}
 
     \begin{lem}\label{lem_loday_functor_fixed_points}
