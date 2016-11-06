@@ -1059,7 +1059,7 @@
       or as a diagram
       \begin{displaymath}
         \xymatrix{
-          \Fin \ar@{=}[r] \ar[d]_{(-)_*} \ar@{}[rddd]|{\overset{G^A}{\Rightarrow}} & F \ar[ddd]^{\Sp^{\Sigma}} \\
+          \Fin \ar@{=}[r] \ar[d]_{(-)_*} \ar@{}[rddd]|{\overset{G^A}{\Rightarrow}} & \Fin \ar[ddd]^{\Sp^{\Sigma}} \\
           V \ar[d]_{\cJ} & \\
           \Cat_* \ar[d]_{\iota} & \\
           \CAT_* \ar@{=}[r] & \CAT_*
@@ -1340,7 +1340,91 @@
   \subsection{The Loday functor for finite sets}
     We are now finally able to define the Loday functor with input a \hring and a finite set. We proceed to do so, and prove some elementary results about the functor.
     \begin{defn}\label{def_rectification_of_G^A}
-      Consider the functor $\tilde{\cJ} \colon V \to \Cat_*$ and the left lax transformation $\tilde{e} \colon \tilde{\cJ} \to \cJ$ which we obtain by applying Street's first construction (the pointed version, cf. Defs.~\ref{def_streets_first_construction_functor},~\ref{def_streets_first_construction_transformation}) in the context $\cD \defas V$ and $F \defas \cJ$, and let $r \defas e^{\op} \wedge e \colon \tilde{\cJ}^e \to \cJ^e$.
+      Consider the functor 
+      \begin{displaymath}
+        \tilde{\cJ} \colon V \to \Cat_*
+      \end{displaymath}
+      and the left lax transformation 
+      \begin{displaymath}
+        e \colon \tilde{\cJ} \to \cJ
+      \end{displaymath}
+      which we obtain by applying Street's first construction (the pointed version, cf. Defs.~\ref{def_streets_first_construction_functor},~\ref{def_streets_first_construction_transformation}) in the context $\cD \defas V$ and $F \defas \cJ$, and let $r \defas e^{\op} \wedge e \colon \tilde{\cJ}^e \to \cJ^e$. Consider further that, given a finite set $S$, the projection
+      \begin{displaymath}
+        \cJ^e(S) = \cJ^{\op} (S) \wedge \cJ(S) = (\cI^S)^{\op}_+ \wedge (\cI^S)_+ \cong %
+        ( (\cI^S)^{\op} \times (\cI^S) )_+ \to (\cI^S)_+ = \cJ(S)%
+      \end{displaymath}
+      defines a strict transformation of lax functors
+      \begin{displaymath}
+        p_2 \colon \cJ^e \to \cJ.
+      \end{displaymath}
+      We assemble the above data in a diagram
+      \begin{displaymath}
+        \xymatrix{
+          \Fin
+            \ar@{=}[r] 
+            \ar[d]^{(-)_*} 
+          &
+          \Fin
+            \ar@{=}[r] 
+            \ar[d]^{(-)_*} 
+          &
+          \Fin
+            \ar@{=}[r] 
+            \ar[d]^{(-)_*}
+            \ar@{}[rddd]|{\overset{G^A}{\Rightarrow}}
+          &
+          \Fin 
+            \ar[ddd]^{\Sp^{\Sigma}}
+          \\
+          V 
+            \ar@{=}[r]
+            \ar[d]^{\tilde{\cJ}^e}
+            \ar@{}[rd]|{\overset{r}{\Rightarrow}}
+          & 
+          V 
+            \ar@{=}[r]
+            \ar[d]^{\cJ^e}
+            \ar@{}[rd]|{\overset{p_2}{\Rightarrow}}
+          & 
+          V 
+            \ar[d]^{\cJ}
+          & 
+          %
+          \\
+          \Cat_* 
+            \ar@{=}[r]
+            \ar[d]_{\iota} 
+          & 
+          \Cat_* 
+            \ar@{=}[r]
+            \ar[d]_{\iota} 
+          & 
+          \Cat_* 
+            \ar[d]_{\iota} 
+          & 
+          %
+          \\
+          \CAT_* 
+            \ar@{=}[r]
+          &
+          \CAT_* 
+            \ar@{=}[r]
+          &
+          \CAT_* 
+            \ar@{=}[r]
+          &
+          \CAT_*
+        }
+      \end{displaymath}
+      and obtain a lax transformation
+      \begin{displaymath}
+      G^A \circ p_2 \circ r \colon \iota \circ \tilde{\cJ}^e \circ (-)_*
+      \end{displaymath}
+      of functors
+      \begin{displaymath}
+        \Fin \to \CAT_*.
+      \end{displaymath}
+      We introduce the notation $\cG^A \defas G^A \circ p_2$ for the sake of brevity.
     \end{defn}
 
     \begin{defn}\label{def_loday_functor_finite_sets}
