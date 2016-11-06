@@ -1044,7 +1044,7 @@
     \begin{defn}\label{def_left_lax_transform_G^A}
       Given two pointed simplicial sets $X$ and $Y$, we define a \emph{symmetric spetrum} of functions 
       \begin{displaymath}
-      \Hom(X,Y) \in \ob \SpS
+        \Hom(X,Y) \in \ob \SpS
       \end{displaymath}
       given in degree $n$ by the internal hom-object of pointed simplicial sets $\Hom_{\sS_*}(X,Y \wedge S^n)$, $\Sigma_n$ acting on the $n$-sphere, and structure maps of assembly type
       \begin{gather*}
@@ -1052,8 +1052,11 @@
       (f \colon X \to Y \wedge S^n) \wedge t \mapsto (x \mapsto f(x) \wedge t).
       \end{gather*}
       One may check that this coincides with the internal hom object of symmetric spectra as found in Example 3.38 of \cite{schwede2012symmetric} when applied to $\Sigma^\infty X$ and $\Sigma^\infty Y$; In particular, this definition is functorial in both variables.\\
-      We combine the two above definitions to obtain a left lax transformation $G^A \colon \cJ \to \Sp^\Sigma$ for a \hring~$A$, where $\cJ = \cJ(-_*) \colon \Fin \to \CAT_*$ is the covariant weak functor defined in Def.~\ref{def_J_and_functors_from_finite_sets_to_pointed_categories} (postcomposed with the inclusion $\Cat_* \to \CAT_*$), and $\SpS$ denotes the constant functor with value in symmetric spectra of simplicial sets:\\
-      Let $T$ be a finite set. We define a pointed functor
+      We combine the two above definitions to obtain a left lax transformation
+      \begin{displaymath}
+        G^A \colon \iota \cJ \circ (-)_* \to \Sp^\Sigma
+      \end{displaymath}
+      for a \hring~$A$, where $\cJ(-_*) \colon \Fin \to \CAT_*$ is the covariant weak functor defined in Def.~\ref{def_J_and_functors_from_finite_sets_to_pointed_categories}, we postcompose with the inclusion $\iota \colon \Cat_* \to \CAT_*$, and $\SpS$ denotes the constant functor with value in symmetric spectra of simplicial sets: Let $T$ be a finite set. We define a pointed functor
       \begin{gather*}
         G^A_T \colon \cJ(T) = (\cI^T)_+ \to \SpS \\
         (i \colon T \to \cI) \mapsto %
