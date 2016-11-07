@@ -1434,10 +1434,28 @@
     \begin{defn}\label{def_loday_functor_finite_sets}
       Given a finite set $S$ and a \hring~$A$, we define the \emph{Loday functor of $A$ at $S$} to be given by the symmetric spectrum
       \begin{displaymath}
-        \Lambda_S A \defas \hocolim_{\tilde{\cJ}^e \circ (-)_*} \cG^A \circ r (S) = %
+        \Lambda_S A \defas %\hocolim_{\tilde{\cJ}^e \circ (-)_*} \cG^A \circ r (S) = %
         \hocolim_{\tilde{\cJ}^e (S)} \cG^A_S \circ r_S.
       \end{displaymath}
+      By construction this is functorial in $S$, and super cool.
     \end{defn}
+
+    \begin{rem}\label{rem_hocolim_name_explanation}
+      The naming of the functor $\hocolim$ may be explained by the fact that in the context of an $(F,G) \in \ob \operatorname{Bimod}^{\cD}/K$ where $F = \iota \circ F^\prime_+$ may be factored as
+      \begin{displaymath}
+        \cD \myrightarrow{F^\prime} \Cat \myrightarrow{(-)_+} \Cat_* \myrightarrow{\iota} \CAT_*
+      \end{displaymath}
+      and where $G = G^\prime \circ p_2$ may be factored through the projection onto the second factor
+      \begin{displaymath}
+        F^e \cong ((F^\prime)^{\op} \times F^\prime)_+ \myrightarrow{p_2} F^\prime_+ \myrightarrow{G^\prime} K
+      \end{displaymath}
+      the functor at a $d \in \ob \cD$ is isomorphic to
+      \begin{displaymath}
+        \hocolim_{F} G (d) \cong \hocolim_{F^\prime(d)} G^\prime = %
+        \left\{ [q] \mapsto \bigvee_{\hom_{F^\prime(d)}(x_1,x_0) \times \ldots \times \hom_{F^\prime(d)}(x_q,x_{q-1})} G^\prime_d(x_q) \right\},
+      \end{displaymath}
+      the usual (i.e. one possible model, cf. \comm{[TODO add reference!]}) homotopy colimit of the functor $G^\prime_d \colon F^\prime(d) \to K$.
+    \end{rem}
 
     \begin{lem}\label{lem_loday_functor_fixed_points}
       Can drop r for fixed points under finite group...
