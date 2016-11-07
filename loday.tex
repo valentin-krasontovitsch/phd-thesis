@@ -1046,7 +1046,7 @@
       \begin{displaymath}
         \Hom(X,Y) \in \ob \SpS
       \end{displaymath}
-      given in degree $n$ by the internal hom-object of pointed simplicial sets $\Hom_{\sS_*}(X,Y \wedge S^n)$ \comm{[TODO: fibrant replacement codomain!]}, $\Sigma_n$ acting on the $n$-sphere, and structure maps of assembly type
+      given in degree $n$ by the internal hom-object of pointed simplicial sets $\Hom_{\sS_*}(X,Y \wedge S^n)$ (with codomain functorially fibrantly replaced), $\Sigma_n$ acting on the $n$-sphere, and structure maps of assembly type
       \begin{gather*}
       \Hom_{\sS_*}(X,Y \wedge S^n) \wedge S^1 \to \Hom_{\sS_*}(X,Y \wedge S(n+1))\\
       (f \colon X \to Y \wedge S^n) \wedge t \mapsto (x \mapsto f(x) \wedge t).
@@ -1424,13 +1424,18 @@
       \begin{displaymath}
         \Fin \to \CAT_*.
       \end{displaymath}
-      We introduce the notation $\cG^A \defas G^A \circ p_2$ for the sake of brevity. Note that this precisely constitutes an object  we have obtained ... What? \comment{TODO:} We should now be able to describe a functor from $\Fin$ to some category of bimodules. Do this here!?
+      We introduce the notation $\cG^A \defas G^A \circ p_2$ for the sake of brevity. 
     \end{defn}
-    We are finally ready to formulate the following
+    Note that the above precisely constitutes an object in $\operatorname{Bimod}^{\cD}/K$ for $\cD = \Fin$ and $K = \Sp^\Sigma$ the constant functor with value symmetric spectra. By applying the functor $\hocolim$ (cf. Def.~\ref{def_hocolim}) we obtain a functor
+      \begin{displaymath}
+        \hocolim_{\tilde{\cJ}^e \circ (-)_*} \cG^A \circ r \colon \Fin \times \Delta^{\op} \to \Sp^\Sigma,
+      \end{displaymath}
+    which finally lets us formulate the following
     \begin{defn}\label{def_loday_functor_finite_sets}
       Given a finite set $S$ and a \hring~$A$, we define the \emph{Loday functor of $A$ at $S$} to be given by the symmetric spectrum
       \begin{displaymath}
-        \hocolim
+        \Lambda_S A \defas \hocolim_{\tilde{\cJ}^e \circ (-)_*} \cG^A \circ r (S) = %
+        \hocolim_{\tilde{\cJ}^e (S)} \cG^A_S \circ r_S.
       \end{displaymath}
     \end{defn}
 
