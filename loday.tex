@@ -1334,10 +1334,11 @@
       % TODO move to right place
     \end{defn}
 
-    \begin{rem}\label{rem_functor_cofinal_if_comma_categories_have_initial_object}
-      Recall that a category $\cC$ is non-empty if it has at least one object, and connected if for any two objects $c,d \in \ob \cC$ there is a finite sequence of object $X_i$ in $\cC$ for $i \in \{0, \ldots, n\}$ for some $n \geq 0$ and for every $i \in \{0, \ldots, n-1\}$ an arrow $f_i \colon X_i \to X_{i+1}$ or an arrow $g_i \colon X_{i+1} \to X_i$ in $\cC$ such that $X_0 = c$ and $X_n = d$. Note then that a category with an initial object fulfills these two properties.
+    \begin{lem}\label{lem_category_contractible_if_has_initial_object}
+      A category with an initial or final object is contractible.
+      % TODO write proof?
       % TODO move to right place
-    \end{rem}
+    \end{lem}
 
   \subsection{The Loday functor for finite sets}
     We are now finally able to define the Loday functor with input a \hring and a finite set. We proceed to do so, and prove some elementary results about the functor.
