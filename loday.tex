@@ -1327,8 +1327,10 @@
       % TODO move to right place
     \end{defn}
 
-    \begin{defn}\label{def_cofinal}
-      A functor $F: \cC \to \cD$ is called cofinal if for every element $d \in \cD$ the comma category $(d \downarrow F)$ is non-empty and connected. In $(d \downarrow F)$ the symbol $d$ stands for the functor from the category with exactly one object and only identity morphism to $\cD$ with value the object $d$. Recall that a category is non-empty if it has at least one object, and connected if any two objects may be connected by a sequence of morphisms.
+    \begin{defn}\label{def_homotopy_cofinal}
+      A functor $F: \cC \to \cD$ is homotopy cofinal if for every element $d \in \cD$ the comma category $(d \downarrow F)$ is non-empty and contractible (i.e. its nerve is contractible).
+      In $(d \downarrow F)$ the symbol $d$ stands for the functor from the category with exactly one object and only identity morphism to $\cD$ with value the object $d$.
+      Recall that a category is non-empty if it has at least one object, and contractible if its nerve (a simplicial set) is contractible.
       % TODO move to right place
     \end{defn}
 
