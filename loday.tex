@@ -1326,20 +1326,20 @@
       commutes.
       % TODO move to right place
     \end{defn}
-
+    %
     \begin{defn}\label{def_homotopy_cofinal}
       A functor $F: \cC \to \cD$ is homotopy cofinal if for every element $d \in \cD$ the comma category $(d \downarrow F)$ is non-empty and contractible (i.e. its nerve is contractible).
       In $(d \downarrow F)$ the symbol $d$ stands for the functor from the category with exactly one object and only identity morphism to $\cD$ with value the object $d$.
       Recall that a category is non-empty if it has at least one object, and contractible if its nerve (a simplicial set) is contractible.
       % TODO move to right place
     \end{defn}
-
+    %
     \begin{lem}\label{lem_category_contractible_if_has_initial_object}
       A category with an initial or final object is contractible.
       % TODO write proof?
       % TODO move to right place
     \end{lem}
-
+    %
     \begin{lem}\label{lem_homotopy_cofinal_functor_and_hocolim}
       Let $F: \cJ \to \sS$ be a diagram, and let $\alpha: \cI \to \cJ$ be a homotopy cofinal functor. Then the natural map
       \begin{displaymath}
@@ -1349,7 +1349,7 @@
     \end{lem}
       % TODO move to right place
       % TODO prove?
-
+    %
   \subsection{The Loday functor for finite sets}
     We are now finally able to define the Loday functor with input a \hring and a finite set. We proceed to do so, and prove some elementary results about the functor.
     \begin{defn}\label{def_rectification_of_G^A}
@@ -1439,11 +1439,13 @@
       \end{displaymath}
       We introduce the notation $\cG^A \defas G^A \circ p_2$ for the sake of brevity. 
     \end{defn}
+    %
     Note that the above precisely constitutes an object in $\operatorname{Bimod}^{\cD}/K$ for $\cD = \Fin$ and $K = \Sp^\Sigma$ the constant functor with value symmetric spectra. By applying the functor $\hocolim$ (cf. Def.~\ref{def_hocolim}) we obtain a functor
       \begin{displaymath}
         \hocolim_{\tilde{\cJ}^e \circ (-)_*} \cG^A \circ r \colon \Fin \times \Delta^{\op} \to \Sp^\Sigma,
       \end{displaymath}
     which finally lets us formulate the following
+    %
     \begin{defn}\label{def_loday_functor_finite_sets}
       Given a finite set $S$ and a \hring~$A$, we define the \emph{Loday functor of $A$ at $S$} to be given by the symmetric spectrum
       \begin{displaymath}
@@ -1452,7 +1454,7 @@
       \end{displaymath}
       By construction this is functorial in $S$, and super cool.
     \end{defn}
-
+    %
     \begin{rem}\label{rem_hocolim_name_explanation}
       The naming of the functor $\hocolim$ may be explained by the fact that in the context of an $(F,G) \in \ob \operatorname{Bimod}^{\cD}/K$ where $F = \iota \circ F^\prime_+$ may be factored as
       \begin{displaymath}
@@ -1469,67 +1471,38 @@
       \end{displaymath}
       the usual (i.e. one possible model, cf. \comm{[TODO add reference!]}) homotopy colimit of the functor $G^\prime_d \colon F^\prime(d) \to K$.
     \end{rem}
-
+    %
     \begin{lem}\label{lem_loday_functor_fixed_points}
-      Can drop r for fixed points under finite group...
+      Given a finite set $S$ and a group $G$ acting on it, then for every pointed functor $F: \cJ(S) = (\cI^S)_+ \to \sS_*$ the map
+      \begin{displaymath}
+        \hocolim_{\tilde{\cJ}(S)} F \circ p_2 \circ r_S \to \hocolim_{\cJ(S)} F \circ p_2 \cong %
+        \hocolim_{\cI^S} F
+      \end{displaymath}
+      is a weak equivalence on $G$-fixed points.
       \begin{proof}
         should be formal?
       \end{proof}
     \end{lem}
-
+    %
     \begin{lem}\label{lem_loday_functor_preserves_connectivity}
       The Loday functor (at a finite set) preserves connectivity of commutative ring spectra, sends stable equivalences to point-wise equivalences (check this statement!) and [comparison to smash product].
       \begin{proof}
         depends on connectivity of a map $S^1 \wedge A(S^n) \to A(S(n+1))$ - corresponding map in orthogonal spectra context should be structure map. check definition of transformation $G^A$ or rather transformation $A$! Connection of connectivity to ``functors of simplicial sets''?
       \end{proof}
     \end{lem}
-
+    %
     \begin{cor}\label{cor_loday_at_S_naturally_equivalent_to_tensor_with_S}
       Let $A$ be a cofibrant? flat? \hring, then Loday of $A$ at $S$ is stably equivalent as a spectrum to $S \otimes A$, and the morphisms are natural in $S$.
     \end{cor}
-
-
-    A bicategory $\mathcal{C}$ is in part made up of a class of 0-cells, and for any two zero-cells $A,B$ a category $\mathcal{C}(A,B)$, whose objects form the 1-cells from $A$ to $B$ and whose morphisms form the 2-cells between two given 1-cells. The bicategory of spans $W$ has 0-cells all finite cells. Given finite sets $X,Y$ the 1-cells are given as spans $ X \leftarrow A \rightarrow Y$ for some finite set $A$, and a 2-cell between two spans from $X$ to $Y$  is given as the vertical map in the following commutative diagram:
-    \[
-    \xymatrix@R-=.5em{
-      %
-      &
-      %
-      A \ar[dl] \ar[dd] \ar[dr]
-      %
-      \\
-      X
-      &
-      %
-      &
-      Y
-      \\
-      %
-      &
-      A^\prime \ar[ul] \ar[ur]
-      &
-      %
-    }
-    \]
-    Horizontal composition is given by a functorial and conrete choice of pullback applied to the 1-cells and taking the map induced by the 2-cells between pullbacks,
-
-    \comm{[make clearer or scratch - this should explain horizontal composition of 2-cells!]}
-
-    while vertical composition is composition of maps.\\
-    The bicategory $\operatorname{Cat}$ of small categories has small categories as 0-cells, functors as 1-cells and natural transformations as 2-cells.
-    \comm{add all the technical things you need from covering homology:}\\
-    spans, functor $\cJ$, nat traf $G^A_S$ (gamma spaces, hom space (fibrant replacement), $(\Lambda_X A)^G$ functor of conn. comm $S$-algebras that preserves conn. and has values in very special gamma spaces (Cor. 5.1.5 in Covering homology), how diagonal is constructed (Street rectification necessary! H-set, and so on...); adapt to orthogonal spectra!?
-    \begin{defn}\label{def_loday_functor}
-      We define the Loday functor for a finite set $S$ and a commutative $\bS$-algebra $A$ as hocolim category functor ...
-
-    \end{defn}
-
-    \begin{defn}\label{def_loday_functor_in_symmetric_monoidal_category}
+    %
+    \begin{defn}\label{def_loday_functor_in_symmetric_monoidal_category} 
       Let $(\mathcal{C},\wedge, \mathbb{I})$ be a symmetric monoidal category.\\
       \comm{TODO complete this}
     \end{defn}
-
+    % TODO: where do we use this / want to use this!? find ref if exists, or remove!
+    %
     \begin{lem}\label{lem_loday_functor_is_simplicial}
       The Loday functor is a simplicial functor.\\
-      \comm{[loday functor simplicial! add remark? add proof? add remark? source ($\Gamma$-spaces)?]}
+      \comm{[loday functor simplicial! add remark? add proof? source ($\Gamma$-spaces)?]}
     \end{lem}
+    %
