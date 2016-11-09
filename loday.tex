@@ -501,8 +501,8 @@
   \begin{defn}\label{def_pointed_stuff}
     We define a \emph{pointed category} to be a category $\cC$ with a chosen object, called the null or zero object and denoted $0$, which is both initial and final in $\cC$. We note that a pointed category is enriched over pointed sets. Indeed we may choose the unique morphism factoring through the zero object in each morphism set, and note that this makes composition a map of pointed sets.\\
     A \emph{pointed functor} is a functor of pointed categories that preserves zero objects.\\
-    Given two pointed categories $\cC$ and $\cD$, we may define another pointed category $\cC \smash \cD$ by taking the smash products of object and morphism sets, respectively. It is easy to convince oneself that this again constitutes a pointed category.\\
-    We would like to note a particular example at this point that we will come to use later. Given a pointed category $\cC$, we let $\cC^e \defas \cC^{\op} \smash \cC$. This might remind one of the notation for the enveloping algebra $A^{e} = A^{\op} \otimes A$ of a unital and associative algebra, and indeed there is a connection which we point out in Rem.~\ref{rem_connection_to_algebras}.
+    Given two pointed categories $\cC$ and $\cD$, we may define another pointed category $\cC \wedge \cD$ by taking the smash products of object and morphism sets, respectively. It is easy to convince oneself that this again constitutes a pointed category.\\
+    We would like to note a particular example at this point that we will come to use later. Given a pointed category $\cC$, we let $\cC^e \defas \cC^{\op} \wedge \cC$. This might remind one of the notation for the enveloping algebra $A^{e} = A^{\op} \otimes A$ of a unital and associative algebra, and indeed there is a connection which we point out in Rem.~\ref{rem_connection_to_algebras}.
   \end{defn}
 
   % TODO write remark! and move to appropriate position
@@ -1431,7 +1431,8 @@
       \end{displaymath}
       and obtain a lax transformation
       \begin{displaymath}
-      [G^A \circ p_2 \circ r] \colon (\iota \circ \tilde{\cJ}^e \circ (-)_*)\to \Sp^{\Sigma}
+      [G^A \circ p_2 \circ r] \colon (\iota \circ \tilde{\cJ}^e \circ (-)_*) = %
+      (\iota \circ \tilde{\cJ} \circ (-)_*)^e \to \Sp^{\Sigma}
       \end{displaymath}
       of functors
       \begin{displaymath}
