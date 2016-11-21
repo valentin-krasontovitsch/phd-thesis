@@ -858,7 +858,7 @@
       Let $\cD$ be a small category, and let $K \colon \cD \to \CAT_*$ be a functor.
       Recall the following notation: 
       Given $F \colon \cD \to \CAT_*$, we denote by $F^e \colon \cD \to \CAT_*$ the functor sending $j \mapsto F(j)^e = F(j)^{\op} \wedge F(j)$. 
-      We proceed to define the category $\operatorname{Bimod}^{\cD} / K$ of bimodules \comm{[TODO: analogy bimodules over (commutative) ring?]}. 
+      We proceed to define the category $\operatorname{Bimod}^{\cD} / K$ of bimodules \comm{[TODO: analogy bimodules over (commutative) ring?]}.\\
       The objects of this category are pairs $(F,G)$, where $F \colon \cD \to \CAT_*$ is a functor and $G \colon F^e \Rightarrow K$ is a left lax transformation (compare Rem.~\ref{rem_left_lax_transform_functors_J_to_CAT}).
       A morphism $(\epsilon, \eta) \colon (F,G) \to (F^\prime,G^\prime)$ between two such pairs consists of a natural transformation $\epsilon \colon F \to F^\prime$ and a modification $\eta \colon G \to G^\prime \epsilon^e$.
       Composition of two such morphisms
@@ -1487,7 +1487,12 @@
       \end{displaymath}
       is a weak equivalence on $G$-fixed points.
       \begin{proof}
-        should be formal?
+        To obtain the above map, consider the full subcategory $\{S\}$ of finite sets and the restictions of $\tilde{\cJ}$, $\cJ$, and the constant functor $\sS_*$ along the inclusion $\{S\} \to \Fin$. This gives rise to a map of bimodules
+        \begin{displaymath}
+          (\tilde{\cJ} \colon \{S\} \to \CAT_*, Z \circ (p_2)_S \circ r_S \colon \tilde{\cJ}^e \Rightarrow \sS_*) \myrightarrow{\epsilon,\eta} (\cJ \colon \{S\} \to \CAT_*, Z \circ (p_2)_S \colon \cJ^e \Rightarrow \sS_*)
+        \end{displaymath}
+        given by $\epsilon = r_s$ and $\eta$ the appropriate identity.\\
+        First consider the 
       \end{proof}
     \end{lem}
     %
