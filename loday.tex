@@ -1275,7 +1275,7 @@
           }
       \end{displaymath}
       commutes, and plugging in the definition of the functor $e_d$ on morphisms, and using first naturality and then the unitality property of $F_d$ in the above diagram we may conclude that $\alpha = \gamma$.
-      Hence $x \to F(\id_d)(x)$ is an initial object in the comma category $x/e_d$ and hence the functor $e_d$ is homtopy cofinal (cf. Def.~\ref{def_homotopy_cofinal} and Rem.~\ref{lem_category_contractible_if_has_initial_object}).
+      Hence $x \to F(\id_d)(x)$ is an initial object in the comma category $x/e_d$ and hence the functor $e_d$ is homtopy cofinal (cf. Def.~\ref{def_homotopy_cofinal} and Lem.~\ref{lem_category_contractible_if_has_initial_object}).
     \end{rem}
     %
     \begin{defn}\label{def_streets_construction_right_transformations}
@@ -1487,12 +1487,13 @@
       \end{displaymath}
       is a weak equivalence on $G$-fixed points.
       \begin{proof}
-        To obtain the above map, consider the full subcategory $\{S\}$ of finite sets and the restictions of $\tilde{\cJ}$, $\cJ$, and the constant functor $\sS_*$ along the inclusion $\{S\} \to \Fin$. This gives rise to a map of bimodules
+        To obtain the above map, consider the full subcategory $\{S\}$ of $\Fin$ and the restictions of $\tilde{\cJ}$, $\cJ$, and the constant functor $\sS_*$ along the inclusion $\{S\} \to \Fin$. This gives rise to a map of bimodules
         \begin{displaymath}
           (\tilde{\cJ} \colon \{S\} \to \CAT_*, Z \circ (p_2)_S \circ r_S \colon \tilde{\cJ}^e \Rightarrow \sS_*) \myrightarrow{\epsilon,\eta} (\cJ \colon \{S\} \to \CAT_*, Z \circ (p_2)_S \colon \cJ^e \Rightarrow \sS_*)
         \end{displaymath}
         given by $\epsilon = r_s$ and $\eta$ the appropriate identity.\\
-        First consider the 
+        First, let $G$ be the trivial group. After observing that $p_2 \circ r = e \circ p_2$, we may compare to the usual homotopy colimits (cf. Rem.~\ref{rem_hocolim_name_explanation}), where we have an isomorphism due to homotopy cofinality of $e$ (cf. Rem.~\ref{rem_streets_construction_e_is_cofinal}), and it is easy to check that we obtain a commutative square, making the desired morphism a weak equivalence.\\
+        Now we let $G$ be arbitrary. 
       \end{proof}
     \end{lem}
     %
