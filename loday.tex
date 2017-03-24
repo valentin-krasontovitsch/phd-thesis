@@ -977,7 +977,10 @@
       \begin{displaymath}
         G_j(x_0,x_q) \wedge F(j)(x_1,x_0) \to G_j(x_1,x_q).
       \end{displaymath}
-      One may proceed similarly to obtain $d_q$.\\
+      One may proceed similarly to obtain $d_q$ using
+      \begin{displaymath}
+        G_j(x_0,x_q) \wedge F(j)(x_q,x_{q-1}) \to G_j(x_0,x_{q-1}).
+      \end{displaymath}
       This is where we can draw an analogy to classical algebra and motivate the
       usage of the term bimodule: Note how in the definition of $d_0$ and $d_q$,
       $F$ can be taken to "act" on $G$ from the left and right, respectively -
@@ -995,7 +998,9 @@
       \begin{displaymath}
         \hocolim_\epsilon \eta \colon \hocolim_F G \to \hocolim_{F^\prime} G^\prime.
       \end{displaymath}
-      Recall that $\epsilon \colon F \to F^\prime$ a natural transformation implies that for every $j \in \cD$, we have a functor $\epsilon_j \colon F(j) \to F^\prime(j)$.
+      Recall that $\epsilon \colon F \to F^\prime$ a natural transformation
+      implies that for every $j \in \cD$, we have a functor $\epsilon_j \colon
+      F(j) \to F^\prime(j)$.
       Furthermore, $\eta \colon G \to G^\prime \epsilon^e$ a modification implies that for every $j \in \cD$, we have a natural transformation $\eta_j \colon G_j \to G^\prime_j\epsilon^e_j$.
       We hence have morphisms
       \begin{displaymath}
@@ -1343,7 +1348,9 @@
         F(\phi_1) \circ F(\psi)(x_0) \myrightarrow{F_{\phi_1,\psi}} %
         F(\phi_1 \circ \psi)(x_0) = F(\phi_0)(x_0),
       \end{displaymath}
-      where $F_{\phi_1,\psi} \colon F(\phi_1) \circ F(\psi) \to F(\phi_1 \circ \psi)$ is the compositional structure morphism, here evaluated at the object $x_0$.
+      where $F_{\phi_1,\psi} \colon F(\phi_1) \circ F(\psi) \to F(\phi_1 \circ
+      \psi)$ is the compositional structure morphism, here evaluated at the
+      object $x_0$.
       Furthermore, given a map $f \colon d \to d^\prime$, there is a natural transformation
       \begin{displaymath}
           \xymatrix{
@@ -1366,11 +1373,19 @@
       \begin{displaymath}
         F(f) \circ e_d (\phi,x) = F(f) \circ F(\phi) (x) \myrightarrow{F_{f, \phi}} F(f \circ \phi)(x) = e_{d^\prime} \circ F(f) (\phi,x)
       \end{displaymath}
-      the compositional structure morphism of $F$. Together, the above data constitutes a left lax transformation $e \colon \tilde{F} \to F$. The first axiom degenerates to the compatability of associativity and compositional structure morphisms for $F$, while the unitality condition degenerates to the unitality condition for $F$ (as $F$ is an honest functor, and $e_f$ is given by a structural morphism of $F$).
+      the compositional structure morphism of $F$. Together, the above data
+      constitutes a left lax transformation $e \colon \tilde{F} \to F$. The
+      first axiom degenerates to the compatability of associativity and
+      compositional structure morphisms for $F$, while the unitality condition
+      degenerates to the unitality condition for $F$ (as $F$ is an honest
+      functor, and $e_f$ is given by a structural morphism of $F$).
       \end{defn}
       %
       \begin{rem}\label{rem_streets_construction_e_is_cofinal}
-      In the context of the above Def.~\ref{def_streets_first_construction_transformation}, considering the unital structure morphisms of $F$ for an object $d \in \cD$, which is a natural transformation
+      In the context of the above
+      Def.~\ref{def_streets_first_construction_transformation}, considering
+      the unital structure morphisms of $F$ for an object $d \in \cD$, which
+      is a natural transformation
       \begin{displaymath}
         \id_{F(d)} \to F(\id_d),
       \end{displaymath}
@@ -1378,11 +1393,17 @@
       \begin{displaymath}
         \id_{F(d)} (x) = x \to F(\id_d)(x) = e_d(\id_d, x),
       \end{displaymath}
-      which we may interpret as an object of the comma category $x/e_d$ (cf. Def.~\ref{def_comma_category}). Given another object of the above comma category $\gamma: x \to F(\phi)(y)$ (a morphism in $F(d)$) for some $(\phi: d_1 \to d, y \in F(d_1)) \in \ob \tilde{F}(d)$, assume that there is a morphism in $x / e_d$
+      which we may interpret as an object of the comma category $x/e_d$ (cf.
+      Def.~\ref{def_comma_category}). Given another object of the above comma
+      category $\gamma: x \to F(\phi)(y)$ (a morphism in $F(d)$) for some
+      $(\phi: d_1 \to d, y \in F(d_1)) \in \ob \tilde{F}(d)$, assume that
+      there is a morphism in $x / e_d$
       \begin{displaymath}
         (x \myrightarrow{(F_d)_x} F(\id_d)(x)) \to (\gamma: x \to F(\phi)(y)).
       \end{displaymath}
-      This is given by a $(\psi,\alpha) \colon (\id_d, x) \to (\phi \colon d_1 \to d,y)$, i.e. a map $\psi \colon d_1 \to d$ such that $\psi \circ \id_d = \phi$ and $\alpha \colon x \to F(\psi)(y) = F(\phi)(y)$.
+      This is given by a $(\psi,\alpha) \colon (\id_d, x) \to (\phi \colon d_1
+      \to d,y)$, i.e. a map $\psi \colon d_1 \to d$ such that $\psi \circ
+      \id_d = \phi$ and $\alpha \colon x \to F(\psi)(y) = F(\phi)(y)$.
       Being a morphism in the comma category implies that the diagram
       \begin{displaymath}
           \xymatrix{
@@ -1399,8 +1420,13 @@
             F(\phi)(y)
           }
       \end{displaymath}
-      commutes, and plugging in the definition of the functor $e_d$ on morphisms, and using first naturality and then the unitality property of $F_d$ in the above diagram we may conclude that $\alpha = \gamma$.
-      Hence $x \to F(\id_d)(x)$ is an initial object in the comma category $x/e_d$ and hence the functor $e_d$ is homtopy cofinal (cf. Def.~\ref{def_homotopy_cofinal} and Lem.~\ref{lem_category_contractible_if_has_initial_object}).
+      commutes, and plugging in the definition of the functor $e_d$ on
+        morphisms, and using first naturality and then the unitality property of
+        $F_d$ in the above diagram we may conclude that $\alpha = \gamma$.
+      Hence $x \to F(\id_d)(x)$ is an initial object in the comma category
+        $x/e_d$ and the functor $e_d$ is homtopy cofinal (cf.
+        Def.~\ref{def_homotopy_cofinal} and
+        Lem.~\ref{lem_category_contractible_if_has_initial_object}).
     \end{rem}
     %
     \begin{defn}\label{def_streets_construction_right_transformations}
