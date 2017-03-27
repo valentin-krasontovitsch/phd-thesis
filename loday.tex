@@ -928,7 +928,8 @@
       We proceed to consider $K$ as a constant functor from $\cD$ to $\CAT_*$
       and consider the category of bimodules in this context, defining a functor
       \begin{gather*}
-        \hocolim: \operatorname{Bimod}^{\cD} / K \to [\cD \times \Delta^{\mathrm{op}}, K]\\
+        \hocolim: \operatorname{Bimod}^{\cD} / K \to %
+          [\cD \times \Delta^{\mathrm{op}}, K]\\
         (F,G) \mapsto \hocolim_F G
       \end{gather*}
       where the codomain is the category of functors and natural transformations
@@ -1049,16 +1050,46 @@
       accordingly, and the isomorphism is induced by the natural identification
       $1_+ \wedge \cC \cong \cC$ for any pointed category $\cC$.\\
       Then, given $j \in \cD$, $(\hocolim_G F)(j)$ is isomorphic to the usual
-      homotopy colimit given for instance by the model
+      homotopy colimit of the diagram $G^\prime_j \colon F^\prime(j) \to K$
+      given for instance by the model
       \begin{displaymath}
         \hocolim_{F^\prime(j)} G_j^\prime = \left\{ 
-          [q] \mapsto \bigvee G_j^\prime(x_q)
+          [q] \mapsto \bigvee_{x_q \to \ldots \to x_0} G_j^\prime(x_q)
         \right\}
       \end{displaymath}
       with wedge sum taken over all sequences of morphisms $(x_q \to \ldots \to
       x_0)$ in $F^\prime(j)$.
     \end{lem}
     \begin{proof}
+      We consider for $q \geq 0$:
+      \begin{gather*}
+        (\hocolim_F G)(j)_q = \\%
+        \bigvee_{x_0, \ldots, x_q \in \ob F(j)} %
+          G_j(x_0,x_q) \wedge \bigwedge_{i=0}^{q-1} \hom_{F(j)}(x_{i+1},x_i) \cong \\%
+        \bigvee_{x_0, \ldots, x_q \in \ob F^\prime(j)_+} %
+          G^\prime_j(x_q) \wedge \bigwedge_{i=0}^{q-1} %
+          \hom_{F^\prime(j)_+}(x_{i+1},x_i) \cong %
+      \end{gather*}
+      Observe that if $x_i$ is the basepoint in $F(j) = F^\prime(j)_+$, then
+      morphism from and to $x_i$ in $F(j)$ are just a point, and the respective
+      summand collapses to a point. For $x, y \in \ob F^\prime(j)$ we further
+      have $\hom_{F(j)_+}(x,y) \cong \hom_{F^\prime(j)}(x,y)_+$. Applying this
+      we may proceed
+      \begin{gather*}
+        \cong \bigvee_{x_0, \ldots, x_q \in \ob F^\prime(j)} %
+          G^\prime_j(x_q) \wedge \bigwedge_{i=0}^{q-1}
+          \hom_{F^\prime(j)}(x_{i+1},x_i)_+ \cong \\%
+        \bigvee_{x_0, \ldots, x_q \in \ob F^\prime(j)} %
+          G^\prime_j(x_q) \wedge %
+          \left (\prod_{i=0}^{q-1} \hom_{F^\prime(j)}(x_{i+1},x_i) \right)_+
+          \cong \\%
+        \bigvee_{x_0, \ldots, x_q \in \ob F^\prime(j)} \left[%
+          \bigvee_{\prod_{i=0}^{q-1} \hom_{F^\prime(j)}(x_{i+1},x_i)} %
+          G^\prime_j(x_q) \right] \cong \\%
+          \bigvee_{x_q \to \ldots \to x_0} G^\prime_j(x_q),
+      \end{gather*}
+      which gives us an isomorphism for each $q \geq 0$.\\
+      To assert that these form an isomorphism of simplicial objects in $K$, ...
     \end{proof}
   \subsection{The left lax transformation $G^A$}
     \begin{defn}\label{def_left_lax_transformation_S}
