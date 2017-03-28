@@ -1089,7 +1089,8 @@
           \bigvee_{x_q \to \ldots \to x_0} G^\prime_j(x_q),
       \end{gather*}
       which gives us an isomorphism for each $q \geq 0$.\\
-      To assert that these form an isomorphism of simplicial objects in $K$, ...
+      It is simple to check that these isomorphisms are compatible with the
+      simplicial structure, so we have the desired equivalence.
     \end{proof}
   \subsection{The left lax transformation $G^A$}
     \begin{defn}\label{def_left_lax_transformation_S}
@@ -1566,19 +1567,25 @@
     %
     \begin{lem}\label{lem_category_contractible_if_has_initial_object}
       A category with an initial or final object is contractible.
-      % TODO write proof?
       % TODO move to right place
     \end{lem}
+    \begin{proof}
+      This follows for instance from the fact that such a category has a left-
+      or right-adjoint functor (respectively) to the singleton category $1$ with
+      exactly one object and one morphism, and that an adjoint pair induces
+      homotopy equivalences between the nerves of the respective categories.
+    \end{proof}
     %
     \begin{lem}\label{lem_homotopy_cofinal_functor_and_hocolim}
-      Let $F: \cJ \to \sS$ be a diagram, and let $\alpha: \cI \to \cJ$ be a homotopy cofinal functor. Then the natural map
+      Let $F: \cJ \to \sS$ be a diagram, and let $\alpha: \cI \to \cJ$ be a
+      homotopy cofinal functor. Then the natural map
       \begin{displaymath}
         \hocolim_{\cI} F \circ \alpha \to \hocolim_{\cJ} F
       \end{displaymath}
       is a weak equivalence.
-    \end{lem}
       % TODO move to right place
       % TODO prove?
+    \end{lem}
     %
   \subsection{The Loday functor for finite sets}
     We are now finally able to define the Loday functor with input a \hring and a finite set. We proceed to do so, and prove some elementary results about the functor.
