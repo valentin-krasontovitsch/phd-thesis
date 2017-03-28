@@ -1,5 +1,7 @@
-\documentclass[10pt, a4paper, UKenglish]{article}
+\documentclass[11pt, a4paper, UKenglish]{article}
 
+% TODO change size to 12? fix diagrams that seem to be too big first!
+% TODO fix diagrams to fit new text width
 % change : to \colon (luxurious)
 % 
 %switch to koma class?
@@ -53,8 +55,7 @@
   \usepackage{verbatim}
   \dgARROWLENGTH=1.5em
   \usepackage{paralist}
-  \usepackage[a4paper, hmargin=3cm, tmargin=3.2cm, bmargin=3.2cm]{geometry}
-  %skip geometry if using koma class!
+  \usepackage{geometry}
   \usepackage{ifpdf}
   \ifpdf
     \usepackage[off]{auto-pst-pdf}
@@ -64,19 +65,20 @@
 
 %%%FORMATTING
 
-  %\newcommand\mnote[1]{\marginpar{\tiny #1}}
+	\geometry{a4paper, hmargin=4cm, vmargin=3.2cm}
+
+  \newcommand\mnote[1]{\marginpar{\tiny #1}}
   %\setlength{\marginparsep}{0.2cm}
   %\setlength{\marginparwidth}{2.5cm}
   %\setlength{\marginparpush}{0.5cm}
   %\setlength{\itemsep}{0cm}
   %\setlength{\parsep}{.5cm}
-  \setlength{\parskip}{\baselineskip}
+  %\setlength{\parskip}{\baselineskip}
   \setlength{\parindent}{0pt}
 
   \numberwithin{equation}{section}
   \setcounter{secnumdepth}{1}
   \setcounter{tocdepth}{1}
-
 
 %%%THEOREM STYLES
 

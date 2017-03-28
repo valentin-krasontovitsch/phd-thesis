@@ -682,7 +682,8 @@
           }
         \end{xy}
       \end{displaymath}
-      commutes, with $\alpha$ indicating the appropriate associativity isomorphisms. For $b \in \cB_0$,
+      commutes, with $\alpha$ indicating the appropriate associativity
+      isomorphisms. For $b \in \cB_0$,
       \begin{displaymath}
         \begin{xy}
           \xymatrix{
@@ -702,8 +703,10 @@
       is required to commmute.\\
       Dually, a \emph{right lax transformation} consists of
       \begin{itemize}
-        \item for every object $b \in \cB_0$ a 1-morphism $F(b) \myrightarrow{\rho_b} F^\prime(b)$ in $\cC$
-        \item for every 1-morphism $f: b \to b^\prime$ a 2-morphism $F^\prime(f) \circ \rho_b \myleftarrow{\rho_f} \rho_{b^\prime} \circ F(f)$.
+        \item for every object $b \in \cB_0$ a 1-morphism $F(b)
+          \myrightarrow{\rho_b} F^\prime(b)$ in $\cC$
+        \item for every 1-morphism $f: b \to b^\prime$ a 2-morphism $F^\prime(f)
+          \circ \rho_b \myleftarrow{\rho_f} \rho_{b^\prime} \circ F(f)$.
         \end{itemize}
       Observe the reversed direction:
       \begin{displaymath}
@@ -1559,25 +1562,29 @@
     \end{defn}
     %
     \begin{defn}\label{def_homotopy_cofinal}
-      A functor $F: \cC \to \cD$ is homotopy cofinal if for every element $d \in \cD$ the comma category $(d \downarrow F)$ is non-empty and contractible (i.e. its nerve is contractible).
-      In $(d \downarrow F)$ the symbol $d$ stands for the functor from the category with exactly one object and only identity morphism to $\cD$ with value the object $d$.
-      Recall that a category is non-empty if it has at least one object, and contractible if its nerve (a simplicial set) is contractible.
+      A functor $F: \cC \to \cD$ is homotopy cofinal if for every element $d \in
+      \cD$ the comma category $(d \downarrow F)$ is non-empty and contractible
+      (i.e. its nerve is contractible).  In $(d \downarrow F)$ the symbol $d$
+      stands for the functor from the category with exactly one object and only
+      identity morphism to $\cD$ with value the object $d$.  Recall that a
+      category is non-empty if it has at least one object, and contractible if
+      its nerve (a simplicial set) is contractible.
       % TODO move to right place
     \end{defn}
     %
     \begin{lem}\label{lem_category_contractible_if_has_initial_object}
-      A category with an initial or final object is contractible.
+      A category with an initial or final object is contractible.%
       % TODO move to right place
+      \begin{proof}
+        This follows for instance from the fact that such a category has a left-
+        or right-adjoint functor (respectively) to the singleton category $1$ with
+        exactly one object and one morphism, and that an adjoint pair induces
+        homotopy equivalences between the nerves of the respective categories.
+      \end{proof}
     \end{lem}
-    \begin{proof}
-      This follows for instance from the fact that such a category has a left-
-      or right-adjoint functor (respectively) to the singleton category $1$ with
-      exactly one object and one morphism, and that an adjoint pair induces
-      homotopy equivalences between the nerves of the respective categories.
-    \end{proof}
     %
-		\begin{lem}\label{lem_homotopy_cofinal_functor_and_hocolim}\cite[Thm.
-			19.6.7]{hirschhorn2009model}
+    \begin{lem}\label{lem_homotopy_cofinal_functor_and_hocolim}\cite[Thm.
+      19.6.7]{hirschhorn2009model}
       Let $F: \cJ \to \sS$ be a diagram, and let $\alpha: \cI \to \cJ$ be a
       homotopy cofinal functor. Then the natural map
       \begin{displaymath}
