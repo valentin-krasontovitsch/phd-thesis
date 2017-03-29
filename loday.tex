@@ -1726,12 +1726,27 @@
       \end{displaymath}
       is a weak equivalence on $G$-fixed points.
       \begin{proof}
-        To obtain the above map, consider the full subcategory $\{S\}$ of $\Fin$ and the restictions of $\tilde{\cJ}$, $\cJ$, and the constant functor $\sS_*$ along the inclusion $\{S\} \to \Fin$. This gives rise to a map of bimodules
+        To obtain the above map, consider the full subcategory $\{S\}$ of $\Fin$
+        and the restictions of $\tilde{\cJ}$, $\cJ$, and the constant functor
+        $\sS_*$ along the inclusion $\{S\} \to \Fin$. This gives rise to a map
+        of bimodules
         \begin{displaymath}
-          (\tilde{\cJ} \colon \{S\} \to \CAT_*, Z \circ (p_2)_S \circ r_S \colon \tilde{\cJ}^e \Rightarrow \sS_*) \myrightarrow{\epsilon,\eta} (\cJ \colon \{S\} \to \CAT_*, Z \circ (p_2)_S \colon \cJ^e \Rightarrow \sS_*)
+          \xymatrix{
+            (\tilde{\cJ} \colon \{S\} \to \CAT_*, Z \circ (p_2)_S \circ r_S %
+              \colon \tilde{\cJ}^e \Rightarrow \sS_*) %
+            \ar[d]^{\epsilon,\eta} \\
+            (\cJ \colon \{S\} \to \CAT_*, %
+              Z \circ (p_2)_S \colon \cJ^e \Rightarrow \sS_*)
+          }
         \end{displaymath}
         given by $\epsilon = r_s$ and $\eta$ the appropriate identity.\\
-        First, let $G$ be the trivial group. After observing that $p_2 \circ r = e \circ p_2$, we may compare to the usual homotopy colimits (cf. Rem.~\ref{rem_hocolim_name_explanation}), where we have an isomorphism due to homotopy cofinality of $e$ (cf. Rem.~\ref{rem_streets_construction_e_is_cofinal}), and it is easy to check that we obtain a commutative square, making the desired morphism a weak equivalence.\\
+        First, let $G$ be the trivial group. After observing that $p_2 \circ r =
+        e \circ p_2$, we may compare to the usual homotopy colimits (cf.
+        Rem.~\ref{rem_hocolim_name_explanation}), where we have an isomorphism
+        due to homotopy cofinality of $e$ (cf.
+        Rem.~\ref{rem_streets_construction_e_is_cofinal}), and it is easy to
+        check that we obtain a commutative square, making the desired morphism a
+        weak equivalence.\\
         Now we let $G$ be arbitrary. 
       \end{proof}
     \end{lem}
