@@ -120,48 +120,40 @@
       \end{itemize}
       This data is subject to the following relations: 
       \begin{itemize}
-        \item The coherence isomorphisms $\alpha_{f,g,h}$, $\lambda_f$ and $\rho_f$ are natural in $f,\,g,\,h$, and $f$, respectively;
-        \item Given four composable 1-arrows $\bullet\myrightarrow{f}\bullet\myrightarrow{g}\bullet\myrightarrow{h}\bullet\myrightarrow{i}\bullet$, we have the following commutative diagram (called pentagon axiom)
+        \item The coherence isomorphisms $\alpha_{f,g,h}$, $\lambda_f$ and
+          $\rho_f$ are natural in $f,\,g,\,h$, and $f$, respectively;
+        \item Given four composable 1-arrows
+          \begin{displaymath}
+            \bullet\myrightarrow{f}\bullet\myrightarrow{g}\bullet
+              \myrightarrow{h}\bullet\myrightarrow{i}\bullet,
+          \end{displaymath}
+          we have the following commutative diagram 
         % TODO port the \scriptsize to other places in relations where you used \txt
         \begin{displaymath}
           \begin{xy}
-            \xymatrix@C=0.2em{
-              %
-              &
+            \xymatrix@C=0.1cm{
               %
               &
               (i \circ h) \circ (g \circ f)
-                \ar@{=>}[drr]^-*!/ur 3pt/\txt<50pt\scriptsize>{$\alpha_{i,h,g \circ f}$}
-              &
-              %
+                \ar@{=>}[dr]^-*!/ur 3pt/\txt<50pt\scriptsize>{$\alpha_{i,h,g \circ f}$}
               &
               %
               \\
               ((i \circ h) \circ g) \circ f
-                \ar@{=>}[urr]^-*!/ul 3pt/\txt<50pt\scriptsize>{$\alpha_{i \circ h,g,f}$}
-                \ar@{=>}[dr]_-*!/dl 3pt/\txt<50pt\scriptsize>{$\alpha_{i,h,g} \ast \id_f$}
-              &
-              %
-              &
-              %
+                \ar@{=>}[ur]^-*!/ul 3pt/\txt<50pt\scriptsize>{$\alpha_{i \circ h,g,f}$}
+                \ar@{=>}[d]_-*!/dl 3pt/\txt<50pt\scriptsize>{$\alpha_{i,h,g} \ast \id_f$}
               &
               %
               &
               i \circ (h \circ (g \circ f))
               \\
-              %
-              &
               (i \circ (h \circ g)) \circ f
-                % \ar@{=>}[rr]_{\alpha_{i,h \circ g, f}}
                 \ar@{=>}[rr]_-*!/d 3pt/\txt<50pt\scriptsize>{$\alpha_{i,h \circ g, f}$}%
               &
               %
               &
               i \circ ((h \circ g) \circ f)
-                % \ar@{=>}[ur]_{\id_i \ast \alpha_{h,g,f}}
-                \ar@{=>}[ur]_*!/dr 3pt/\txt<50pt\scriptsize>{$\id_i \ast \alpha_{h,g,f}$}
-              &
-              %
+                \ar@{=>}[u]_*!/dr 3pt/\txt<50pt\scriptsize>{$\id_i \ast \alpha_{h,g,f}$}
               }
           \end{xy}
         \end{displaymath}
@@ -270,7 +262,7 @@
       \end{itemize}
       such that $\phi_{g,f}$ and $\phi_a$ are natural in $g,f$ and $a$, respectively, and the following diagrams commute for all composable morphisms $a \myrightarrow{f} b \myrightarrow{g} c \myrightarrow {h} d$:
       \begin{gather*}
-        \xymatrix@C+3em@R+1em{
+        \xymatrix@C+1.5em@R+1em{
           (F(h) \circ F(g)) \circ F(f)
             \ar[r]^-{\phi_{h,g} \ast \id_{F(f)}}
             \ar[d]_{\alpha_{F(h),F(g),F(f)}}
@@ -291,7 +283,7 @@
         }
       \end{gather*}
       \begin{gather*}
-        \xymatrix@C+3em@R+1em{
+        \xymatrix@C+1.5em@R+1em{
           F(f) \circ 1_{F(a)}
             \ar[r]^-{\id_{F(f)} \ast \phi_a}
             \ar[d]_{\rho_{F(f)}}
@@ -311,7 +303,7 @@
         }
       \end{gather*}
       \begin{gather*}
-        \xymatrix@C+3em@R+1em{
+        \xymatrix@C+1.5em@R+1em{
           1_{F(b)} \circ F(f)
             \ar[r]^-{\phi_b \ast \id_{F(f)}}
             \ar[d]_{\lambda_{F(f)}}
@@ -585,25 +577,28 @@
           \end{array} %
          \right\}.
       \end{displaymath}
-      For two composable maps of sets $X \myrightarrow{f} Y \myrightarrow{g} Z$ the structure natural transformation $\cJ(g) \circ \cJ(Y) \to \cJ(g \circ f)$ is given as a reordering: On $c_x \in (\cI^X)_+$, we map (omitting from the notation that the sums are taken over all tuples with $f(x)=y$ and $g(y)=z$, respectively)
+      For two composable maps of sets $X \myrightarrow{f} Y \myrightarrow{g} Z$
+      the structure natural transformation $\cJ(g) \circ \cJ(Y) \to \cJ(g \circ
+      f)$ is given as a reordering: On $c_x \in (\cI^X)_+$, we map (omitting
+      from the notation that the sums are taken over all tuples with $f(x)=y$
+      and $g(y)=z$, respectively)
       \begin{gather*}
       % TODO substitute the categories with the actual objects!
-        \cI_+ L (g_*) \circ \cI_+ L (f_*) (c_x)  %
-          \crightarrow{2}{\phi^{\cI_+}_{L(g_*),L(f_*)}} %
-        \cI_+( L(g_*) \circ L(f_*)) (c_x)%
-          \crightarrow{2}{\cI_+(\phi^L_{g_*,f_*})} %
+        \cI_+ L (g_*) \circ \cI_+ L (f_*) (c_x) \to %
+        \cI_+( L(g_*) \circ L(f_*)) (c_x) \to%
         \cI_+ L (g \circ f)_* (c_x)\\
         \left[\coprod_{(y,g(y))} %
-          \left( \coprod_{(x,f(x))} c_x \right)  \right]_{z \in Z} \crightarrow{2}{} %
-        \left[ \coprod_{((x,f(x)),(y,gf(y)))} c_x \right]_{z \in Z} \crightarrow{2}{} %
+          \left( \coprod_{(x,f(x))} c_x \right)  \right]_{z \in Z} \to %
+        \left[ \coprod_{((x,f(x)),(y,gf(y)))} c_x \right]_{z \in Z} \to %
         \left[ \coprod_{(x,gf(x))} c_x \right]_{z \in Z}
-        % \left[\coprod_{(y,g(y)) \in pr_2^{-1}(z)} %
-        %   \left( \coprod_{(x,f(x)) \in pr_2^{-1}(y)} c_x \right)  \right]_{z \in Z} \to %
-        % \left[ \coprod_{(x,f(x),gf(x)) \in (pr_2 pr_2)^{-1}(z)} c_x \right]_{z \in Z} \to %
-        % \left[ \coprod_{(x,gf(x)) \in pr_2^{-1}(z)} c_x \right]_{z \in Z}
       \end{gather*}
-      first via the natural bijection between the two indexing sets, and then by projecting away from the middle coordinate, which in this case is a bijection.
-      The identity 1-arrow structure morphism on a finite set $X$, $\phi^{\cJ(-)_*}_X = \cI_+(\phi^{L}_X) \circ \phi^{\cI_+}_{L(X)}: 1_{\cJ(X)} \to \cJ(1_X)$, is the composition of two isomorphisms, and hence an isomorphism itself.\\
+      first $\phi^{\cI_+}_{L(g_*),L(f_*)}$ via the natural bijection between the
+      two indexing sets, and then $\cI_+(\phi^L_{g_*,f_*})$ by projecting away
+      from the middle coordinate, which in this case is a bijection.  The
+      identity 1-arrow structure morphism on a finite set $X$,
+      $\phi^{\cJ(-)_*}_X = \cI_+(\phi^{L}_X) \circ \phi^{\cI_+}_{L(X)}:
+      1_{\cJ(X)} \to \cJ(1_X)$, is the composition of two isomorphisms, and
+      hence an isomorphism itself.\\
       On the other hand, taking the contravariant inclusion $\Fin \to V$ which sends a map $f:X \to Y$ to the class of spans $ f^* = [ Y \myleftarrow{f} X = X]$, results in the functor
       % TODO make centered, like covariant case above
       $\cJ(f^*): (\cI^Y)_+ \to (\cI^X)_+$ sending a tuple $(c_y)_{y \in Y}$ to the tuple $y \mapsto \coprod_{(f(x),x) \in pr_2^{-1}(x)} c_{f(x)}$, where the last coproduct is take over a singleton set and is hence naturally isomorphic to $c_{f(x)}$. Thus the last functor may naturally be described as precomposition with $f$. A study of the involved maps shows, as above, that the structure morphisms are indeed isomorphisms.
@@ -648,7 +643,9 @@
       \end{displaymath}
       the resulting cube should commute.
       Note that this implies that $\sigma_b$ is natural in $b$.
-      This data is subject to the following relations, which we express in composition and unit diagrams: For arrows $b \myrightarrow{f} {b^\prime} \myrightarrow{g} {b^\dprime}$ in $\cB$,
+      This data is subject to the following relations, which we express in
+      composition and unit diagrams: For arrows $b \myrightarrow{f} {b^\prime}
+      \myrightarrow{g} {b^\dprime}$ in $\cB$,
       \begin{displaymath}
         \begin{xy}
           \xymatrix@C+=3em{
@@ -660,13 +657,11 @@
               \ar[r]^-{F^\prime(g,f) \ast \sigma_b}
             &
             F^\prime(g \circ f) \circ \sigma_b
-              \ar[dr]^{\sigma_{g \circ f}}
-            &
-            %
+              \ar[d]^{\sigma_{g \circ f}}
             \\
             F^\prime(g) \circ (\sigma_{b^\prime} \circ F(f))
               \ar[d]_-{\alpha}
-            &&&
+            &&
             \sigma_{b^\dprime} \circ F(gf)
             \\
             (F^\prime(g) \circ \sigma_{b^\prime}) \circ F(f)
@@ -676,9 +671,7 @@
               \ar[r]_-{\alpha}
             &
             \sigma_{b^\dprime} \circ (F(g) \circ F(f))
-              \ar[ur]_{\sigma_{b^\dprime} \ast F(g,f)}
-            &
-            %
+              \ar[u]_{\sigma_{b^\dprime} \ast F(g,f)}
           }
         \end{xy}
       \end{displaymath}
@@ -1227,9 +1220,11 @@
         \Hom(X,Y) \in \ob \SpS
       \end{displaymath}
       given in degree $n$ by the internal hom-object of pointed simplicial sets
-      $\Hom_{\sS_*}(X,Y \wedge S^n)$ (with codomain functorially fibrantly
-      replaced), $\Sigma_n$ acting on the $n$-sphere, and structure maps of
-      assembly type
+      \begin{displaymath}
+        \Hom(X,Y)_n = \Hom_{\sS_*}(X,Y \wedge S^n)
+      \end{displaymath}
+      (with codomain functorially fibrantly replaced), $\Sigma_n$ acting on the
+      $n$-sphere, and structure maps of assembly type
       \begin{gather*}
       \Hom_{\sS_*}(X,Y \wedge S^n) \wedge S^1 \to \Hom_{\sS_*}(X,Y \wedge S(n+1))\\
       (f \colon X \to Y \wedge S^n) \wedge t \mapsto (x \mapsto f(x) \wedge t).
@@ -1323,9 +1318,12 @@
       the right vertical map is the multiplication of $A$. By functoriality this
       defines a map of symmetric spectra
       \begin{displaymath}
-        (G^A_f)_i \colon \Hom(\bigwedge_{s \in S} S(i(s)), \bigwedge_{s \in S} A_{\abs{i(s)}}) \to %
-        \Hom(\bigwedge_{t \in T} S(\coprod\nolimits_{s \in f^{-1}(t)} i(s)), %
-          \bigwedge_{t \in T} A_{\abs{ \coprod_{s \in f^{-1}(t)} i(s)}}).
+        \xymatrix{
+          \Hom(\bigwedge_{s \in S} S(i(s)), 
+          \bigwedge_{s \in S} A_{\abs{i(s)}}) \ar[d]^{(G^A_f)_i} \\%
+          \Hom(\bigwedge_{t \in T} S(\coprod\nolimits_{s \in f^{-1}(t)} i(s)), %
+            \bigwedge_{t \in T} A_{\abs{ \coprod_{s \in f^{-1}(t)} i(s)}}).
+          }
       \end{displaymath}
       That this indeed constitutes a natural transformation is a tedious, but
       not deep exercise in writing large diagrams, playing with the permutations
@@ -1470,11 +1468,11 @@
       \begin{displaymath}
         \id_{F(d)} (x) = x \to F(\id_d)(x) = e_d(\id_d, x),
       \end{displaymath}
-      which we may interpret as an object of the comma category $x/e_d$ (cf.
-      Def.~\ref{def_comma_category}). Given another object of the above comma
-      category $\gamma: x \to F(\phi)(y)$ (a morphism in $F(d)$) for some
-      $(\phi: d_1 \to d, y \in F(d_1)) \in \ob \tilde{F}(d)$, assume that
-      there is a morphism in $x / e_d$
+      which we may interpret as an object in the comma category $(x \downarrow
+      e_d)$ (cf.  Def.~\ref{def_comma_category}). Given another object of the
+      above comma category $\gamma: x \to F(\phi)(y)$ (a morphism in $F(d)$)
+      for some $(\phi: d_1 \to d, y \in F(d_1)) \in \ob \tilde{F}(d)$, assume
+      that there is a morphism in $x / e_d$
       \begin{displaymath}
         (x \myrightarrow{(F_d)_x} F(\id_d)(x)) \to (\gamma: x \to F(\phi)(y)).
       \end{displaymath}
@@ -1710,12 +1708,14 @@
       \begin{displaymath}
         F^e \cong ((F^\prime)^{\op} \times F^\prime)_+ \myrightarrow{p_2} F^\prime_+ \myrightarrow{G^\prime} K
       \end{displaymath}
-      the functor at a $d \in \ob \cD$ is isomorphic to
+      the functor evaluated at $d \in \ob \cD$, $\hocolim_{F} G (d)$, is isomorphic to
       \begin{displaymath}
-        \hocolim_{F} G (d) \cong \hocolim_{F^\prime(d)} G^\prime = %
-        \left\{ [q] \mapsto \bigvee_{\hom_{F^\prime(d)}(x_1,x_0) \times \ldots \times \hom_{F^\prime(d)}(x_q,x_{q-1})} G^\prime_d(x_q) \right\},
+        \hocolim_{F^\prime(d)} G^\prime = %
+        \left\{ [q] \mapsto \bigvee_{\hom_{F^\prime(d)}(x_1,x_0) \times \ldots %
+          \times \hom_{F^\prime(d)}(x_q,x_{q-1})} G^\prime_d(x_q) \right\},
       \end{displaymath}
-      the usual (i.e. one possible model, cf. \comm{[TODO add reference!]}) homotopy colimit of the functor $G^\prime_d \colon F^\prime(d) \to K$.
+      the usual (i.e. one possible model, cf. \comm{[TODO add reference!]})
+      homotopy colimit of the functor $G^\prime_d \colon F^\prime(d) \to K$.
     \end{rem}
     %
     \begin{lem}\label{lem_loday_functor_fixed_points}
