@@ -443,67 +443,85 @@
       We proceed to recall the abbreviation $[\Lambda_{\sT^n} \H A]^{L_\alpha} =
       T^\alpha$ and shall prove the relation by showing that the following
       diagram commutes:
-      \begin{equation*}%\label{eq_diag_fdw_start}
-        \xymatrix@R+1em{
-          \pi_0 (T)
-            \ar[r]^{\Delta_{\alpha\beta}}
-            \ar[d]_{\Delta_* \circ \Delta_{\beta}}
-          &
-          \pi_0 (T^{\alpha\beta})
-            \ar[d]^-{S^1 \wedge S^m \wedge \blank}
-          %
-          \\%%%%%%%%%%%%%%%%%%%%%
-          %
-          \pi_0 (T^{\beta}) \otimes \pi_0 (T^{\beta})
-            \ar[d]_{(-)^{(\alpha_i - 1)\alpha^\dagger_i} \otimes %
-              (-)^{\alpha^\dagger_i}}
-          &
-          \pi_{1+m}( S^1 \wedge S^m \wedge T^{\alpha\beta} )
-            \ar[d]^-{ (\tau(e_i \wedge \id)\sigma \wedge \id)_*}
-          %
-          \\%%%%%%%%%%%%%%%%%%%%%
-          %
-          \pi_0 (T^{\beta}) \otimes \pi_0 (T^{\beta})
-            \ar[d]_{ \id \otimes (S^1 \wedge S^m \wedge \blank) }
-          &
-          \pi_{1+m}(S^m \wedge \sT^n_+ \wedge T^{\alpha\beta})
-            \ar[d]^{ (S^m \wedge \mu)_* }
-          %
-          \\%%%%%%%%%%%%%%%%%%%%%
-          %
-          \pi_0 (T^{\beta}) \otimes %
-          \pi_{1+m} ( S^1 \wedge S^m \wedge T^{\beta} )
-            \ar[d]_{ \id \otimes (\tau (e_i \wedge \id) \sigma \wedge \id)_* }
-          &
-          \pi_{1+m}(S^m \wedge T^{\alpha\beta})
-            \ar[d]^{ (S^m \wedge F_{\alpha\beta}^\beta)_* }
-          %
-          \\%%%%%%%%%%%%%%%%%%%%%
-          %
-          \pi_0 (T^{\beta}) \otimes %
-          \pi_{1+m} ( S^m \wedge \sT^n_+ \wedge T^{\beta} )
-            \ar[d]_{\id \otimes (S^m \wedge \mu)_*}
-          &
-          \pi_{1+m}(S^m \wedge T^{\beta})
-            \ar[d]^{ \chi_{1,m} }
-          %
-          %
-          \\%%%%%%%%%%%%%%%%%%%%%
-          %
-          \pi_0 (T^{\beta}) \otimes %
-          \pi_{1+m} ( S^m \wedge T^{\beta} )
-            \ar[d]_-{\id \otimes (S^m \wedge \blank)^{-1} \circ \chi_{1,m}}
-          &
-          \pi_{m+1}(S^m \wedge T^{\beta})
-            \ar[d]^{ (S^m \wedge \blank)^{-1} }
-          \\
-          \pi_0 (T^{\beta}) \otimes %
-          \pi_{1} ( T^{\beta} )
-            \ar[r]_-{\mu}
-          &
-          \pi_1(T^\beta)
+      \begin{displaymath}%\label{eq_diag_fdw_start}
+        \noindent\makebox[\textwidth]{
+          \xymatrix@C-1.5em{
+            \pi_0 (T)
+              \ar[r]^{\Delta_{\alpha\beta}}
+              \ar[d]_{\Delta_* \circ \Delta_{\beta}}
+            &
+            \pi_0 (T^{\alpha\beta})
+              \ar[rr]^-{S^1 \wedge S^m \wedge \blank}
+            &
+            &
+            \pi_{1+m}( S^1 \wedge S^m \wedge T^{\alpha\beta} )
+              \ar[d]^-{ (\tau(e_i \wedge \id)\sigma \wedge \id)_*}
+            %
+            \\%%%%%%%%%%%%%%%%%%%%%
+            %
+            \pi_0 (T^{\beta}) \otimes %
+            \pi_0 (T^{\beta})
+              \ar[d]_{(-)^{(\alpha_i - 1)\alpha^\dagger_i} \otimes %
+                (-)^{\alpha^\dagger_i}}
+            &
+            %
+            &
+            &
+            \pi_{1+m}(S^m \wedge \sT^n_+ \wedge T^{\alpha\beta})
+              \ar[d]^{ (S^m \wedge \mu)_* }
+            %
+            \\%%%%%%%%%%%%%%%%%%%%%
+            %
+            \pi_0 (T^{\beta}) \otimes %
+            \pi_0 (T^{\beta})
+              \ar[d]_{ \id \otimes (S^1 \wedge S^m \wedge \blank) }
+            &
+            %
+            &
+            &
+            \pi_{1+m}(S^m \wedge T^{\alpha\beta})
+              \ar[d]^{ (S^m \wedge F_{\alpha\beta}^\beta)_* }
+            %
+            \\%%%%%%%%%%%%%%%%%%%%%
+            %
+            \pi_0 (T^{\beta}) \otimes %
+            \pi_{1+m} ( S^1 \wedge S^m \wedge T^{\beta} )
+              \ar[d]_{ \id \otimes (\tau (e_i \wedge \id) \sigma \wedge \id)_* }
+            &
+            %
+            &
+            &
+            \pi_{1+m}(S^m \wedge T^{\beta})
+              \ar[d]^{ \chi_{1,m} }
+            %
+            \\%%%%%%%%%%%%%%%%%%%%%
+            %
+            \pi_0 (T^{\beta}) \otimes %
+            \pi_{1+m} ( S^m \wedge \sT^n_+ \wedge T^{\beta} )
+              \ar[d]_{\id \otimes (S^m \wedge \mu)_*}
+            &
+            %
+            &
+            &
+            \pi_{m+1}(S^m \wedge T^{\beta})
+              \ar[d]^{ (S^m \wedge \blank)^{-1} }
+            %
+            %
+            \\%%%%%%%%%%%%%%%%%%%%%
+            %
+            \pi_0 (T^{\beta}) \otimes %
+            \pi_{1+m} ( S^m \wedge T^{\beta} )
+              \ar[rr]_-{\id \otimes (S^m \wedge \blank)^{-1} \circ \chi_{1,m}}
+            &
+            &
+            \pi_0 (T^{\beta}) \otimes %
+            \pi_{1} ( T^{\beta} )
+              \ar[r]_-{\mu}
+            &
+            \pi_1(T^\beta)
+          }
         }
-      \end{equation*}
+      \end{displaymath}
       Here $\mu$ refers to the $\sT^n$-action on (fixed points of) $T$ as well
       as multiplication in the homotopy groups $\pi_* T^\beta$, while $(-)^q$
       refers to the map raising an element to the $q$-th power; the map $\Delta$
@@ -629,35 +647,38 @@
       $\Delta_\gamma: T_0 \to T_0^\gamma$ is actually a map of spaces, we may
       now commute the suspension morphism to the front, resulting in
       \begin{equation*}
-        \xymatrix@R+1em{
-          \pi_0 (T_0)%
-            \ar[r]^-{S^1 \wedge S^m \wedge \blank}%
-            \ar[d]_-{S^1 \wedge S^m \wedge \blank}%
-          &
-          \pi_{1+m} (S^1 \wedge S^m \wedge T_0)%
-            \ar[d]^-{ (\tau e_i \sigma) \wedge \Delta_{\alpha\beta} }%
-          %
-          \\%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-          %
-          \pi_{1+m} (S^1 \wedge S^m \wedge T_0)%
-            \ar[d]_{\tau (e_i \sigma \wedge %
-              (P_1 \wedge P_2) \Delta \Delta_\beta)}%
-          &
-          \pi_{1+m} (S^m \wedge \sT^n_+ \wedge T_0^{\alpha\beta} )%
-            \ar[d]^-{\mu}%
-          %
-          \\%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-          %
-          \pi_{1+m} (S^m \wedge T_0^\beta \wedge \sT^n_+ \wedge T_0^\beta)%
-            \ar[d]_-{\mu}%
-          &
-          \pi_{1+m} (S^m \wedge T_0^{\alpha\beta})%
-            \ar[d]^{F_{\alpha\beta}^\beta}%
-          \\
-          \pi_{1+m} (S^m \wedge T_0^\beta \wedge T_0^\beta)%
-            \ar[r]_-{\mu}%
-          &
-          \pi_{1+m} (S^m \wedge T_0^\beta)%
+        \noindent\makebox[\textwidth]{%
+          \xymatrix@C+1.5em{
+            \pi_0 (T_0)%
+              \ar[r]^-{S^1 \wedge S^m \wedge \blank}%
+              \ar[d]^-{S^1 \wedge S^m \wedge \blank}%
+            &
+            \pi_{1+m} (S^1 \wedge S^m \wedge T_0)%
+              \ar[r]^-{ (\tau e_i \sigma) \wedge \Delta_{\alpha\beta} }%
+            &
+            \pi_{1+m} (S^m \wedge \sT^n_+ \wedge T_0^{\alpha\beta} )%
+              \ar[d]_-{\mu}%
+            %
+            \\%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+            %
+            \pi_{1+m} (S^1 \wedge S^m \wedge T_0)%
+              \ar[d]^{\tau (e_i \sigma \wedge (P_1 \wedge P_2) \Delta \Delta_\beta)}%
+            &
+            %
+            &
+            \pi_{1+m} (S^m \wedge T_0^{\alpha\beta})%
+              \ar[d]_{F_{\alpha\beta}^\beta}%
+            %
+            \\%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+            %
+            \pi_{1+m} (S^m \wedge T_0^\beta \wedge \sT^n_+ \wedge T_0^\beta)%
+              \ar[r]_-{\mu}%
+            &
+            \pi_{1+m} (S^m \wedge T_0^\beta \wedge T_0^\beta)%
+              \ar[r]_-{\mu}%
+            &
+            \pi_{1+m} (S^m \wedge T_0^\beta)%
+          }
         }
       \end{equation*}
       where we omitted noting identity morphisms and the effect of morphisms on
@@ -690,69 +711,70 @@
       still omit the $\ast$ symbol as indication of effect on homotopy groups
       and omit noting identity morphism, and abbreviate $\hat{T} \defas
       \Lambda_{T^n} A$:
-      \begin{equation*}
-        % TODO flip diagram!
-        \xymatrix@R+0.5em{
-          \pi_0 (T_0)%
-            \ar[r]^-*!/u 3pt/\txt{$\labelstyle\tau\sigma\Sigma$}%
-          &
-          \pi_{1+m} (S^m \wedge \sT^1_+ \wedge T_0)%
-            \ar[r]^-{e_i \wedge \Delta_{\alpha\beta}}%
-            %\ar[r]^-*!/u 3pt/\txt{$\labelstyle e_i \wedge \Delta_{\alpha\beta}$}%
-          &
-          \pi_{1+m} (S^m \wedge \sT^n_+ \wedge T_0^{\alpha\beta})
-            \ar[r]^-{F_{\alpha\beta}^\beta \mu}%
-            %\ar[r]^-*!/u 3pt/\txt{$\labelstyle F_{\alpha\beta}^\beta \mu$}%
-          &
-          \pi_{1+m} (S^m \wedge T_0^\beta)
-          %
-          \\%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-          %
-          \pi_0 (\hat{T})%
-            \ar[u]^-{\iota}_{\cong}%
-            \ar[r]%
-            \ar@{=}[d]%
-          &
-          \pi_{1+m} (S^m \wedge \sT^1_+ \wedge \hat{T})%
-            \ar[r]%
-            \ar@{=}[d]%
-          &
-          \pi_{1+m} (S^m \wedge \sT^n_+ \wedge (\hat{T})^{\alpha\beta})%
-            \ar[r]%
-          &
-          \pi_{1+m} (S^m \wedge (\hat{T})^\beta)%
-            \ar[u]_{\iota}
-            \ar@{=}[d]
-          %
-          \\%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-          %
-          \pi_0 (\hat{T})%
-            \ar[r]%
-            \ar[d]^-{\iota}_{\cong}%
-          &
-          \pi_{1+m} (S^m \wedge \sT^1_+ \wedge \hat{T})%
-            \ar[r]%
-          &
-          \pi_{1+m} (S^m \wedge \sT^n_+ \wedge (\hat{T})^\beta \wedge (\hat{T})^\beta)%
-            \ar[r]%
-          &
-          \pi_{1+m} (S^m \wedge (\hat{T})^\beta)%
-            \ar[d]_{\iota}
-          %
-          \\%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-          %
-          \pi_0 (T_0)%
-            \ar[r]_-*!/d 3pt/\txt{$\labelstyle\tau\sigma\Sigma$}%
-          &
-          \pi_{1+m} (S^m \wedge \sT^1_+ \wedge T_0)%
-            \ar[r]_-*!/d 3pt/\txt{$\labelstyle e_i \wedge (P_1 \wedge P_2) \Delta \Delta_\beta$}%
-          &
-          \pi_{1+m} (S^m \wedge \sT^n_+ \wedge T_0^\beta \wedge T_0^\beta)
-            \ar[r]_-*!/d 3pt/\txt{$\labelstyle\mu \mu \tau$}%
-          &
-          \pi_{1+m} (S^m \wedge T_0^\beta)
+      \begin{displaymath}
+        \noindent\makebox[\textwidth]{%
+          \xymatrix@R+0.5em@C-0.5em{
+              \pi_0 (T_0)%
+                \ar[r]^-*!/u 3pt/\txt{$\labelstyle\tau\sigma\Sigma$}%
+              &
+              \pi_{1+m} (S^m \wedge \sT^1_+ \wedge T_0)%
+                \ar[r]^-{e_i \wedge \Delta_{\alpha\beta}}%
+                %\ar[r]^-*!/u 3pt/\txt{$\labelstyle e_i \wedge \Delta_{\alpha\beta}$}%
+              &
+              \pi_{1+m} (S^m \wedge \sT^n_+ \wedge T_0^{\alpha\beta})
+                \ar[r]^-{F_{\alpha\beta}^\beta \mu}%
+                %\ar[r]^-*!/u 3pt/\txt{$\labelstyle F_{\alpha\beta}^\beta \mu$}%
+              &
+              \pi_{1+m} (S^m \wedge T_0^\beta)
+              %
+            \\%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+              %
+              \pi_0 (\hat{T})%
+                \ar[u]^-{\iota}_{\cong}%
+                \ar[r]%
+                \ar@{=}[d]%
+              &
+              \pi_{1+m} (S^m \wedge \sT^1_+ \wedge \hat{T})%
+                \ar[r]%
+                \ar@{=}[d]%
+              &
+              \pi_{1+m} (S^m \wedge \sT^n_+ \wedge (\hat{T})^{\alpha\beta})%
+                \ar[r]%
+              &
+              \pi_{1+m} (S^m \wedge (\hat{T})^\beta)%
+                \ar[u]_{\iota}
+                \ar@{=}[d]
+              %
+            \\%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+              %
+              \pi_0 (\hat{T})%
+                \ar[r]%
+                \ar[d]^-{\iota}_{\cong}%
+              &
+              \pi_{1+m} (S^m \wedge \sT^1_+ \wedge \hat{T})%
+                \ar[r]%
+              &
+              \pi_{1+m} (S^m \wedge \sT^n_+ \wedge (\hat{T})^\beta \wedge (\hat{T})^\beta)%
+                \ar[r]%
+              &
+              \pi_{1+m} (S^m \wedge (\hat{T})^\beta)%
+                \ar[d]_{\iota}
+              %
+            \\%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+              %
+              \pi_0 (T_0)%
+                \ar[r]_-*!/d 3pt/\txt{$\labelstyle\tau\sigma\Sigma$}%
+              &
+              \pi_{1+m} (S^m \wedge \sT^1_+ \wedge T_0)%
+                \ar[r]_-*!/d 3pt/\txt{$\labelstyle e_i \wedge (P_1 \wedge P_2) \Delta \Delta_\beta$}%
+              &
+              \pi_{1+m} (S^m \wedge \sT^n_+ \wedge T_0^\beta \wedge T_0^\beta)
+                \ar[r]_-*!/d 3pt/\txt{$\labelstyle\mu \mu \tau$}%
+              &
+              \pi_{1+m} (S^m \wedge T_0^\beta)
+          }
         }
-      \end{equation*}
+      \end{displaymath}
       As before, $\mu$ refers first to the torus action, then to the
       multiplication. The vertical non-identity maps are, as indicated,
       isomorphisms, according to Lemma \ref{lem_pi_0_loday_HA_A}. The inner
