@@ -821,46 +821,47 @@
       resulting situation every morphism of the diagram acts as the identity on
       $S^m$, hence we may reduce to the same diagram without the sphere factor,
       and we finally obtain
-      \begin{equation*}
-        % TODO rearrange diagram
-        \xymatrix{
-          \sT^1_+ \wedge A%
-            \ar[r]^-{\iota_{c_0}}
-            \ar[d]_-{\iota_{c_0}}
-          &
-          *!(10,0){\sT^1_+ \wedge \Lambda_{\sT^n} A}%
-            \ar[r]^-{e_i \wedge \Delta_{\alpha\beta}}%
-          &
-          \sT^n_+ \wedge (\Lambda_{\sT^n} A)^{\alpha\beta}
-            \ar[r]^-{\mu}%
-          &
-          (\Lambda_{\sT^n} A)^{\alpha\beta}
-            \ar[dd]^{F_{\alpha\beta}^\beta}%
-          %
-          \\%%%%%%%%%%%%%%%%%%%%%%%
-          %
-          \sT^1_+ \wedge \Lambda_{\sT^n} A%
-            \ar[d]_{e_i \wedge ( P_1 \wedge P_2) \Delta \Delta_\beta }%
-          &
-          %
-          &
-          %
-          &
-          %
-          %
-          \\%%%%%%%%%%%%%%%%%%%%%%%
-          %
-          \sT^n_+ \wedge (\Lambda_{\sT^n} A)^\beta \wedge (\Lambda_{\sT^n} A)^\beta%
-            \ar[r]_-{\mu \tau}%
-          &
-          *!(-13,0){(\Lambda_{\sT^n} A)^\beta \wedge (\Lambda_{\sT^n} A)^\beta}%
-            \ar[rr]_-{\mu}%
-          &
-          %
-          &
-          (\Lambda_{\sT^n} A)^\beta
+      \begin{displaymath}
+        \noindent\makebox[\textwidth]{
+          \xymatrix{
+            \sT^1_+ \wedge A%
+              \ar[r]^-{\iota_{c_0}}
+              \ar[d]^-{\iota_{c_0}}
+            &
+            *!(10,0){\sT^1_+ \wedge \Lambda_{\sT^n} A}%
+              \ar[r]^-{e_i \wedge \Delta_{\alpha\beta}}%
+            &
+            \sT^n_+ \wedge (\Lambda_{\sT^n} A)^{\alpha\beta}
+              \ar[r]^-{\mu}%
+            &
+            (\Lambda_{\sT^n} A)^{\alpha\beta}
+              \ar[dd]_{F_{\alpha\beta}^\beta}%
+            %
+            \\%%%%%%%%%%%%%%%%%%%%%%%
+            %
+            \sT^1_+ \wedge \Lambda_{\sT^n} A%
+              \ar[d]^{e_i \wedge ( P_1 \wedge P_2) \Delta \Delta_\beta }%
+            &
+            %
+            &
+            %
+            &
+            %
+            %
+            \\%%%%%%%%%%%%%%%%%%%%%%%
+            %
+            \sT^n_+ \wedge (\Lambda_{\sT^n} A)^\beta \wedge (\Lambda_{\sT^n} A)^\beta%
+              \ar[r]_-{\mu \tau}%
+            &
+            *!(-13,0){(\Lambda_{\sT^n} A)^\beta \wedge (\Lambda_{\sT^n} A)^\beta}%
+              \ar[rr]_-{\mu}%
+            &
+            %
+            &
+            (\Lambda_{\sT^n} A)^\beta
+          }
         }
-      \end{equation*}
+      \end{displaymath}
       It is time to touch elements, and for this we introduce the following notation. For a finite set $S$ and a pointed commutative monoid $A$, given a finite family $(s_i)_{i \in I}$, $(a_i)_{i \in I}$ in $S$ and $A$ respectively, we write
         \[ \bigwedge_{i \in I} (a_i, s_i) \in \Lambda_S A 	\]
       for the element of $\Lambda_S A$ which at the point $s \in S$ has entry $\prod a_i$, where the product ranges over all $i \in I$ with $s_i = s$. This perhaps involved notation is due to the fact that we cannot always ensure that the $s_i$ are pair-wise different.\\
