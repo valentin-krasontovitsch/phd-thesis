@@ -891,121 +891,147 @@
         L_\beta \myrightarrow{\mathrm{incl}} L_{\alpha\beta} \myrightarrow{\mathrm{proj}}%
           L_{\alpha\beta}/L_\beta,
       \end{equation*}
-      and taking iterated fixed points - with respect to the action on fixed points under $L_\beta$, induced by the morphism $\phi_\beta: \sT^n \to \sT^n/L_\beta$. We may now gather this into the composition
+      and taking iterated fixed points - with respect to the action on fixed
+      points under $L_\beta$, induced by the morphism $\phi_\beta: \sT^n \to
+      \sT^n/L_\beta$. We may now gather this into the composition
       \begin{equation*}
         \Lambda_{\sT^n} A^{\alpha\beta} = %
           \left[ \Lambda_{\sT^n} A ^\beta \right]^{ \nicefrac {L_{\alpha\beta}} {L_\beta} } %
           \myrightarrow{\lambda_\beta} \Lambda_{\sT^n / L_\beta} A^{\nicefrac {L_{\alpha\beta}} {L_\beta}} \myrightarrow{\beta_*} %
           \Lambda_{\sT^n} A^{\alpha},
       \end{equation*}
-      where the second map is the isomorphism induced by $\beta: \sT^n \to \sT^n$, which takes $L_{\alpha\beta}/L_\beta$ isomorphically to $L_\alpha$. This composite allows us to consider the following diagram (omitting the precomposed map $\iota_{c_0}:A \to \Lambda_{\sT^n} A$ for the moment):
+      where the second map is the isomorphism induced by $\beta: \sT^n \to
+      \sT^n$, which takes $L_{\alpha\beta}/L_\beta$ isomorphically to
+      $L_\alpha$. This composite allows us to consider the following diagram
+      (omitting the precomposed map $\iota_{c_0}:A \to \Lambda_{\sT^n} A$ for
+      the moment):
       \begin{equation*}
-      \xymatrix@C-.8em{%
-        \sT^1_+ \wedge \Lambda_{\sT^n} A%
-          \ar[r]^-{e_i \wedge \Delta_{\alpha\beta}}%
-          \ar[d]^-{\Delta_\beta}%
-          \ar[dr]^{\beta_* \lambda_\beta \Delta_\beta}
-        &
-        {\sT^n_+ \wedge (\Lambda_{\sT^n} A)^{\alpha\beta}}%
-          \ar[r]^-{\phi_{\alpha\beta}}%
-          \ar[dr]^-{\beta_* \lambda_\beta}%
-        &
-          {(\sT^n / L_{\alpha\beta})_+%
-          %{(\nicefrac{\sT^n}{L_{\alpha\beta}})_+%
-          \wedge (\Lambda_{\sT^n} A)^{\alpha\beta}}%
-          \ar[r]^-{\mu}%
-        &
-        (\Lambda_{\sT^n} A)^{\alpha\beta}%
-          \ar[r]^{F_{\alpha\beta}^\beta}%
-          \ar[d]_{\beta_* \lambda_\beta}%
-        &
-        (\Lambda_{\sT^n} A)^\beta%
-          \ar[d]_{\beta_* \lambda_\beta}%
-        %
-        \\%%%%%%%%%%%%%%%%%%%%%%%
-        %
-        %
-        *!(0,8){\sT^1_+ \wedge (\Lambda_{\sT^n} A)^\beta} %
-          \ar[dd]^{e_i \wedge (P_1 \wedge P_2) \Delta }%
-        &
-        \sT^1_+ \wedge \Lambda_{\sT^n} A%
-          \ar[l]!(0,-10);[]^-{\beta_* \lambda_\beta}%
-          \ar[r]^-{e_i \wedge \Delta_{\alpha}}%
-          \ar[d]^{e_i \wedge (P_1 \wedge P_2) \Delta }%
-        &
-        \sT^n_+ \wedge (\Lambda_{\sT^n} A)^{\alpha}%
-          \ar[r]^-{\mu \phi_\alpha}%
-        &
-        (\Lambda_{\sT^n} A)^{\alpha}%
-          \ar[r]^{F_{\alpha \id}^{\id}}%
-        &
-        (\Lambda_{\sT^n} A)%
-          \ar@{=}[d]%
-        %
-        \\%%%%%%%%%%%%%%%%%%%%%%%
-        %
-        %
-        &
-        \sT^n_+ \wedge (\Lambda_{\sT^n} A)^{\wedge 2} % \wedge (\Lambda_{\sT^n} A)%
-          \ar[rr]_-{ \mu \tau }%
-        &
-        %
-        &
-        *!(10,0){(\Lambda_{\sT^n} A)^{\wedge 2}}% \wedge (\Lambda_{\sT^n} A)}%
-          \ar[r]_-{\mu}%
-        &
-        \Lambda_{\sT^n} A
-        %
-        \\%%%%%%%%%%%%%%%%%%%%%%%
-        %
-        \sT^n_+ \wedge ( (\Lambda_{\sT^n} A)^\beta )^{\wedge 2} % \wedge (\Lambda_{\sT^n} A)^\beta%
-          \ar[rr]_-{ \mu \phi_\beta \tau}%
-          \ar[ur]_-{\beta_*\lambda_\beta}%
-        &
-        %
-        &
-        ( (\Lambda_{\sT^n} A)^\beta )^{\wedge 2}%
-          \ar[rr]_-{\mu}
-          \ar[ur]!(-10,0)_-{\beta_* \lambda_\beta}%
-        &
-        %
-        &
-        (\Lambda_{\sT^n} A)^\beta%
-          \ar[u]^-{\beta_* \lambda_\beta}%
-      }
+        \noindent\makebox[\textwidth]{
+          \xymatrix@C-.8em{%
+            \sT^1_+ \wedge \Lambda_{\sT^n} A%
+              \ar[r]^-{e_i \wedge \Delta_{\alpha\beta}}%
+              \ar[d]^-{\Delta_\beta}%
+              \ar[dr]^{\beta_* \lambda_\beta \Delta_\beta}
+            &
+            {\sT^n_+ \wedge (\Lambda_{\sT^n} A)^{\alpha\beta}}%
+              \ar[r]^-{\phi_{\alpha\beta}}%
+              \ar[dr]^-{\beta_* \lambda_\beta}%
+            &
+              {(\sT^n / L_{\alpha\beta})_+%
+              %{(\nicefrac{\sT^n}{L_{\alpha\beta}})_+%
+              \wedge (\Lambda_{\sT^n} A)^{\alpha\beta}}%
+              \ar[r]^-{\mu}%
+            &
+            (\Lambda_{\sT^n} A)^{\alpha\beta}%
+              \ar[r]^{F_{\alpha\beta}^\beta}%
+              \ar[d]_{\beta_* \lambda_\beta}%
+            &
+            (\Lambda_{\sT^n} A)^\beta%
+              \ar[d]_{\beta_* \lambda_\beta}%
+            %
+            \\%%%%%%%%%%%%%%%%%%%%%%%
+            %
+            %
+            *!(0,8){\sT^1_+ \wedge (\Lambda_{\sT^n} A)^\beta} %
+              \ar[dd]^{e_i \wedge (P_1 \wedge P_2) \Delta }%
+            &
+            \sT^1_+ \wedge \Lambda_{\sT^n} A%
+              \ar[l]!(0,-10);[]^-{\beta_* \lambda_\beta}%
+              \ar[r]^-{e_i \wedge \Delta_{\alpha}}%
+              \ar[d]^{e_i \wedge (P_1 \wedge P_2) \Delta }%
+            &
+            \sT^n_+ \wedge (\Lambda_{\sT^n} A)^{\alpha}%
+              \ar[r]^-{\mu \phi_\alpha}%
+            &
+            (\Lambda_{\sT^n} A)^{\alpha}%
+              \ar[r]^{F_{\alpha \id}^{\id}}%
+            &
+            (\Lambda_{\sT^n} A)%
+              \ar@{=}[d]%
+            %
+            \\%%%%%%%%%%%%%%%%%%%%%%%
+            %
+            %
+            &
+            \sT^n_+ \wedge (\Lambda_{\sT^n} A)^{\wedge 2} % \wedge (\Lambda_{\sT^n} A)%
+              \ar[rr]_-{ \mu \tau }%
+            &
+            %
+            &
+            *!(10,0){(\Lambda_{\sT^n} A)^{\wedge 2}}% \wedge (\Lambda_{\sT^n} A)}%
+              \ar[r]_-{\mu}%
+            &
+            \Lambda_{\sT^n} A
+            %
+            \\%%%%%%%%%%%%%%%%%%%%%%%
+            %
+            \sT^n_+ \wedge ( (\Lambda_{\sT^n} A)^\beta )^{\wedge 2} % \wedge (\Lambda_{\sT^n} A)^\beta%
+              \ar[rr]_-{ \mu \phi_\beta \tau}%
+              \ar[ur]_-{\beta_*\lambda_\beta}%
+            &
+            %
+            &
+            ( (\Lambda_{\sT^n} A)^\beta )^{\wedge 2}%
+              \ar[rr]_-{\mu}
+              \ar[ur]!(-10,0)_-{\beta_* \lambda_\beta}%
+            &
+            %
+            &
+            (\Lambda_{\sT^n} A)^\beta%
+              \ar[u]^-{\beta_* \lambda_\beta}%
+          }
+        }
       \end{equation*}
-      This diagram is in fact commutative, and we only need to inspect the upper left square, as the other parts commute due to naturality and equivariance of $\beta_* \lambda_\beta$. But the commutativity of that square may immediately be verified using the definitions of the morphisms involved and identification \ref{eq_iterated_fixed_points_identification}. Thus, after remembering and precomposing the morphism $\iota_{c_0}:A \to \Lambda_{\sT^n} A$, we have reduced the problem to the commutativity of this diagram:
+      This diagram is in fact commutative, and we only need to inspect the upper
+      left square, as the other parts commute due to naturality and equivariance
+      of $\beta_* \lambda_\beta$. But the commutativity of that square may
+      immediately be verified using the definitions of the morphisms involved
+      and identification \ref{eq_iterated_fixed_points_identification}. Thus,
+      after remembering and precomposing the morphism $\iota_{c_0}:A \to
+      \Lambda_{\sT^n} A$, we have reduced the problem to the commutativity of
+      this diagram:
       \begin{equation*}
-      \xymatrix@C-.3em{
-        \sT^1_+ \wedge A%
-          \ar[r]^-{\iota_{c_0}}%
-          \ar[d]_-{\iota_{c_0}}%
-        &
-        \sT^1_+ \wedge \Lambda_{\sT^n} A%
-          \ar[r]^-{e_i \wedge \Delta_{\alpha}}%
-        &
-        \sT^n_+ \wedge (\Lambda_{\sT^n} A)^{\alpha}%
-          \ar[r]^-{\mu}%
-        &
-        (\Lambda_{\sT^n} A)^{\alpha}%
-          \ar[d]^{F_{\alpha\id}^{\id}}%
-        %
-        \\%%%%%%%%%%%%%%%%%%%%%%%
-        %
-        \sT^1_+ \wedge \Lambda_{\sT^n} A%
-          \ar[r]_-*!/d 3pt/\txt{$\labelstyle e_i \wedge (P_1 \wedge P_2) \Delta $}
-          %\ar[r]_-{e_i \wedge (P_1 \wedge P_2) \Delta }%
-        &
-        \sT^n_+ \wedge (\Lambda_{\sT^n} A) \wedge (\Lambda_{\sT^n} A)%
-          \ar[r]_-*!/d 3pt/\txt{$\labelstyle \mu \tau $}
-        &
-        (\Lambda_{\sT^n} A) \wedge (\Lambda_{\sT^n} A)%
-          \ar[r]_-*!/d 3pt/\txt{$\labelstyle \mu $}
-        &
-        (\Lambda_{\sT^n} A)%
-      }
+        \noindent\makebox[\textwidth]{
+          \xymatrix@C+1em{
+            \sT^1_+ \wedge A%
+              \ar[r]^-{\iota_{c_0}}%
+              \ar[d]_-{\iota_{c_0}}%
+            &
+            \sT^1_+ \wedge \Lambda_{\sT^n} A%
+              \ar[r]^-{e_i \wedge \Delta_{\alpha}}%
+            &
+            \sT^n_+ \wedge (\Lambda_{\sT^n} A)^{\alpha}%
+              \ar[r]^-{\mu}%
+            &
+            (\Lambda_{\sT^n} A)^{\alpha}%
+              \ar[d]^{F_{\alpha\id}^{\id}}%
+            %
+            \\%%%%%%%%%%%%%%%%%%%%%%%
+            %
+            \sT^1_+ \wedge \Lambda_{\sT^n} A%
+              \ar[r]_-*!/d 3pt/\txt{$\labelstyle e_i \wedge (P_1 \wedge P_2) \Delta $}
+              %\ar[r]_-{e_i \wedge (P_1 \wedge P_2) \Delta }%
+            &
+            \sT^n_+ \wedge (\Lambda_{\sT^n} A) \wedge (\Lambda_{\sT^n} A)%
+              \ar[r]_-*!/d 3pt/\txt{$\labelstyle \mu \tau $}
+            &
+            (\Lambda_{\sT^n} A) \wedge (\Lambda_{\sT^n} A)%
+              \ar[r]_-*!/d 3pt/\txt{$\labelstyle \mu $}
+            &
+            (\Lambda_{\sT^n} A)%
+          }
+        }
       \end{equation*}
-      When one traces an element through the diagram at this stage, one will note that the upper composition yields a range of different singular simplices, while the lower composite does not. Speaking informally, there is too much space in the huge model that we are using, as compared to the model based on the simplicial circle $S^1_\cdot$ used in \cite{hesselholt1996p-typical}. Hence we introduce a map $\psi_\alpha: \gT[n] \to \gT[n]$ that will collect things, defined thusly \comm{[analogue for p-adic tours?]}. Recall that we reduced the proof to the case of a diagonal matrix $\alpha = \mathrm{diag}(\alpha_1, \ldots, \alpha_n)$ with $\alpha_i > 0$, and define
+      When one traces an element through the diagram at this stage, one will
+      note that the upper composition yields a range of different singular
+      simplices, while the lower composite does not. Speaking informally, there
+      is too much space in the huge model that we are using, as compared to the
+      model based on the simplicial circle $S^1_\cdot$ used in
+      \cite{hesselholt1996p-typical}. Hence we introduce a map $\psi_\alpha:
+      \gT[n] \to \gT[n]$ that will collect things, defined thusly
+      \comm{[analogue for p-adic tours?]}. Recall that we reduced the proof to
+      the case of a diagonal matrix $\alpha = \mathrm{diag}(\alpha_1, \ldots,
+      \alpha_n)$ with $\alpha_i > 0$, and define
         \[	\psi_\alpha: \gT[n] \to \gT[n], \]
         \[ x \mapsto \psi_\alpha(x)_i = %
           {\left\{
@@ -1015,7 +1041,8 @@
             \end{array}
           \right.}%
         \]
-      This map is continuous as it is continuous in each component, and it is homotopic to the identity: A homotopy is given by
+      This map is continuous as it is continuous in each component, and it is
+      homotopic to the identity: A homotopy is given by
         \[	H_\alpha: \gT[n] \times [0,1] \to \gT[n] \]
         \[ (x,t) \mapsto H_\alpha(x,t)_i = %
           {\left\{
@@ -1025,20 +1052,38 @@
             \end{array}
           \right.}%
         \]
-      This is continuous, as the entries of the matrix were chosen to be positive. We insert the morphism $\psi_\alpha$ at the end of the upper composition of the diagram whose commutativity we are trying to prove (see below). As the map is homotopic to the identity, its effect will be the identity once we apply homotopy groups, since the Loday functor is simplicial (cf.~Lemma~\ref{lem_loday_functor_is_simplicial}).
-      As we need to prove commutativity of the respective diagram of homotopy groups, we may precompose with a weak equivalence (smashed with $A$), namely
+      This is continuous, as the entries of the matrix were chosen to be
+      positive. We insert the morphism $\psi_\alpha$ at the end of the upper
+      composition of the diagram whose commutativity we are trying to prove (see
+      below). As the map is homotopic to the identity, its effect will be the
+      identity once we apply homotopy groups, since the Loday functor is
+      simplicial (cf.~Lemma~\ref{lem_loday_functor_is_simplicial}).
+      As we need to prove commutativity of the respective diagram of homotopy
+      groups, we may precompose with a weak equivalence (smashed with $A$),
+      namely
         \[ S^1_\cdot \myrightarrow{\eta} \sin \abs{S^1_\cdot} \myrightarrow{\cong}%
           \sin \bR/\bZ = \sT^1, 	\]
-      where $\eta$ is the unit of the adjunction between simplicial sets and topological spaces given by geometric realization and the singular set, and the unnamed map is induced by a homeomorphism $\abs{S^1_\cdot} \to \bR/\bZ$, which we make precise as follows. The non-degenerate simplices of $S^1_\cdot = \Delta[1] / \del \Delta[1]$, the standard simplicial $1$-simplex with collapsed boundary, are exactly one simplex each in degree 1 (denoted $x$) and 0 ($d_0(x)$), hence we can give the map
+      where $\eta$ is the unit of the adjunction between simplicial sets and
+      topological spaces given by geometric realization and the singular set,
+      and the unnamed map is induced by a homeomorphism $\abs{S^1_\cdot} \to
+      \bR/\bZ$, which we make precise as follows. The non-degenerate simplices
+      of $S^1_\cdot = \Delta[1] / \del \Delta[1]$, the standard simplicial
+      $1$-simplex with collapsed boundary, are exactly one simplex each in
+      degree 1 (denoted $x$) and 0 ($d_0(x)$), hence we can give the map
         \[	\abs{S^1_\cdot} = \quotient{\coprod\limits_{n} \Delta^n \times S^1_n}{\sim} \to \bR/\bZ		\]
         as (identifying a representative $t \in \bR$ with its residue class in $\bR/\bZ$)
         \[	\Delta^1 \times \{x\} \to \bR/\bZ,\;z = (z_0,z_1) \mapsto z, \]
-      with the standard topological $1$-simplex given as $\Delta^1 = \{(z_0,z_1) \in \bR^2 \with z_0+z_1=1, 0 \leq z_0,z_1 \leq 1\}$. Applying this to the non-degenerate simplex $x \in S^1_1$, its image in $\sT^1$ is given by
+      with the standard topological $1$-simplex given as $\Delta^1 = \{(z_0,z_1)
+      \in \bR^2 \with z_0+z_1=1, 0 \leq z_0,z_1 \leq 1\}$. Applying this to the
+      non-degenerate simplex $x \in S^1_1$, its image in $\sT^1$ is given by
       \[
         f:\Delta^1 \to \bR/\bZ, z = (z_0,z_1) \mapsto z_0.
       \]
-      Since it suffices to check comutativity on non-degenerate simplices, and as the simplex in degree 0 is a face of the one in degree 1, we may restrict ourselves to $x$.\\
+      Since it suffices to check comutativity on non-degenerate simplices, and
+      as the simplex in degree 0 is a face of the one in degree 1, we may
+      restrict ourselves to $x$.\\
       %
+      % TODO what is this commented stuff? remove it!?
       %
       % so we proceed to describe these for $(S^1_\cdot)^k$. Considering simplices $x \in \Delta[1]_k = \hom_\Delta([k],[1])$ as tupels $x = (0, \ldots, 0,1,\dots,1) \in [1]^{[k]} = %
       % \{0,1\}^{\{0 \ldots k\}}$, we write $e^k_i \in \Delta[1]_k$ for the tupel with first 1 on the $i$-th position. Then a small calculation (cf. \cite[Lemma 2.2]{krasontovitsch2012signed}) \comm{[cite own thesis? put on arxiv? add calculation?]} shows that the non-degenerate simplices in $(S^1_\cdot)^k_k$ in top degree are - up to permutation of coordinates - given by (the class of)
@@ -1069,11 +1114,22 @@
       % 	\[	f_k: \Delta^k \to (\bR/\bZ)^k \cong \bR^k/\bZ^k,\; z \mapsto (\superindexz{1}, \ldots, \superindexz{k}) \]%
       %
       %
-      Under the identification of Lemma \ref{lem_pi_0_loday_HA_A} and the construction of $\Delta_H: \Lambda_{S} A (S^0) \to \left[\Lambda_{S} A (S^0)\right]^H$ (for a finite group $H$ and afinite $H$-set $S$) in \cite[Section 6.2]{carlsson2011higher}, given $\alpha \in \cM_n$, the corresponding
+      Under the identification of Lemma \ref{lem_pi_0_loday_HA_A} and the
+      construction of 
+      \begin{displaymath}
+        \Delta_H: \Lambda_{S} A (S^0) \to \left[\Lambda_{S} A (S^0)\right]^H
+      \end{displaymath}
+      (for a finite group $H$ and a finite $H$-set $S$) in \cite[Section
+      6.2]{carlsson2011higher}, given $\alpha \in \cM_n$, the corresponding
         \[ \Delta_\alpha: \Lambda_{\sT^n} A \to (\Lambda_{\sT^n} A)^\alpha \]
       may be described for an $a \in A$, $f:\Delta^q \to \bR^n/\bZ^n$ by
         \[ (a,f) \mapsto \bigwedge\limits_{h \in L_\alpha} (a, f+c_h).	\]
-      We note further that the isomorphism $\phi_\alpha: \sT^n \to \sT^n/L_\alpha$ is given by $f \mapsto \widetilde{(\alpha^{-1} f)} + L_\alpha$, where $\widetilde{(\alpha^{-1} f)}$ is a lift of $(\alpha^{-1} f)$ against the projection $\bR^n/\bZ^n \to \quotient{(\bR^n/\bZ^n)}{L_\alpha}$, as illustrated in the following diagram:
+      We note further that the isomorphism $\phi_\alpha: \sT^n \to
+      \sT^n/L_\alpha$ is given by $f \mapsto \widetilde{(\alpha^{-1} f)} +
+      L_\alpha$, where $\widetilde{(\alpha^{-1} f)}$ is a lift of $(\alpha^{-1}
+      f)$ against the projection $\bR^n/\bZ^n \to
+      \quotient{(\bR^n/\bZ^n)}{L_\alpha}$, as illustrated in the following
+      diagram:
       \[
       \xymatrix{
         %
@@ -1098,57 +1154,59 @@
       \]
       Note that the quotient map is a covering map with deck transformation group $L_\alpha$, and we take the residue class with respect to that action. The action of $\sT^n$ on $\Lambda_{\sT^n} A$ is point-wise, i.e. for $g \in \sT^n_q$, $(a,f) \in (\Lambda_{\sT^n} A)_q$ we have $g.(a,f) = (a, f+g)$, as can easily be traced through the isomorphism $G^{\H A}_S (S^0)(\const_\varnothing) \myrightarrow{\cong} \Lambda_S A$.\\
       We are now ready to chase through the diagram, which we recall:
-      \begin{gather*}
-      \xymatrix@C-.5em{
-        (S^1_\cdot)_+ \wedge A%
-          \ar[r]^-{\eta}%
-          \ar[d]_-{\eta}%
-        &
-        \sT^1_+ \wedge A%
-          \ar[r]^-{\iota_{c_0}}%
-        &
-        \sT^1_+ \wedge \Lambda_{\sT^n} A%
-          \ar[r]^-{e_i \wedge \Delta_{\alpha}}%
-        &
-        \sT^n_+ \wedge (\Lambda_{\sT^n} A) ^{\alpha}
-          \ar[r]^-{\mu}%
-        &
-        (\Lambda_{\sT^n} A)^{\alpha}
-          \ar[d]^-{F^{\id}_{\alpha \id}}
-        %
-        \\%%%%%%%%%
-        %
-        \sT^1_+ \wedge A
-          \ar[d]_-{\iota_{c_0}}%
-        &
-        %
-        &
-        %
-        &
-        %
-        &
-        \Lambda_{\sT^n} A%
-          \ar[d]^-{\psi_{\alpha}}%
-        %
-        \\%%%%%%%%%
-        %
-        \sT^1_+ \wedge \Lambda_{\sT^n} A%
-          %\ar[rr]_-{e_i \wedge (P_1 \wedge P_2) \Delta}%
-          \ar[rr]_-*!/d 3pt/\txt{$\labelstyle e_i \wedge (P_1 \wedge P_2) \Delta $}
-        &
-        %
-        &
-        \sT^n_+ \wedge \Lambda_{\sT^n} A \wedge \Lambda_{\sT^n} A%
-          %\ar[r]_-{(\id \wedge \mu) (\tau \wedge \id)}%
-          \ar[r]_-*!/d 3pt/\txt{$\labelstyle (\id \wedge \mu) (\tau \wedge \id) $}
-        &
-        \Lambda_{\sT^n} A \wedge \Lambda_{\sT^n} A%
-          %\ar[r]_-{\mu}%
-          \ar[r]_-*!/d 3pt/\txt{$\labelstyle \mu $}
-        &
-        \Lambda_{\sT^n} A
-      }
-      \end{gather*}
+      \begin{displaymath}
+        \noindent\makebox[\textwidth]{
+          \xymatrix@C-.5em{
+            (S^1_\cdot)_+ \wedge A%
+              \ar[r]^-{\eta}%
+              \ar[d]_-{\eta}%
+            &
+            \sT^1_+ \wedge A%
+              \ar[r]^-{\iota_{c_0}}%
+            &
+            \sT^1_+ \wedge \Lambda_{\sT^n} A%
+              \ar[r]^-{e_i \wedge \Delta_{\alpha}}%
+            &
+            \sT^n_+ \wedge (\Lambda_{\sT^n} A) ^{\alpha}
+              \ar[r]^-{\mu}%
+            &
+            (\Lambda_{\sT^n} A)^{\alpha}
+              \ar[d]^-{F^{\id}_{\alpha \id}}
+            %
+            \\%%%%%%%%%
+            %
+            \sT^1_+ \wedge A
+              \ar[d]_-{\iota_{c_0}}%
+            &
+            %
+            &
+            %
+            &
+            %
+            &
+            \Lambda_{\sT^n} A%
+              \ar[d]^-{\psi_{\alpha}}%
+            %
+            \\%%%%%%%%%
+            %
+            \sT^1_+ \wedge \Lambda_{\sT^n} A%
+              %\ar[rr]_-{e_i \wedge (P_1 \wedge P_2) \Delta}%
+              \ar[rr]_-*!/d 3pt/\txt{$\labelstyle e_i \wedge (P_1 \wedge P_2) \Delta $}
+            &
+            %
+            &
+            \sT^n_+ \wedge \Lambda_{\sT^n} A \wedge \Lambda_{\sT^n} A%
+              %\ar[r]_-{(\id \wedge \mu) (\tau \wedge \id)}%
+              \ar[r]_-*!/d 3pt/\txt{$\labelstyle (\id \wedge \mu) (\tau \wedge \id) $}
+            &
+            \Lambda_{\sT^n} A \wedge \Lambda_{\sT^n} A%
+              %\ar[r]_-{\mu}%
+              \ar[r]_-*!/d 3pt/\txt{$\labelstyle \mu $}
+            &
+            \Lambda_{\sT^n} A
+          }
+        }
+      \end{displaymath}
       where the upper $\mu$ is the composite
         \[ 	\sT^n_+ \wedge (\Lambda_{\sT^n} A) ^{\alpha} \myrightarrow{\phi_\alpha} %
           (\sT^n / L_\alpha)_+ \wedge (\Lambda_{\sT^n} A) ^{\alpha} \myrightarrow{\mu} %
@@ -1175,9 +1233,8 @@
         \[ 0 \leq \alpha_i^{-1} \cdot (e_i f (z))_i \leq \alpha_i^{-1}. \]%
       Given $h \in L_\alpha$, and letting $(e_j)_{j \in \ind{n}}$ denote the standard basis vectors in $\bR^n$, for each ${j \in \ind{n}}$ there is a $k_j \in \{0, \ldots, \alpha_j -1\}$ with
         \[ h = \sum_{j=1}^n \frac{k_j}{\alpha_j} \cdot e_j. \]
-      Note that these $k_j$ depend on $h$, which we do note record in the notation.%
-      % We further define $J_h \defas \{ j \in \{1, \ldots, n \} \with k_j \neq 0 \}$, and
-      Recalling the definition of
+      Note that these $k_j$ depend on $h$, which we do note record in the
+      notation. Recalling the definition of
         \[	\psi_\alpha: \gT[n] \to \gT[n] \]
         \[ x \mapsto \psi_\alpha(x)_j = %
           {\left\{
@@ -1225,13 +1282,13 @@
   \begin{proof}
   \comm{[in fact notation unnecessary as not usable in proof]} First we should define what we mean by the right hand side, for it is mere notation: Analyzing the left hand side of the above formula one may assume that it is legal to divide through the volume of $\alpha$, and may conlcude the following heuristic. Recall that $\alpha \alpha^\dagger = \abs{\alpha} \id$. Then
   \begin{gather*}
-    F^\alpha d_f \Delta_{\alpha\beta} (a) = %
-      \abs{\alpha}^{-1} F^\alpha d_{\alpha \alpha^\dagger f}%
-        \Delta_{\alpha\beta} (a) = %
-      \abs{\alpha}^{-1} d_{\alpha^\dagger f} F^\alpha
-        \Delta_{\alpha\beta} (a) = %
-      \abs{\alpha}^{-1} d_{\alpha^\dagger f}
-        ( \Delta_{\beta} (a)^{\abs{\alpha}} ),%
+      F^\alpha d_f \Delta_{\alpha\beta} (a) = %
+        \abs{\alpha}^{-1} F^\alpha d_{\alpha \alpha^\dagger f}%
+          \Delta_{\alpha\beta} (a) = \\ %
+        \abs{\alpha}^{-1} d_{\alpha^\dagger f} F^\alpha
+          \Delta_{\alpha\beta} (a) = %
+        \abs{\alpha}^{-1} d_{\alpha^\dagger f}
+          ( \Delta_{\beta} (a)^{\abs{\alpha}} ),%
   \end{gather*}
   which leads exactly to the above formula we are trying to prove. We will now define what we mean by the right hand side of the formula. Indeed, decomposing $f = \sum_I \lambda_I e_I$ and letting $I = \{i_1, \ldots , i_k$ with $i_1 < \ldots < i_k$ we obtain
   \begin{gather*}
@@ -1253,6 +1310,7 @@
       (\Delta_{\beta}(a)^{\abs{\alpha}-1} d_{i_1} \Delta_{\beta}(a)).
   \end{equation*}
   Obviously, this is not very elegant, and the reader may wonder why we choose to work with this notation. The reason is that it simplifies the following proof. Well, it's still not pretty, but simple. A possible solution (to the ugliness) is to figure out the iterated Leibniz rule for terms of the form $d_I (a^n)$; The inclined reader may try his or her hand at this, and see if it yields a more handy formula. \comm{[proof is not really simple; maybe i should do this myself]}\\
+    % TODO add formula and prove it; rewrite this proof!
   We proceed by applying some reductions before proving the statement by induction. As already hinted above, we may apply linearity of the differentials in their subindex and reduce to
   \begin{equation*}
     F_{\alpha\beta}^\beta d_I \Delta_{\alpha\beta} (a) =%
@@ -1278,65 +1336,65 @@
       d_j \Delta_{\bar\alpha\beta}(a) ),%
   \end{gather*}
   where $l$ is the sign of permuting $i$ past $I^{\prime\prime}$. We note that $\hat\alpha^\dagger_{I^\prime} = \alpha^\dagger_I$ and proceed to analyze only the right part of the last term:
-  \begin{gather*}
-    F_{\bar\alpha\beta}^\beta d_i ( \Delta_{\bar\alpha\beta}(a)^{\abs{\hat\alpha}-1} %
-      d_j \Delta_{\bar\alpha\beta}(a) ) = \\%
-    F_{\bar\alpha\beta}^\beta \left[ %
-      d_i ( \Delta_{\bar\alpha\beta}(a)^{\abs{\hat\alpha}-1} )%
-      d_j \Delta_{\bar\alpha\beta}(a) + %
-      \Delta_{\bar\alpha\beta}(a)^{\abs{\hat\alpha}-1} %
-      d_i d_j \Delta_{\bar\alpha\beta}(a) \right] = \\
-    F_{\bar\alpha\beta}^\beta d_i \Delta_{\bar\alpha\beta}(a^{\abs{\hat\alpha}-1}) %
-      F_{\bar\alpha\beta}^\beta d_j \Delta_{\bar\alpha\beta}(a) + %
-      F_{\bar\alpha\beta}^\beta \Delta_{\bar\alpha\beta}(a)^{\abs{\hat\alpha}-1} %
-      F_{\bar\alpha\beta}^\beta d_i d_j \Delta_{\bar\alpha\beta}(a) = \\%
-    \bar\alpha^\dagger_i %
-      \Delta_{\beta} (a)^{(\abs{\hat\alpha}-1)(\abs{\bar\alpha}-1)} %
-      d_i (\Delta_{\beta} (a)^{\abs{\hat\alpha}-1}) %
-      \bar\alpha^\dagger_j %
-      \Delta_{\beta} (a)^{\abs{\bar\alpha}-1} %
-      d_j \Delta_\beta (a) %
-      + %
-      \Delta_\beta(a)^{(\abs{\hat\alpha}-1)\abs{\bar\alpha}} %
-      (-1) d_j F_{\bar\alpha\beta}^\beta %
-      d_i \Delta_{\bar\alpha\beta}(a) = \\%
-    (\abs{\hat\alpha}-1)\bar\alpha^\dagger_j%
-      \Delta_\beta(a)^{\abs{\hat\alpha}\abs{\bar\alpha} - 2} %
-      d_i \Delta_\beta(a) d_j \Delta_\beta (a) %
-      + %
-      \Delta_\beta(a)^{(\abs{\hat\alpha}-1)\abs{\bar\alpha}} %
-      (-1) d_j ( \Delta_\beta(a)^{\abs{\bar\alpha}-1} %
-      d_i \Delta_\beta(a) ) = \\%
-    (\abs{\hat\alpha}-1)\bar\alpha^\dagger_j%
-      \Delta_\beta(a)^{\abs{\alpha} - 2} %
-      d_i \Delta_\beta(a) d_j \Delta_\beta (a) %
-      + \\%
-      \Delta_\beta(a)^{(\abs{\hat\alpha}-1)\abs{\bar\alpha}} %
-      (-1) \left( %
-      (\abs{\bar\alpha}-1) %
-      \Delta_\beta (a)^{\abs{\bar\alpha}-2} %
-      d_j \Delta_\beta (a) d_i \Delta_\beta (a) %
-      + %
-      \Delta_\beta(a)^{\abs{\bar\alpha}-1} %
-      d_j d_i \Delta_\beta(a)
-      \right) = \\%
-    (\abs{\hat\alpha}-1)\alpha_i%
-      \Delta_\beta(a)^{\abs{\alpha} - 2} %
-      d_i \Delta_\beta(a) d_j \Delta_\beta (a) %
-      + \\%
-      (\alpha_i-1) %
-      \Delta_\beta(a)^{\abs{\alpha}-2} %
-      d_i \Delta_\beta (a) d_j \Delta_\beta (a) %
-      + %
-      \Delta_\beta(a)^{\abs{\alpha}-1} %
-      d_i d_j \Delta_\beta(a) = \\%
-    (\abs{\alpha}-1)%
-      \Delta_\beta(a)^{\abs{\alpha} - 2} %
-      d_i \Delta_\beta(a) d_j \Delta_\beta (a) %
-      + %
-      \Delta_\beta(a)^{\abs{\alpha}-1} %
-      d_i d_j \Delta_\beta(a)%
-    \end{gather*}
+  %\begin{gather*}
+  %  F_{\bar\alpha\beta}^\beta d_i ( \Delta_{\bar\alpha\beta}(a)^{\abs{\hat\alpha}-1} %
+  %    d_j \Delta_{\bar\alpha\beta}(a) ) = \\%
+  %  F_{\bar\alpha\beta}^\beta \left[ %
+  %    d_i ( \Delta_{\bar\alpha\beta}(a)^{\abs{\hat\alpha}-1} )%
+  %    d_j \Delta_{\bar\alpha\beta}(a) + %
+  %    \Delta_{\bar\alpha\beta}(a)^{\abs{\hat\alpha}-1} %
+  %    d_i d_j \Delta_{\bar\alpha\beta}(a) \right] = \\
+  %  F_{\bar\alpha\beta}^\beta d_i \Delta_{\bar\alpha\beta}(a^{\abs{\hat\alpha}-1}) %
+  %    F_{\bar\alpha\beta}^\beta d_j \Delta_{\bar\alpha\beta}(a) + %
+  %    F_{\bar\alpha\beta}^\beta \Delta_{\bar\alpha\beta}(a)^{\abs{\hat\alpha}-1} %
+  %    F_{\bar\alpha\beta}^\beta d_i d_j \Delta_{\bar\alpha\beta}(a) = \\%
+  %  \bar\alpha^\dagger_i %
+  %    \Delta_{\beta} (a)^{(\abs{\hat\alpha}-1)(\abs{\bar\alpha}-1)} %
+  %    d_i (\Delta_{\beta} (a)^{\abs{\hat\alpha}-1}) %
+  %    \bar\alpha^\dagger_j %
+  %    \Delta_{\beta} (a)^{\abs{\bar\alpha}-1} %
+  %    d_j \Delta_\beta (a) %
+  %    + \\ %
+  %    \Delta_\beta(a)^{(\abs{\hat\alpha}-1)\abs{\bar\alpha}} %
+  %    (-1) d_j F_{\bar\alpha\beta}^\beta %
+  %    d_i \Delta_{\bar\alpha\beta}(a) = \\%
+  %  (\abs{\hat\alpha}-1)\bar\alpha^\dagger_j%
+  %    \Delta_\beta(a)^{\abs{\hat\alpha}\abs{\bar\alpha} - 2} %
+  %    d_i \Delta_\beta(a) d_j \Delta_\beta (a) %
+  %    + \\ %
+  %    \Delta_\beta(a)^{(\abs{\hat\alpha}-1)\abs{\bar\alpha}} %
+  %    (-1) d_j ( \Delta_\beta(a)^{\abs{\bar\alpha}-1} %
+  %    d_i \Delta_\beta(a) ) = \\%
+  %  (\abs{\hat\alpha}-1)\bar\alpha^\dagger_j%
+  %    \Delta_\beta(a)^{\abs{\alpha} - 2} %
+  %    d_i \Delta_\beta(a) d_j \Delta_\beta (a) %
+  %    + \\%
+  %    \Delta_\beta(a)^{(\abs{\hat\alpha}-1)\abs{\bar\alpha}} %
+  %    (-1) \left( %
+  %    (\abs{\bar\alpha}-1) %
+  %    \Delta_\beta (a)^{\abs{\bar\alpha}-2} %
+  %    d_j \Delta_\beta (a) d_i \Delta_\beta (a) %
+  %    + %
+  %    \Delta_\beta(a)^{\abs{\bar\alpha}-1} %
+  %    d_j d_i \Delta_\beta(a)
+  %    \right) = \\%
+  %  (\abs{\hat\alpha}-1)\alpha_i%
+  %    \Delta_\beta(a)^{\abs{\alpha} - 2} %
+  %    d_i \Delta_\beta(a) d_j \Delta_\beta (a) %
+  %    + \\%
+  %    (\alpha_i-1) %
+  %    \Delta_\beta(a)^{\abs{\alpha}-2} %
+  %    d_i \Delta_\beta (a) d_j \Delta_\beta (a) %
+  %    + %
+  %    \Delta_\beta(a)^{\abs{\alpha}-1} %
+  %    d_i d_j \Delta_\beta(a) = \\%
+  %  (\abs{\alpha}-1)%
+  %    \Delta_\beta(a)^{\abs{\alpha} - 2} %
+  %    d_i \Delta_\beta(a) d_j \Delta_\beta (a) %
+  %    + %
+  %    \Delta_\beta(a)^{\abs{\alpha}-1} %
+  %    d_i d_j \Delta_\beta(a)%
+  %\end{gather*}
   Applying $\alpha^\dagger_I d_{I^{\prime\prime}}$ to the above we obtain a certain expression. It is not hard to see that that exact expression can be obtained from
   \begin{equation*}
     \alpha^\dagger_I d_{I \setminus j} %
