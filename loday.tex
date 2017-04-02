@@ -1611,15 +1611,24 @@
       \begin{displaymath}
         e \colon \tilde{\cJ} \to \cJ
       \end{displaymath}
-      which we obtain by applying Street's first construction (the pointed version, cf. Defs.~\ref{def_streets_first_construction_functor},~\ref{def_streets_first_construction_transformation}) in the context $\cD \defas V$ and $F \defas \cJ$, and let $r \defas e^{\op} \wedge e \colon \tilde{\cJ}^e \to \cJ^e$. [\comm{TODO} explain how $e^{\op}$ is defined! Either remark that nat traf is given by structure map and structure map is invertible (if we consider $\cJ\circ\iota$), or something else (waiting for Morten's reply)] Consider further that, given a finite set $S$, the projection
+      which we obtain by applying Street's first construction (the pointed
+      version, cf. Defs.~\ref{def_streets_first_construction_functor},
+      \ref{def_streets_first_construction_transformation}) in the context $\cD
+      \defas V$ and $F \defas \cJ$, and let
       \begin{displaymath}
-        \cJ^e(S) = \cJ^{\op} (S) \wedge \cJ(S) = (\cI^S)^{\op}_+ \wedge (\cI^S)_+ \cong %
-        ( (\cI^S)^{\op} \times (\cI^S) )_+ \to (\cI^S)_+ = \cJ(S)%
+        r \colon \tilde{\cJ}^e = \tilde{\cJ}^{\op} \wedge \tilde{\cJ} 
+          \myrightarrow{\tilde{\cJ}^{\op} \wedge e}
+        \tilde{\cJ}^{\op} \wedge \cJ
+          \myrightarrow{p_2 \wedge \cJ}
+        \cJ
       \end{displaymath}
-      defines a strict transformation of lax functors
-      \begin{displaymath}
-        p_2 \colon \cJ^e \to \cJ.
-      \end{displaymath}
+      % TODO figure out exact formulation needed for proof of following prep
+      % -> DO THE PROOF!
+      where $p_2 \colon F \wedge G \pr$ projects down to $1_+$ and the second
+      arrow identifies $1_+ \wedge \cC \cong \cC$ for a pointed category $\cC$
+      (rf. Lem.~%
+      \ref{lem_hocolim_name_justification}). Note that this indeed defines a left
+      lax transformation.\\
       We assemble the above data in a diagram
       \begin{displaymath}
         \xymatrix{
