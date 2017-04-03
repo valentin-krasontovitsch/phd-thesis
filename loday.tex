@@ -1461,9 +1461,9 @@
       compositional structure morphisms for $F$, while the unitality condition
       degenerates to the unitality condition for $F$ (as $F$ is an honest
       functor, and $e_f$ is given by a structural morphism of $F$).
-      \end{defn}
+    \end{defn}
       %
-      \begin{rem}\label{rem_streets_construction_e_is_cofinal}
+    \begin{rem}\label{rem_streets_construction_e_is_cofinal}
       In the context of the above
       Def.~\ref{def_streets_first_construction_transformation}, considering
       the unital structure morphisms of $F$ for an object $d \in \cD$, which
@@ -1484,31 +1484,33 @@
         (x \myrightarrow{(F_d)_x} F(\id_d)(x)) \to (\gamma: x \to F(\phi)(y)).
       \end{displaymath}
       This is given by a $(\psi,\alpha) \colon (\id_d, x) \to (\phi \colon d_1
-      \to d,y)$, i.e. a map $\psi \colon d_1 \to d$ such that $\psi \circ
-      \id_d = \phi$ and $\alpha \colon x \to F(\psi)(y) = F(\phi)(y)$.
+      \to d,y)$, i.e. a map $\psi \colon d_1 \to d$ such that $\phi = \psi \circ
+      \id_d = \psi$ and $\alpha \colon x \to F(\psi)(y) = F(\phi)(y)$.
       Being a morphism in the comma category implies that the diagram
       \begin{displaymath}
-          \xymatrix{
-            x
-              \ar[r]^-{(F_d)_x}
-              \ar@{=}[d]
-            &
-            F(\id_d)(x)
-              \ar[d]^-{e_d(\phi,\alpha)}
-            \\
-            x
-              \ar[r]_-{\gamma}
-            &
-            F(\phi)(y)
-          }
+        \xymatrix{
+          x
+            \ar[r]^-{(F_d)_x}
+            \ar@{=}[d]
+          &
+          F(\id_d)(x)
+            \ar[d]^-{e_d(\phi,\alpha)}
+          \\
+          x
+            \ar[r]_-{\gamma}
+          &
+          F(\phi)(y)
+        }
       \end{displaymath}
       commutes, and plugging in the definition of the functor $e_d$ on
-        morphisms, and using first naturality and then the unitality property of
-        $F_d$ in the above diagram we may conclude that $\alpha = \gamma$.
-      Hence $x \to F(\id_d)(x)$ is an initial object in the comma category
-        $x/e_d$ and the functor $e_d$ is homtopy cofinal (cf.
-        Def.~\ref{def_homotopy_cofinal} and
-        Lem.~\ref{lem_category_contractible_if_has_initial_object}).
+      morphisms as well as using first naturality and then the unitality
+      property of $F_d$ in the above diagram we may conclude that $\alpha =
+      \gamma$.\\
+      This of course also tells us how to find such a morphism, which
+      proves existence, and we have overall shown that $x \to F(\id_d)(x)$ is an
+      initial object in the comma category $x/e_d$ and the functor $e_d$ is
+      homotopy cofinal (cf. Def.~\ref{def_homotopy_cofinal} and
+      Lem.~\ref{lem_category_contractible_if_has_initial_object}).
     \end{rem}
     %
     \begin{defn}\label{def_streets_construction_right_transformations}
@@ -1587,6 +1589,8 @@
         homotopy equivalences between the nerves of the respective categories.
       \end{proof}
     \end{lem}
+    %
+    % TODO add lemma about cofinal functor \wedge C is still cofinal?
     %
     \begin{lem}\label{lem_homotopy_cofinal_functor_and_hocolim}\cite[Thm.
       19.6.7]{hirschhorn2009model}
