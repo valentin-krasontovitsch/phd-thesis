@@ -1601,7 +1601,9 @@
     \end{lem}
     %
   \subsection{The Loday functor for finite sets}
-    We are now finally able to define the Loday functor with input a \hring and a finite set. We proceed to do so, and prove some elementary results about the functor.
+    We are now finally able to define the Loday functor with input a \hring and
+    a finite set. We proceed to do so, and prove some elementary results about
+    the functor.
     \begin{defn}\label{def_rectification_of_G^A}
       Consider the functor 
       \begin{displaymath}
@@ -1611,18 +1613,26 @@
       \begin{displaymath}
         e \colon \tilde{\cJ} \to \cJ
       \end{displaymath}
-      which we obtain by applying Street's first construction (the pointed version, cf. Defs.~\ref{def_streets_first_construction_functor},~\ref{def_streets_first_construction_transformation}) in the context $\cD \defas V$ and $F \defas \cJ$, and let $r \defas e^{\op} \wedge e \colon \tilde{\cJ}^e \to \cJ^e$. [\comm{TODO} explain how $e^{\op}$ is defined! Either remark that nat traf is given by structure map and structure map is invertible (if we consider $\cJ\circ\iota$), or something else (waiting for Morten's reply)] Consider further that, given a finite set $S$, the projection
+      which we obtain by applying Street's first construction (the pointed
+      version, cf. Defs.~\ref{def_streets_first_construction_functor},
+      \ref{def_streets_first_construction_transformation}) in the context $\cD
+      \defas V$ and $F \defas \cJ$, and let 
       \begin{displaymath}
-        \cJ^e(S) = \cJ^{\op} (S) \wedge \cJ(S) = (\cI^S)^{\op}_+ \wedge (\cI^S)_+ \cong %
-        ( (\cI^S)^{\op} \times (\cI^S) )_+ \to (\cI^S)_+ = \cJ(S)%
+      r \colon \tilde{\cJ}^e = \tilde{\cJ}^{\op} \wedge \tilde{\cJ} 
+        \myrightarrow{\cJ^{\op} \wedge e} \tilde{\cJ}^{\op} \wedge \cJ,
       \end{displaymath}
-      defines a strict transformation of lax functors
+      while 
       \begin{displaymath}
-        p_2 \colon \cJ^e \to \cJ.
+        p_2 \colon \tilde{\cJ}^{\op} \wedge \cJ \crightarrow{1.3}{\const_{1_+}
+          \wedge \cJ} 1_+ \wedge \cJ \myrightarrow{\cong} \cJ
       \end{displaymath}
+      is the strict transformation to the constant functor with image $1_+$, the
+      discrete category with one object plus extra basepoint, followed by the
+      isomorphism given by the natural identification $1_+ \wedge \cC \cong \cC$
+      for a pointed category $\cC$.\\
       We assemble the above data in a diagram
       \begin{displaymath}
-        \xymatrix{
+        \xymatrix@C+1em@R+2em{
           \Fin
             \ar@{=}[r] 
             \ar[d]^{(-)_*} 
@@ -1646,7 +1656,7 @@
           & 
           V 
             \ar@{=}[r]
-            \ar[d]^{\cJ^e}
+            \ar[d]|{\tilde{\cJ}^{\op} \wedge \cJ}
             \ar@{}[rd]|{\overset{p_2}{\Rightarrow}}
           & 
           V 
@@ -1679,7 +1689,7 @@
           \CAT_*
         }
       \end{displaymath}
-      and obtain a lax transformation
+      and obtain a left lax transformation
       \begin{displaymath}
       [G^A \circ p_2 \circ r] \colon (\iota \circ \tilde{\cJ}^e \circ (-)_*) = %
       (\iota \circ \tilde{\cJ} \circ (-)_*)^e \to \Sp^{\Sigma}
@@ -1691,40 +1701,24 @@
       We introduce the notation $\cG^A \defas G^A \circ p_2$ for the sake of brevity. 
     \end{defn}
     %
-    Note that the above precisely constitutes an object in $\operatorname{Bimod}^{\cD}/K$ for $\cD = \Fin$ and $K = \Sp^\Sigma$ the constant functor with value symmetric spectra. By applying the functor $\hocolim$ (cf. Def.~\ref{def_hocolim}) we obtain a functor
-      \begin{displaymath}
-        \hocolim_{\iota \circ \tilde{\cJ} \circ (-)_*} \cG^A \circ r \colon \Fin \times \Delta^{\op} \to \Sp^\Sigma,
-      \end{displaymath}
+    Note that the above precisely constitutes an object in
+    $\operatorname{Bimod}^{\cD}/K$ for $\cD = \Fin$ and $K = \Sp^\Sigma$ the
+    constant functor with value symmetric spectra. By applying the functor
+    $\hocolim$ (cf. Def.~\ref{def_hocolim}) we obtain a functor
+    \begin{displaymath}
+      \hocolim_{\iota \circ \tilde{\cJ} \circ (-)_*} \cG^A \circ r \colon 
+        \Fin \times \Delta^{\op} \to \Sp^\Sigma,
+    \end{displaymath}
     which finally lets us formulate the following
     %
     \begin{defn}\label{def_loday_functor_finite_sets}
-      Given a finite set $S$ and a \hring~$A$, we define the \emph{Loday functor of $A$ at $S$} to be given by the symmetric spectrum
-      \begin{displaymath}
-        \Lambda_S A \defas %\hocolim_{\tilde{\cJ}^e \circ (-)_*} \cG^A \circ r (S) = %
-        \hocolim_{\tilde{\cJ} (S)} \cG^A_S \circ r_S.
-      \end{displaymath}
-      By construction this is functorial in $S$, and super cool.
+    Given a finite set $S$ and a \hring~$A$, we define the \emph{Loday functor
+    of $A$ at $S$} to be given by the symmetric spectrum
+    \begin{displaymath}
+      \Lambda_S A \defas \hocolim_{\tilde{\cJ} (S)} \cG^A_S \circ r_S.
+    \end{displaymath}
+    By construction this is functorial in $S$.
     \end{defn}
-    %
-    \begin{rem}\label{rem_hocolim_name_explanation}
-      The naming of the functor $\hocolim$ may be explained by the fact that in the context of an $(F,G) \in \ob \operatorname{Bimod}^{\cD}/K$ where $F = \iota \circ F^\prime_+$ may be factored as
-      \begin{displaymath}
-        \cD \myrightarrow{F^\prime} \Cat \myrightarrow{(-)_+} \Cat_* \myrightarrow{\iota} \CAT_*
-      \end{displaymath}
-      and where $G = G^\prime \circ p_2$ may be factored through the projection onto the second factor
-      \begin{displaymath}
-        F^e \cong ((F^\prime)^{\op} \times F^\prime)_+ \myrightarrow{p_2} F^\prime_+ \myrightarrow{G^\prime} K
-      \end{displaymath}
-      the functor evaluated at $d \in \ob \cD$, $\hocolim_{F} G (d)$, is isomorphic to
-      \begin{displaymath}
-        \hocolim_{F^\prime(d)} G^\prime = %
-        \left\{ [q] \mapsto \bigvee_{\hom_{F^\prime(d)}(x_1,x_0) \times \ldots %
-          \times \hom_{F^\prime(d)}(x_q,x_{q-1})} G^\prime_d(x_q) \right\},
-      \end{displaymath}
-      the usual (i.e. one possible model, cf. \comm{[TODO add reference!]})
-      homotopy colimit of the functor $G^\prime_d \colon F^\prime(d) \to K$.
-    \end{rem}
-    %
     \begin{lem}\label{lem_loday_functor_fixed_points}
       Given a finite set $S$ and a group $G$ acting on it, then for every pointed functor $F: \cJ(S) = (\cI^S)_+ \to \sS_*$ the map
       \begin{displaymath}
