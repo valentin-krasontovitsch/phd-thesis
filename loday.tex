@@ -493,33 +493,54 @@
     \end{defn}
 
     \begin{defn}\label{def_pointed_stuff}
-      We define a \emph{pointed category} to be a category $\cC$ with a chosen object, called the null or zero object and denoted $0$, which is both initial and final in $\cC$.
-      We note that a pointed category is enriched over pointed sets.
-      Indeed we may choose the unique morphism factoring through the zero object in each morphism set, and note that this makes composition a map of pointed sets.\\
-      A \emph{pointed functor} is a functor of pointed categories that preserves zero objects.\\
-      Given two pointed categories $\cC$ and $\cD$, we may define another pointed category $\cC \wedge \cD$ by taking the smash products of object and morphism sets, respectively.
-      It is easy to convince oneself that this again constitutes a pointed category.\\
-      We would like to note a particular example at this point that we will come to use later.
-      Given a pointed category $\cC$, we let $\cC^e \defas \cC^{\op} \wedge \cC$.
-      This might remind one of the notation for the enveloping algebra $A^{e} = A^{\op} \otimes A$ of a unital and associative algebra, and indeed there is a connection which we point out in Rem.~\ref{rem_connection_to_algebras}.
-      More generally, given a functor $F: \cJ \to \CAT_*$, we write $F^e: \cJ \to \CAT_*$ for the functor given by $F^e(j) = F(j)^{\op} \wedge F(j)$ and sending a morphism $f: j \to k$ in $\cJ$ to $F(f) \wedge F(f): F^e(j) \to F^e(k)$.
+      We define a \emph{pointed category} to be a category $\cC$ with a chosen
+      object, called the null or zero object and denoted $0$, which is both
+      initial and final in $\cC$.  We note that a pointed category is enriched
+      over pointed sets.  Indeed we may choose the unique morphism factoring
+      through the zero object in each morphism set, and note that this makes
+      composition a map of pointed sets.\\
+      A \emph{pointed functor} is a functor of pointed categories that preserves
+      zero objects.\\
+      Given two pointed categories $\cC$ and $\cD$, we may define another
+      pointed category $\cC \wedge \cD$ by taking the smash products of object
+      and morphism sets, respectively. It is easy to convince oneself that this
+      again constitutes a pointed category.\\
+      We would like to note a particular example at this point that we will come
+      to use later. Given a pointed category $\cC$, we let $\cC^e \defas
+      \cC^{\op} \wedge \cC$.  This might remind one of the notation for the
+      enveloping algebra $A^{e} = A^{\op} \otimes A$ of a unital and associative
+      algebra, and indeed there is a connection which we point out in
+      Rem.~\ref{rem_connection_to_algebras}.  More generally, given a functor
+      $F: \cJ \to \CAT_*$, we write $F^e: \cJ \to \CAT_*$ for the functor given
+      by $F^e(j) = F(j)^{\op} \wedge F(j)$ and sending a morphism $f: j \to k$
+      in $\cJ$ to $F(f) \wedge F(f): F^e(j) \to F^e(k)$.
     \end{defn}
 
     % TODO write remark! and move to appropriate position
+    % i think we already got this though, in the explanation of bimodule?
     \begin{rem}\label{rem_connection_to_algebras}
     connection of this definition of loday functor and the classical one for algebras
     \end{rem}
 
     \begin{defn}\label{def_added_basepoint_extending_functor}
-      Consider the bicategory of small pointed categories $\Cat_*$ with functors and natural transformations, and the (strict) forgetful functor down to categories $\Cat_* \to \Cat$. This functor has a left adjoint, denoted
+      Consider the bicategory of small pointed categories $\Cat_*$ with functors
+      and natural transformations, and the (strict) forgetful functor down to
+      categories $\Cat_* \to \Cat$. This functor has a left adjoint, denoted
       \begin{displaymath}
         (-)_+ : \Cat \to \Cat_*,
       \end{displaymath}
-      sending a category $\cC$ to the category $\cC_+$ which compared to $\cC$ has an extra object $0$, the adjoint basepoint, and extra morphisms $c \to 0$ and $0 \to c$ for every object $c \in \cC_0$. Functors and natural transformations of categories are uniquely extended to their respective pointed versions. A simple verification of the axioms shows that this defines a strict 2-functor, and the adjointness is also straight-forward.
+      sending a category $\cC$ to the category $\cC_+$ which compared to $\cC$
+      has an extra object $0$, the adjoint basepoint, and extra morphisms $c \to
+      0$ and $0 \to c$ for every object $c \in \cC_0$. Functors and natural
+      transformations of categories are uniquely extended to their respective
+      pointed versions. A simple verification of the axioms shows that this
+      defines a strict 2-functor, and the adjointness is also straight-forward.
     \end{defn}
 
     \begin{defn}\label{def_extending_functor_iW_to_Cat_to_pointed_version}
-      Given a weak functor of bicategories $F: iW \to \Cat$, we would like to extend this functor along the inclusion $\iota: iW \to eW$ to a weak functor $F_+: eW \to \Cat_*$ as displayed in the following diagram:
+      Given a weak functor of bicategories $F: iW \to \Cat$, we would like to
+      extend this functor along the inclusion $\iota: iW \to eW$ to a weak
+      functor $F_+: eW \to \Cat_*$ as displayed in the following diagram:
       \begin{displaymath}
         \xymatrix{
           iW
@@ -535,32 +556,54 @@
           \Cat_*
         }
       \end{displaymath}
-      where the bottom arrow refers to the functor found in Def.~\ref{def_pointed_stuff}.
-      The value of $F_+$ on objects, 1-arrows and invertible 2-arrows is determined if we ask for the above diagram to commute.
-      Hence we merely need to indicate the images of non-invertible 2-arrows in $eW$ under $F_+$.
-      We send these to the zero natural transformation, i.e. the transformation that is given on any object as the unique map factoring through the zero object.\\
-      This is in fact a weak functor: 
-      All necessary data is given, and the assignment of 1-arrows and 2-arrows is a functor, as composition with the zero transformation results in the zero transformation (only need to check what happens for non-invertible two-arrows).
-      For the axioms, note that the structure morphisms of $F_+$ are the uniquely determined pointed extensions of the structure morphisms of $F$, namely natural transformations extended by the identity on the zero object.
-      In particular, the axioms are satisfied and the structure morphisms are isomorphisms.
+      where the bottom arrow refers to the functor found in
+      Def.~\ref{def_pointed_stuff}. The value of $F_+$ on objects, 1-arrows and
+      invertible 2-arrows is determined if we ask for the above diagram to
+      commute. Hence we merely need to indicate the images of non-invertible
+      2-arrows in $eW$ under $F_+$. We send these to the zero natural
+      transformation, i.e. the transformation that is given on any object as the
+      unique map factoring through the zero object.\\
+      This is in fact a weak functor: All necessary data is given, and the
+      assignment of 1-arrows and 2-arrows is a functor, as composition with the
+      zero transformation results in the zero transformation (only need to check
+      what happens for non-invertible two-arrows).  For the axioms, note that
+      the structure morphisms of $F_+$ are the uniquely determined pointed
+      extensions of the structure morphisms of $F$, namely natural
+      transformations extended by the identity on the zero object. In
+      particular, the axioms are satisfied and the structure morphisms are
+      isomorphisms.
     \end{defn}
 
     \begin{defn}\label{def_J_and_functors_from_finite_sets_to_pointed_categories}
-      Consider the skeletal category $\cF$ of finite sets, i.e. the full subcategory of finite sets with objects given by sets of the form $\{1, \ldots, n\}$, for all $n \geq 0$ (taking the empty set for $n=0$). We may choose a finite coproduct on this category with the property that for any set $X \in \cF$ and any singleton set $\{*\}$, we have 
+      Consider the skeletal category $\cF$ of finite sets, i.e. the full
+      subcategory of finite sets with objects given by sets of the form $\{1,
+      \ldots, n\}$, for all $n \geq 0$ (taking the empty set for $n=0$). We may
+      choose a finite coproduct on this category with the property that for any
+      set $X \in \cF$ and any singleton set $\{*\}$, we have 
       \begin{displaymath}
         \coprod_{\{*\}} X = X,
       \end{displaymath}
       for example by induction, choosing a well-ordering on every finite set.\\
-      We let $\cI$ be the subcategory of $\cF$ given by all inclusions (in particular, all objects of $\cF$ are in $\cI$) and apply the constructions described in Def.~\ref{def_functor_iW_to_Cat_aka_abstract_loday} (abstract Loday functor) by setting $\cC \defas \cI$ as well as Def.~\ref{def_extending_functor_iW_to_Cat_to_pointed_version} (adding a basepoint) to obtain a weak functor 
+      We let $\cI$ be the subcategory of $\cF$ given by all inclusions (in
+      particular, all objects of $\cF$ are in $\cI$) and apply the constructions
+      described in Def.~\ref{def_functor_iW_to_Cat_aka_abstract_loday} (abstract
+      Loday functor) by setting $\cC \defas \cI$ as well as
+      Def.~\ref{def_extending_functor_iW_to_Cat_to_pointed_version} (adding a
+      basepoint) to obtain a weak functor 
       \begin{displaymath}
         \cI_+: eW \to \Cat, X \mapsto (\cI^X)_+.
       \end{displaymath}
-      We continue by precomposing with the lax functor $L: V \to eW$ defined in Def.~\ref{def_lax_functor_V_to_eW} (sending a class of spans $[X \ot A \to Y]$ to $(X \ot LA \to Y)$), resulting in 
+      We continue by precomposing with the lax functor $L: V \to eW$ defined in
+      Def.~\ref{def_lax_functor_V_to_eW} (sending a class of spans $[X \ot A \to
+      Y]$ to $(X \ot LA \to Y)$), resulting in 
       \begin{displaymath}
         \cJ \defas L \cI_+: V \to \Cat_*
       \end{displaymath}
       which still sends a set $X \mapsto \cJ(X) = (\cI^X)_+$.\\
-      Finally we may precompose with the inclusions of the (opposite) category of finite sets to $V$, obtaining two different functors: Taking the covariant inclusion $\Fin \to V$ mapping an $f:X \to Y$ to the class of spans $[ (X = X \myrightarrow{f} Y) ]$ yields a weak functor
+      Finally we may precompose with the inclusions of the (opposite) category
+      of finite sets to $V$, obtaining two different functors: Taking the
+      covariant inclusion $\Fin \to V$ mapping an $f:X \to Y$ to the class of
+      spans $[ (X = X \myrightarrow{f} Y) ]$ yields a weak functor
       \begin{gather*}
         \Fin \to \Cat_*,\\% 
         ( X \myrightarrow{f} Y ) \mapsto %
@@ -599,9 +642,16 @@
       $\phi^{\cJ(-)_*}_X = \cI_+(\phi^{L}_X) \circ \phi^{\cI_+}_{L(X)}:
       1_{\cJ(X)} \to \cJ(1_X)$, is the composition of two isomorphisms, and
       hence an isomorphism itself.\\
-      On the other hand, taking the contravariant inclusion $\Fin \to V$ which sends a map $f:X \to Y$ to the class of spans $ f^* = [ Y \myleftarrow{f} X = X]$, results in the functor
+      On the other hand, taking the contravariant inclusion $\Fin \to V$ which
+      sends a map $f:X \to Y$ to the class of spans $ f^* = [ Y \myleftarrow{f}
+      X = X]$, results in the functor
       % TODO make centered, like covariant case above
-      $\cJ(f^*): (\cI^Y)_+ \to (\cI^X)_+$ sending a tuple $(c_y)_{y \in Y}$ to the tuple $y \mapsto \coprod_{(f(x),x) \in pr_2^{-1}(x)} c_{f(x)}$, where the last coproduct is take over a singleton set and is hence naturally isomorphic to $c_{f(x)}$. Thus the last functor may naturally be described as precomposition with $f$. A study of the involved maps shows, as above, that the structure morphisms are indeed isomorphisms.
+      $\cJ(f^*): (\cI^Y)_+ \to (\cI^X)_+$ sending a tuple $(c_y)_{y \in Y}$ to
+      the tuple $y \mapsto \coprod_{(f(x),x) \in pr_2^{-1}(x)} c_{f(x)}$, where
+      the last coproduct is take over a singleton set and is hence naturally
+      isomorphic to $c_{f(x)}$. Thus the last functor may naturally be described
+      as precomposition with $f$. A study of the involved maps shows, as above,
+      that the structure morphisms are indeed isomorphisms.
       % TODO the latter should be a strict!! functor
     \end{defn}
   \subsection{Left lax transformations, bimodules and homotopy colimits}
@@ -1074,7 +1124,7 @@
           \hom_{F^\prime(j)_+}(x_{i+1},x_i) \cong %
       \end{gather*}
       Observe that if $x_i$ is the basepoint in $F(j) = F^\prime(j)_+$, then
-      morphism from and to $x_i$ in $F(j)$ are just a point, and the respective
+      morphisms from and to $x_i$ in $F(j)$ are just a point, and the respective
       summand collapses to a point. For $x, y \in \ob F^\prime(j)$ we further
       have $\hom_{F(j)_+}(x,y) \cong \hom_{F^\prime(j)}(x,y)_+$. Applying this
       we may proceed
@@ -1622,8 +1672,8 @@
       \ref{def_streets_first_construction_transformation}) in the context $\cD
       \defas V$ and $F \defas \cJ$, and let 
       \begin{displaymath}
-      r \colon \tilde{\cJ}^e = \tilde{\cJ}^{\op} \wedge \tilde{\cJ} 
-        \myrightarrow{\tilde{\cJ^{\op}} \wedge e} \tilde{\cJ}^{\op} \wedge \cJ,
+        r \colon \tilde{\cJ}^e = \tilde{\cJ}^{\op} \wedge \tilde{\cJ} 
+          \myrightarrow{e^{\op} \wedge e} \cJ^{\op} \wedge \cJ = \cJ^e,
       \end{displaymath}
       while 
       \begin{displaymath}
@@ -1633,9 +1683,9 @@
       is the strict transformation to the constant functor with image $1_+$, the
       discrete category with one object plus extra basepoint, followed by the
       isomorphism given by the natural identification $1_+ \wedge \cC \cong \cC$
-      for a pointed category $\cC$ (rf. Lem.~%
-      \ref{lem_hocolim_name_justification})..\\
-      We assemble the above data in a diagram
+      for a pointed category $\cC$ (cf. Lem.~%
+      \ref{lem_hocolim_name_justification}).\\
+       We assemble the above data in a diagram
       \begin{displaymath}
         \xymatrix{
           \Fin
@@ -1661,7 +1711,7 @@
           & 
           V 
             \ar@{=}[r]
-            \ar[d]|{\tilde{\cJ}^{\op} \wedge \cJ}
+            \ar[d]^{\cJ^e}
             \ar@{}[rd]|{\overset{p_2}{\Rightarrow}}
           & 
           V 
@@ -1703,32 +1753,39 @@
       \begin{displaymath}
         \Fin \to \CAT_*.
       \end{displaymath}
-      We introduce the notation $\cG^A \defas G^A \circ p_2$ for the sake of brevity. 
+      % TODO revise this notation - writing r alone does not make so much sense
+      We introduce the notation $\cG^A \defas G^A \circ p_2$ for the sake of
+      brevity. Note that $e^{\op}$ is a right lax transformation, so $r = e \wedge
+      e^{\op}$ does not constitute a left (or right) lax transformation as such,
+      but composed with $p_2$ it does, as postcomposing with the projection down
+      to $1_+$ yields a strict functor, as every morphism in $1_+$ is
+      invertible. However, when fixing an object ... \comm{complete remark}
     \end{defn}
     %
-    Note that the above precisely constitutes an object in
-    $\operatorname{Bimod}^{\cD}/K$ for $\cD = \Fin$ and $K = \Sp^\Sigma$ the
-    constant functor with value symmetric spectra. By applying the functor
-    $\hocolim$ (cf. Def.~\ref{def_hocolim}) we obtain a functor
-    \begin{displaymath}
-      \hocolim_{\iota \circ \tilde{\cJ} \circ (-)_*} \cG^A \circ r \colon 
-        \Fin \times \Delta^{\op} \to \Sp^\Sigma,
-    \end{displaymath}
-    which finally lets us formulate the following
+      Note that the above precisely constitutes an object in
+      $\operatorname{Bimod}^{\cD}/K$ for $\cD = \Fin$ and $K = \Sp^\Sigma$ the
+      constant functor with value symmetric spectra. By evaluating the functor
+      $\hocolim$ (cf. Def.~\ref{def_hocolim}) on this object we obtain 
+      \begin{displaymath}
+        \hocolim_{\iota \circ \tilde{\cJ} \circ (-)_*} \cG^A \circ r \colon 
+          \Fin \times \Delta^{\op} \to \Sp^\Sigma,
+      \end{displaymath}
+      which finally lets us formulate the following
     %
     \begin{defn}\label{def_loday_functor_finite_sets}
-    Given a finite set $S$ and a \hring~$A$, we define the \emph{Loday functor
-    of $A$ at $S$} to be given by the symmetric spectrum
-    \begin{displaymath}
-      \Lambda_S A \defas \hocolim_{\tilde{\cJ} (S)} \cG^A_S \circ r_S.
-    \end{displaymath}
-    By construction this is functorial in $S$.
+      Given a finite set $S$ and a \hring~$A$, we define the \emph{Loday functor
+      of $A$ at $S$} to be given by the symmetric spectrum
+      \begin{displaymath}
+        \Lambda_S A \defas \hocolim_{\tilde{\cJ} (S)} \cG^A_S \circ r_S.
+      \end{displaymath}
+      By construction this is functorial in $S$.
     \end{defn}
     \begin{lem}\label{lem_loday_functor_fixed_points}
-      Given a finite set $S$ and a group $G$ acting on it, then for every pointed functor $F: \cJ(S) = (\cI^S)_+ \to \sS_*$ the map
+      Given a finite set $S$, a group $G$ acting on it, and a pointed functor
+      $Z: \cJ(S) = (\cI^S)_+ \to \sS_*$. Then the map
       \begin{displaymath}
-        \hocolim_{\tilde{\cJ}(S)} F \circ p_2 \circ r_S \to \hocolim_{\cJ(S)} F \circ p_2 \cong %
-        \hocolim_{\cI^S} F
+        \hocolim_{\tilde{\cJ}(S)} Z \circ p_2 \circ r_S \to 
+          \hocolim_{\cJ(S)} Z \circ p_2 \cong \hocolim_{\cI^S} Z
       \end{displaymath}
       is a weak equivalence on $G$-fixed points.
       \begin{proof}
@@ -1740,19 +1797,49 @@
           \xymatrix{
             (\tilde{\cJ} \colon \{S\} \to \CAT_*, Z \circ (p_2)_S \circ r_S %
               \colon \tilde{\cJ}^e \Rightarrow \sS_*) %
-            \ar[d]^{\epsilon,\eta} \\
+            \ar[d]^{(\epsilon,\eta)} \\
             (\cJ \colon \{S\} \to \CAT_*, %
               Z \circ (p_2)_S \colon \cJ^e \Rightarrow \sS_*)
           }
         \end{displaymath}
-        given by $\epsilon = r_s$ and $\eta$ the appropriate identity.\\
+        given by $\epsilon = e_S$ and $\eta$ the appropriate identity.\\
+        We would like to compare the objects in question to a actual homotopy
+        colimits, i.e. use \ref{lem_hocolim_name_justification}. For this we
+        note that while $\cJ$ obviously factors through 
+        \begin{displaymath}
+          \CAT \myrightarrow{(-)_+} \CAT_*
+        \end{displaymath}
+        showing the same for $\tilde{\cJ}$ requires considering the restriction
+        to $\{S\}$ and is an easy exercise: It suffices to show that if a
+        composition in $\tilde{\cJ(S)}$ is zero, then one of the arrows was
+        zero, for then we have a well-defined factorization to $\CAT$.\\
+        Next we should make sure that the functors to the right of the
+        $\hocolim$ factor as described in above mentioned Lemma. To this end we
+        note that
+        \begin{displaymath}
+          p_2 \circ r = e \circ p_2
+        \end{displaymath}
+        with $p_2$ in the respective contexts, and obtain a commutative square
+        \begin{displaymath}
+          \xymatrix{
+            \hocolim_{\tilde{\cJ}(S)} Z \circ e \circ p_2
+              \ar[r]
+              \ar[d]
+            &
+            \hocolim_{\cJ(S)} Z \circ p_2 \cong \hocolim_{\cI^S} Z
+              \ar[d]
+            \\
+            \hocolim_{\tilde{\cJ}(S)} Z \circ p_2 \circ r_S 
+              \ar[r]
+            &
+            \hocolim_{\cJ(S)} Z \circ p_2 \cong \hocolim_{\cI^S} Z
+          }
+        \end{displaymath}
         First, let $G$ be the trivial group. After observing that $p_2 \circ r =
-        e \circ p_2$, we may compare to the usual homotopy colimits (cf.
-        Rem.~\ref{rem_hocolim_name_explanation}), where we have an isomorphism
-        due to homotopy cofinality of $e$ (cf.
-        Rem.~\ref{rem_streets_construction_e_is_cofinal}), and it is easy to
-        check that we obtain a commutative square, making the desired morphism a
-        weak equivalence.\\
+        e \circ p_2$, where we have an isomorphism due to homotopy cofinality of
+        $e$ (cf.  Rem.~\ref{rem_streets_construction_e_is_cofinal}), and it is
+        easy to check that we obtain a commutative square, making the desired
+        morphism a weak equivalence.\\
         Now we let $G$ be arbitrary. 
       \end{proof}
     \end{lem}
