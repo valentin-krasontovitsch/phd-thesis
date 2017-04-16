@@ -1785,13 +1785,14 @@
       $Z: \cJ(S) = (\cI^S)_+ \to \sS_*$. Then the map
       \begin{displaymath}
         \hocolim_{\tilde{\cJ}(S)} Z \circ p_2 \circ r_S \to 
-          \hocolim_{\cJ(S)} Z \circ p_2 \cong \hocolim_{\cI^S} Z
+          \hocolim_{\cJ(S)} Z \circ p_2
       \end{displaymath}
       is a weak equivalence on $G$-fixed points.
       \begin{proof}
         To obtain the above map, consider the full subcategory $\{S\}$ of $\Fin$
         and the restictions of $\tilde{\cJ}$, $\cJ$, and the constant functor
-        $\sS_*$ along the inclusion $\{S\} \to \Fin$. This gives rise to a map
+        $\sS_*$ along the inclusion $\{S\} \to \Fin$ (omitting the inclusions
+        $\Fin \to V$ and $\Cat_* \to \CAT_*$ from notation). This gives rise to a map
         of bimodules
         \begin{displaymath}
           \xymatrix{
@@ -1815,32 +1816,34 @@
         zero, for then we have a well-defined factorization to $\CAT$.\\
         % TODO proof this, just for own safety
         Next we should make sure that the functors to the right of the
-        $\hocolim$ factor as described in above mentioned Lemma. To this end we
-        note that
+        $\hocolim$ factor as required by the above mentioned Lemma. To this end
+        we note that
         \begin{displaymath}
           p_2 \circ r = e \circ p_2
         \end{displaymath}
         with $p_2$ in the respective contexts, and obtain a commutative square
         \begin{displaymath}
-          \xymatrix{
-            \hocolim\limits_{\tilde{\cJ}(S)} Z \circ e \circ p_2
-              \ar[r]
-              \ar[d]
+          \xymatrix@C+1em{
+            \hocolim\limits_{\tilde{\cJ}(S)} Z \circ e_S \circ p_2
+              \ar[r]^-{(e_S, \id)}
+              \ar[d]_{\cong}
             &
             \hocolim\limits_{\cJ(S)} Z \circ p_2
-              \ar[d]
+              \ar[d]^{\cong}
             \\
-            \hocolim\limits_{\tilde{\cJ}(S) \setminus {+}} Z \circ e
+            \hocolim\limits_{\tilde{\cJ}(S) \setminus {+}} Z \circ e_S
               \ar[r]
             &
-            \hocolim_{\cI^S} Z
+            \hocolim\limits_{\cI^S} Z
           }
         \end{displaymath}
-        First, let $G$ be the trivial group. After observing that $p_2 \circ r =
-        e \circ p_2$, where we have an isomorphism due to homotopy cofinality of
-        $e$ (cf.  Rem.~\ref{rem_streets_construction_e_is_cofinal}), and it is
-        easy to check that we obtain a commutative square, making the desired
-        morphism a weak equivalence.\\
+        where the vertical maps are isomorphisms (described in the Lemma
+        mentioned above), and the lower horizontal map is the natural map induced
+        by $e_S: \tilde{\cJ}(S) \to \cJ(S)$. It is easy to check that this
+        diagram indeed commutes, and as $e$ is homotopy cofinal (cf. Rem.
+        \ref{rem_streets_construction_is_cofinal}), the lower horizontal arrow
+        is an equivalence as well, which proves the claim for the case of $G$
+        acting trivially on $S$.\\
         Now we let $G$ be arbitrary. 
       \end{proof}
     \end{lem}
