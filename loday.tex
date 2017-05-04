@@ -992,10 +992,10 @@
       the object $G_j(x_0,x_q)$ of $K$ tensored with the smash product of the
       morphism sets $F(j)(x_i,x_{i-1})$, where the wedge sum is taken over all
       tuples $(x_0, \ldots, x_q) \in (\ob F(j))^{q+1}$.\\
-      Considering functoriality in $\cD$, let $f: i \to j$ be a morphism in $\cD$.
+      Considering functoriality in $\cD$, let $f \colon j \to k$ be a morphism in $\cD$.
       We start with some $x_i, \ldots, x_q \in \ob F(j)$, and obtain a morphism
       \begin{displaymath}
-        \xymatrix{
+        \xymatrix@R+1em{
           G_j(x_0,x_q) \wedge \bigwedge_{i=1}^q \hom_{F(j)}(x_i,x_{i-1}) %
             \ar[d]_{(G_f)_{(x_0,x_q)} \wedge}^{\bigwedge_i F(f)}
           \\
@@ -1102,9 +1102,9 @@
       morphisms accordingly, and the isomorphism is induced by the natural
       identification $1_+ \wedge \cC \cong \cC$ for any pointed category
       $\cC$.\\
-      Then, given $j \in \cD$, $(\hocolim_G F)(j)$ is isomorphic to the usual
-      homotopy colimit of the diagram $G^\prime_j \colon F^\prime(j) \to K$
-      given for instance by the model
+      Then, given $j \in \cD$, $(\hocolim_G F)(j)$ is weakly equivalent (actualy
+      isomorphic, for the given model) to the usual homotopy colimit of the
+      diagram $G^\prime_j \colon F^\prime(j) \to K$, given here by the model
       \begin{displaymath}
         \hocolim_{F^\prime(j)} G_j^\prime = \left\{ 
           [q] \mapsto \bigvee_{x_q \to \ldots \to x_0} G_j^\prime(x_q)
@@ -1447,7 +1447,10 @@
       \begin{displaymath}
         (\id_{d_1} \colon d_1 \to d_1,(F_{d_1})_x \colon x \to F(\id_{d_1})(x),
       \end{displaymath}
-      and it is now straightforward to check the axioms of a category: To verify that $(\id_{d_1},(F_{d_1})_x)$ is the unit morphism one may use naturality of the structure morphisms and the unitality axioms of $F$.\\
+      and it is now straightforward to check the axioms of a category: To verify
+      that $(\id_{d_1},(F_{d_1})_x)$ is the unit morphism one may use naturality
+      of the structure morphisms and the unitality axioms of $F$.\\
+      % TODO remark on associativity axiom above
       Given a map $f: d \to d^\prime$ in $\cD$, we define a functor
       \begin{displaymath}
         \tilde{F}(f) \colon \tilde{F}(d) \to \tilde{F}(d^\prime)
@@ -1826,10 +1829,10 @@
           \xymatrix@C+1em{
             \hocolim\limits_{\tilde{\cJ}(S)} Z \circ e_S \circ p_2
               \ar[r]^-{(e_S, \id)}
-              \ar[d]_{\cong}
+              \ar[d]_-{\simeq}
             &
             \hocolim\limits_{\cJ(S)} Z \circ p_2
-              \ar[d]^{\cong}
+              \ar[d]^-{\simeq}
             \\
             \hocolim\limits_{\tilde{\cJ}(S) \setminus {+}} Z \circ e_S
               \ar[r]
@@ -1837,14 +1840,14 @@
             \hocolim\limits_{\cI^S} Z
           }
         \end{displaymath}
-        where the vertical maps are isomorphisms (described in the Lemma
+        where the vertical maps are equivalences (described in the Lemma
         mentioned above), and the lower horizontal map is the natural map induced
         by $e_S: \tilde{\cJ}(S) \to \cJ(S)$. It is easy to check that this
         diagram indeed commutes, and as $e$ is homotopy cofinal (cf. Rem.
-        \ref{rem_streets_construction_is_cofinal}), the lower horizontal arrow
+        \ref{rem_streets_construction_e_is_cofinal}), the lower horizontal arrow
         is an equivalence as well, which proves the claim for the case of $G$
         acting trivially on $S$.\\
-        Now we let $G$ be arbitrary. 
+        Now we let the $G$ action be arbitrary. 
       \end{proof}
     \end{lem}
     %
