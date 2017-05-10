@@ -1680,15 +1680,15 @@
       \end{displaymath}
       while 
       \begin{displaymath}
-        p_2 \colon \tilde{\cJ}^{\op} \wedge \cJ \crightarrow{1.3}{\const_{1_+}
-          \wedge \cJ} 1_+ \wedge \cJ \myrightarrow{\cong} \cJ
+        p_2 \colon \cC^e = \cC^{\op} \wedge \cC \crightarrow{1.3}{\const_{1_+}
+          \wedge \cC} 1_+ \wedge \cC \myrightarrow{\cong} \cC
       \end{displaymath}
       is the strict transformation to the constant functor with image $1_+$, the
       discrete category with one object plus extra basepoint, followed by the
       isomorphism given by the natural identification $1_+ \wedge \cC \cong \cC$
-      for a pointed category $\cC$ (cf. Lem.~%
+      for any pointed category $\cC$ (cf. Lem.~%
       \ref{lem_hocolim_name_justification}).\\
-       We assemble the above data in a diagram
+      We assemble the above data in a diagram
       \begin{displaymath}
         \xymatrix{
           \Fin
@@ -1756,13 +1756,11 @@
       \begin{displaymath}
         \Fin \to \CAT_*.
       \end{displaymath}
-      % TODO revise this notation - writing r alone does not make so much sense
-      We introduce the notation $\cG^A \defas G^A \circ p_2$ for the sake of
-      brevity. Note that $e^{\op}$ is a right lax transformation, so $r = e \wedge
-      e^{\op}$ does not constitute a left (or right) lax transformation as such,
-      but composed with $p_2$ it does, as postcomposing with the projection down
-      to $1_+$ yields a strict functor, as every morphism in $1_+$ is
-      invertible. However, when fixing an object ... \comm{complete remark}
+      Note that $e^{\op}$ is a right lax transformation, so $r = e \wedge
+      e^{\op}$ does not constitute a left (or right) lax transformation as such.
+      Only when composed with $p_2$ it becomes a left lax transformation, as
+      postcomposing with the projection down to $1_+$ yields a strict functor,
+      as every morphism in $1_+$ is invertible.
     \end{defn}
     %
       Note that the above precisely constitutes an object in
@@ -1770,8 +1768,8 @@
       constant functor with value symmetric spectra. By evaluating the functor
       $\hocolim$ (cf. Def.~\ref{def_hocolim}) on this object we obtain 
       \begin{displaymath}
-        \hocolim_{\iota \circ \tilde{\cJ} \circ (-)_*} \cG^A \circ r \colon 
-          \Fin \times \Delta^{\op} \to \Sp^\Sigma,
+        \hocolim_{\iota \circ \tilde{\cJ} \circ (-)_*} G^A \circ p_2 \circ r 
+          \colon \Fin \times \Delta^{\op} \to \Sp^\Sigma,
       \end{displaymath}
       which finally lets us formulate the following
     %
@@ -1779,7 +1777,7 @@
       Given a finite set $S$ and a \hring~$A$, we define the \emph{Loday functor
       of $A$ at $S$} to be given by the symmetric spectrum
       \begin{displaymath}
-        \Lambda_S A \defas \hocolim_{\tilde{\cJ} (S)} \cG^A_S \circ r_S.
+        \Lambda_S A \defas \hocolim_{\tilde{\cJ} (S)} G^A_S \circ p_2 \circ r_S.
       \end{displaymath}
       By construction this is functorial in $S$.
     \end{defn}
