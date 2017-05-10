@@ -21,8 +21,12 @@
       % \end{proof}
     \end{lem}
 
-    \begin{defn}\label{defn_group_acting_on_object_in_V_morphism_phi}
-      Given a finite set $Y$ with a left action of a group $G$, we define the action on $Y$ through automorphisms in $V$ by mapping $g \mapsto [Y \myleftarrow{\id_Y} Y \myrightarrow{g} Y]$, which can easily be seen to be a left action. Thus $G$ also acts (from the left) on $V(X,Y)$ for any finite set $X$, by functoriality. We define a function
+    \begin{defn}\label{def_group_acting_on_object_in_V_morphism_phi}
+      Given a finite set $Y$ with a left action of a group $G$, we define the
+      action on $Y$ through automorphisms in $V$ by mapping $g \mapsto [Y
+      \myleftarrow{\id_Y} Y \myrightarrow{g} Y]$, which can easily be seen to be
+      a left action. Thus $G$ also acts (from the left) on $V(X,Y)$ for any
+      finite set $X$, by functoriality. We define a function
       \begin{gather*}
         \phi: V(X,Y/G) \to V(X,Y)^G \\
         [X \ot A \to Y/G] \mapsto [X \ot A \x_{Y/G} Y \to Y].
@@ -1759,7 +1763,7 @@
       Note that $e^{\op}$ is a right lax transformation, so $r = e \wedge
       e^{\op}$ does not constitute a left (or right) lax transformation as such.
       Only when composed with $p_2$ it becomes a left lax transformation, as
-      postcomposing with the projection down to $1_+$ yields a strict functor,
+      postcomposing with collapsing down to $1_+$ yields a strict functor,
       as every morphism in $1_+$ is invertible.
     \end{defn}
     %
@@ -1797,11 +1801,11 @@
         of bimodules
         \begin{displaymath}
           \xymatrix{
-            (\tilde{\cJ} \colon \{S\} \to \CAT_*, Z \circ (p_2)_S \circ r_S %
+            (\tilde{\cJ} \colon \{S\} \to \CAT_*, Z \circ p_2 \circ r_S %
               \colon \tilde{\cJ}^e \Rightarrow \sS_*) %
             \ar[d]^{(\epsilon,\eta)} \\
             (\cJ \colon \{S\} \to \CAT_*, %
-              Z \circ (p_2)_S \colon \cJ^e \Rightarrow \sS_*)
+              Z \circ p_2 \colon \cJ^e \Rightarrow \sS_*)
           }
         \end{displaymath}
         given by $\epsilon = e_S$ and $\eta$ the appropriate identity.\\
@@ -1845,7 +1849,19 @@
         \ref{rem_streets_construction_e_is_cofinal}), the lower horizontal arrow
         is an equivalence as well, which proves the claim for the case of $G$
         acting trivially on $S$.\\
-        Now we let the $G$ action be arbitrary. 
+        Now we let the $G$ action be arbitrary. We claim that the following
+        equality holds:
+        \begin{displaymath}
+          \left[ \hocolim_{\tilde{\cJ}(S)} Z \circ e_S \circ p_2 \right]^G = %
+          \hocolim_{\tilde{\cJ}(S)^G} \left[ Z \circ e_S \circ p_2 \right]
+        \end{displaymath}
+        where in the right hand term we take $G$-fixed points of each summand
+        of the wedge that constitutes our homotopy colimit in a given simplicial
+        degree. To convince oneself of the validity of the claim it suffices to
+        recall the functoriality of the above construction in $S$.\\
+        Consider further that by construction, $\tilde{\cJ}(S)^G$ is a full
+        subcategory of $\tilde{\cJ}(S)$, and is isomorphic to $\tilde{\cJ}(S/G)$
+        (cf. Def.~\ref{def_group_acting_on_object_in_V_morphism_phi}).
       \end{proof}
     \end{lem}
     %
