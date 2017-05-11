@@ -26,7 +26,7 @@
       action on $Y$ through automorphisms in $V$ by mapping $g \mapsto [Y
       \myleftarrow{\id_Y} Y \myrightarrow{g} Y]$, which can easily be seen to be
       a left action. Thus $G$ also acts (from the left) on $V(X,Y)$ for any
-      finite set $X$, by functoriality. We define a function
+      finite set $X$, by functoriality of postcomposition. We define a function
       \begin{gather*}
         \phi: V(X,Y/G) \to V(X,Y)^G \\
         [X \ot A \to Y/G] \mapsto [X \ot A \x_{Y/G} Y \to Y].
@@ -1797,7 +1797,8 @@
         To obtain the above map, consider the full subcategory $\{S\}$ of $\Fin$
         and the restictions of $\tilde{\cJ}$, $\cJ$, and the constant functor
         $\sS_*$ along the inclusion $\{S\} \to \Fin$ (omitting the inclusions
-        $\Fin \to V$ and $\Cat_* \to \CAT_*$ from notation). This gives rise to a map
+        $\Fin \to V$ and $\Cat_* \to \CAT_*$ from notation). This gives rise to
+        a map
         of bimodules
         \begin{displaymath}
           \xymatrix{
@@ -1853,15 +1854,45 @@
         equality holds:
         \begin{displaymath}
           \left[ \hocolim_{\tilde{\cJ}(S)} Z \circ e_S \circ p_2 \right]^G = %
-          \hocolim_{\tilde{\cJ}(S)^G} \left[ Z \circ e_S \circ p_2 \right]
+          \hocolim_{\tilde{\cJ}(S)^G} \left[ Z \circ e_S \circ p_2 \right]^G
         \end{displaymath}
         where in the right hand term we take $G$-fixed points of each summand
         of the wedge that constitutes our homotopy colimit in a given simplicial
         degree. To convince oneself of the validity of the claim it suffices to
         recall the functoriality of the above construction in $S$.\\
         Consider further that by construction, $\tilde{\cJ}(S)^G$ is a full
-        subcategory of $\tilde{\cJ}(S)$, and is isomorphic to $\tilde{\cJ}(S/G)$
-        (cf. Def.~\ref{def_group_acting_on_object_in_V_morphism_phi}).
+        subcategory of $\tilde{\cJ}(S)$ (functoriality of $S$ is trivial in
+        morphisms in $\tilde{\cJ}(S)$) and is isomorphic to $\tilde{\cJ}(S/G)$
+        (cf.  Def.~\ref{def_group_acting_on_object_in_V_morphism_phi}) - indeed,
+        we have
+        \begin{displaymath}
+          \ob \tilde{\cJ}(S) = \bigvee_{T \in \ob V} \hom_V (T,S)_+ 
+            \wedge \ob \cJ(T)
+        \end{displaymath}
+        so $G$ just acts on the set of morphisms, and we can use the isomorphism
+        provided in the definition mentioned above. This gives us the following
+        commutative diagram:
+        % TODO explain where morphism comes from
+        % TODO this will also show how the above is a bimodule...
+        % TODO how is the lower horizontal morphism induced?
+        % TODO the symbols on the arrows might / should be \cong!
+        % TODO why are we now in the situation from before?
+        \begin{displaymath}
+          \xymatrix@C+2em{
+            \left[ \hocolim\limits_{\tilde{\cJ}(S)} Z \circ e_S \circ p_2
+              \right]^G
+              \ar[r]^-{(e_S, \id)}
+              \ar[d]_-{\simeq}
+            &
+            \left[\hocolim\limits_{\cJ(S)} Z \circ p_2 \right]^G
+              \ar[d]^-{\simeq}
+            \\
+            \hocolim\limits_{\tilde{\cJ}(S/G)} [Z \circ e_S \circ p_2]^G
+              \ar[r]
+            &
+            \hocolim\limits_{\cJ(S/G)} [Z \circ p_2 ]^G
+          }
+        \end{displaymath}
       \end{proof}
     \end{lem}
     %
