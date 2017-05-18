@@ -3,1924 +3,1939 @@
 % TODO remove all xy environments, as they seem unnecessary
 
 \section{Iterated THH - Loday Functor}
-  We proceed to introduce topological Hochschild homology based on a space $X$
-  and the structure it carries for $X = T^n$ the $n$-dimensional torus,
-  following \cite{brun2010covering} as well as \cite{carlsson2011higher}. For
-  details on bicategories, confer \cite{benabou1967introduction}.\\
-  \comm{[Should have two subsections here: spans + bicategories?]}
+We proceed to introduce topological Hochschild homology based on a space $X$
+and the structure it carries for $X = T^n$ the $n$-dimensional torus,
+following \cite{brun2010covering} as well as \cite{carlsson2011higher}. For
+details on bicategories, confer \cite{benabou1967introduction}.\\
+\comm{[Should have two subsections here: spans + bicategories?]}
 
-  \subsection{Spans of finite sets}
-    \begin{defn}\label{def_cateogry_of_spans}
-      The category of spans $V$ has as objects the class of finite sets, while the morphism set $V(X,Y)$ for two finite sets $X,Y$ is given by the set of equivalence classes of diagrams called spans of the form $X \ot A \to Y$. Two such diagrams $X \ot A \to Y$, $X \ot A^\prime \to Y$ are said to be equivalent if there is a bijection $A \to A^\prime$ making the resulting triangles commute. The identity on $X$ is given by $[ X = X = X]$. To compose two maps represented by $[X \ot A \to Y]$ and $[Y \ot B \to Z]$, we take a pullback $A \ot C \to B$ of $A \to Y \ot B$ and compose with the maps $X \to A$, $B \to Z$ to obtain $[X \ot C \to W]$. Since we take equivalence classes of spans, this is well-defined, and it is straight-forward to check that this forms a category using the universal property of pull-backs.
-    \end{defn}
+\subsection{Spans of finite sets}
+  \begin{defn}\label{def_cateogry_of_spans}
+    The category of spans $V$ has as objects the class of finite sets, while the morphism set $V(X,Y)$ for two finite sets $X,Y$ is given by the set of equivalence classes of diagrams called spans of the form $X \ot A \to Y$. Two such diagrams $X \ot A \to Y$, $X \ot A^\prime \to Y$ are said to be equivalent if there is a bijection $A \to A^\prime$ making the resulting triangles commute. The identity on $X$ is given by $[ X = X = X]$. To compose two maps represented by $[X \ot A \to Y]$ and $[Y \ot B \to Z]$, we take a pullback $A \ot C \to B$ of $A \to Y \ot B$ and compose with the maps $X \to A$, $B \to Z$ to obtain $[X \ot C \to W]$. Since we take equivalence classes of spans, this is well-defined, and it is straight-forward to check that this forms a category using the universal property of pull-backs.
+  \end{defn}
 
-    \begin{lem}\label{lem_coproduct_product_in_V}
-      The product and coproduct in V are given by disjoint union.
-      % \begin{proof}
-        % Explain structure morphisms, comment on / explain universal properties
-      % \end{proof}
-    \end{lem}
+  \begin{lem}\label{lem_coproduct_product_in_V}
+    The product and coproduct in V are given by disjoint union.
+    % \begin{proof}
+      % Explain structure morphisms, comment on / explain universal properties
+    % \end{proof}
+  \end{lem}
 
-    \begin{defn}\label{def_group_acting_on_object_in_V_morphism_phi}
-      Given a finite set $Y$ with a left action of a group $G$, we define the
-      action on $Y$ through automorphisms in $V$ by mapping $g \mapsto [Y
-      \myleftarrow{\id_Y} Y \myrightarrow{g} Y]$, which can easily be seen to be
-      a left action. Thus $G$ also acts (from the left) on $V(X,Y)$ for any
-      finite set $X$, by functoriality of postcomposition. We define a function
-      \begin{gather*}
-        \phi: V(X,Y/G) \to V(X,Y)^G \\
-        [X \ot A \to Y/G] \mapsto [X \ot A \x_{Y/G} Y \to Y].
-      \end{gather*}
-      This function is bijective.
-    \end{defn}
+  \begin{defn}\label{def_group_acting_on_object_in_V_morphism_phi}
+    Given a finite set $Y$ with a left action of a group $G$, we define the
+    action on $Y$ through automorphisms in $V$ by mapping $g \mapsto [Y
+    \myleftarrow{\id_Y} Y \myrightarrow{g} Y]$, which can easily be seen to be
+    a left action. Thus $G$ also acts (from the left) on $V(X,Y)$ for any
+    finite set $X$, by functoriality of postcomposition. We define a function
+    \begin{gather*}
+      \phi: V(X,Y/G) \to V(X,Y)^G \\
+      [X \ot A \to Y/G] \mapsto [X \ot A \x_{Y/G} Y \to Y].
+    \end{gather*}
+    This function is bijective.
+  \end{defn}
 
-    % \begin{prop}\label{prop_phi_V(Y,X/G)_to_V(Y,X)^G_is_bijective}
-    %   The function $\phi$ defined above is bijective.
-    %   \begin{proof}
-    %
-    %   \end{proof}
-    % \end{prop}
+  % \begin{prop}\label{prop_phi_V(Y,X/G)_to_V(Y,X)^G_is_bijective}
+  %   The function $\phi$ defined above is bijective.
+  %   \begin{proof}
+  %
+  %   \end{proof}
+  % \end{prop}
 
-    \begin{defn}\label{def_bicategory}
-      A bicategory $\cC$ consists of the following data:
-      \begin{itemize}
-        \item A class of objects, or 0-cells, of $\cC$, denoted $\cC_0$;
-        \item For any two objects $c, d \in \cC_0$ a category $\cC(c,d)$ whose objects $c \myrightarrow{f} d$ are called 1-morphisms, or 1-cells of $\cC$, and whose morphisms
-        \begin{displaymath}
-          \begin{xy}
-            \xymatrix{
-              c 
-                \ar@/_1pc/[r]_{g}^{}="g" 
-                \ar@/^1pc/[r]^{f}_{}="f" 
-              &
-              d
-              \ar@{=>} "f";"g" ^{\alpha}    
-            }
-          \end{xy}
-        \end{displaymath}
-        are called 2-morphisms, or 2-cells of $\cC$.
-        \item For any three objects $c,d,e \in \cC_0$ a functor $\cC(d,e) \times \cC(c,d) \to \cC(c,e)$, called composition, and written as
-        \begin{gather*}
-          (g,f) \mapsto g \circ f \asdef gf,\\
-          (\beta,\alpha) \mapsto \beta \ast \alpha,
-        \end{gather*}
-        where $f,g$ are 1-morphisms and $\alpha,\beta$ are 2-morphisms, or in diagram form:
-        \begin{gather*}
+  \begin{defn}\label{def_bicategory}
+    A bicategory $\cC$ consists of the following data:
+    \begin{itemize}
+      \item A class of objects, or 0-cells, of $\cC$, denoted $\cC_0$;
+      \item For any two objects $c, d \in \cC_0$ a category $\cC(c,d)$ whose objects $c \myrightarrow{f} d$ are called 1-morphisms, or 1-cells of $\cC$, and whose morphisms
+      \begin{displaymath}
+        \begin{xy}
           \xymatrix{
-            c% 
-              \ar@/_1pc/[r]_{f^\prime}^{}="fprime" 
+            c 
+              \ar@/_1pc/[r]_{g}^{}="g" 
               \ar@/^1pc/[r]^{f}_{}="f" 
-                \ar@{=>} "f";"fprime" ^{\alpha}
             &
-            d% 
-              \ar@/^1pc/[r]^{g}_{}="g" 
-              \ar@/_1pc/[r]_{g^\prime}^{}="gprime"
-                \ar@{=>} "g";"gprime" ^{\beta}
-            &
-            e%
-              \ar@{|->}[r]
-            &
-            c%
-              \ar@/^1pc/[rr]^{g \circ f}_{}="gf" 
-              \ar@/_1pc/[rr]_{g^\prime \circ f^\prime}^{}="gfprime"
-                \ar@{=>} "gf";"gfprime" ^{\beta \ast \alpha}
-            &&
-            e% 
+            d
+            \ar@{=>} "f";"g" ^{\alpha}    
           }
-        \end{gather*}
-        \item For each object $c \in \cC_0$ a 1-morphism $1_c \in \cC(c,c)$, taking the role of the identity on $c$;
-        \item For each triple $a\myrightarrow{f}b\myrightarrow{g}c\myrightarrow{h}d$ of 1-morphisms an isomorphism in the category $\cC(a,d)$%
+        \end{xy}
+      \end{displaymath}
+      are called 2-morphisms, or 2-cells of $\cC$.
+      \item For any three objects $c,d,e \in \cC_0$ a functor $\cC(d,e) \times \cC(c,d) \to \cC(c,e)$, called composition, and written as
+      \begin{gather*}
+        (g,f) \mapsto g \circ f \asdef gf,\\
+        (\beta,\alpha) \mapsto \beta \ast \alpha,
+      \end{gather*}
+      where $f,g$ are 1-morphisms and $\alpha,\beta$ are 2-morphisms, or in diagram form:
+      \begin{gather*}
+        \xymatrix{
+          c% 
+            \ar@/_1pc/[r]_{f^\prime}^{}="fprime" 
+            \ar@/^1pc/[r]^{f}_{}="f" 
+              \ar@{=>} "f";"fprime" ^{\alpha}
+          &
+          d% 
+            \ar@/^1pc/[r]^{g}_{}="g" 
+            \ar@/_1pc/[r]_{g^\prime}^{}="gprime"
+              \ar@{=>} "g";"gprime" ^{\beta}
+          &
+          e%
+            \ar@{|->}[r]
+          &
+          c%
+            \ar@/^1pc/[rr]^{g \circ f}_{}="gf" 
+            \ar@/_1pc/[rr]_{g^\prime \circ f^\prime}^{}="gfprime"
+              \ar@{=>} "gf";"gfprime" ^{\beta \ast \alpha}
+          &&
+          e% 
+        }
+      \end{gather*}
+      \item For each object $c \in \cC_0$ a 1-morphism $1_c \in \cC(c,c)$, taking the role of the identity on $c$;
+      \item For each triple $a\myrightarrow{f}b\myrightarrow{g}c\myrightarrow{h}d$ of 1-morphisms an isomorphism in the category $\cC(a,d)$%
+      \begin{displaymath}
+        \begin{xy}
+          \xymatrix{
+            a \ar@/_1.5pc/[rr]_{h \circ (g \circ f)}^{}="g" 
+              \ar@/^1.5pc/[rr]^{(h \circ g) \circ f}_{}="f" 
+            && 
+            d
+              \ar@{=>} "f";"g" ^{\alpha_{h,g,f}}
+          }
+        \end{xy}
+      \end{displaymath}
+      called the associativity coherence isomorphism;
+      \item For each 1-morphism $c \myrightarrow{f} d$, two isomorphisms in $\cC(c,d)$
+      \begin{displaymath}
+         \begin{xy}
+          \xymatrix{
+            c \ar@/_1.5pc/[rr]_{f}^{}="f1"
+              \ar@/^1.5pc/[rr]^{1_d \circ f}_{}="1_d \circ f" 
+            && 
+            d
+              \ar@{=>} "1_d \circ f";"f1" ^{\lambda_f}
+            &&
+            c \ar@/_1.5pc/[rr]_{f}^{}="f2"
+              \ar@/^1.5pc/[rr]^{f \circ 1_c}_{}="f \circ 1_c" 
+            && 
+            d
+              \ar@{=>} "f \circ 1_c";"f2" ^{\rho_f}
+          }
+        \end{xy}
+      \end{displaymath}
+      the unit coherence isomorphisms, indicating left and right cancellation of the unit 1-arrows.
+    \end{itemize}
+    This data is subject to the following relations: 
+    \begin{itemize}
+      \item The coherence isomorphisms $\alpha_{f,g,h}$, $\lambda_f$ and
+        $\rho_f$ are natural in $f,\,g,\,h$, and $f$, respectively;
+      \item Given four composable 1-arrows
         \begin{displaymath}
-          \begin{xy}
-            \xymatrix{
-              a \ar@/_1.5pc/[rr]_{h \circ (g \circ f)}^{}="g" 
-                \ar@/^1.5pc/[rr]^{(h \circ g) \circ f}_{}="f" 
-              && 
-              d
-                \ar@{=>} "f";"g" ^{\alpha_{h,g,f}}
-            }
-          \end{xy}
+          \bullet\myrightarrow{f}\bullet\myrightarrow{g}\bullet
+            \myrightarrow{h}\bullet\myrightarrow{i}\bullet,
         \end{displaymath}
-        called the associativity coherence isomorphism;
-        \item For each 1-morphism $c \myrightarrow{f} d$, two isomorphisms in $\cC(c,d)$
-        \begin{displaymath}
-           \begin{xy}
-            \xymatrix{
-              c \ar@/_1.5pc/[rr]_{f}^{}="f1"
-                \ar@/^1.5pc/[rr]^{1_d \circ f}_{}="1_d \circ f" 
-              && 
-              d
-                \ar@{=>} "1_d \circ f";"f1" ^{\lambda_f}
-              &&
-              c \ar@/_1.5pc/[rr]_{f}^{}="f2"
-                \ar@/^1.5pc/[rr]^{f \circ 1_c}_{}="f \circ 1_c" 
-              && 
-              d
-                \ar@{=>} "f \circ 1_c";"f2" ^{\rho_f}
+        we have the following commutative diagram 
+      % TODO port the \scriptsize to other places in relations where you used \txt
+      \begin{displaymath}
+        \begin{xy}
+          \xymatrix@C=0.1cm{
+            %
+            &
+            (i \circ h) \circ (g \circ f)
+              \ar@{=>}[dr]^-*!/ur 3pt/\txt<50pt\scriptsize>{$\alpha_{i,h,g \circ f}$}
+            &
+            %
+            \\
+            ((i \circ h) \circ g) \circ f
+              \ar@{=>}[ur]^-*!/ul 3pt/\txt<50pt\scriptsize>{$\alpha_{i \circ h,g,f}$}
+              \ar@{=>}[d]_-*!/dl 3pt/\txt<50pt\scriptsize>{$\alpha_{i,h,g} \ast \id_f$}
+            &
+            %
+            &
+            i \circ (h \circ (g \circ f))
+            \\
+            (i \circ (h \circ g)) \circ f
+              \ar@{=>}[rr]_-*!/d 3pt/\txt<50pt\scriptsize>{$\alpha_{i,h \circ g, f}$}%
+            &
+            %
+            &
+            i \circ ((h \circ g) \circ f)
+              \ar@{=>}[u]_*!/dr 3pt/\txt<50pt\scriptsize>{$\id_i \ast \alpha_{h,g,f}$}
             }
-          \end{xy}
-        \end{displaymath}
-        the unit coherence isomorphisms, indicating left and right cancellation of the unit 1-arrows.
-      \end{itemize}
-      This data is subject to the following relations: 
-      \begin{itemize}
-        \item The coherence isomorphisms $\alpha_{f,g,h}$, $\lambda_f$ and
-          $\rho_f$ are natural in $f,\,g,\,h$, and $f$, respectively;
-        \item Given four composable 1-arrows
+        \end{xy}
+      \end{displaymath}
+      where the 2-arrow $\id_f$ is the identity morphism on the object $f$ in its morphism category.
+    \item Given two composable 1-arrows $\bullet\myrightarrow{f}\bullet\myrightarrow{g}\bullet$, we have the following commutative diagram (called triangle axiom)
           \begin{displaymath}
-            \bullet\myrightarrow{f}\bullet\myrightarrow{g}\bullet
-              \myrightarrow{h}\bullet\myrightarrow{i}\bullet,
-          \end{displaymath}
-          we have the following commutative diagram 
-        % TODO port the \scriptsize to other places in relations where you used \txt
-        \begin{displaymath}
-          \begin{xy}
-            \xymatrix@C=0.1cm{
-              %
-              &
-              (i \circ h) \circ (g \circ f)
-                \ar@{=>}[dr]^-*!/ur 3pt/\txt<50pt\scriptsize>{$\alpha_{i,h,g \circ f}$}
-              &
-              %
-              \\
-              ((i \circ h) \circ g) \circ f
-                \ar@{=>}[ur]^-*!/ul 3pt/\txt<50pt\scriptsize>{$\alpha_{i \circ h,g,f}$}
-                \ar@{=>}[d]_-*!/dl 3pt/\txt<50pt\scriptsize>{$\alpha_{i,h,g} \ast \id_f$}
-              &
-              %
-              &
-              i \circ (h \circ (g \circ f))
-              \\
-              (i \circ (h \circ g)) \circ f
-                \ar@{=>}[rr]_-*!/d 3pt/\txt<50pt\scriptsize>{$\alpha_{i,h \circ g, f}$}%
-              &
-              %
-              &
-              i \circ ((h \circ g) \circ f)
-                \ar@{=>}[u]_*!/dr 3pt/\txt<50pt\scriptsize>{$\id_i \ast \alpha_{h,g,f}$}
-              }
-          \end{xy}
-        \end{displaymath}
-        where the 2-arrow $\id_f$ is the identity morphism on the object $f$ in its morphism category.
-      \item Given two composable 1-arrows $\bullet\myrightarrow{f}\bullet\myrightarrow{g}\bullet$, we have the following commutative diagram (called triangle axiom)
-            \begin{displaymath}
-          \begin{xy}
-            \xymatrix@C=0.2em{
-              (g \circ 1_d) \circ f
-                \ar@{=>}[rr]^-*!/u 2pt/\txt<50pt\scriptsize>{$\alpha_{g,1_d,f}$}%
-                % \ar@{=>}[rr]^{\alpha_{g,1_d,f}}%
-                \ar@{=>}[dr]_{\rho_g \ast \id_f}
-              &
-              %
-              &
-              g \circ (1_d \circ f)
-                % \ar@{=>}[dl]^*!/dr 3pt/\txt<50pt\scriptsize>{$\id_g \ast \lambda_f$}
-                \ar@{=>}[dl]^{\id_g \ast \lambda_f}
-              \\
-              %
-              &
-              g \circ f
-              &
-              %
-              }
-          \end{xy}
-        \end{displaymath}
-      \end{itemize}
-      A bicateory is called \emph{strict} if all coherence isomorphisms $\alpha, \lambda, \rho$ are identities.
-    \end{defn}
+        \begin{xy}
+          \xymatrix@C=0.2em{
+            (g \circ 1_d) \circ f
+              \ar@{=>}[rr]^-*!/u 2pt/\txt<50pt\scriptsize>{$\alpha_{g,1_d,f}$}%
+              % \ar@{=>}[rr]^{\alpha_{g,1_d,f}}%
+              \ar@{=>}[dr]_{\rho_g \ast \id_f}
+            &
+            %
+            &
+            g \circ (1_d \circ f)
+              % \ar@{=>}[dl]^*!/dr 3pt/\txt<50pt\scriptsize>{$\id_g \ast \lambda_f$}
+              \ar@{=>}[dl]^{\id_g \ast \lambda_f}
+            \\
+            %
+            &
+            g \circ f
+            &
+            %
+            }
+        \end{xy}
+      \end{displaymath}
+    \end{itemize}
+    A bicateory is called \emph{strict} if all coherence isomorphisms $\alpha, \lambda, \rho$ are identities.
+  \end{defn}
 
-    \begin{rem}
-      The composition of 2-arrows induced by the composition functor is denoted by an asteriks as 2-arrows enjoy an internal composition stemming from the fact that they are morphisms in a category, namely $\cC(c,d)$ for two objects $c,\,d$ of a bicategory $\cC$. Drawing out the diagrams involved in the definition of functoriality for the composition functor,
-      \begin{gather*}
-          \xymatrix{
-            c% 
-              \ar@/^2pc/[rr]^{f}_{}="f" 
-              \ar[rr]^{}="f_prime_upper"^(.65){f^\prime}_{}="f_prime_lower"
-              \ar@/_2pc/[rr]_{f^\dprime}^{}="f_dprime" 
-                \ar@{=>} "f";"f_prime_upper" _{\alpha}
-                \ar@{=>} "f_prime_lower";"f_dprime" ^{\alpha^\prime}
-            &
-            %
-            &
-            d% 
-              \ar@/^2pc/[rr]^{g}_{}="g"
-              \ar[rr]^{}="g_prime_upper"^(.65){g^\prime}_{}="g_prime_lower"
-              \ar@/_2pc/[rr]_{g^\dprime}^{}="g_dprime"
-                \ar@{=>} "g";"g_prime_upper" _{\beta}
-                \ar@{=>} "g_prime_lower";"g_dprime" ^{\beta^\prime}
-            &
-            %
-            &
-            e%
-              \ar@{|->}[r]
-            &
-            c%
-              \ar@/^2pc/[rr]^{g \circ f}_{}="gf"
-              \ar[rr]^{}="gf_prime_upper"^(.7){g^\prime \circ f^\prime}_{}="gf_prime_lower"
-              \ar@/_2pc/[rr]_{g^\dprime \circ f^\dprime}^{}="gf_dprime"
-                \ar@{=>} "gf";"gf_prime_upper" _{\beta \ast \alpha}
-                \ar@{=>} "gf_prime_lower";"gf_dprime" ^(.4){\beta^\prime \ast \alpha^\prime}
-            &&
-            e,% 
-          }
-        \end{gather*}
-      we see that functoriality of the composition functor implies commutativity of the following diagram
-      \begin{gather*}
+  \begin{rem}
+    The composition of 2-arrows induced by the composition functor is denoted by an asteriks as 2-arrows enjoy an internal composition stemming from the fact that they are morphisms in a category, namely $\cC(c,d)$ for two objects $c,\,d$ of a bicategory $\cC$. Drawing out the diagrams involved in the definition of functoriality for the composition functor,
+    \begin{gather*}
         \xymatrix{
-          g \circ f
-            \ar[r]^{\beta \ast \alpha}
-            \ar[dr]_(.4){(\beta^\prime \circ \beta) \ast (\alpha^\prime \circ \alpha)}
+          c% 
+            \ar@/^2pc/[rr]^{f}_{}="f" 
+            \ar[rr]^{}="f_prime_upper"^(.65){f^\prime}_{}="f_prime_lower"
+            \ar@/_2pc/[rr]_{f^\dprime}^{}="f_dprime" 
+              \ar@{=>} "f";"f_prime_upper" _{\alpha}
+              \ar@{=>} "f_prime_lower";"f_dprime" ^{\alpha^\prime}
           &
-          g^\prime \circ f^\prime
-            \ar[d]^{\beta^\prime \ast \alpha^\prime}
-          \\
           %
           &
-          g^\dprime \circ f^\dprime,
+          d% 
+            \ar@/^2pc/[rr]^{g}_{}="g"
+            \ar[rr]^{}="g_prime_upper"^(.65){g^\prime}_{}="g_prime_lower"
+            \ar@/_2pc/[rr]_{g^\dprime}^{}="g_dprime"
+              \ar@{=>} "g";"g_prime_upper" _{\beta}
+              \ar@{=>} "g_prime_lower";"g_dprime" ^{\beta^\prime}
+          &
+          %
+          &
+          e%
+            \ar@{|->}[r]
+          &
+          c%
+            \ar@/^2pc/[rr]^{g \circ f}_{}="gf"
+            \ar[rr]^{}="gf_prime_upper"^(.7){g^\prime \circ f^\prime}_{}="gf_prime_lower"
+            \ar@/_2pc/[rr]_{g^\dprime \circ f^\dprime}^{}="gf_dprime"
+              \ar@{=>} "gf";"gf_prime_upper" _{\beta \ast \alpha}
+              \ar@{=>} "gf_prime_lower";"gf_dprime" ^(.4){\beta^\prime \ast \alpha^\prime}
+          &&
+          e,% 
         }
       \end{gather*}
-      or in formulas
-      \begin{displaymath}
-        (\beta^\prime \ast \alpha^\prime) \circ (\beta \ast \alpha) = (\beta^\prime \circ \beta) \ast (\alpha^\prime \circ \alpha)
-      \end{displaymath}
-
-      demanding compatibility of the internal composition with the external composition of 2-morphisms.
-    \end{rem}
-
-    \begin{ex}\label{ex_bicategory_of_categories}
-      The strict bicategory $\Cat$ of small categories has as objects all small categories, while the morphism category $\Cat(\cC,\cD)$ is the category of functors and natural transformations between the two categories.
-      Is it a full subbicategory of $\CAT$, the bicategory of all categories, functors and natural transformations.
-      % TODO what does naturality mean for coherence morphisms? Describe!
-      % TODO add explicit description of composition functor? two choices, both equal because of naturality; proof of functoriality? have notes, see pic on phone (A3)
-    \end{ex}
-
-    % TODO add more examples?
-
-    \begin{defn}\label{def_bicategory_functor}
-      Given two bicategieres $\cC$, $\cD$ a \emph{lax functor}, or \emph{lax 2-functor}, $F = (F, \phi): \mathcal{C} \to \mathcal{D}$ consists of
-      \begin{itemize}
-        \item a map $F_0: \cC_0 \to \cD_0$ (denoted $F$);
-        \item for each $a,b \in \cC_0$ a functor $F_{a,b}: \cC(a,b) \to \cD(F(a), F(b))$ (also denoted $F$),
-        \item for each pair of composable 1-morphisms $(f,g)$ a 2-morphism $\phi_{g,f}:F(g)\circ F(f)\to F(g\circ f)$,
-        \item for each $a \in \cC_0$, a 2-morphism $\phi_a: 1_{F(a)} \to F(1_a)$,
-      \end{itemize}
-      such that $\phi_{g,f}$ and $\phi_a$ are natural in $g,f$ and $a$, respectively, and the following diagrams commute for all composable morphisms $a \myrightarrow{f} b \myrightarrow{g} c \myrightarrow {h} d$:
-      \begin{gather*}
-        \xymatrix@C+1.5em@R+1em{
-          (F(h) \circ F(g)) \circ F(f)
-            \ar[r]^-{\phi_{h,g} \ast \id_{F(f)}}
-            \ar[d]_{\alpha_{F(h),F(g),F(f)}}
-          &
-          F(h \circ g) \circ F(f)
-            \ar[r]^{\phi_{h \circ g, f}}
-          &
-          F((h \circ g) \circ f)
-            \ar[d]^{F(\alpha_{h,g,f})}
-          \\
-          F(h) \circ (F(g) \circ F(f))
-            \ar[r]_-{\id_{F(h)} \ast \phi_{g,f}}
-          &
-          F(h) \circ F(g \circ f)
-            \ar[r]_{\phi_{h, g \circ f}}
-          &
-          F(h \circ (g \circ f)),
-        }
-      \end{gather*}
-      \begin{gather*}
-        \xymatrix@C+1.5em@R+1em{
-          F(f) \circ 1_{F(a)}
-            \ar[r]^-{\id_{F(f)} \ast \phi_a}
-            \ar[d]_{\rho_{F(f)}}
-          &
-          F(f) \circ F(1_a)
-            \ar[r]^-{\phi_{f,1_a}}
-          &
-          F(f \circ 1_a)
-            \ar[d]^{F(\rho_f)}
-          \\
-          F(f)
-            \ar@{=}[rr]
-          &
-          %
-          &
-          F(f),
-        }
-      \end{gather*}
-      \begin{gather*}
-        \xymatrix@C+1.5em@R+1em{
-          1_{F(b)} \circ F(f)
-            \ar[r]^-{\phi_b \ast \id_{F(f)}}
-            \ar[d]_{\lambda_{F(f)}}
-          &
-          F(1_b) \circ F(f)
-            \ar[r]^-{\phi_{1_b,f}}
-          &
-          F(1_b \circ f)
-            \ar[d]^{F(\lambda_f)}
-          \\
-          F(f)
-            \ar@{=}[rr]
-          &
-          %
-          &
-          F(f).
-         }
-      \end{gather*}
-      A lax functor is called \emph{weak} or \emph{strict} if the structure maps $\phi_{g,f}$ and $\phi_a$ are isomorphisms or identity morphisms, respectively, for all composable $g,f$ and all $a \in \cC_0$. 
-      Note that there is a dual notion of colax functor, which is not used in this work - we will hence drop the word lax from notation. 
-      It is a lengthy but rather straight forward exercise to verify that the composition of two composable 2-functors is again a 2-functor. 
-      We may denote the structure morphisms by the functor, as in $F_{g,f} \defas \phi_{g,f}$ and $F_a \defas \phi_a$, whenever we need the symbol $\phi$ elsewhere.
-    \end{defn}
-    % TODO make last statement into a Lemma, specifying the structure morphisms of the composition
-    % TODO add examples for functors
-
-    \begin{defn}\label{def_modification}
-    Let $F,G: \cB \to \cC$ be lax functors between two bicategories, and let $\alpha,\beta: F \Rightarrow G$ be two (left? right? doesn't matter?) lax transformations. A modification $\eta: \alpha \to \beta$ ...
-    % TODO complete definition
-    \end{defn}
-
-    \begin{defn}\label{def_bicategory_of_spans}
-      The bicategory of spans of finite sets, denoted $W$, has as objects the class of finite sets. Given two finite sets $X,Y$, we define the morphism category $W(X,Y)$ to have as objects spans $f = (Y \myleftarrow{f_1} A \myrightarrow{f_2} X)$, while a morphism between two spans $\alpha: f \to g$ with $g = (Y \myleftarrow{g_1} B \myrightarrow{g_2} X)$ is given by a map $\alpha: A \to B$ making the triangles in the following diagram commute:
-      \begin{displaymath}
-        \xymatrix@R-1em@C+1em{
-          %
-          &
-          A
-            \ar[dl]_{f_1}
-            \ar[dd]_{\alpha}
-            \ar[dr]^{f_2}
-          &
-          %
-          \\
-          X
-          &
-          %
-          &
-          Y
-          \\
-          %
-          &
-          B
-            \ar[ul]^{g_1}
-            \ar[ur]_{g_2}
-          &
-          %
-        }
-      \end{displaymath}
-      and composition of these is the usual composition of maps, forming a category. The composition functor $W(X,Y) \times W(Y,Z) \to W(X,Z)$ may be described as follows: We begin with a diagram representing spans $(f,g), (f^\prime, g^\prime) \in W(X,Y) \times W(Y,Z)$ and morphisms of spans $\alpha: f \to f^\prime$, $\beta: g \to g^\prime$:
-      \begin{gather}\label{diag_composition_functor_in_W}
-        \xymatrix@C+1em@R-1em{
-          %
-          &
-          A
-            \ar[dl]_{f_1}
-            \ar[dr]^{f_2}
-            \ar[dd]_{\alpha}
-          &
-          %
-          &
-          B
-            \ar[dl]_{g_1}
-            \ar[dr]^{g_2}
-            \ar[dd]_{\beta}
-          &
-          %
-          \\
-          X & & Y & & Z
-          \\
-          %
-          &
-          A^\prime
-            \ar[ul]^{f_1^\prime}
-            \ar[ur]_{f_2^\prime}
-          &
-          %
-          &
-          B^\prime
-            \ar[ul]^{g_1^\prime}
-            \ar[ur]_{g_2^\prime}
-          &
-          %
-        }
-      \end{gather}
-      In this situation, we take the (functorial!) pullback of $A \myrightarrow{f_2} Y \myleftarrow{g_1} B$ given by $A \ot A \times_Y B \to B$ with %
-      $A \times_Y B = \{(a,b) \in A \times B \with f_2(a) = g_1(b) \in Y \}$ and the two maps induced by the respective projections. Composing with $f_1$ and $g_2$ we obtain a new span $X \ot A \times_Y B \to Z)$, and applying the same construction to the lower part of diagram \ref{diag_composition_functor_in_W} one may observe that the maps $\alpha$ and $\beta$ induce a map $\alpha \times_Y \beta: A \times_Y \beta \to A^\prime \times_Y B^\prime$ which we take as the definition of $\beta \ast \alpha$. The functorial choice of pullback assures that this in fact defines a functor.\\
-      The identity 1-morphism associated to a finite set $X$ is the span %
-      \begin{displaymath}
-        1_X = (\xymatrix{ X & X \ar@{=}[l] \ar@{=}[r] & X});
-      \end{displaymath}
-      The associativity coherence isomorphism is the natural isomorphism describing associativity of the pullback, while the identity coherence isomorphisms $\lambda_f: 1_Y \circ f \Longrightarrow f$ and $\rho_f: f \circ 1_X \Longrightarrow f$ for a span $f=(X\ot~A\to~Y)$ are given by the isomorphisms $A \times_Y Y \to A$ and $X \times_X A \to A$ respectively, both induced by the projection onto $A$, hence natural. Commutativity of the pentagon and triangle diagrams in this context is self-evident.
-    \end{defn}
-
-    \begin{defn}\label{def_subcategories_of_epimorphisms_and_isomorphisms}
-      We define two sub-bicategories $iW \subset eW \subset W$ which differ from $W$ only in the 2-morphisms: while $eW$ only permits those 2-morphisms in $W$ that are epimorphisms, $iW$ only permits isomorphisms.
-    \end{defn}
-
-
-    % TODO can we formulate the two following remarks as a statement of adjoint functors? Is the discrete functor from categories to strict bicategories a left-adjoint? is the right-adjoint the forgetful functor, if the latter is well-defined? are we talking functors of categories, or 2-categories? this should be written somewhere... let the functor take values in strict, locally small (i.e. morphism categories are small) categories, then we have a forgetful functor, at least on objects. haven't checked morphisms (or 2-morphisms)! adjoint? don't know...
-    \begin{rem}\label{rem_discrete_bicategory}
-      Given a category $\cC$ we may define a bicategory $\cC^\prime$ by taking the 0-cells to be the objects of $\cC^\prime$, i.e. $\cC^\prime_0 \defas \ob \cC$, and by letting the discrete category formed by the morphisms $\cC(c,d)$ between two objects $c,d \in \ob \cC$ be the morphism category $\cC^\prime(c,d)$. We let composition and identity 1-arrows be composition and identity morphisms in $\cC$, and choose structure morphisms (necessarily) to be identities. This definition then satisfies the axioms of a strict bicategory, and will be referred to as discrete bicategory on $\cC$.
-    \end{rem}
-
-    \begin{rem}\label{rem_discrete_bicategories_functors}
-      Let $F: \cC \to \cD$ be a functor between two categories. We define a lax functor between the discrete bicategories on $\cC$ and $\cD$, $F^\prime: \cC^\prime \to \cD^\prime$, by using the given assignments for objects and 1-morphisms, noting that assignment of 2-morphisms is forced by the axioms of a functor since the only 2-morphisms are identities, and choosing the structure morphisms as identities. We thus obtain a strict functor of bicategories.
-    \end{rem}
-
-    \begin{defn}\label{def_lax_functor_V_to_eW}
-      We may consider $V$, the category of spans of finite sets, as a bicategory by making the set of morphisms $V(X,Y)$ between two finite sets into a category with only identity morphisms, also called a discrete category (cf.~\ref{rem_discrete_bicategory}). With this we may define a lax functor $L: V \to W$ as follows: We map finite sets to themselves, and map a class of spans $f = [X \myleftarrow{f_1} A \myrightarrow{f_2} Y]$ with indicated representative to the span $ L(f) = (X \ot LA \to{Y})$, where 
-      \begin{displaymath}
-        LA \defas \{ (x,y) \in X \times Y \with \exists a \in A : f_1(a) = x,\; f_2(a) = y \} = \im (f_1,f_2)
-      \end{displaymath}
-      and the two maps are induced by the respective projections. One may immediately verify that this definition does not depend on the representative. As $V$ only has identity 2-morphisms, these are necessarily sent to the respective identities in $W$. Given another 1-arrow in $V$, $g = [y \myleftarrow{g_1} B \myrightarrow{g_2} Z]$, we observe that the structure map $L(g) \circ L(f) \to L(g \circ f)$ is given by projecting away from $Y$ in $LA \times_Y LB \to L(A \times_Y B)$, $((x,y),(y,z)) \mapsto (x,z)$ and is at most an epimorphism, i.e. there are examples where this map fails to be injective. The structure morphism for identity morphisms is given by the diagonal $X \to LX = \im (\id_X, \id_X)$, hence we indeed map to $eW$, the subcategory of epimorphic 2-morphisms of $W$. The diagram relating associativity and functoriality structure morphisms commutes, as only projections and rearraging of parantheses are involved. For the unit structure morphisms the reader may convince herself that the map $L(f \circ 1_X) \to L(f)$ is the identity, or rather that the sets $L(X \times_X A)$ and $LA$ are equal, which implies the commutativity of the respective diagram, and a similar argument holds for the dual situation. 
-    \end{defn}
-
-    \begin{defn}\label{def_functors_finite_sets_to_iW}
-      There are two functors $\Fin \to V$, $\Fin^\op \to V$, given by sending $f:X \to Y$ to $ f_* = [ X = X \myrightarrow{f} Y]$ and $ f^* = [ Y \myleftarrow{f} X = X ]$, respectively. It is straightforward to check that these are functorial. As described in Rem.~\ref{rem_discrete_bicategories_functors}, we may interpret these as functors of bicategories. Composing each with $L: V \to W$ we note that we obtain weak functors, or equivalently that the compositions have image in $iW$.
-    \end{defn}
-
-    % TODO work on this remark
-    We are now going to define an abstraction of the Loday functor as it is known on finite sets. It helps to remember the combinatorics of the basic example, as apart from bookkeeping, not much more is going on here. To this end, recall that the Loday functor based on a commutative ring $A$
+    we see that functoriality of the composition functor implies commutativity of the following diagram
+    \begin{gather*}
+      \xymatrix{
+        g \circ f
+          \ar[r]^{\beta \ast \alpha}
+          \ar[dr]_(.4){(\beta^\prime \circ \beta) \ast (\alpha^\prime \circ \alpha)}
+        &
+        g^\prime \circ f^\prime
+          \ar[d]^{\beta^\prime \ast \alpha^\prime}
+        \\
+        %
+        &
+        g^\dprime \circ f^\dprime,
+      }
+    \end{gather*}
+    or in formulas
     \begin{displaymath}
-      \Lambda A: \Fin \to \Ab
+      (\beta^\prime \ast \alpha^\prime) \circ (\beta \ast \alpha) = (\beta^\prime \circ \beta) \ast (\alpha^\prime \circ \alpha)
     \end{displaymath}
-    is given by assigning to a map of finite sets $f: X \to Y$ the map of abelian groups $A^X \to A^Y$ which sends a tuple $(a_x)_{x \in X}$ to the tuple $(b_y)_{y \in Y}$ with 
+
+    demanding compatibility of the internal composition with the external composition of 2-morphisms.
+  \end{rem}
+
+  \begin{ex}\label{ex_bicategory_of_categories}
+    The strict bicategory $\Cat$ of small categories has as objects all small categories, while the morphism category $\Cat(\cC,\cD)$ is the category of functors and natural transformations between the two categories.
+    Is it a full subbicategory of $\CAT$, the bicategory of all categories, functors and natural transformations.
+    % TODO what does naturality mean for coherence morphisms? Describe!
+    % TODO add explicit description of composition functor? two choices, both equal because of naturality; proof of functoriality? have notes, see pic on phone (A3)
+  \end{ex}
+
+  % TODO add more examples?
+
+  \begin{defn}\label{def_bicategory_functor}
+    Given two bicategieres $\cC$, $\cD$ a \emph{lax functor}, or \emph{lax 2-functor}, $F = (F, \phi): \mathcal{C} \to \mathcal{D}$ consists of
+    \begin{itemize}
+      \item a map $F_0: \cC_0 \to \cD_0$ (denoted $F$);
+      \item for each $a,b \in \cC_0$ a functor $F_{a,b}: \cC(a,b) \to \cD(F(a), F(b))$ (also denoted $F$),
+      \item for each pair of composable 1-morphisms $(f,g)$ a 2-morphism $\phi_{g,f}:F(g)\circ F(f)\to F(g\circ f)$,
+      \item for each $a \in \cC_0$, a 2-morphism $\phi_a: 1_{F(a)} \to F(1_a)$,
+    \end{itemize}
+    such that $\phi_{g,f}$ and $\phi_a$ are natural in $g,f$ and $a$, respectively, and the following diagrams commute for all composable morphisms $a \myrightarrow{f} b \myrightarrow{g} c \myrightarrow {h} d$:
+    \begin{gather*}
+      \xymatrix@C+1.5em@R+1em{
+        (F(h) \circ F(g)) \circ F(f)
+          \ar[r]^-{\phi_{h,g} \ast \id_{F(f)}}
+          \ar[d]_{\alpha_{F(h),F(g),F(f)}}
+        &
+        F(h \circ g) \circ F(f)
+          \ar[r]^{\phi_{h \circ g, f}}
+        &
+        F((h \circ g) \circ f)
+          \ar[d]^{F(\alpha_{h,g,f})}
+        \\
+        F(h) \circ (F(g) \circ F(f))
+          \ar[r]_-{\id_{F(h)} \ast \phi_{g,f}}
+        &
+        F(h) \circ F(g \circ f)
+          \ar[r]_{\phi_{h, g \circ f}}
+        &
+        F(h \circ (g \circ f)),
+      }
+    \end{gather*}
+    \begin{gather*}
+      \xymatrix@C+1.5em@R+1em{
+        F(f) \circ 1_{F(a)}
+          \ar[r]^-{\id_{F(f)} \ast \phi_a}
+          \ar[d]_{\rho_{F(f)}}
+        &
+        F(f) \circ F(1_a)
+          \ar[r]^-{\phi_{f,1_a}}
+        &
+        F(f \circ 1_a)
+          \ar[d]^{F(\rho_f)}
+        \\
+        F(f)
+          \ar@{=}[rr]
+        &
+        %
+        &
+        F(f),
+      }
+    \end{gather*}
+    \begin{gather*}
+      \xymatrix@C+1.5em@R+1em{
+        1_{F(b)} \circ F(f)
+          \ar[r]^-{\phi_b \ast \id_{F(f)}}
+          \ar[d]_{\lambda_{F(f)}}
+        &
+        F(1_b) \circ F(f)
+          \ar[r]^-{\phi_{1_b,f}}
+        &
+        F(1_b \circ f)
+          \ar[d]^{F(\lambda_f)}
+        \\
+        F(f)
+          \ar@{=}[rr]
+        &
+        %
+        &
+        F(f).
+       }
+    \end{gather*}
+    A lax functor is called \emph{weak} or \emph{strict} if the structure maps $\phi_{g,f}$ and $\phi_a$ are isomorphisms or identity morphisms, respectively, for all composable $g,f$ and all $a \in \cC_0$. 
+    Note that there is a dual notion of colax functor, which is not used in this work - we will hence drop the word lax from notation. 
+    It is a lengthy but rather straight forward exercise to verify that the composition of two composable 2-functors is again a 2-functor. 
+    We may denote the structure morphisms by the functor, as in $F_{g,f} \defas \phi_{g,f}$ and $F_a \defas \phi_a$, whenever we need the symbol $\phi$ elsewhere.
+  \end{defn}
+  % TODO make last statement into a Lemma, specifying the structure morphisms of the composition
+  % TODO add examples for functors
+
+  \begin{defn}\label{def_modification}
+  Let $F,G: \cB \to \cC$ be lax functors between two bicategories, and let $\alpha,\beta: F \Rightarrow G$ be two (left? right? doesn't matter?) lax transformations. A modification $\eta: \alpha \to \beta$ ...
+  % TODO complete definition
+  \end{defn}
+
+  \begin{defn}\label{def_bicategory_of_spans}
+    The bicategory of spans of finite sets, denoted $W$, has as objects the class of finite sets. Given two finite sets $X,Y$, we define the morphism category $W(X,Y)$ to have as objects spans $f = (Y \myleftarrow{f_1} A \myrightarrow{f_2} X)$, while a morphism between two spans $\alpha: f \to g$ with $g = (Y \myleftarrow{g_1} B \myrightarrow{g_2} X)$ is given by a map $\alpha: A \to B$ making the triangles in the following diagram commute:
     \begin{displaymath}
-      b_y \defas \prod_{x \in f^{-1}(y)} a_x,
+      \xymatrix@R-1em@C+1em{
+        %
+        &
+        A
+          \ar[dl]_{f_1}
+          \ar[dd]_{\alpha}
+          \ar[dr]^{f_2}
+        &
+        %
+        \\
+        X
+        &
+        %
+        &
+        Y
+        \\
+        %
+        &
+        B
+          \ar[ul]^{g_1}
+          \ar[ur]_{g_2}
+        &
+        %
+      }
     \end{displaymath}
-    where the above product is interpreted as the unit in $A$ whenever taken over the empty set. After this digression, we formulate
-    
-    \begin{defn}\label{def_functor_iW_to_Cat_aka_abstract_loday}
-      Let $\cB$ be a category with chosen finite coproducts, and we let $\cC \subset \cB$ be a subcategory that contains all isomorphisms in $\cB$, in particular it has all objects of $\cB$. Define a weak functor of bicategories
-      \begin{displaymath}
-        \cC: iW \to \Cat
-      \end{displaymath}
-      by sending a finite set $X$ to $\cC(X) \defas \cC^X$, the $X$-fold product of $\cC$ with itself. Given a span $f = (X \myleftarrow{f_1} A \myrightarrow{f_2} Y)$, we define a functors
-      \begin{displaymath}
-        \cC(f): \cC(X) = \cC^X \to \cC^Y = \cC(Y)
-      \end{displaymath}
-      by assigning to a $(c: X \to \ob \cC) \in \ob \cC^X$ (a tuple, written as a map) the object 
-      \begin{displaymath}
-        \cC(f)(c): Y \to \cC, y \mapsto \coprod_{a \in f_2^{-1}(y)} c(f_1(a)).
-      \end{displaymath}
-      For a map of tuples $\phi: c \to c^\prime$, the same formula may be used to define $\cC(\phi)$. Recall that $\phi \in \prod_{x \in X} \cC(c(x),c^\prime(x))$. With this, we may define the $y$-th coordinate of $\cC(f)(\phi):\cC(f)(c) \to \cC(f)(c^\prime)$ as the map
-      \begin{displaymath}
-        \coprod_{a \in f_2^{-1}(y)} c(f_1(a))%
-          \crightarrow{2.5}{\coprod_{a \in f_2^{-1}(y)} \phi(f_1(a))}%
-        \coprod_{a \in f_2^{-1}(y)} c^\prime(f_1(a)).%
-      \end{displaymath}
-      It's straightforward to check that this is indeed a functor.\\
-      %
-      For an invertible two-morphism $\alpha: f \to f^\prime = (X \myleftarrow{f_1^\prime} A^\prime \myrightarrow{f_2^\prime} Y)$ of spans, we need a natural transformation of functors $\cC(f) \Rightarrow \cC(f^\prime): \cC^X \to \cC^Y$, i.e. for every object $c \in \cC^X$ a natural morphism in $\cC^Y$, $\cC(f)(c) \to \cC(f^\prime)(c)$. For every $y \in Y$ we are seeking a morphism
-      \begin{displaymath}
-        \coprod_{a \in f_2^{-1}(y)} c(f_1(a)) \to%
-          %\crightarrow{2.5}{\coprod_{a \in f_2^{-1}(y)} \phi(f_1(a))}%
-        \coprod_{a^\prime \in (f^\prime_2)^{-1}(y)} c(f^\prime_1(a^\prime)).%
-      \end{displaymath}
-      To see that we may choose such a morphism naturally with respect to $c$, we observe that $\alpha: A \to A^\prime$ is a bijection, as $\alpha$ is an invertible 2-morphism, in particular $\alpha$ induces a bijection of sets $f_2^{-1}(y) \to (f_2^\prime)^{-1}(y)$ by $a \mapsto \alpha(a)$, and we also have $f^\prime_1(\alpha(a)) = f_1(a) \in X$, hence there is a natural (in $c$) isomorphism as we desire, induced by $\alpha$, and given as a reordering of summands in the coproduct.\\
-      Note that we could not define this functor for instance with domain $W$ or $eW$, as we only assumed $\cC$ to have all isomorphisms of $\cB$: The coproducts used here are formed in $\cC$, and may not coincide with coproducts in $\cB$. By assuring that the maps we obtain via the universal property of the coproducts (in $\cB$!) are isomorphisms, we may assume that they are already morphisms in $\cC$.\\
-      %
-      Given two composable spans $f = (X \myleftarrow{f_1} A \myrightarrow{f_2} Y)$, %
-      $g = (Y \myleftarrow{g_1} B \myrightarrow{g_2} Z)$, we specify the natural isomorphism $ \phi_{g,f}: \cC(g) \circ \cC(f) \to \cC(g \circ f)$ by considering (just plug in the definitions) that we should find a map as follows for a $c: X \to \ob \cC$ and any $z \in Z$:
-      \begin{displaymath}
-        \coprod_{b \in g_2^{-1}(z)}\left( \coprod_{a \in f_2^{-1}(g_1(b))} c(f_1(a)) \right) \to %
-        \coprod_{(a,b) \in (g_2 \circ \pr_B)^{-1}(z)} c(f_1 \circ \pr_A(a,b)),
-      \end{displaymath}
-      where the left hand side corresponds to composition of functors, while the right hand side represents compositon of spans (given by pullback). Now we simply note that $f_1 \circ \pr_A(a,b) = f_1(b)$, and that the indexing sets for the two coproducts coincide, or in formulas:
-      \begin{displaymath}
-        \{ (a,b) \with g_2(b) = z,\, f_2(a) = g_1(b) \} = \{ (a,b) \in A \times_Y B \with g_2(b) = z \},
-      \end{displaymath}
-      hence we may again find a natural isomorphism given by rearranging the summands as necessary.\\
-      %
-      The 2-morphism $\phi_X: 1_{\cC(X)} \to \cC(1_X)$ can be chosen as the identity natural transformation, as the two endofunctors of $\cC^X$ coincide.\\
-      %
-      As $\Cat$ is a strict category and the unit structure morphism is the identity, only the associativity of the composition structure morphism is to be checked, which is straight-forward, hence the axioms for a functor of bicategories are satisfied by the just defined structure.
-    \end{defn}
+    and composition of these is the usual composition of maps, forming a category. The composition functor $W(X,Y) \times W(Y,Z) \to W(X,Z)$ may be described as follows: We begin with a diagram representing spans $(f,g), (f^\prime, g^\prime) \in W(X,Y) \times W(Y,Z)$ and morphisms of spans $\alpha: f \to f^\prime$, $\beta: g \to g^\prime$:
+    \begin{gather}\label{diag_composition_functor_in_W}
+      \xymatrix@C+1em@R-1em{
+        %
+        &
+        A
+          \ar[dl]_{f_1}
+          \ar[dr]^{f_2}
+          \ar[dd]_{\alpha}
+        &
+        %
+        &
+        B
+          \ar[dl]_{g_1}
+          \ar[dr]^{g_2}
+          \ar[dd]_{\beta}
+        &
+        %
+        \\
+        X & & Y & & Z
+        \\
+        %
+        &
+        A^\prime
+          \ar[ul]^{f_1^\prime}
+          \ar[ur]_{f_2^\prime}
+        &
+        %
+        &
+        B^\prime
+          \ar[ul]^{g_1^\prime}
+          \ar[ur]_{g_2^\prime}
+        &
+        %
+      }
+    \end{gather}
+    In this situation, we take the (functorial!) pullback of $A \myrightarrow{f_2} Y \myleftarrow{g_1} B$ given by $A \ot A \times_Y B \to B$ with %
+    $A \times_Y B = \{(a,b) \in A \times B \with f_2(a) = g_1(b) \in Y \}$ and the two maps induced by the respective projections. Composing with $f_1$ and $g_2$ we obtain a new span $X \ot A \times_Y B \to Z)$, and applying the same construction to the lower part of diagram \ref{diag_composition_functor_in_W} one may observe that the maps $\alpha$ and $\beta$ induce a map $\alpha \times_Y \beta: A \times_Y \beta \to A^\prime \times_Y B^\prime$ which we take as the definition of $\beta \ast \alpha$. The functorial choice of pullback assures that this in fact defines a functor.\\
+    The identity 1-morphism associated to a finite set $X$ is the span %
+    \begin{displaymath}
+      1_X = (\xymatrix{ X & X \ar@{=}[l] \ar@{=}[r] & X});
+    \end{displaymath}
+    The associativity coherence isomorphism is the natural isomorphism describing associativity of the pullback, while the identity coherence isomorphisms $\lambda_f: 1_Y \circ f \Longrightarrow f$ and $\rho_f: f \circ 1_X \Longrightarrow f$ for a span $f=(X\ot~A\to~Y)$ are given by the isomorphisms $A \times_Y Y \to A$ and $X \times_X A \to A$ respectively, both induced by the projection onto $A$, hence natural. Commutativity of the pentagon and triangle diagrams in this context is self-evident.
+  \end{defn}
 
-    \begin{defn}\label{def_pointed_stuff}
-      We define a \emph{pointed category} to be a category $\cC$ with a chosen
-      object, called the null or zero object and denoted $0$, which is both
-      initial and final in $\cC$.  We note that a pointed category is enriched
-      over pointed sets.  Indeed we may choose the unique morphism factoring
-      through the zero object in each morphism set, and note that this makes
-      composition a map of pointed sets.\\
-      A \emph{pointed functor} is a functor of pointed categories that preserves
-      zero objects.\\
-      Given two pointed categories $\cC$ and $\cD$, we may define another
-      pointed category $\cC \wedge \cD$ by taking the smash products of object
-      and morphism sets, respectively. It is easy to convince oneself that this
-      again constitutes a pointed category.\\
-      We would like to note a particular example at this point that we will come
-      to use later. Given a pointed category $\cC$, we let $\cC^e \defas
-      \cC^{\op} \wedge \cC$.  This might remind one of the notation for the
-      enveloping algebra $A^{e} = A^{\op} \otimes A$ of a unital and associative
-      algebra, and indeed there is a connection which we point out in
-      Rem.~\ref{rem_connection_to_algebras}.  More generally, given a functor
-      $F: \cJ \to \CAT_*$, we write $F^e: \cJ \to \CAT_*$ for the functor given
-      by $F^e(j) = F(j)^{\op} \wedge F(j)$ and sending a morphism $f: j \to k$
-      in $\cJ$ to $F(f) \wedge F(f): F^e(j) \to F^e(k)$.
-    \end{defn}
+  \begin{defn}\label{def_subcategories_of_epimorphisms_and_isomorphisms}
+    We define two sub-bicategories $iW \subset eW \subset W$ which differ from $W$ only in the 2-morphisms: while $eW$ only permits those 2-morphisms in $W$ that are epimorphisms, $iW$ only permits isomorphisms.
+  \end{defn}
 
-    % TODO write remark! and move to appropriate position
-    % i think we already got this though, in the explanation of bimodule?
-    \begin{rem}\label{rem_connection_to_algebras}
-    connection of this definition of loday functor and the classical one for algebras
-    \end{rem}
+  % TODO can we formulate the two following remarks as a statement of adjoint functors? Is the discrete functor from categories to strict bicategories a left-adjoint? is the right-adjoint the forgetful functor, if the latter is well-defined? are we talking functors of categories, or 2-categories? this should be written somewhere... let the functor take values in strict, locally small (i.e. morphism categories are small) categories, then we have a forgetful functor, at least on objects. haven't checked morphisms (or 2-morphisms)! adjoint? don't know...
+  \begin{rem}\label{rem_discrete_bicategory}
+    Given a category $\cC$ we may define a bicategory $\cC^\prime$ by taking the 0-cells to be the objects of $\cC^\prime$, i.e. $\cC^\prime_0 \defas \ob \cC$, and by letting the discrete category formed by the morphisms $\cC(c,d)$ between two objects $c,d \in \ob \cC$ be the morphism category $\cC^\prime(c,d)$. We let composition and identity 1-arrows be composition and identity morphisms in $\cC$, and choose structure morphisms (necessarily) to be identities. This definition then satisfies the axioms of a strict bicategory, and will be referred to as discrete bicategory on $\cC$.
+  \end{rem}
 
-    \begin{defn}\label{def_added_basepoint_extending_functor}
-      Consider the bicategory of small pointed categories $\Cat_*$ with functors
-      and natural transformations, and the (strict) forgetful functor down to
-      categories $\Cat_* \to \Cat$. This functor has a left adjoint, denoted
-      \begin{displaymath}
-        (-)_+ : \Cat \to \Cat_*,
-      \end{displaymath}
-      sending a category $\cC$ to the category $\cC_+$ which compared to $\cC$
-      has an extra object $0$, the adjoint basepoint, and extra morphisms $c \to
-      0$ and $0 \to c$ for every object $c \in \cC_0$. Functors and natural
-      transformations of categories are uniquely extended to their respective
-      pointed versions. A simple verification of the axioms shows that this
-      defines a strict 2-functor, and the adjointness is also straight-forward.
-    \end{defn}
+  \begin{rem}\label{rem_discrete_bicategories_functors}
+    Let $F: \cC \to \cD$ be a functor between two categories. We define a lax
+    functor between the discrete bicategories on $\cC$ and $\cD$, $F^\prime:
+    \cC^\prime \to \cD^\prime$, by using the given assignments for objects and
+    1-morphisms, noting that assignment of 2-morphisms is forced by the axioms
+    of a functor since the only 2-morphisms are identities, and choosing the
+    structure morphisms as identities. We thus obtain a strict functor of
+    bicategories.
+  \end{rem}
 
-    \begin{defn}\label{def_extending_functor_iW_to_Cat_to_pointed_version}
-      Given a weak functor of bicategories $F: iW \to \Cat$, we would like to
-      extend this functor along the inclusion $\iota: iW \to eW$ to a weak
-      functor $F_+: eW \to \Cat_*$ as displayed in the following diagram:
-      \begin{displaymath}
-        \xymatrix{
-          iW
-            \ar[d]_{F}
-            \ar[r]^{\iota}
-          &
-          eW
-            \ar[d]^{F_+}
-          \\
-          \Cat
-            \ar[r]_{(-)_+}
-          &
-          \Cat_*
-        }
-      \end{displaymath}
-      where the bottom arrow refers to the functor found in
-      Def.~\ref{def_pointed_stuff}. The value of $F_+$ on objects, 1-arrows and
-      invertible 2-arrows is determined if we ask for the above diagram to
-      commute. Hence we merely need to indicate the images of non-invertible
-      2-arrows in $eW$ under $F_+$. We send these to the zero natural
-      transformation, i.e. the transformation that is given on any object as the
-      unique map factoring through the zero object.\\
-      This is in fact a weak functor: All necessary data is given, and the
-      assignment of 1-arrows and 2-arrows is a functor, as composition with the
-      zero transformation results in the zero transformation (only need to check
-      what happens for non-invertible two-arrows).  For the axioms, note that
-      the structure morphisms of $F_+$ are the uniquely determined pointed
-      extensions of the structure morphisms of $F$, namely natural
-      transformations extended by the identity on the zero object. In
-      particular, the axioms are satisfied and the structure morphisms are
-      isomorphisms.
-    \end{defn}
+  \begin{defn}\label{def_lax_functor_V_to_eW}
+    We may consider $V$, the category of spans of finite sets, as a bicategory by making the set of morphisms $V(X,Y)$ between two finite sets into a category with only identity morphisms, also called a discrete category (cf.~\ref{rem_discrete_bicategory}). With this we may define a lax functor $L: V \to W$ as follows: We map finite sets to themselves, and map a class of spans $f = [X \myleftarrow{f_1} A \myrightarrow{f_2} Y]$ with indicated representative to the span $ L(f) = (X \ot LA \to{Y})$, where 
+    \begin{displaymath}
+      LA \defas \{ (x,y) \in X \times Y \with \exists a \in A : f_1(a) = x,\; f_2(a) = y \} = \im (f_1,f_2)
+    \end{displaymath}
+    and the two maps are induced by the respective projections. One may immediately verify that this definition does not depend on the representative. As $V$ only has identity 2-morphisms, these are necessarily sent to the respective identities in $W$. Given another 1-arrow in $V$, $g = [y \myleftarrow{g_1} B \myrightarrow{g_2} Z]$, we observe that the structure map $L(g) \circ L(f) \to L(g \circ f)$ is given by projecting away from $Y$ in $LA \times_Y LB \to L(A \times_Y B)$, $((x,y),(y,z)) \mapsto (x,z)$ and is at most an epimorphism, i.e. there are examples where this map fails to be injective. The structure morphism for identity morphisms is given by the diagonal $X \to LX = \im (\id_X, \id_X)$, hence we indeed map to $eW$, the subcategory of epimorphic 2-morphisms of $W$. The diagram relating associativity and functoriality structure morphisms commutes, as only projections and rearraging of parantheses are involved. For the unit structure morphisms the reader may convince herself that the map $L(f \circ 1_X) \to L(f)$ is the identity, or rather that the sets $L(X \times_X A)$ and $LA$ are equal, which implies the commutativity of the respective diagram, and a similar argument holds for the dual situation. 
+  \end{defn}
 
-    \begin{defn}\label{def_J_and_functors_from_finite_sets_to_pointed_categories}
-      Consider the skeletal category $\cF$ of finite sets, i.e. the full
-      subcategory of finite sets with objects given by sets of the form $\{1,
-      \ldots, n\}$, for all $n \geq 0$ (taking the empty set for $n=0$). We may
-      choose a finite coproduct on this category with the property that for any
-      set $X \in \cF$ and any singleton set $\{*\}$, we have 
-      \begin{displaymath}
-        \coprod_{\{*\}} X = X,
-      \end{displaymath}
-      for example by induction, choosing a well-ordering on every finite set.\\
-      We let $\cI$ be the subcategory of $\cF$ given by all inclusions (in
-      particular, all objects of $\cF$ are in $\cI$) and apply the constructions
-      described in Def.~\ref{def_functor_iW_to_Cat_aka_abstract_loday} (abstract
-      Loday functor) by setting $\cC \defas \cI$ as well as
-      Def.~\ref{def_extending_functor_iW_to_Cat_to_pointed_version} (adding a
-      basepoint) to obtain a weak functor 
-      \begin{displaymath}
-        \cI_+: eW \to \Cat, X \mapsto (\cI^X)_+.
-      \end{displaymath}
-      We continue by precomposing with the lax functor $L: V \to eW$ defined in
-      Def.~\ref{def_lax_functor_V_to_eW} (sending a class of spans $[X \ot A \to
-      Y]$ to $(X \ot LA \to Y)$), resulting in 
-      \begin{displaymath}
-        \cJ \defas L \cI_+: V \to \Cat_*
-      \end{displaymath}
-      which still sends a set $X \mapsto \cJ(X) = (\cI^X)_+$.\\
-      Finally we may precompose with the inclusions of the (opposite) category
-      of finite sets to $V$, obtaining two different functors: Taking the
-      covariant inclusion $\Fin \to V$ mapping an $f:X \to Y$ to the class of
-      spans $[ (X = X \myrightarrow{f} Y) ]$ yields a weak functor
-      \begin{gather*}
-        \Fin \to \Cat_*,\\% 
-        ( X \myrightarrow{f} Y ) \mapsto %
-        \left ( (\cI^X)_+ \myrightarrow{\cJ(f_*)} (\cI^Y)_+ \right),
-      \end{gather*}
-      where the functor $\cJ(f_*)$ may be described as
-      \begin{displaymath}
-        % TODO add arrow Y \to \cI above
-        (c: X \to \cI) \mapsto %
-        \left\{ %
-          \begin{array}{c} %
-          Y \myrightarrow{} \cI, \\ %
-          y \mapsto \coprod\limits_{x \in f^{-1}(y)} c(x) %
-          \end{array} %
-         \right\}.
-      \end{displaymath}
-      For two composable maps of sets $X \myrightarrow{f} Y \myrightarrow{g} Z$
-      the structure natural transformation $\cJ(g) \circ \cJ(Y) \to \cJ(g \circ
-      f)$ is given as a reordering: On $c_x \in (\cI^X)_+$, we map (omitting
-      from the notation that the sums are taken over all tuples with $f(x)=y$
-      and $g(y)=z$, respectively)
-      \begin{gather*}
-      % TODO substitute the categories with the actual objects!
-        \cI_+ L (g_*) \circ \cI_+ L (f_*) (c_x) \to %
-        \cI_+( L(g_*) \circ L(f_*)) (c_x) \to%
-        \cI_+ L (g \circ f)_* (c_x)\\
-        \left[\coprod_{(y,g(y))} %
-          \left( \coprod_{(x,f(x))} c_x \right)  \right]_{z \in Z} \to %
-        \left[ \coprod_{((x,f(x)),(y,gf(y)))} c_x \right]_{z \in Z} \to %
-        \left[ \coprod_{(x,gf(x))} c_x \right]_{z \in Z}
-      \end{gather*}
-      first $\phi^{\cI_+}_{L(g_*),L(f_*)}$ via the natural bijection between the
-      two indexing sets, and then $\cI_+(\phi^L_{g_*,f_*})$ by projecting away
-      from the middle coordinate, which in this case is a bijection.  The
-      identity 1-arrow structure morphism on a finite set $X$,
-      $\phi^{\cJ(-)_*}_X = \cI_+(\phi^{L}_X) \circ \phi^{\cI_+}_{L(X)}:
-      1_{\cJ(X)} \to \cJ(1_X)$, is the composition of two isomorphisms, and
-      hence an isomorphism itself.\\
-      On the other hand, taking the contravariant inclusion $\Fin \to V$ which
-      sends a map $f:X \to Y$ to the class of spans $ f^* = [ Y \myleftarrow{f}
-      X = X]$, results in the functor
-      % TODO make centered, like covariant case above
-      $\cJ(f^*): (\cI^Y)_+ \to (\cI^X)_+$ sending a tuple $(c_y)_{y \in Y}$ to
-      the tuple $y \mapsto \coprod_{(f(x),x) \in pr_2^{-1}(x)} c_{f(x)}$, where
-      the last coproduct is take over a singleton set and is hence naturally
-      isomorphic to $c_{f(x)}$. Thus the last functor may naturally be described
-      as precomposition with $f$. A study of the involved maps shows, as above,
-      that the structure morphisms are indeed isomorphisms.
-      % TODO the latter should be a strict!! functor
-    \end{defn}
-  \subsection{Left lax transformations, bimodules and homotopy colimits}
-    % TODO add an introductory section here!?
-    % TODO change formatting for itemize environment: less line spacing!
-    \begin{defn}\label{def_lax_transformation}
-      Given two lax functors $F,F^\prime: \cB \to \cC$, a \emph{left lax transformation} $\sigma: F \to F^\prime$ consists of the following data:
-      \begin{itemize}
-        \item for every object $b \in \cB_0$ a 1-morphism $F(b) \myrightarrow{\sigma_b} F^\prime(b)$ in $\cC$
-        \item for every 1-morphism $f: b \to b^\prime$ a 2-morphism $F^\prime(f) \circ \sigma_b \myrightarrow{\sigma_f} \sigma_{b^\prime} \circ F(f)$ as in the following square in $\cC$:
-        \begin{displaymath}
-          \xymatrix{
-            F(b)
-              \ar[r]^{\sigma_b}
-              \ar[d]_{F(f)}
-              % \ar@{}[dr]|*{\mbox{$\Rightarrow$}}
-              % \ar@{}[dr]|*\objectbox{\rotatebox{45}{$\overset{\sigma_f}{\Leftarrow}$}}
-              \ar@{}[dr]|*\objectbox{\rotatebox{45}{$\Leftarrow$}}
-            &
-            F^\prime(b)
-              \ar[d]^{F^\prime(f)}
-            \\
-            F(b^\prime) 
-              \ar[r]_{\sigma_{b^\prime}}
-            &
-            F^\prime(b^\prime)
-          }
-        \end{displaymath}
-      \end{itemize}
-      % TODO exchange this for a less detailed remark a la 'natural in $f$'
-      The latter 2-morphism should be natural in $f$, i.e. for any commutative square
-      \begin{displaymath}
-        \begin{xy}
-          \xymatrix{
-            b \ar[r]^f \ar[d]_\alpha & b^\prime \ar[d]^\beta \\
-            c \ar[r]_g & c^\prime
-          }
-        \end{xy}
-      \end{displaymath}
-      the resulting cube should commute.
-      Note that this implies that $\sigma_b$ is natural in $b$.
-      This data is subject to the following relations, which we express in
-      composition and unit diagrams: For arrows $b \myrightarrow{f} {b^\prime}
-      \myrightarrow{g} {b^\dprime}$ in $\cB$,
-      \begin{displaymath}
-        \begin{xy}
-          \xymatrix@C+=3em{
-            F^\prime(g) \circ (F^\prime(f) \circ \sigma_b)
-              \ar[r]^{\alpha}
-              \ar[d]_-{F^\prime(g) \ast \sigma_f}
-            &
-            (F^\prime(g) \circ F^\prime(f)) \circ \sigma_b
-              \ar[r]^-{F^\prime(g,f) \ast \sigma_b}
-            &
-            F^\prime(g \circ f) \circ \sigma_b
-              \ar[d]^{\sigma_{g \circ f}}
-            \\
-            F^\prime(g) \circ (\sigma_{b^\prime} \circ F(f))
-              \ar[d]_-{\alpha}
-            &&
-            \sigma_{b^\dprime} \circ F(gf)
-            \\
-            (F^\prime(g) \circ \sigma_{b^\prime}) \circ F(f)
-              \ar[r]_-{\sigma_g \ast F(f)}
-            &
-            (\sigma_{b^\dprime} \circ F(g)) \circ F(f)
-              \ar[r]_-{\alpha}
-            &
-            \sigma_{b^\dprime} \circ (F(g) \circ F(f))
-              \ar[u]_{\sigma_{b^\dprime} \ast F(g,f)}
-          }
-        \end{xy}
-      \end{displaymath}
-      commutes, with $\alpha$ indicating the appropriate associativity
-      isomorphisms. For $b \in \cB_0$,
-      \begin{displaymath}
-        \begin{xy}
-          \xymatrix{
-            & F^\prime(\id_b) \circ \sigma_b
-              \ar[dd]^{\sigma_{\id_b}}
-            \\
-            \sigma_b
-              \ar[ur]^{\phi^{F^\prime}_b \ast \sigma_b}
-              \ar[dr]_{\sigma_b \ast \phi^F_b}
-            &
-            %
-            \\
-            & \sigma_b \circ F(\id_b)
-          }
-        \end{xy}
-      \end{displaymath}
-      is required to commmute.\\
-      Dually, a \emph{right lax transformation} consists of
-      \begin{itemize}
-        \item for every object $b \in \cB_0$ a 1-morphism $F(b)
-          \myrightarrow{\rho_b} F^\prime(b)$ in $\cC$
-        \item for every 1-morphism $f: b \to b^\prime$ a 2-morphism $F^\prime(f)
-          \circ \rho_b \myleftarrow{\rho_f} \rho_{b^\prime} \circ F(f)$.
-        \end{itemize}
-      Observe the reversed direction:
+  \begin{defn}\label{def_functors_finite_sets_to_iW}
+    There are two functors $\Fin \to V$, $\Fin^\op \to V$, given by sending $f:X \to Y$ to $ f_* = [ X = X \myrightarrow{f} Y]$ and $ f^* = [ Y \myleftarrow{f} X = X ]$, respectively. It is straightforward to check that these are functorial. As described in Rem.~\ref{rem_discrete_bicategories_functors}, we may interpret these as functors of bicategories. Composing each with $L: V \to W$ we note that we obtain weak functors, or equivalently that the compositions have image in $iW$.
+  \end{defn}
+
+  % TODO work on this remark
+  We are now going to define an abstraction of the Loday functor as it is
+  known on finite sets. It helps to remember the combinatorics of the basic
+  example, as apart from bookkeeping, not much more is going on here. To this
+  end, recall that the Loday functor based on a commutative ring $A$
+  \begin{displaymath}
+    \Lambda A: \Fin \to \Ab
+  \end{displaymath}
+  is given by assigning to a map of finite sets $f: X \to Y$ the map of
+  abelian groups $A^X \to A^Y$ which sends a tuple $(a_x)_{x \in X}$ to the
+  tuple $(b_y)_{y \in Y}$ with 
+  \begin{displaymath}
+    b_y \defas \prod_{x \in f^{-1}(y)} a_x,
+  \end{displaymath}
+  where the above product is interpreted as the unit in $A$ whenever taken
+  over the empty set. After this digression, we formulate
+  \begin{defn}\label{def_functor_iW_to_Cat_aka_abstract_loday}
+    Let $\cB$ be a category with chosen finite coproducts, and we let $\cC
+    \subset \cB$ be a subcategory that contains all isomorphisms in $\cB$, in
+    particular it has all objects of $\cB$. Define a weak functor of
+    bicategories
+    \begin{displaymath}
+      \cC: iW \to \Cat
+    \end{displaymath}
+    by sending a finite set $X$ to $\cC(X) \defas \cC^X$, the $X$-fold product
+    of $\cC$ with itself. Given a span $f = (X \myleftarrow{f_1} A
+    \myrightarrow{f_2} Y)$, we define a functor
+    \begin{displaymath}
+      \cC(f): \cC(X) = \cC^X \to \cC^Y = \cC(Y)
+    \end{displaymath}
+    by assigning to a $(c: X \to \ob \cC) \in \ob \cC^X$ (a tuple, written as a map) the object 
+    \begin{displaymath}
+      \cC(f)(c): Y \to \cC, y \mapsto \coprod_{a \in f_2^{-1}(y)} c(f_1(a)).
+    \end{displaymath}
+    For a map of tuples $\phi: c \to c^\prime$, the same formula may be used to define $\cC(\phi)$. Recall that $\phi \in \prod_{x \in X} \cC(c(x),c^\prime(x))$. With this, we may define the $y$-th coordinate of $\cC(f)(\phi):\cC(f)(c) \to \cC(f)(c^\prime)$ as the map
+    \begin{displaymath}
+      \coprod_{a \in f_2^{-1}(y)} c(f_1(a))%
+        \crightarrow{2.5}{\coprod_{a \in f_2^{-1}(y)} \phi(f_1(a))}%
+      \coprod_{a \in f_2^{-1}(y)} c^\prime(f_1(a)).%
+    \end{displaymath}
+    It's straightforward to check that this is indeed a functor.\\
+    %
+    For an invertible two-morphism $\alpha: f \to f^\prime = (X \myleftarrow{f_1^\prime} A^\prime \myrightarrow{f_2^\prime} Y)$ of spans, we need a natural transformation of functors $\cC(f) \Rightarrow \cC(f^\prime): \cC^X \to \cC^Y$, i.e. for every object $c \in \cC^X$ a natural morphism in $\cC^Y$, $\cC(f)(c) \to \cC(f^\prime)(c)$. For every $y \in Y$ we are seeking a morphism
+    \begin{displaymath}
+      \coprod_{a \in f_2^{-1}(y)} c(f_1(a)) \to%
+        %\crightarrow{2.5}{\coprod_{a \in f_2^{-1}(y)} \phi(f_1(a))}%
+      \coprod_{a^\prime \in (f^\prime_2)^{-1}(y)} c(f^\prime_1(a^\prime)).%
+    \end{displaymath}
+    To see that we may choose such a morphism naturally with respect to $c$, we observe that $\alpha: A \to A^\prime$ is a bijection, as $\alpha$ is an invertible 2-morphism, in particular $\alpha$ induces a bijection of sets $f_2^{-1}(y) \to (f_2^\prime)^{-1}(y)$ by $a \mapsto \alpha(a)$, and we also have $f^\prime_1(\alpha(a)) = f_1(a) \in X$, hence there is a natural (in $c$) isomorphism as we desire, induced by $\alpha$, and given as a reordering of summands in the coproduct.\\
+    Note that we could not define this functor for instance with domain $W$ or $eW$, as we only assumed $\cC$ to have all isomorphisms of $\cB$: The coproducts used here are formed in $\cC$, and may not coincide with coproducts in $\cB$. By assuring that the maps we obtain via the universal property of the coproducts (in $\cB$!) are isomorphisms, we may assume that they are already morphisms in $\cC$.\\
+    %
+    Given two composable spans $f = (X \myleftarrow{f_1} A \myrightarrow{f_2} Y)$, %
+    $g = (Y \myleftarrow{g_1} B \myrightarrow{g_2} Z)$, we specify the natural isomorphism $ \phi_{g,f}: \cC(g) \circ \cC(f) \to \cC(g \circ f)$ by considering (just plug in the definitions) that we should find a map as follows for a $c: X \to \ob \cC$ and any $z \in Z$:
+    \begin{displaymath}
+      \coprod_{b \in g_2^{-1}(z)}\left( \coprod_{a \in f_2^{-1}(g_1(b))} c(f_1(a)) \right) \to %
+      \coprod_{(a,b) \in (g_2 \circ \pr_B)^{-1}(z)} c(f_1 \circ \pr_A(a,b)),
+    \end{displaymath}
+    where the left hand side corresponds to composition of functors, while the right hand side represents compositon of spans (given by pullback). Now we simply note that $f_1 \circ \pr_A(a,b) = f_1(b)$, and that the indexing sets for the two coproducts coincide, or in formulas:
+    \begin{displaymath}
+      \{ (a,b) \with g_2(b) = z,\, f_2(a) = g_1(b) \} = \{ (a,b) \in A \times_Y B \with g_2(b) = z \},
+    \end{displaymath}
+    hence we may again find a natural isomorphism given by rearranging the summands as necessary.\\
+    %
+    The 2-morphism $\phi_X: 1_{\cC(X)} \to \cC(1_X)$ can be chosen as the identity natural transformation, as the two endofunctors of $\cC^X$ coincide.\\
+    %
+    As $\Cat$ is a strict category and the unit structure morphism is the identity, only the associativity of the composition structure morphism is to be checked, which is straight-forward, hence the axioms for a functor of bicategories are satisfied by the just defined structure.
+  \end{defn}
+
+  \begin{defn}\label{def_pointed_stuff}
+    We define a \emph{pointed category} to be a category $\cC$ with a chosen
+    object, called the null or zero object and denoted $0$, which is both
+    initial and final in $\cC$.  We note that a pointed category is enriched
+    over pointed sets.  Indeed we may choose the unique morphism factoring
+    through the zero object in each morphism set, and note that this makes
+    composition a map of pointed sets.\\
+    A \emph{pointed functor} is a functor of pointed categories that preserves
+    zero objects.\\
+    Given two pointed categories $\cC$ and $\cD$, we may define another
+    pointed category $\cC \wedge \cD$ by taking the smash products of object
+    and morphism sets, respectively. It is easy to convince oneself that this
+    again constitutes a pointed category.\\
+    We would like to note a particular example at this point that we will come
+    to use later. Given a pointed category $\cC$, we let $\cC^e \defas
+    \cC^{\op} \wedge \cC$.  This might remind one of the notation for the
+    enveloping algebra $A^{e} = A^{\op} \otimes A$ of a unital and associative
+    algebra, and indeed there is a connection which we point out in
+    Rem.~\ref{rem_connection_to_algebras}.  More generally, given a functor
+    $F: \cJ \to \CAT_*$, we write $F^e: \cJ \to \CAT_*$ for the functor given
+    by $F^e(j) = F(j)^{\op} \wedge F(j)$ and sending a morphism $f: j \to k$
+    in $\cJ$ to $F(f) \wedge F(f): F^e(j) \to F^e(k)$.
+  \end{defn}
+
+  % TODO write remark! and move to appropriate position
+  % i think we already got this though, in the explanation of bimodule?
+  \begin{rem}\label{rem_connection_to_algebras}
+  connection of this definition of loday functor and the classical one for algebras
+  \end{rem}
+
+  \begin{defn}\label{def_added_basepoint_extending_functor}
+    Consider the bicategory of small pointed categories $\Cat_*$ with functors
+    and natural transformations, and the (strict) forgetful functor down to
+    categories $\Cat_* \to \Cat$. This functor has a left adjoint, denoted
+    \begin{displaymath}
+      (-)_+ : \Cat \to \Cat_*,
+    \end{displaymath}
+    sending a category $\cC$ to the category $\cC_+$ which compared to $\cC$
+    has an extra object $0$, the adjoint basepoint, and extra morphisms $c \to
+    0$ and $0 \to c$ for every object $c \in \cC_0$. Functors and natural
+    transformations of categories are uniquely extended to their respective
+    pointed versions. A simple verification of the axioms shows that this
+    defines a strict 2-functor, and the adjointness is also straight-forward.
+  \end{defn}
+
+  \begin{defn}\label{def_extending_functor_iW_to_Cat_to_pointed_version}
+    Given a weak functor of bicategories $F: iW \to \Cat$, we would like to
+    extend this functor along the inclusion $\iota: iW \to eW$ to a weak
+    functor $F_+: eW \to \Cat_*$ as displayed in the following diagram:
+    \begin{displaymath}
+      \xymatrix{
+        iW
+          \ar[d]_{F}
+          \ar[r]^{\iota}
+        &
+        eW
+          \ar[d]^{F_+}
+        \\
+        \Cat
+          \ar[r]_{(-)_+}
+        &
+        \Cat_*
+      }
+    \end{displaymath}
+    where the bottom arrow refers to the functor found in
+    Def.~\ref{def_pointed_stuff}. The value of $F_+$ on objects, 1-arrows and
+    invertible 2-arrows is determined if we ask for the above diagram to
+    commute. Hence we merely need to indicate the images of non-invertible
+    2-arrows in $eW$ under $F_+$. We send these to the zero natural
+    transformation, i.e. the transformation that is given on any object as the
+    unique map factoring through the zero object.\\
+    This is in fact a weak functor: All necessary data is given, and the
+    assignment of 1-arrows and 2-arrows is a functor, as composition with the
+    zero transformation results in the zero transformation (only need to check
+    what happens for non-invertible two-arrows).  For the axioms, note that
+    the structure morphisms of $F_+$ are the uniquely determined pointed
+    extensions of the structure morphisms of $F$, namely natural
+    transformations extended by the identity on the zero object. In
+    particular, the axioms are satisfied and the structure morphisms are
+    isomorphisms.
+  \end{defn}
+
+  \begin{defn}\label{def_J_and_functors_from_finite_sets_to_pointed_categories}
+    Consider the skeletal category $\cF$ of finite sets, i.e. the full
+    subcategory of finite sets with objects given by sets of the form $\{1,
+    \ldots, n\}$, for all $n \geq 0$ (taking the empty set for $n=0$). We may
+    choose a finite coproduct on this category with the property that for any
+    set $X \in \cF$ and any singleton set $\{*\}$, we have 
+    \begin{displaymath}
+      \coprod_{\{*\}} X = X,
+    \end{displaymath}
+    for example by induction, choosing a well-ordering on every finite set.\\
+    We let $\cI$ be the subcategory of $\cF$ given by all inclusions (in
+    particular, all objects of $\cF$ are in $\cI$) and apply the constructions
+    described in Def.~\ref{def_functor_iW_to_Cat_aka_abstract_loday} (abstract
+    Loday functor) by setting $\cC \defas \cI$ as well as
+    Def.~\ref{def_extending_functor_iW_to_Cat_to_pointed_version} (adding a
+    basepoint) to obtain a weak functor 
+    \begin{displaymath}
+      \cI_+: eW \to \Cat, X \mapsto (\cI^X)_+.
+    \end{displaymath}
+    We continue by precomposing with the lax functor $L: V \to eW$ defined in
+    Def.~\ref{def_lax_functor_V_to_eW} (sending a class of spans $[X \ot A \to
+    Y]$ to $(X \ot LA \to Y)$), resulting in 
+    \begin{displaymath}
+      \cJ \defas L \cI_+: V \to \Cat_*
+    \end{displaymath}
+    which still sends a set $X \mapsto \cJ(X) = (\cI^X)_+$.\\
+    Finally we may precompose with the inclusions of the (opposite) category
+    of finite sets to $V$, obtaining two different functors: Taking the
+    covariant inclusion $\Fin \to V$ mapping an $f:X \to Y$ to the class of
+    spans $[ (X = X \myrightarrow{f} Y) ]$ yields a weak functor
+    \begin{gather*}
+      \Fin \to \Cat_*,\\% 
+      ( X \myrightarrow{f} Y ) \mapsto %
+      \left ( (\cI^X)_+ \myrightarrow{\cJ(f_*)} (\cI^Y)_+ \right),
+    \end{gather*}
+    where the functor $\cJ(f_*)$ may be described as
+    \begin{displaymath}
+      % TODO add arrow Y \to \cI above
+      (c: X \to \cI) \mapsto %
+      \left\{ %
+        \begin{array}{c} %
+        Y \myrightarrow{} \cI, \\ %
+        y \mapsto \coprod\limits_{x \in f^{-1}(y)} c(x) %
+        \end{array} %
+       \right\}.
+    \end{displaymath}
+    For two composable maps of sets $X \myrightarrow{f} Y \myrightarrow{g} Z$
+    the structure natural transformation $\cJ(g) \circ \cJ(Y) \to \cJ(g \circ
+    f)$ is given as a reordering: On $c_x \in (\cI^X)_+$, we map (omitting
+    from the notation that the sums are taken over all tuples with $f(x)=y$
+    and $g(y)=z$, respectively)
+    \begin{gather*}
+    % TODO substitute the categories with the actual objects!
+      \cI_+ L (g_*) \circ \cI_+ L (f_*) (c_x) \to %
+      \cI_+( L(g_*) \circ L(f_*)) (c_x) \to%
+      \cI_+ L (g \circ f)_* (c_x)\\
+      \left[\coprod_{(y,g(y))} %
+        \left( \coprod_{(x,f(x))} c_x \right)  \right]_{z \in Z} \to %
+      \left[ \coprod_{((x,f(x)),(y,gf(y)))} c_x \right]_{z \in Z} \to %
+      \left[ \coprod_{(x,gf(x))} c_x \right]_{z \in Z}
+    \end{gather*}
+    first $\phi^{\cI_+}_{L(g_*),L(f_*)}$ via the natural bijection between the
+    two indexing sets, and then $\cI_+(\phi^L_{g_*,f_*})$ by projecting away
+    from the middle coordinate, which in this case is a bijection.  The
+    identity 1-arrow structure morphism on a finite set $X$,
+    $\phi^{\cJ(-)_*}_X = \cI_+(\phi^{L}_X) \circ \phi^{\cI_+}_{L(X)}:
+    1_{\cJ(X)} \to \cJ(1_X)$, is the composition of two isomorphisms, and
+    hence an isomorphism itself.\\
+    On the other hand, taking the contravariant inclusion $\Fin \to V$ which
+    sends a map $f:X \to Y$ to the class of spans $ f^* = [ Y \myleftarrow{f}
+    X = X]$, results in the functor
+    % TODO make centered, like covariant case above
+    $\cJ(f^*): (\cI^Y)_+ \to (\cI^X)_+$ sending a tuple $(c_y)_{y \in Y}$ to
+    the tuple $y \mapsto \coprod_{(f(x),x) \in pr_2^{-1}(x)} c_{f(x)}$, where
+    the last coproduct is take over a singleton set and is hence naturally
+    isomorphic to $c_{f(x)}$. Thus the last functor may naturally be described
+    as precomposition with $f$. A study of the involved maps shows, as above,
+    that the structure morphisms are indeed isomorphisms.
+    % TODO the latter should be a strict!! functor
+  \end{defn}
+\subsection{Left lax transformations, bimodules and homotopy colimits}
+  % TODO add an introductory section here!?
+  % TODO change formatting for itemize environment: less line spacing!
+  \begin{defn}\label{def_lax_transformation}
+    Given two lax functors $F,F^\prime: \cB \to \cC$, a \emph{left lax transformation} $\sigma: F \to F^\prime$ consists of the following data:
+    \begin{itemize}
+      \item for every object $b \in \cB_0$ a 1-morphism $F(b) \myrightarrow{\sigma_b} F^\prime(b)$ in $\cC$
+      \item for every 1-morphism $f: b \to b^\prime$ a 2-morphism $F^\prime(f) \circ \sigma_b \myrightarrow{\sigma_f} \sigma_{b^\prime} \circ F(f)$ as in the following square in $\cC$:
       \begin{displaymath}
         \xymatrix{
           F(b)
-            \ar[r]^{\rho_b}
+            \ar[r]^{\sigma_b}
             \ar[d]_{F(f)}
-            \ar@{}[dr]|*\objectbox{\rotatebox{225}{$\Leftarrow$}}
+            % \ar@{}[dr]|*{\mbox{$\Rightarrow$}}
+            % \ar@{}[dr]|*\objectbox{\rotatebox{45}{$\overset{\sigma_f}{\Leftarrow}$}}
+            \ar@{}[dr]|*\objectbox{\rotatebox{45}{$\Leftarrow$}}
           &
           F^\prime(b)
             \ar[d]^{F^\prime(f)}
           \\
           F(b^\prime) 
-            \ar[r]_{\rho_{b^\prime}}
+            \ar[r]_{\sigma_{b^\prime}}
           &
           F^\prime(b^\prime)
         }
       \end{displaymath}
-      This data is also subject to composition and unit relations, which we omit to display as they are analogous to the two above diagrams.\\
-      A (left or right) lax transformation is called  \emph{weak} or \emph{strict} if all the structure morphisms are isomorphisms or equalities, respectively.
-    \end{defn}
-
-    \begin{rem}\label{rem_left_lax_transformation}
-      Keeping the notation from Def.~\ref{def_lax_transformation} and ignoring associativity isomorphisms and identity 2-cells, the composition and unit relations from said definition amount to stating that
-      \begin{displaymath}
+    \end{itemize}
+    % TODO exchange this for a less detailed remark a la 'natural in $f$'
+    The latter 2-morphism should be natural in $f$, i.e. for any commutative square
+    \begin{displaymath}
+      \begin{xy}
         \xymatrix{
-          F(b)
-            \ar[rr]^-{\sigma_b}
-            \ar[dd]_-{F(gf)}
-            \ar[dr]^-{F(f)}
-            \ar@{}[rrrd]|*\objectbox{\overset{\sigma_f}{\Leftarrow}}
-            \ar@{}[rdd]!(-5,0)|*\objectbox{\overset{\phi^F_{g,f}}{\Leftarrow}}
-          &
-          %
-          &
-          F^\prime(b)
-            \ar[dr]^{F^\prime(f)}
-          &
-          %
-          \\
-          %
-          &
-          F(b^\prime)
-            \ar[rr]^{\sigma_{b^\prime}}
-            \ar[dl]^{F(g)}
-            \ar@{}[rd]|*\objectbox{\overset{\sigma_g}{\Leftarrow}}
-          &
-          %
-          &
-          F^\prime(b^\prime)
-            \ar[dl]^{F^\prime(g)}
-          \\
-          F(b^\dprime)
-            \ar[rr]_{\sigma_{b^\dprime}}
-          &
-          %
-          &
-          F^\prime(b^\dprime)
+          b \ar[r]^f \ar[d]_\alpha & b^\prime \ar[d]^\beta \\
+          c \ar[r]_g & c^\prime
         }
-      \end{displaymath}
-      and
-      \begin{displaymath}
-        \xymatrix{
-          F(b)
-            \ar[rr]^-{\sigma_b}
-            \ar[dd]_-{F(gf)}
-            \ar@{}[rrdd]|*\objectbox{\overset{\sigma_{gf}}{\Leftarrow}}
+      \end{xy}
+    \end{displaymath}
+    the resulting cube should commute.
+    Note that this implies that $\sigma_b$ is natural in $b$.
+    This data is subject to the following relations, which we express in
+    composition and unit diagrams: For arrows $b \myrightarrow{f} {b^\prime}
+    \myrightarrow{g} {b^\dprime}$ in $\cB$,
+    \begin{displaymath}
+      \begin{xy}
+        \xymatrix@C+=3em{
+          F^\prime(g) \circ (F^\prime(f) \circ \sigma_b)
+            \ar[r]^{\alpha}
+            \ar[d]_-{F^\prime(g) \ast \sigma_f}
           &
-          %
+          (F^\prime(g) \circ F^\prime(f)) \circ \sigma_b
+            \ar[r]^-{F^\prime(g,f) \ast \sigma_b}
           &
-          F^\prime(b)
-            \ar[dr]^{F^\prime(f)}
-            \ar[dd]_{F^\prime(gf)}
-            \ar@{}[rdd]!(-5,0)|*\objectbox{\overset{\phi^{F^\prime}_{g,f}}{\Leftarrow}}
-          &
-          %
+          F^\prime(g \circ f) \circ \sigma_b
+            \ar[d]^{\sigma_{g \circ f}}
           \\
-          %
-          &
-          %
-          &
-          %
-          &
-          F^\prime(b^\prime)
-            \ar[dl]^{F^\prime(g)}
-          \\
-          F(b^\dprime)
-            \ar[rr]_{\sigma_{b^\dprime}}
-          &
-          %
-          &
-          F^\prime(b^\dprime)
-          &
-          %
-        }
-      \end{displaymath}
-      are equal for the composition, while for the unit the two diagrams
-      \begin{displaymath}
-        % TODO change matrix to double row column size instead of empty entries
-        \xymatrix{
-          F(b)
-            \ar[rr]^-{\sigma_b}
-            \ar@/_1.5pc/[dd]_-{F(\id_b)}
-            \ar@{}[rrdd]!(-15,0)|*\objectbox{\overset{\sigma_{\id_b}}{\Leftarrow}}
-          &
-          %
-          &
-          F^\prime(b)
-            \ar@{=}[dd]_{\overset{\phi^{F^\prime}_b}{\Leftarrow} }
-            \ar@/_1.5pc/[dd]_{F^\prime(\id_b)}
-          \\
-          &
-          &
-          \\
-          F(b)
-            \ar[rr]_{\sigma_b}
-          &
-          %
-          &
-          F^\prime(b)
-        }
-        \xymatrix{
-          F(b)
-            \ar[rr]^-{\sigma_b}
-            \ar@{=}[dd]_{\overset{\phi^{F}_b}{\Leftarrow} }
-            \ar@/_1.5pc/[dd]_-{F(\id_b)}
-            % \ar@{}[rrdd]!(-15,0)|*\objectbox{\overset{\sigma_f}{\Leftarrow}}
-          &
-          %
-          &
-          F^\prime(b)
-            \ar@{=}[dd]
-          \\
-          &
-          &
-          \\
-          F(b)
-            \ar[rr]_{\sigma_b}
-          &
-          %
-          &
-          F^\prime(b)
-        }
-      \end{displaymath}
-      are equal.
-      \end{rem}
-
-    \begin{rem}\label{rem_left_lax_transform_functors_J_to_CAT}
-      We further inspect the definition of left lax transformation and specify
-      to the situation of two functors $E,F: \cD \to \CAT_*$, taking values in
-      the category of pointed categories and functors, for some small category
-      $\cD$. We consider the above data as 2-categorical by assuming discrete
-      morphism categories and corresponding structure, as described in
-      Rem.~\ref{rem_discrete_bicategory} and
-      \ref{rem_discrete_bicategories_functors}. We invite the reader to verify
-      that in this situation, a left lax transformation $G: F \Rightarrow E$ is
-      given by a functor $G_i \colon F(i) \to E(i)$ for each $i \in \cD$ and a
-      natural transformation $G_f: E(f) \circ G_i \Rightarrow G_j \circ F(f)$
-      for every $f: i \to j$ in $\cD$, satisfying $G_g G_f = G_{gf}$ for $g: j
-      \to k$ in $\cD$ and $G_{\id_i} = \id_{G_i}$.
-    \end{rem}
-    % TODO rename variables E,F above - specify further to E constant functor?
-
-    \begin{defn}\label{def_category_of_bimodules}
-      Let $\cD$ be a small category, and let $K \colon \cD \to \CAT_*$ be a functor.
-      Recall the following notation: 
-      Given $F \colon \cD \to \CAT_*$, we denote by $F^e \colon \cD \to \CAT_*$
-      the functor sending $j \mapsto F(j)^e = F(j)^{\op} \wedge F(j)$.
-      We proceed to define the category $\operatorname{Bimod}^{\cD} / K$ of
-      bimodules (we attempt to motivate the term bimodule in this context
-      in Def. \ref{def_hocolim}).\\
-      The objects of this category are pairs $(F,G)$, where $F \colon \cD \to
-      \CAT_*$ is a functor and $G \colon F^e \Rightarrow K$ is a left lax
-      transformation (compare
-      Rem.~\ref{rem_left_lax_transform_functors_J_to_CAT}).
-      A morphism $(\epsilon, \eta) \colon (F,G) \to (F^\prime,G^\prime)$ between
-      two such pairs consists of a natural transformation $\epsilon \colon F \to
-      F^\prime$ and a modification $\eta \colon G \to G^\prime \epsilon^e$.
-      Composition of two such morphisms
-      \begin{displaymath}
-        (F,G) \myrightarrow{(\epsilon_1, \eta_1)} %
-        (F^\prime,G^\prime) \myrightarrow{(\epsilon_2, \eta_2)}%
-        (F^\dprime,G^\dprime)
-      \end{displaymath}
-      is composition of natural transformations $\epsilon_2 \circ \epsilon_1$ in
-      the first component, while composition in the second component is given by
-      \begin{displaymath}
-        \xymatrix{
-          G 
-            \ar[rr]
-            \ar[dr]_{\eta_1}
+          F^\prime(g) \circ (\sigma_{b^\prime} \circ F(f))
+            \ar[d]_-{\alpha}
           &&
-          G^\dprime \epsilon_2^e \epsilon_1^e
+          \sigma_{b^\dprime} \circ F(gf)
           \\
-          & 
-          G^\prime \epsilon_1^e
-            \ar[ur]_{\eta_2 \ast \id_{\eta_1^e}}
+          (F^\prime(g) \circ \sigma_{b^\prime}) \circ F(f)
+            \ar[r]_-{\sigma_g \ast F(f)}
+          &
+          (\sigma_{b^\dprime} \circ F(g)) \circ F(f)
+            \ar[r]_-{\alpha}
+          &
+          \sigma_{b^\dprime} \circ (F(g) \circ F(f))
+            \ar[u]_{\sigma_{b^\dprime} \ast F(g,f)}
         }
-      \end{displaymath}
-      The identity morphism is given by the identity transformation and
-      modification. It is easy to check that this data constitutes a category.
-      % Recall (cf. Def.~\ref{def_modification}) that a modification as above is
-      % given by a natural transformation $\eta_j \colon G_j \Rightarrow
-      % G_j^\prime \epsilon_j^e$ for every $j \in \ob \cD$ satisfying that for
-      % every $f \colon j \to k$ in $\cD$ the two transformations
-      % \begin{displaymath}
-      %   \eta_k G_f = G^\prime_f \eta_j \colon %
-      %     G^\prime \epsilon_k^e F^e(f) \Rightarrow %
-      %     G^\prime_k (F^\prime(f)\epsilon_j)^e
-      % \end{displaymath}
-      % are equal.
-    \end{defn}
-    The next step in our construction will be to functorially find an object in
-    the above category for every finite set, and apply the functor found in the
-    following
-    \begin{defn}\label{def_hocolim}
-      Keeping the notation of Def.~\ref{def_category_of_bimodules}, we assume
-      $K$ to be a pointed category with small coproducts, and choose a (small)
-      coproduct on $K$.  Then $K$ is tensored over pointed sets: For a pointed
-      set $S$ and an object $k$ in $K$ we write $S \wedge k$ for the coproduct
-      of $k$ with itself over the non-basepoint elements of $S$.
-      We proceed to consider $K$ as a constant functor from $\cD$ to $\CAT_*$
-      and consider the category of bimodules in this context, defining a functor
-      \begin{gather*}
-        \hocolim: \operatorname{Bimod}^{\cD} / K \to %
-          [\cD \times \Delta^{\mathrm{op}}, K]\\
-        (F,G) \mapsto \hocolim_F G
-      \end{gather*}
-      where the codomain is the category of functors and natural transformations
-      between the two indicated categories.
-      The functor sends an object, given by a pair of functor and lax left
-      transformation $(F: \cD \to \CAT_*, G: F^e \Rightarrow K)$, to the functor
-      sending a pair of object and simplex $(j,[q]) \in \cD \times
-      \Delta^\mathrm{op}$ to
-      \begin{displaymath}
-        \bigvee_{x_0, \ldots, x_q \in \ob F(j)} %
-          G_j(x_0,x_q) \wedge %
-          \hom_{F(j)}(x_1,x_0) \wedge \ldots \wedge \hom_{F(j)}(x_q,x_{q-1}),
-      \end{displaymath}
-      the object $G_j(x_0,x_q)$ of $K$ tensored with the smash product of the
-      morphism sets $F(j)(x_i,x_{i-1})$, where the wedge sum is taken over all
-      tuples $(x_0, \ldots, x_q) \in (\ob F(j))^{q+1}$.\\
-      Considering functoriality in $\cD$, let $f \colon j \to k$ be a morphism in $\cD$.
-      We start with some $x_i, \ldots, x_q \in \ob F(j)$, and obtain a morphism
-      \begin{displaymath}
-        \xymatrix@R+1em{
-          G_j(x_0,x_q) \wedge \bigwedge_{i=1}^q \hom_{F(j)}(x_i,x_{i-1}) %
-            \ar[d]_{(G_f)_{(x_0,x_q)} \wedge}^{\bigwedge_i F(f)}
+      \end{xy}
+    \end{displaymath}
+    commutes, with $\alpha$ indicating the appropriate associativity
+    isomorphisms. For $b \in \cB_0$,
+    \begin{displaymath}
+      \begin{xy}
+        \xymatrix{
+          & F^\prime(\id_b) \circ \sigma_b
+            \ar[dd]^{\sigma_{\id_b}}
           \\
-          G_k(F(f)^{\mathrm{op}}(x_0),F(f)(x_q)) \wedge %
-            \bigwedge_{i=1}^q \hom_{F(k)}(F(f)(x_i),F(f)(x_{i-1})),  
-        }
-      \end{displaymath}
-      using the lax transformation $G$ on the first factor and the functor $F$
-      on the morphism sets.
-      Including into the respective sum and doing this for every summand gives
-      the desired morphism. This is indeed functorial in $\cD$, obviously so for
-      $F$, and also for $G$ (cf.
-      Rem.~\ref{rem_left_lax_transform_functors_J_to_CAT})\\
-      For functoriality in $\Delta^{\mathrm{op}}$, we specify a simplicial
-      structure as follows.
-      Degeneracy maps from degree $q$ to degree $q+1$ are induced by first
-      adding a smash factor $S^0$, followed by the pointed morphism $S^0 \to
-      \hom_{F(j)}(x_i,x_i)$ mapping the non-basepoint to the identity in the
-      morphism set, for $i \in \{ 0, \ldots, q \}$.  Face maps from degree $q$
-      to degree $q-1$ are induced by the composition $\hom_{F(j)}(x_i,x_{i-1})
-      \wedge \hom_{F(j)}(x_{i+1},x_i) \to \hom_{F(j)}(x_{i+1},x_{i-1})$ for $i
-      \in \{ 1, \ldots, q-1 \}$.  To define $d_0$ and $d_q$ we use functoriality
-      of $G_j$ in $x_0$ (contravariant!) and in $x_q$, respectively: Given $f:
-      x_1 \to x_0$ in $F(j)$, we obtain a morphism $G_j(f,\id_{x_q}) \colon
-      G_j(x_0,x_q) \to G_j(x_1,x_q)$, and apply this to get a map
-      \begin{displaymath}
-        G_j(x_0,x_q) \wedge F(j)(x_1,x_0) \to G_j(x_1,x_q).
-      \end{displaymath}
-      One may proceed similarly to obtain $d_q$ using
-      \begin{displaymath}
-        G_j(x_0,x_q) \wedge F(j)(x_q,x_{q-1}) \to G_j(x_0,x_{q-1}).
-      \end{displaymath}
-      This is where we can draw an analogy to classical algebra and motivate the
-      usage of the term bimodule: Note how in the definition of $d_0$ and $d_q$,
-      $F$ can be taken to "act" on $G$ from the left and right, respectively -
-      hence $G$ takes the role of a bimodule over $F$, in an informal sense.\\
-      This structure is sometimes referred to as a Hochschild type simplicial
-      structure, as it resembles the structure of the complex used by Hochschild
-      to define the homology theory named after him, and it is an easy exercise
-      to show that these operators fulfill the simplicial relations.\\
-      For functoriality in the category of bimodules, let
-      \begin{displaymath}
-        (\epsilon, \eta) \colon (F,G) \to (F^\prime, G^\prime)
-      \end{displaymath}
-      be a natural transformation and a modification.
-      We shall define a natural transformation denoted
-      \begin{displaymath}
-        \hocolim_\epsilon \eta \colon \hocolim_F G \to \hocolim_{F^\prime} G^\prime.
-      \end{displaymath}
-      Recall that $\epsilon \colon F \to F^\prime$ a natural transformation
-      implies that for every $j \in \cD$, we have a functor $\epsilon_j \colon
-      F(j) \to F^\prime(j)$.
-      Furthermore, $\eta \colon G \to G^\prime \epsilon^e$ a modification
-      implies that for every $j \in \cD$, we have a natural transformation
-      $\eta_j \colon G_j \to G^\prime_j\epsilon^e_j$.
-      We hence have morphisms
-      \begin{displaymath}
-        \xymatrix{
-          G_j(x_0,x_q) \wedge \bigwedge_{i=1}^q \hom_{F(j)}(x_i,x_{i-1}) %
-            \ar[d]_{\eta_j \wedge}^{\bigwedge_i \epsilon_j}
+          \sigma_b
+            \ar[ur]^{\phi^{F^\prime}_b \ast \sigma_b}
+            \ar[dr]_{\sigma_b \ast \phi^F_b}
+          &
+          %
           \\
-          G_j^\prime(\epsilon_j(x_0),\epsilon_j(x_q)) \wedge %
-            \bigwedge_{i=1}^q \hom_{F^\prime(j)}(\epsilon_j(x_i),\epsilon_j(x_{i-1})),  
+          & \sigma_b \circ F(\id_b)
         }
-      \end{displaymath}
-      which assemble into the desired natural transformation, supporting
-      functoriality in the category of bimodules (cf.
-      Def.~\ref{def_category_of_bimodules}).\\
-      We would like to point out that the name homotopy colimit for the above
-      functor is a bit misleading, please cf. 4.2 in \cite{brun2010covering},
-      but perhaps the following will shed a bit of light on the naming:
-    \end{defn}
-    \begin{lem}\label{lem_hocolim_name_justification}
-      In the situation of Def. \ref{def_hocolim}, assume that $F \colon \cD \to
-      \CAT_*$ may be factored as
-      \begin{displaymath}
+      \end{xy}
+    \end{displaymath}
+    is required to commmute.\\
+    Dually, a \emph{right lax transformation} consists of
+    \begin{itemize}
+      \item for every object $b \in \cB_0$ a 1-morphism $F(b)
+        \myrightarrow{\rho_b} F^\prime(b)$ in $\cC$
+      \item for every 1-morphism $f: b \to b^\prime$ a 2-morphism $F^\prime(f)
+        \circ \rho_b \myleftarrow{\rho_f} \rho_{b^\prime} \circ F(f)$.
+      \end{itemize}
+    Observe the reversed direction:
+    \begin{displaymath}
+      \xymatrix{
+        F(b)
+          \ar[r]^{\rho_b}
+          \ar[d]_{F(f)}
+          \ar@{}[dr]|*\objectbox{\rotatebox{225}{$\Leftarrow$}}
+        &
+        F^\prime(b)
+          \ar[d]^{F^\prime(f)}
+        \\
+        F(b^\prime) 
+          \ar[r]_{\rho_{b^\prime}}
+        &
+        F^\prime(b^\prime)
+      }
+    \end{displaymath}
+    This data is also subject to composition and unit relations, which we omit to display as they are analogous to the two above diagrams.\\
+    A (left or right) lax transformation is called  \emph{weak} or \emph{strict} if all the structure morphisms are isomorphisms or equalities, respectively.
+  \end{defn}
+
+  \begin{rem}\label{rem_left_lax_transformation}
+    Keeping the notation from Def.~\ref{def_lax_transformation} and ignoring associativity isomorphisms and identity 2-cells, the composition and unit relations from said definition amount to stating that
+    \begin{displaymath}
+      \xymatrix{
+        F(b)
+          \ar[rr]^-{\sigma_b}
+          \ar[dd]_-{F(gf)}
+          \ar[dr]^-{F(f)}
+          \ar@{}[rrrd]|*\objectbox{\overset{\sigma_f}{\Leftarrow}}
+          \ar@{}[rdd]!(-5,0)|*\objectbox{\overset{\phi^F_{g,f}}{\Leftarrow}}
+        &
+        %
+        &
+        F^\prime(b)
+          \ar[dr]^{F^\prime(f)}
+        &
+        %
+        \\
+        %
+        &
+        F(b^\prime)
+          \ar[rr]^{\sigma_{b^\prime}}
+          \ar[dl]^{F(g)}
+          \ar@{}[rd]|*\objectbox{\overset{\sigma_g}{\Leftarrow}}
+        &
+        %
+        &
+        F^\prime(b^\prime)
+          \ar[dl]^{F^\prime(g)}
+        \\
+        F(b^\dprime)
+          \ar[rr]_{\sigma_{b^\dprime}}
+        &
+        %
+        &
+        F^\prime(b^\dprime)
+      }
+    \end{displaymath}
+    and
+    \begin{displaymath}
+      \xymatrix{
+        F(b)
+          \ar[rr]^-{\sigma_b}
+          \ar[dd]_-{F(gf)}
+          \ar@{}[rrdd]|*\objectbox{\overset{\sigma_{gf}}{\Leftarrow}}
+        &
+        %
+        &
+        F^\prime(b)
+          \ar[dr]^{F^\prime(f)}
+          \ar[dd]_{F^\prime(gf)}
+          \ar@{}[rdd]!(-5,0)|*\objectbox{\overset{\phi^{F^\prime}_{g,f}}{\Leftarrow}}
+        &
+        %
+        \\
+        %
+        &
+        %
+        &
+        %
+        &
+        F^\prime(b^\prime)
+          \ar[dl]^{F^\prime(g)}
+        \\
+        F(b^\dprime)
+          \ar[rr]_{\sigma_{b^\dprime}}
+        &
+        %
+        &
+        F^\prime(b^\dprime)
+        &
+        %
+      }
+    \end{displaymath}
+    are equal for the composition, while for the unit the two diagrams
+    \begin{displaymath}
+      % TODO change matrix to double row column size instead of empty entries
+      \xymatrix{
+        F(b)
+          \ar[rr]^-{\sigma_b}
+          \ar@/_1.5pc/[dd]_-{F(\id_b)}
+          \ar@{}[rrdd]!(-15,0)|*\objectbox{\overset{\sigma_{\id_b}}{\Leftarrow}}
+        &
+        %
+        &
+        F^\prime(b)
+          \ar@{=}[dd]_{\overset{\phi^{F^\prime}_b}{\Leftarrow} }
+          \ar@/_1.5pc/[dd]_{F^\prime(\id_b)}
+        \\
+        &
+        &
+        \\
+        F(b)
+          \ar[rr]_{\sigma_b}
+        &
+        %
+        &
+        F^\prime(b)
+      }
+      \xymatrix{
+        F(b)
+          \ar[rr]^-{\sigma_b}
+          \ar@{=}[dd]_{\overset{\phi^{F}_b}{\Leftarrow} }
+          \ar@/_1.5pc/[dd]_-{F(\id_b)}
+          % \ar@{}[rrdd]!(-15,0)|*\objectbox{\overset{\sigma_f}{\Leftarrow}}
+        &
+        %
+        &
+        F^\prime(b)
+          \ar@{=}[dd]
+        \\
+        &
+        &
+        \\
+        F(b)
+          \ar[rr]_{\sigma_b}
+        &
+        %
+        &
+        F^\prime(b)
+      }
+    \end{displaymath}
+    are equal.
+    \end{rem}
+
+  \begin{rem}\label{rem_left_lax_transform_functors_J_to_CAT}
+    We further inspect the definition of left lax transformation and specify
+    to the situation of two functors $E,F: \cD \to \CAT_*$, taking values in
+    the category of pointed categories and functors, for some small category
+    $\cD$. We consider the above data as 2-categorical by assuming discrete
+    morphism categories and corresponding structure, as described in
+    Rem.~\ref{rem_discrete_bicategory} and
+    \ref{rem_discrete_bicategories_functors}. We invite the reader to verify
+    that in this situation, a left lax transformation $G: F \Rightarrow E$ is
+    given by a functor $G_i \colon F(i) \to E(i)$ for each $i \in \cD$ and a
+    natural transformation $G_f: E(f) \circ G_i \Rightarrow G_j \circ F(f)$
+    for every $f: i \to j$ in $\cD$, satisfying $G_g G_f = G_{gf}$ for $g: j
+    \to k$ in $\cD$ and $G_{\id_i} = \id_{G_i}$.
+  \end{rem}
+  % TODO rename variables E,F above - specify further to E constant functor?
+
+  \begin{defn}\label{def_category_of_bimodules}
+    Let $\cD$ be a small category, and let $K \colon \cD \to \CAT_*$ be a functor.
+    Recall the following notation: 
+    Given $F \colon \cD \to \CAT_*$, we denote by $F^e \colon \cD \to \CAT_*$
+    the functor sending $j \mapsto F(j)^e = F(j)^{\op} \wedge F(j)$.
+    We proceed to define the category $\operatorname{Bimod}^{\cD} / K$ of
+    bimodules (we attempt to motivate the term bimodule in this context
+    in Def. \ref{def_hocolim}).\\
+    The objects of this category are pairs $(F,G)$, where $F \colon \cD \to
+    \CAT_*$ is a functor and $G \colon F^e \Rightarrow K$ is a left lax
+    transformation (compare
+    Rem.~\ref{rem_left_lax_transform_functors_J_to_CAT}).
+    A morphism $(\epsilon, \eta) \colon (F,G) \to (F^\prime,G^\prime)$ between
+    two such pairs consists of a natural transformation $\epsilon \colon F \to
+    F^\prime$ and a modification $\eta \colon G \to G^\prime \epsilon^e$.
+    Composition of two such morphisms
+    \begin{displaymath}
+      (F,G) \myrightarrow{(\epsilon_1, \eta_1)} %
+      (F^\prime,G^\prime) \myrightarrow{(\epsilon_2, \eta_2)}%
+      (F^\dprime,G^\dprime)
+    \end{displaymath}
+    is composition of natural transformations $\epsilon_2 \circ \epsilon_1$ in
+    the first component, while composition in the second component is given by
+    \begin{displaymath}
+      \xymatrix{
+        G 
+          \ar[rr]
+          \ar[dr]_{\eta_1}
+        &&
+        G^\dprime \epsilon_2^e \epsilon_1^e
+        \\
+        & 
+        G^\prime \epsilon_1^e
+          \ar[ur]_{\eta_2 \ast \id_{\eta_1^e}}
+      }
+    \end{displaymath}
+    The identity morphism is given by the identity transformation and
+    modification. It is easy to check that this data constitutes a category.
+    % Recall (cf. Def.~\ref{def_modification}) that a modification as above is
+    % given by a natural transformation $\eta_j \colon G_j \Rightarrow
+    % G_j^\prime \epsilon_j^e$ for every $j \in \ob \cD$ satisfying that for
+    % every $f \colon j \to k$ in $\cD$ the two transformations
+    % \begin{displaymath}
+    %   \eta_k G_f = G^\prime_f \eta_j \colon %
+    %     G^\prime \epsilon_k^e F^e(f) \Rightarrow %
+    %     G^\prime_k (F^\prime(f)\epsilon_j)^e
+    % \end{displaymath}
+    % are equal.
+  \end{defn}
+  The next step in our construction will be to functorially find an object in
+  the above category for every finite set, and apply the functor found in the
+  following
+  \begin{defn}\label{def_hocolim}
+    Keeping the notation of Def.~\ref{def_category_of_bimodules}, we assume
+    $K$ to be a pointed category with small coproducts, and choose a (small)
+    coproduct on $K$.  Then $K$ is tensored over pointed sets: For a pointed
+    set $S$ and an object $k$ in $K$ we write $S \wedge k$ for the coproduct
+    of $k$ with itself over the non-basepoint elements of $S$.
+    We proceed to consider $K$ as a constant functor from $\cD$ to $\CAT_*$
+    and consider the category of bimodules in this context, defining a functor
+    \begin{gather*}
+      \hocolim: \operatorname{Bimod}^{\cD} / K \to %
+        [\cD \times \Delta^{\mathrm{op}}, K]\\
+      (F,G) \mapsto \hocolim_F G
+    \end{gather*}
+    where the codomain is the category of functors and natural transformations
+    between the two indicated categories.
+    The functor sends an object, given by a pair of functor and lax left
+    transformation $(F: \cD \to \CAT_*, G: F^e \Rightarrow K)$, to the functor
+    sending a pair of object and simplex $(j,[q]) \in \cD \times
+    \Delta^\mathrm{op}$ to
+    \begin{displaymath}
+      \bigvee_{x_0, \ldots, x_q \in \ob F(j)} %
+        G_j(x_0,x_q) \wedge %
+        \hom_{F(j)}(x_1,x_0) \wedge \ldots \wedge \hom_{F(j)}(x_q,x_{q-1}),
+    \end{displaymath}
+    the object $G_j(x_0,x_q)$ of $K$ tensored with the smash product of the
+    morphism sets $F(j)(x_i,x_{i-1})$, where the wedge sum is taken over all
+    tuples $(x_0, \ldots, x_q) \in (\ob F(j))^{q+1}$.\\
+    Considering functoriality in $\cD$, let $f \colon j \to k$ be a morphism in $\cD$.
+    We start with some $x_i, \ldots, x_q \in \ob F(j)$, and obtain a morphism
+    \begin{displaymath}
+      \xymatrix@R+1em{
+        G_j(x_0,x_q) \wedge \bigwedge_{i=1}^q \hom_{F(j)}(x_i,x_{i-1}) %
+          \ar[d]_{(G_f)_{(x_0,x_q)} \wedge}^{\bigwedge_i F(f)}
+        \\
+        G_k(F(f)^{\mathrm{op}}(x_0),F(f)(x_q)) \wedge %
+          \bigwedge_{i=1}^q \hom_{F(k)}(F(f)(x_i),F(f)(x_{i-1})),  
+      }
+    \end{displaymath}
+    using the lax transformation $G$ on the first factor and the functor $F$
+    on the morphism sets.
+    Including into the respective sum and doing this for every summand gives
+    the desired morphism. This is indeed functorial in $\cD$, obviously so for
+    $F$, and also for $G$ (cf.
+    Rem.~\ref{rem_left_lax_transform_functors_J_to_CAT})\\
+    For functoriality in $\Delta^{\mathrm{op}}$, we specify a simplicial
+    structure as follows.
+    Degeneracy maps from degree $q$ to degree $q+1$ are induced by first
+    adding a smash factor $S^0$, followed by the pointed morphism $S^0 \to
+    \hom_{F(j)}(x_i,x_i)$ mapping the non-basepoint to the identity in the
+    morphism set, for $i \in \{ 0, \ldots, q \}$.  Face maps from degree $q$
+    to degree $q-1$ are induced by the composition $\hom_{F(j)}(x_i,x_{i-1})
+    \wedge \hom_{F(j)}(x_{i+1},x_i) \to \hom_{F(j)}(x_{i+1},x_{i-1})$ for $i
+    \in \{ 1, \ldots, q-1 \}$.  To define $d_0$ and $d_q$ we use functoriality
+    of $G_j$ in $x_0$ (contravariant!) and in $x_q$, respectively: Given $f:
+    x_1 \to x_0$ in $F(j)$, we obtain a morphism $G_j(f,\id_{x_q}) \colon
+    G_j(x_0,x_q) \to G_j(x_1,x_q)$, and apply this to get a map
+    \begin{displaymath}
+      G_j(x_0,x_q) \wedge F(j)(x_1,x_0) \to G_j(x_1,x_q).
+    \end{displaymath}
+    One may proceed similarly to obtain $d_q$ using
+    \begin{displaymath}
+      G_j(x_0,x_q) \wedge F(j)(x_q,x_{q-1}) \to G_j(x_0,x_{q-1}).
+    \end{displaymath}
+    This is where we can draw an analogy to classical algebra and motivate the
+    usage of the term bimodule: Note how in the definition of $d_0$ and $d_q$,
+    $F$ can be taken to "act" on $G$ from the left and right, respectively -
+    hence $G$ takes the role of a bimodule over $F$, in an informal sense.\\
+    This structure is sometimes referred to as a Hochschild type simplicial
+    structure, as it resembles the structure of the complex used by Hochschild
+    to define the homology theory named after him, and it is an easy exercise
+    to show that these operators fulfill the simplicial relations.\\
+    For functoriality in the category of bimodules, let
+    \begin{displaymath}
+      (\epsilon, \eta) \colon (F,G) \to (F^\prime, G^\prime)
+    \end{displaymath}
+    be a natural transformation and a modification.
+    We shall define a natural transformation denoted
+    \begin{displaymath}
+      \hocolim_\epsilon \eta \colon \hocolim_F G \to \hocolim_{F^\prime} G^\prime.
+    \end{displaymath}
+    Recall that $\epsilon \colon F \to F^\prime$ a natural transformation
+    implies that for every $j \in \cD$, we have a functor $\epsilon_j \colon
+    F(j) \to F^\prime(j)$.
+    Furthermore, $\eta \colon G \to G^\prime \epsilon^e$ a modification
+    implies that for every $j \in \cD$, we have a natural transformation
+    $\eta_j \colon G_j \to G^\prime_j\epsilon^e_j$.
+    We hence have morphisms
+    \begin{displaymath}
+      \xymatrix{
+        G_j(x_0,x_q) \wedge \bigwedge_{i=1}^q \hom_{F(j)}(x_i,x_{i-1}) %
+          \ar[d]_{\eta_j \wedge}^{\bigwedge_i \epsilon_j}
+        \\
+        G_j^\prime(\epsilon_j(x_0),\epsilon_j(x_q)) \wedge %
+          \bigwedge_{i=1}^q \hom_{F^\prime(j)}(\epsilon_j(x_i),\epsilon_j(x_{i-1})),  
+      }
+    \end{displaymath}
+    which assemble into the desired natural transformation, supporting
+    functoriality in the category of bimodules (cf.
+    Def.~\ref{def_category_of_bimodules}).\\
+    We would like to point out that the name homotopy colimit for the above
+    functor is a bit misleading, please cf. 4.2 in \cite{brun2010covering},
+    but perhaps the following will shed a bit of light on the naming:
+  \end{defn}
+  \begin{lem}\label{lem_hocolim_name_justification}
+    In the situation of Def. \ref{def_hocolim}, assume that $F \colon \cD \to
+    \CAT_*$ may be factored as
+    \begin{displaymath}
+      \xymatrix{
+        \cD \ar[r]^-{F^\prime} &
+        \CAT \ar[r]^-{(-)_+} &
+        \CAT_*
+      }
+    \end{displaymath}
+    for some $F^\prime \colon \cD \to \CAT$ and that $G \colon F^e \to K$ may
+    be written as the following composition:
+    \begin{displaymath}
+      \xymatrix{
+        F^e = F^{\op} \wedge F \ar[r]^{\mathrm{pr} \wedge F} &
+        \mathrm{const}_{1_+} \wedge F \ar[r]^-{\cong} &
+        F \ar[r]^{G^\prime} &
+        K
+      }
+    \end{displaymath}
+    where 
+    \begin{displaymath}
+      \const_{1_+} \colon \cD \to \CAT_*
+    \end{displaymath}
+    is the constant functor with image the singleton category $1$ (exactly one
+    object, one morphism) with added basepoint, 
+    \begin{displaymath}
+      \mathrm{pr} \colon F^{\op} \to \mathrm{const}_{1_+}
+    \end{displaymath}
+    is the natural transformation of pointed functors sending every
+    non-basepoint object to the non-basepoint object in $1_+$ and mapping
+    morphisms accordingly, and the isomorphism is induced by the natural
+    identification $1_+ \wedge \cC \cong \cC$ for any pointed category
+    $\cC$.\\
+    Then, given $j \in \cD$, $(\hocolim_G F)(j)$ is weakly equivalent (actualy
+    isomorphic, for the given model) to the usual homotopy colimit of the
+    diagram $G^\prime_j \colon F^\prime(j) \to K$, given here by the model
+    \begin{displaymath}
+      \hocolim_{F^\prime(j)} G_j^\prime = \left\{ 
+        [q] \mapsto \bigvee_{x_q \to \ldots \to x_0} G_j^\prime(x_q)
+      \right\}
+    \end{displaymath}
+    with wedge sum taken over all sequences of morphisms $(x_q \to \ldots \to
+    x_0)$ in $F^\prime(j)$.
+  \end{lem}
+  \begin{proof}
+    We consider for $q \geq 0$:
+    \begin{gather*}
+      (\hocolim_F G)(j)_q = \\%
+      \bigvee_{x_0, \ldots, x_q \in \ob F(j)} %
+        G_j(x_0,x_q) \wedge \bigwedge_{i=0}^{q-1} \hom_{F(j)}(x_{i+1},x_i) \cong \\%
+      \bigvee_{x_0, \ldots, x_q \in \ob F^\prime(j)_+} %
+        G^\prime_j(x_q) \wedge \bigwedge_{i=0}^{q-1} %
+        \hom_{F^\prime(j)_+}(x_{i+1},x_i) \cong %
+    \end{gather*}
+    Observe that if $x_i$ is the basepoint in $F(j) = F^\prime(j)_+$, then
+    morphisms from and to $x_i$ in $F(j)$ are just a point, and the respective
+    summand collapses to a point. For $x, y \in \ob F^\prime(j)$ we further
+    have $\hom_{F(j)_+}(x,y) \cong \hom_{F^\prime(j)}(x,y)_+$. Applying this
+    we may proceed
+    \begin{gather*}
+      \cong \bigvee_{x_0, \ldots, x_q \in \ob F^\prime(j)} %
+        G^\prime_j(x_q) \wedge \bigwedge_{i=0}^{q-1}
+        \hom_{F^\prime(j)}(x_{i+1},x_i)_+ \cong \\%
+      \bigvee_{x_0, \ldots, x_q \in \ob F^\prime(j)} %
+        G^\prime_j(x_q) \wedge %
+        \left (\prod_{i=0}^{q-1} \hom_{F^\prime(j)}(x_{i+1},x_i) \right)_+
+        \cong \\%
+      \bigvee_{x_0, \ldots, x_q \in \ob F^\prime(j)} \left[%
+        \bigvee_{\prod_{i=0}^{q-1} \hom_{F^\prime(j)}(x_{i+1},x_i)} %
+        G^\prime_j(x_q) \right] \cong \\%
+        \bigvee_{x_q \to \ldots \to x_0} G^\prime_j(x_q),
+    \end{gather*}
+    which gives us an isomorphism for each $q \geq 0$.\\
+    It is simple to check that these isomorphisms are compatible with the
+    simplicial structure, so we have the desired equivalence.
+  \end{proof}
+\subsection{The left lax transformation $G^A$}
+  \begin{defn}\label{def_left_lax_transformation_S}
+    Let $\Sigma$ be the category of finite sets (including the empty set) with
+    bijections (the empty set has no endomorphisms, hence they all are
+    bijections by tautology), equipped with the structure of a monoidal
+    category by disjoint union of sets, and let $\sS_*$ be the category of
+    pointed simplicial sets, equipped with the structure of a monoidal
+    category by smash product of simplicial sets.
+    We choose a strong symmetric monoidal functor $S: \Sigma \to \sS_*$ with
+    $S(\{1\}) = S^1$, one possible such choice being letting
+    \begin{displaymath}
+      S(X) = \bigwedge_{x \in X} S^1
+    \end{displaymath}
+    for any finite set $X$.
+    This gives rise to a left lax transformation
+    \begin{displaymath}
+      \xymatrix{
+        \Fin 
+          \ar@{=}[r] 
+          \ar[d]_{\Sigma_+} 
+          \ar@{}[rd]|{\overset{S}{\Rightarrow}} 
+        & 
+        \Fin \ar[d]^{\sS_*} \\
+        \CAT_* \ar[r] & \CAT_*
+      }
+    \end{displaymath}
+  where $\Sigma_+ \colon \Fin \to \CAT_*$ is the weak functor obtained by
+    applying Def.~\ref{def_functor_iW_to_Cat_aka_abstract_loday} to the
+    inclusion $\Sigma \to \Fin$ and
+    Def.~\ref{def_added_basepoint_extending_functor} to the resulting functor,
+    postcomposing with the inclusion $\Cat_* \to \CAT_*$ and finally
+    precomposing with the functors
+  \begin{displaymath}
+    \Fin \myrightarrow{(-)_*} V \myrightarrow{L} iW \myrightarrow{\iota} eW
+  \end{displaymath}
+  (cf. Def.~\ref{def_functors_finite_sets_to_iW}), while $\sS_*$ is used to
+    denote the constant functor with image pointed simplicial sets.
+  The left lax transformation itself is given for a finite set $X$ by the
+    formula
+    \begin{gather*}
+      S_X \colon (\Sigma^X)_+ \to \sS_* \\
+      (j \colon X \to \Sigma) \mapsto \bigwedge_{x \in X} S(j(x))
+    \end{gather*}
+  A morphism $f \colon j \to k$ in $\Sigma^X$ is given by bijections $f_x
+    \colon j(x) \to k(x)$ for each $x \in X$ and is sent to
+  \begin{displaymath}
+    \bigwedge_{x \in X} S(f_x) \colon %
+    \bigwedge_{x \in X} S(j(x)) \to %
+    \bigwedge_{x \in X} S(k(x))
+  \end{displaymath}
+  For a morphism $f \colon X \to Y$ of finite sets, we have a natural
+    transformation $S_f \colon S_X \Rightarrow S_Y \circ \Sigma_+(f)$ given
+    for $j \colon X \to \ob \Sigma$ in $(\Sigma^X)_+$ by the isomorphism 
+  \begin{displaymath}
+    \bigwedge_{x \in X} S(j(x)) \to \bigwedge_{y \in Y} S( \coprod_{x \in
+    f^{-1}(y)} j(x)) = \bigwedge_{y \in Y} \bigwedge_{x \in f^{-1}(y)} S(j(x))
+  \end{displaymath}
+  adding in $S^0$ for every $y \in Y$ not in the image of $f$. This clearly
+    satisfies the axioms of a left lax transformation (cf.
+    Rem.~\ref{rem_left_lax_transform_functors_J_to_CAT}).
+  \end{defn}
+
+  \begin{rem}\label{rem_notation_for_functor_S}
+    Considering the above strict(!) symmetric monoidal functor $S: \Sigma \to
+    \sS_*$, we have
+    \begin{displaymath}
+      S(X) \cong S( \coprod_{x \in X} \{x\}) = \bigwedge_{x \in X} S(\{x\}) %
+      \cong \bigwedge_{x \in X} S(\{1\}) = \bigwedge_{x \in X} S^1,
+    \end{displaymath}
+    where the first map is a natural isomorphism induced by the natural
+    bijection 
+    \begin{displaymath}
+      \coprod_{x \in X} \{ x \} \myrightarrow{\coprod \incl} X
+    \end{displaymath}
+    and the last isomorphism is induced by the unique bijection $\{x\} \to
+    \{1\}$. Using this natural homeomorphism we may interpret $S(X)$ as a
+    sphere of dimension $\abs{X}$ the cardinality of $X$. This will often be
+    used implicit in the context of a symmetric spectrum $A$, using for
+    instance the structure map $A_n \wedge S(X) \to A_{n + \abs{X}}$ for some
+    finite set $X$.
+  \end{rem}
+
+  \begin{defn}\label{def_left_lax_transformation_A}
+    Given a \hring~$A$, we would like to define a left lax transformation
+    \begin{displaymath}
+      \xymatrix{
+        \Fin 
+          \ar@{=}[r] 
+          \ar[d]_{\Sigma_+} 
+          \ar@{}[rd]|{\overset{A}{\Rightarrow}} 
+        & 
+        \Fin \ar[d]^{\sS_*} \\
+        \CAT_* \ar[r] & \CAT_*
+      }
+    \end{displaymath}
+    keeping the notation of Def.~\ref{def_left_lax_transformation_S}. We
+    define a pointed functor
+    \begin{gather*}
+      A_X \colon (\Sigma^X)_+ \to \sS_* \\
+      (j \colon X \to \Sigma) \mapsto %
+        \bigwedge_{x \in X} A_{\abs{j(x)}}
+    \end{gather*}
+    on objects, and let $A_X$ map any map $f \colon j \to k$ in $\Sigma^X$ to
+    the identity.\\
+    For a morphism of finite sets $f \colon X \to Y$ we use the multiplication
+    on $A$ to define a natural transformation $A_X \to A_Y \circ \Sigma_+
+    (f)$:
+    For $j \in \Sigma^X$, we use
+    \begin{displaymath}
+      A_X(j) = \bigwedge_{x \in X} A_{\abs{j(x)}} \cong %
+      \bigwedge_{y \in Y} \bigwedge_{x \in f^{-1}(y)} A_{\abs{j(x)}} %
+        \myrightarrow{\bigwedge_{y \in Y} \mu} %
+      \bigwedge_{y \in Y} %
+        A_{\abs{\coprod_{x \in f^{-1}(y)} j(x)}}
+    \end{displaymath}
+    Note that as $A$ is commutative, this composition does not depend on the
+    permutation we choose for reshuffling $X$. 
+    Since multiplication is associative, this satisfies the axioms of a left
+    lax transformation (cf.
+    Rem.~\ref{rem_left_lax_transform_functors_J_to_CAT}).\\ We take the
+    liberty of dropping the cardinality signs from the notation and may write
+    $A_X \defas A_{\abs{X}}$ for a finite set $X$.
+  \end{defn}
+  % TODO here and in def above, vary variable name f!
+
+  \begin{defn}\label{def_left_lax_transform_G^A}
+    Given two pointed simplicial sets $X$ and $Y$, we define a \emph{symmetric
+    spetrum} of functions 
+    \begin{displaymath}
+      \Hom(X,Y) \in \ob \SpS
+    \end{displaymath}
+    given in degree $n$ by the internal hom-object of pointed simplicial sets
+    \begin{displaymath}
+      \Hom(X,Y)_n = \Hom_{\sS_*}(X,Y \wedge S^n)
+    \end{displaymath}
+    (with codomain functorially fibrantly replaced), $\Sigma_n$ acting on the
+    $n$-sphere, and structure maps of assembly type
+    \begin{gather*}
+    \Hom_{\sS_*}(X,Y \wedge S^n) \wedge S^1 \to \Hom_{\sS_*}(X,Y \wedge S(n+1))\\
+    (f \colon X \to Y \wedge S^n) \wedge t \mapsto (x \mapsto f(x) \wedge t).
+    \end{gather*}
+    One may check that this coincides with the internal hom object of
+    symmetric spectra as found in Example 3.38 of \cite{schwede2012symmetric}
+    when applied to $\Sigma^\infty X$ and $\Sigma^\infty Y$; In particular,
+    this definition is functorial in both variables.\\
+    We combine the two above definitions to obtain a left lax transformation
+    \begin{displaymath}
+      G^A \colon \iota \circ \cJ \circ (-)_* \to \Sp^\Sigma,
+    \end{displaymath}
+    or as a diagram
+    \begin{displaymath}
+      \xymatrix{
+        \Fin \ar@{=}[r] \ar[d]_{(-)_*} \ar@{}[rddd]|{\overset{G^A}{\Rightarrow}} & \Fin \ar[ddd]^{\Sp^{\Sigma}} \\
+        V \ar[d]_{\cJ} & \\
+        \Cat_* \ar[d]_{\iota} & \\
+        \CAT_* \ar@{=}[r] & \CAT_*
+      }
+    \end{displaymath}
+    for a \hring~$A$, where $\cJ(-_*) \colon \Fin \to \CAT_*$ is the covariant
+    weak functor defined in
+    Def.~\ref{def_J_and_functors_from_finite_sets_to_pointed_categories}, we
+    postcompose with the inclusion $\iota \colon \Cat_* \to \CAT_*$, and
+    $\SpS$ denotes the constant functor with value in symmetric spectra of
+    simplicial sets: Let $T$ be a finite set. We define a pointed functor
+    \begin{gather*}
+      G^A_T \colon \cJ(T) = (\cI^T)_+ \to \SpS \\
+      (i \colon T \to \cI) \mapsto %
+        \Hom(\bigwedge_{t \in T} S(i(t)), \bigwedge_{t \in T} A_{\abs{i(t)}} )
+    \end{gather*}
+    which sends a morphism $(\alpha_t \colon i(t) \to j(t))_{t \in T}$ in $\cI^T$ to the map
+    \begin{displaymath}
+      \xymatrix{
+        \Hom(\bigwedge\limits_{t \in T} S(i(t)), \bigwedge\limits_{t \in T} A_{\abs{i(t)}})
+          \ar[d]^-{ \operatorname{-} \wedge \bigwedge\limits_{t \in T} S(j(t) \setminus \im \alpha_t) } \\
+        \Hom(\bigwedge\limits_{t \in T} S(i(t)) \wedge %
+          \bigwedge\limits_{t \in T} S(j(t) \setminus \im \alpha_t), %
+          \bigwedge\limits_{t \in T} A_{\abs{i(t)}} \wedge %
+          \bigwedge\limits_{t \in T} S(j(t) \setminus \im \alpha_t))
+          \ar[d]^-{\cong} \\
+        \Hom(\bigwedge\limits_{t \in T} S(i(t)) \wedge S(j(t) \setminus \im \alpha_t), %
+          \bigwedge\limits_{t \in T} A_{\abs{i(t)}} \wedge S(j(t) \setminus \im \alpha_t)) 
+          \ar[d]^-{(\cong, \bigwedge\limits_{t \in T} \sigma^A_{\abs{i(t),j(t)\setminus\im\alpha_t}})} \\
+        \Hom(\bigwedge\limits_{t \in T} S(j(t)), \bigwedge\limits_{t \in T} A_{\abs{i(t)} + \abs{(j(t)\setminus \im \alpha_t)}})
+        % \Hom(\bigwedge\limits_{t \in T} S(j(t)), \bigwedge\limits_{t \in T} A_{\abs{i(t) \coprod (j(t)\setminus \im \alpha_t)}})
+          % \ar[d]^{(\bigwedge\limits_{t \in T} \chi_t)_*} \\
+          \ar@{=}[d] \\
+        \Hom(\bigwedge\limits_{t \in T} S(j(t)), \bigwedge\limits_{t \in T} A_{\abs{j(t)}})
+      }
+    \end{displaymath}
+    where the second map is induced by permutation isomorphisms, the third map
+    is induced by the isomorphism $(j(t) \setminus \im \alpha_t) \coprod i(t)
+    \to j(t)$, given by inclusion and $\alpha$, in the first variable and the
+    respective structure maps in the second variable. Note that we do not
+    apply any shuffle permutation in the end, although symmetric spectrum
+    reflexes are itching - adding a permutation breaks functoriality.\\ This
+    defines a morphism of symmetric spectra as we use morphisms of pointed
+    simplicial sets and functoriality of the $\Hom$ functor. It is
+    straight-forward to verify that this definition is functorial.\\ Given a
+    map of finite sets $f \colon S \to T$, we define a natural transformation
+    \begin{displaymath}
+      G^A_f \colon G^A_S \to G^A_T \circ \cJ(f_*)
+    \end{displaymath}
+    for an object $i \colon S \to \ob \cI$ in $(\cI^S)_+$ using pre- and postcomposition on an element
+    \begin{displaymath}
+      \phi \colon \bigwedge_{s \in S} S(i(s)) \to \bigwedge_{s \in S} A_{\abs{i(s)}}
+    \end{displaymath}
+    and obtaining the following map of pointed simplicial sets:
+    \begin{displaymath}
+      \xymatrix{
+        \bigwedge\limits_{t \in T} S(\coprod\limits_{s \in f^{-1}} i(s)) &&&
+        \bigwedge\limits_{t \in T} A_{\abs{\coprod_{s \in f^{-1}} i(s)}}
+        \\
+        \bigwedge\limits_{t \in T} \bigwedge\limits_{s \in f^{-1}} S(i(s))
+          \ar@{=}[u]
+          \ar[r]_-{\cong}
+        &
+        \bigwedge\limits_{s \in S} S(i(s))
+          \ar[r]^-{\phi}
+        &
+        \bigwedge\limits_{s \in S} A_{\abs{i(s)}}
+          \ar[r]^-{\cong}
+        &
+        \bigwedge\limits_{t \in T} \bigwedge\limits_{s \in f^{-1}(t)} A_{\abs{i(s)}}
+          \ar[u]_-{\mu}
+      }
+    \end{displaymath}
+    Here the horizontal isomorphisms are permutations of smash factors, while
+    the right vertical map is the multiplication of $A$. By functoriality this
+    defines a map of symmetric spectra
+    \begin{displaymath}
+      \xymatrix{
+        \Hom(\bigwedge_{s \in S} S(i(s)), 
+        \bigwedge_{s \in S} A_{\abs{i(s)}}) \ar[d]^{(G^A_f)_i} \\%
+        \Hom(\bigwedge_{t \in T} S(\coprod\nolimits_{s \in f^{-1}(t)} i(s)), %
+          \bigwedge_{t \in T} A_{\abs{ \coprod_{s \in f^{-1}(t)} i(s)}}).
+        }
+    \end{displaymath}
+    That this indeed constitutes a natural transformation is a tedious, but
+    not deep exercise in writing large diagrams, playing with the permutations
+    involved and using that multiplication in $A$ is commutative.\\ The data
+    defined above yields a left lax tranformation from the functor $S \mapsto
+    \cJ(S) = (\cI^S)_+$ to the constant functor $\Fin \to \CAT_*$ with value
+    in symmetric spectra.  To verify the axioms (cf.
+    Rem.~\ref{rem_left_lax_transformation}), consider two maps of finite sets
+    \begin{displaymath}
+      S \myrightarrow{\phi} T \myrightarrow{\psi} U.
+    \end{displaymath}
+    Jotting down the composition corresponding to $G^A_\psi \ast
+    \id_{\cJ(\phi_*)} \circ G^A_\phi$ and $G^A_{\psi, \phi}$, one can see that
+    the difference is precisely given by permuting the involved smash factors
+    according to the structure map $\cJ_{\psi,\phi}^{-1}$, hence the first
+    axiom (cf. Rem.~\ref{rem_left_lax_transformation}) is satisfied. The
+    unital property of a left lax transformation is also satisfied as in this
+    case $\cJ((\id_S)_*) = \id_{\cJ(S)}$ and $G^A_{\id_S} = \id_{G^A_S}$, i.e.
+    all morphisms involved are identities.
+  \end{defn}
+
+  Oberve that we are close to having defined a bimodule as in
+  Def.~\ref{def_category_of_bimodules}, except that we need a classical
+  functor (of 1-categories or classical categories). We proceed to rectify
+  this in the following section, using (a pointed version of) Street's first
+  construction which may be found in \cite[p.~225]{street1972two}.
+\subsection{Rectification}
+  \begin{defn}\label{def_streets_first_construction_functor}
+    Let $\cD$ be a small category, and let $F: \cD \to \Cat_*$ be a lax functor (with values in small pointed categories).
+    Following Street's example, we construct a functor $\tilde{F}: \cD \to \Cat_*$.
+    For $d$ and object of $\cD$ we define the pointed category $\tilde{F}(d)$ to have as objects the set 
+    \begin{displaymath}
+      \ob \tilde{F}(d) = \bigvee_{d_1 \in \ob \cD} \hom_{\cD}(d_1,d)_+ \wedge \ob F(d_1).
+    \end{displaymath}
+    Let 
+    be two objects in $\tilde{F}(d)$, then a morphism 
+    \begin{displaymath}
+      (\psi, \alpha) \colon (\phi_1,x_1) \to (\phi_0,x_0) \in \hom_{\tilde{F}(d)}((\phi_1,x_1), (\phi_0,x_0))
+    \end{displaymath}  
+    is given by a morphism 
+    \begin{displaymath}
+      \psi: d_0 \to d_1 \in \hom_{\cD}(d_0,d_1)
+    \end{displaymath}  
+    (observe the contraintuitive direction - not a surprise, since $d$ is fixed, so we are using the first variable in $\hom_{\cD}(d_1,d)$) such that 
+    \begin{displaymath}
+      \xymatrix{
+        d_1 \ar[d]_{\phi_1} & d_0 \ar[l]_{\psi} \ar[dl]^{\phi_0} \\
+        d
+      }
+    \end{displaymath}  
+    commutes, and - in order to compare $x_1 \to x_0$, we bring one of them into the context of the other - a morphism 
+    \begin{displaymath}
+      \alpha \colon x_1 \to F(\psi)(x_0);
+    \end{displaymath}  
+    We collapse all morphisms of the form $(\psi,0)$ to the zero morphism (note that $\cD$ is a priori just a category and hence presumably does not have any zero morphisms).
+    Given two morphisms $(\psi_1,\alpha_1)\colon(\phi_2,x_2) \to (\phi_1,x_1)$ and $(\psi_0,\alpha_0)\colon(\phi_1,x_1) \to (\phi_0,x_0)$, we define their composition as the pair $(\psi_1 \circ \psi_0, \beta)$, where $\beta$ is the in this context natural way of comparing $x_2 \to x_0$ and given by
+    \begin{displaymath}
+      x_2 \crightarrow{1.5}{\alpha_1} %
+      F(\psi_1)(x_1) \crightarrow{1.5}{F(\psi_1)(\alpha_0)} %
+      F(\psi_1) \circ F(\psi_0) (x_0) \crightarrow{1.5}{F_{\psi_1,\psi_0}} %
+      F(\psi_1 \circ \psi_0)(x_0)
+    \end{displaymath}
+    This definition reveals itself readily once one jots down the objects and arrows involved. The identity morphism for an object $(\phi \colon d_1 \to d, x \in F(d_1)) \in \tilde{F}(d)$ is given by 
+    \begin{displaymath}
+      (\id_{d_1} \colon d_1 \to d_1,(F_{d_1})_x \colon x \to F(\id_{d_1})(x),
+    \end{displaymath}
+    and it is now straightforward to check the axioms of a category: To verify
+    that $(\id_{d_1},(F_{d_1})_x)$ is the unit morphism one may use naturality
+    of the structure morphisms and the unitality axioms of $F$.\\
+    % TODO remark on associativity axiom above
+    Given a map $f: d \to d^\prime$ in $\cD$, we define a functor
+    \begin{displaymath}
+      \tilde{F}(f) \colon \tilde{F}(d) \to \tilde{F}(d^\prime)
+    \end{displaymath}
+    by mapping an object according to the formula
+    \begin{displaymath}
+      (d_1 \myrightarrow{\phi} d, x \in F(d_1)) \mapsto (d_1 \myrightarrow{\phi} d \myrightarrow{f} d^\prime, x \in F(d_1)),
+    \end{displaymath}
+    and acting as the identity on morphisms.
+  \end{defn}
+  %
+  \begin{defn}\label{def_streets_first_construction_transformation}
+    In keeping with the notation from Def.~\ref{def_streets_first_construction_functor}, we let $F \colon D \to \Cat_*$ be a lax functor.
+    Then for every object $d \in \cD$ there is a pointed functor
+    \begin{displaymath}
+      e_d \colon \tilde{F}(d) \to F(d)
+    \end{displaymath}
+    sending an object $(\phi \colon d_1 \to d, x \in F(d_1)) \in \ob \tilde{F}(d)$ to 
+    \begin{displaymath}
+      e_d(\phi,x) = F(\phi)(x) \in \ob F(d)
+    \end{displaymath}
+    and a morphism 
+    \begin{displaymath}
+      (\psi \colon d_0 \to d_1, \alpha \colon x_1 \to F(\psi)(x_0)) %
+      \colon (\phi_1, x_1) \to (\phi_0, x_0)
+    \end{displaymath}
+    to
+    \begin{displaymath}
+      F(\phi_1)(x_1) \myrightarrow{F(\phi_1)(\alpha)} %
+      F(\phi_1) \circ F(\psi)(x_0) \myrightarrow{F_{\phi_1,\psi}} %
+      F(\phi_1 \circ \psi)(x_0) = F(\phi_0)(x_0),
+    \end{displaymath}
+    where $F_{\phi_1,\psi} \colon F(\phi_1) \circ F(\psi) \to F(\phi_1 \circ
+    \psi)$ is the compositional structure morphism, here evaluated at the
+    object $x_0$.
+    Furthermore, given a map $f \colon d \to d^\prime$, there is a natural transformation
+    \begin{displaymath}
         \xymatrix{
-          \cD \ar[r]^-{F^\prime} &
-          \CAT \ar[r]^-{(-)_+} &
-          \CAT_*
+          \tilde{F}(d)
+            \ar[r]^{e_d}
+            \ar[d]_{F(f)}
+            % \ar@{}[dr]|*\objectbox{\rotatebox{45}{hey}}
+            \ar@{}[dr]|*\objectbox{\rotatebox{45}{$\overset{e_f}{\Leftarrow}$}}
+          &
+          F(d)
+            \ar[d]^{F(f)}
+          \\
+          \tilde{F}(d^\prime) 
+            \ar[r]_{e_{d^\prime}}
+          &
+          F(d^\prime)
         }
-      \end{displaymath}
-      for some $F^\prime \colon \cD \to \CAT$ and that $G \colon F^e \to K$ may
-      be written as the following composition:
-      \begin{displaymath}
+    \end{displaymath}
+    given on an object $(\phi,x)$ by
+    \begin{displaymath}
+      F(f) \circ e_d (\phi,x) = F(f) \circ F(\phi) (x) \myrightarrow{F_{f, \phi}} F(f \circ \phi)(x) = e_{d^\prime} \circ F(f) (\phi,x)
+    \end{displaymath}
+    the compositional structure morphism of $F$. Together, the above data
+    constitutes a left lax transformation $e \colon \tilde{F} \to F$. The
+    first axiom degenerates to the compatability of associativity and
+    compositional structure morphisms for $F$, while the unitality condition
+    degenerates to the unitality condition for $F$ (as $F$ is an honest
+    functor, and $e_f$ is given by a structural morphism of $F$).
+  \end{defn}
+    %
+  \begin{rem}\label{rem_streets_construction_e_is_cofinal}
+    In the context of the above
+    Def.~\ref{def_streets_first_construction_transformation}, considering
+    the unital structure morphisms of $F$ for an object $d \in \cD$, which
+    is a natural transformation
+    \begin{displaymath}
+      \id_{F(d)} \to F(\id_d),
+    \end{displaymath}
+    evaluated at an object $x \in \ob F(d)$, we have a morphism
+    \begin{displaymath}
+      \id_{F(d)} (x) = x \to F(\id_d)(x) = e_d(\id_d, x),
+    \end{displaymath}
+    which we may interpret as an object in the comma category $(x \downarrow
+    e_d)$ (cf.  Def.~\ref{def_comma_category}). Given another object of the
+    above comma category $\gamma: x \to F(\phi)(y)$ (a morphism in $F(d)$)
+    for some $(\phi: d_1 \to d, y \in F(d_1)) \in \ob \tilde{F}(d)$, assume
+    that there is a morphism in $x / e_d$
+    \begin{displaymath}
+      (x \myrightarrow{(F_d)_x} F(\id_d)(x)) \to (\gamma: x \to F(\phi)(y)).
+    \end{displaymath}
+    This is given by a $(\psi,\alpha) \colon (\id_d, x) \to (\phi \colon d_1
+    \to d,y)$, i.e. a map $\psi \colon d_1 \to d$ such that $\phi = \psi \circ
+    \id_d = \psi$ and $\alpha \colon x \to F(\psi)(y) = F(\phi)(y)$.
+    Being a morphism in the comma category implies that the diagram
+    \begin{displaymath}
+      \xymatrix{
+        x
+          \ar[r]^-{(F_d)_x}
+          \ar@{=}[d]
+        &
+        F(\id_d)(x)
+          \ar[d]^-{e_d(\phi,\alpha)}
+        \\
+        x
+          \ar[r]_-{\gamma}
+        &
+        F(\phi)(y)
+      }
+    \end{displaymath}
+    commutes, and plugging in the definition of the functor $e_d$ on
+    morphisms as well as using first naturality and then the unitality
+    property of $F_d$ in the above diagram we may conclude that $\alpha =
+    \gamma$.\\
+    This of course also tells us how to find such a morphism, which
+    proves existence, and we have overall shown that $x \to F(\id_d)(x)$ is an
+    initial object in the comma category $x/e_d$ and the functor $e_d$ is
+    homotopy cofinal (cf. Def.~\ref{def_homotopy_cofinal} and
+    Lem.~\ref{lem_category_contractible_if_has_initial_object}).
+  \end{rem}
+  %
+  \begin{defn}\label{def_streets_construction_right_transformations}
+    We continue our discussion of Street's construction by examining a right lax transformation
+    \begin{displaymath}
+      \rho: F \to F^\prime
+    \end{displaymath}
+    of functors $F,F^\prime \colon \cD \to \Cat_*$.
+    We wish to define a natural transformation $\tilde{\rho}$ of functors $\tilde{F}, \tilde{F^\prime} \colon \cD \to \Cat_*$.
+    For a $d \in \cD$, we define a functor
+    \begin{displaymath}
+      \tilde{\rho}_d: \tilde{F}(d) \to \tilde{F^\prime}(d)
+    \end{displaymath}
+    by mapping an object $(\phi_1: d_1 \to d, x_1 \in F(d_1))$ in $\tilde{F}(d)$ to
+    \begin{displaymath}
+      \tilde{\rho}_d(\phi_1,x_1) = (\phi_1 \colon d_1 \to d, \rho_{d_1}(x_1) \in \ob F^\prime(d_1)) \in \ob \tilde{F^\prime}(d)
+    \end{displaymath}
+    and mapping a morphism $(\psi \colon d_0 \to d_1, \alpha \colon x_1 \to F(\psi)(x_0)) \colon (\phi_1,x_1) \to (\phi_0, x_0)$ to the map $(\phi_1, \rho_{d_1}(x_1)) \to (\phi_0, \rho_{d_0}(x_0))$ given by the tuple consisting of $\psi$ in the first entry and the composition
+    \begin{displaymath}
+      \rho_{d_1}(x_1) \myrightarrow{\rho_{d_1}(\alpha)} %
+      \rho_{d_1} \circ F(\psi)(x_0) \myrightarrow{(\rho_{\psi})_{x_0}} %
+      F^\prime(\psi) \circ \rho_{d_0}(x_0)
+    \end{displaymath}
+    in the second entry. Observe that this defines a pointed functor, as $\rho_{d_1}$ is pointed and sends $\alpha = 0$ to the zero morphism.\\
+    Note that this definition does not depend on $d \in \ob \cD$, indeed it is rather easy to verify that the above defines a natural transformation as desired:
+    Given a morphism $f \colon d \to d^\prime$, recall that $\tilde{F}(f)$ was given by postcomposition in the first entry on objects and the identity on morphisms, while $\tilde{\rho}_d$ only acts on the second entry on objects, and is (in particular) independent of $d$ for morphisms.
+  \end{defn}
+  %
+  \begin{defn}\label{def_comma_category}
+    Given two functors $F:\cC \to \cD$ and $G: \cE \to \cD$, the \emph{comma category} $(F \downarrow G)$ is defined by having objects given by morphisms 
+    \begin{displaymath}
+      f \colon F(c) \to G(e)
+    \end{displaymath}
+    in $\cD$ for some $c \in \ob \cC$ and $e \in \cE$ and morphims 
+    \begin{displaymath}
+      (f \colon F(c) \to G(e)) \to (f^\prime \colon F(c^\prime) \to G(e^\prime) )
+    \end{displaymath}
+    given by a pair $\alpha \colon c \to c^\prime$ in $\cC$, $\beta \colon e \to e^\prime$ in $\cE$ such that the diagram
+    \begin{displaymath}
         \xymatrix{
-          F^e = F^{\op} \wedge F \ar[r]^{\mathrm{pr} \wedge F} &
-          \mathrm{const}_{1_+} \wedge F \ar[r]^-{\cong} &
-          F \ar[r]^{G^\prime} &
-          K
+          F(c)
+            \ar[r]^{f}
+            \ar[d]_{F(\alpha)}
+          &
+          G(e)
+            \ar[d]^{F(\beta)}
+          \\
+          F(c^\prime) 
+            \ar[r]_{f^\prime}
+          &
+          G(e^\prime)
         }
-      \end{displaymath}
-      where 
-      \begin{displaymath}
-        \const_{1_+} \colon \cD \to \CAT_*
-      \end{displaymath}
-      is the constant functor with image the singleton category $1$ (exactly one
-      object, one morphism) with added basepoint, 
-      \begin{displaymath}
-        \mathrm{pr} \colon F^{\op} \to \mathrm{const}_{1_+}
-      \end{displaymath}
-      is the natural transformation of pointed functors sending every
-      non-basepoint object to the non-basepoint object in $1_+$ and mapping
-      morphisms accordingly, and the isomorphism is induced by the natural
-      identification $1_+ \wedge \cC \cong \cC$ for any pointed category
-      $\cC$.\\
-      Then, given $j \in \cD$, $(\hocolim_G F)(j)$ is weakly equivalent (actualy
-      isomorphic, for the given model) to the usual homotopy colimit of the
-      diagram $G^\prime_j \colon F^\prime(j) \to K$, given here by the model
-      \begin{displaymath}
-        \hocolim_{F^\prime(j)} G_j^\prime = \left\{ 
-          [q] \mapsto \bigvee_{x_q \to \ldots \to x_0} G_j^\prime(x_q)
-        \right\}
-      \end{displaymath}
-      with wedge sum taken over all sequences of morphisms $(x_q \to \ldots \to
-      x_0)$ in $F^\prime(j)$.
-    \end{lem}
+    \end{displaymath}
+    commutes.
+    % TODO move to right place
+  \end{defn}
+  %
+  \begin{defn}\label{def_homotopy_cofinal}
+    A functor $F: \cC \to \cD$ is homotopy cofinal if for every element $d \in
+    \cD$ the comma category $(d \downarrow F)$ is non-empty and contractible
+    (i.e. its nerve is contractible).  In $(d \downarrow F)$ the symbol $d$
+    stands for the functor from the category with exactly one object and only
+    identity morphism to $\cD$ with value the object $d$.  Recall that a
+    category is non-empty if it has at least one object, and contractible if
+    its nerve (a simplicial set) is contractible.
+    % TODO move to right place
+  \end{defn}
+  %
+  \begin{lem}\label{lem_category_contractible_if_has_initial_object}
+    A category with an initial or final object is contractible.%
+    % TODO move to right place
     \begin{proof}
-      We consider for $q \geq 0$:
-      \begin{gather*}
-        (\hocolim_F G)(j)_q = \\%
-        \bigvee_{x_0, \ldots, x_q \in \ob F(j)} %
-          G_j(x_0,x_q) \wedge \bigwedge_{i=0}^{q-1} \hom_{F(j)}(x_{i+1},x_i) \cong \\%
-        \bigvee_{x_0, \ldots, x_q \in \ob F^\prime(j)_+} %
-          G^\prime_j(x_q) \wedge \bigwedge_{i=0}^{q-1} %
-          \hom_{F^\prime(j)_+}(x_{i+1},x_i) \cong %
-      \end{gather*}
-      Observe that if $x_i$ is the basepoint in $F(j) = F^\prime(j)_+$, then
-      morphisms from and to $x_i$ in $F(j)$ are just a point, and the respective
-      summand collapses to a point. For $x, y \in \ob F^\prime(j)$ we further
-      have $\hom_{F(j)_+}(x,y) \cong \hom_{F^\prime(j)}(x,y)_+$. Applying this
-      we may proceed
-      \begin{gather*}
-        \cong \bigvee_{x_0, \ldots, x_q \in \ob F^\prime(j)} %
-          G^\prime_j(x_q) \wedge \bigwedge_{i=0}^{q-1}
-          \hom_{F^\prime(j)}(x_{i+1},x_i)_+ \cong \\%
-        \bigvee_{x_0, \ldots, x_q \in \ob F^\prime(j)} %
-          G^\prime_j(x_q) \wedge %
-          \left (\prod_{i=0}^{q-1} \hom_{F^\prime(j)}(x_{i+1},x_i) \right)_+
-          \cong \\%
-        \bigvee_{x_0, \ldots, x_q \in \ob F^\prime(j)} \left[%
-          \bigvee_{\prod_{i=0}^{q-1} \hom_{F^\prime(j)}(x_{i+1},x_i)} %
-          G^\prime_j(x_q) \right] \cong \\%
-          \bigvee_{x_q \to \ldots \to x_0} G^\prime_j(x_q),
-      \end{gather*}
-      which gives us an isomorphism for each $q \geq 0$.\\
-      It is simple to check that these isomorphisms are compatible with the
-      simplicial structure, so we have the desired equivalence.
+      This follows for instance from the fact that such a category has a left-
+      or right-adjoint functor (respectively) to the singleton category $1$ with
+      exactly one object and one morphism, and that an adjoint pair induces
+      homotopy equivalences between the nerves of the respective categories.
     \end{proof}
-  \subsection{The left lax transformation $G^A$}
-    \begin{defn}\label{def_left_lax_transformation_S}
-      Let $\Sigma$ be the category of finite sets (including the empty set) with
-      bijections (the empty set has no endomorphisms, hence they all are
-      bijections by tautology), equipped with the structure of a monoidal
-      category by disjoint union of sets, and let $\sS_*$ be the category of
-      pointed simplicial sets, equipped with the structure of a monoidal
-      category by smash product of simplicial sets.
-      We choose a strong symmetric monoidal functor $S: \Sigma \to \sS_*$ with
-      $S(\{1\}) = S^1$, one possible such choice being letting
-      \begin{displaymath}
-        S(X) = \bigwedge_{x \in X} S^1
-      \end{displaymath}
-      for any finite set $X$.
-      This gives rise to a left lax transformation
-      \begin{displaymath}
-        \xymatrix{
-          \Fin 
-            \ar@{=}[r] 
-            \ar[d]_{\Sigma_+} 
-            \ar@{}[rd]|{\overset{S}{\Rightarrow}} 
-          & 
-          \Fin \ar[d]^{\sS_*} \\
-          \CAT_* \ar[r] & \CAT_*
-        }
-      \end{displaymath}
-    where $\Sigma_+ \colon \Fin \to \CAT_*$ is the weak functor obtained by
-      applying Def.~\ref{def_functor_iW_to_Cat_aka_abstract_loday} to the
-      inclusion $\Sigma \to \Fin$ and
-      Def.~\ref{def_added_basepoint_extending_functor} to the resulting functor,
-      postcomposing with the inclusion $\Cat_* \to \CAT_*$ and finally
-      precomposing with the functors
+  \end{lem}
+  %
+  % TODO add lemma about cofinal functor \wedge C is still cofinal?
+  %
+  \begin{lem}\label{lem_homotopy_cofinal_functor_and_hocolim}\cite[Thm.
+    19.6.7]{hirschhorn2009model}
+    Let $F: \cJ \to \sS$ be a diagram, and let $\alpha: \cI \to \cJ$ be a
+    homotopy cofinal functor. Then the natural map
     \begin{displaymath}
-      \Fin \myrightarrow{(-)_*} V \myrightarrow{L} iW \myrightarrow{\iota} eW
+      \hocolim_{\cI} F \circ \alpha \to \hocolim_{\cJ} F
     \end{displaymath}
-    (cf. Def.~\ref{def_functors_finite_sets_to_iW}), while $\sS_*$ is used to
-      denote the constant functor with image pointed simplicial sets.
-    The left lax transformation itself is given for a finite set $X$ by the
-      formula
-      \begin{gather*}
-        S_X \colon (\Sigma^X)_+ \to \sS_* \\
-        (j \colon X \to \Sigma) \mapsto \bigwedge_{x \in X} S(j(x))
-      \end{gather*}
-    A morphism $f \colon j \to k$ in $\Sigma^X$ is given by bijections $f_x
-      \colon j(x) \to k(x)$ for each $x \in X$ and is sent to
+    is a weak equivalence.
+    % TODO move to right place
+    % TODO prove??
+  \end{lem}
+  %
+\subsection{The Loday functor for finite sets}
+  We are now finally able to define the Loday functor with input a \hring and
+  a finite set. We proceed to do so, and prove some elementary results about
+  the functor.
+  \begin{defn}\label{def_rectification_of_G^A}
+    Consider the functor 
     \begin{displaymath}
-      \bigwedge_{x \in X} S(f_x) \colon %
-      \bigwedge_{x \in X} S(j(x)) \to %
-      \bigwedge_{x \in X} S(k(x))
+      \tilde{\cJ} \colon V \to \Cat_*
     \end{displaymath}
-    For a morphism $f \colon X \to Y$ of finite sets, we have a natural
-      transformation $S_f \colon S_X \Rightarrow S_Y \circ \Sigma_+(f)$ given
-      for $j \colon X \to \ob \Sigma$ in $(\Sigma^X)_+$ by the isomorphism 
+    and the left lax transformation 
     \begin{displaymath}
-      \bigwedge_{x \in X} S(j(x)) \to \bigwedge_{y \in Y} S( \coprod_{x \in
-      f^{-1}(y)} j(x)) = \bigwedge_{y \in Y} \bigwedge_{x \in f^{-1}(y)} S(j(x))
+      e \colon \tilde{\cJ} \to \cJ
     \end{displaymath}
-    adding in $S^0$ for every $y \in Y$ not in the image of $f$. This clearly
-      satisfies the axioms of a left lax transformation (cf.
-      Rem.~\ref{rem_left_lax_transform_functors_J_to_CAT}).
-    \end{defn}
-
-    \begin{rem}\label{rem_notation_for_functor_S}
-      Considering the above strict(!) symmetric monoidal functor $S: \Sigma \to
-      \sS_*$, we have
-      \begin{displaymath}
-        S(X) \cong S( \coprod_{x \in X} \{x\}) = \bigwedge_{x \in X} S(\{x\}) %
-        \cong \bigwedge_{x \in X} S(\{1\}) = \bigwedge_{x \in X} S^1,
-      \end{displaymath}
-      where the first map is a natural isomorphism induced by the natural
-      bijection 
-      \begin{displaymath}
-        \coprod_{x \in X} \{ x \} \myrightarrow{\coprod \incl} X
-      \end{displaymath}
-      and the last isomorphism is induced by the unique bijection $\{x\} \to
-      \{1\}$. Using this natural homeomorphism we may interpret $S(X)$ as a
-      sphere of dimension $\abs{X}$ the cardinality of $X$. This will often be
-      used implicit in the context of a symmetric spectrum $A$, using for
-      instance the structure map $A_n \wedge S(X) \to A_{n + \abs{X}}$ for some
-      finite set $X$.
-    \end{rem}
-
-    \begin{defn}\label{def_left_lax_transformation_A}
-      Given a \hring~$A$, we would like to define a left lax transformation
+    which we obtain by applying Street's first construction (the pointed
+    version, cf. Defs.~\ref{def_streets_first_construction_functor},
+    \ref{def_streets_first_construction_transformation}) in the context $\cD
+    \defas V$ and $F \defas \cJ$, and let 
+    \begin{displaymath}
+      r \colon \tilde{\cJ}^e = \tilde{\cJ}^{\op} \wedge \tilde{\cJ} 
+        \myrightarrow{e^{\op} \wedge e} \cJ^{\op} \wedge \cJ = \cJ^e,
+    \end{displaymath}
+    while 
+    \begin{displaymath}
+      p_2 \colon \cC^e = \cC^{\op} \wedge \cC \crightarrow{1.3}{\const_{1_+}
+        \wedge \cC} 1_+ \wedge \cC \myrightarrow{\cong} \cC
+    \end{displaymath}
+    is the strict transformation to the constant functor with image $1_+$, the
+    discrete category with one object plus extra basepoint, followed by the
+    isomorphism given by the natural identification $1_+ \wedge \cC \cong \cC$
+    for any pointed category $\cC$ (cf. Lem.~%
+    \ref{lem_hocolim_name_justification}).\\
+    We assemble the above data in a diagram
+    \begin{displaymath}
+      \xymatrix{
+        \Fin
+          \ar@{=}[r] 
+          \ar[d]^{(-)_*} 
+        &
+        \Fin
+          \ar@{=}[r] 
+          \ar[d]^{(-)_*} 
+        &
+        \Fin
+          \ar@{=}[r] 
+          \ar[d]^{(-)_*}
+          \ar@{}[rddd]|{\overset{G^A}{\Rightarrow}}
+        &
+        \Fin 
+          \ar[ddd]^{\Sp^{\Sigma}}
+        \\
+        V 
+          \ar@{=}[r]
+          \ar[d]^{\tilde{\cJ}^e}
+          \ar@{}[rd]|{\overset{r}{\Rightarrow}}
+        & 
+        V 
+          \ar@{=}[r]
+          \ar[d]^{\cJ^e}
+          \ar@{}[rd]|{\overset{p_2}{\Rightarrow}}
+        & 
+        V 
+          \ar[d]^{\cJ}
+        & 
+        %
+        \\
+        \Cat_* 
+          \ar@{=}[r]
+          \ar[d]^{\iota} 
+        & 
+        \Cat_* 
+          \ar@{=}[r]
+          \ar[d]^{\iota} 
+        & 
+        \Cat_* 
+          \ar[d]^{\iota} 
+        & 
+        %
+        \\
+        \CAT_* 
+          \ar@{=}[r]
+        &
+        \CAT_* 
+          \ar@{=}[r]
+        &
+        \CAT_* 
+          \ar@{=}[r]
+        &
+        \CAT_*
+      }
+    \end{displaymath}
+    and obtain a left lax transformation
+    \begin{displaymath}
+    [G^A \circ p_2 \circ r] \colon (\iota \circ \tilde{\cJ}^e \circ (-)_*) = %
+    (\iota \circ \tilde{\cJ} \circ (-)_*)^e \to \Sp^{\Sigma}
+    \end{displaymath}
+    of functors
+    \begin{displaymath}
+      \Fin \to \CAT_*.
+    \end{displaymath}
+    Note that $e^{\op}$ is a right lax transformation, so $r = e \wedge
+    e^{\op}$ does not constitute a left (or right) lax transformation as such.
+    Only when composed with $p_2$ it becomes a left lax transformation, as
+    postcomposing with collapsing down to $1_+$ yields a strict functor,
+    as every morphism in $1_+$ is invertible.
+  \end{defn}
+  %
+    Note that the above precisely constitutes an object in
+    $\operatorname{Bimod}^{\cD}/K$ for $\cD = \Fin$ and $K = \Sp^\Sigma$ the
+    constant functor with value symmetric spectra. By evaluating the functor
+    $\hocolim$ (cf. Def.~\ref{def_hocolim}) on this object we obtain 
+    \begin{displaymath}
+      \hocolim_{\iota \circ \tilde{\cJ} \circ (-)_*} G^A \circ p_2 \circ r 
+        \colon \Fin \times \Delta^{\op} \to \Sp^\Sigma,
+    \end{displaymath}
+    which finally lets us formulate the following
+  %
+  \begin{defn}\label{def_loday_functor_finite_sets}
+    Given a finite set $S$ and a \hring~$A$, we define the \emph{Loday functor
+    of $A$ at $S$} to be given by the symmetric spectrum
+    \begin{displaymath}
+      \Lambda_S A \defas \hocolim_{\tilde{\cJ} (S)} G^A_S \circ p_2 \circ r_S.
+    \end{displaymath}
+    By construction this is functorial in $S$.
+  \end{defn}
+  \begin{lem}\label{lem_loday_functor_fixed_points}
+    Given a finite set $S$, a group $G$ acting on it, and a pointed functor
+    $Z: \cJ(S) = (\cI^S)_+ \to \sS_*$. Then the map
+    \begin{displaymath}
+      \hocolim_{\tilde{\cJ}(S)} Z \circ p_2 \circ r_S \to 
+        \hocolim_{\cJ(S)} Z \circ p_2
+    \end{displaymath}
+    is a weak equivalence on $G$-fixed points.
+    \begin{proof}
+      To obtain the above map, consider the full subcategory $\{S\}$ of $\Fin$
+      and the restictions of $\tilde{\cJ}$, $\cJ$, and the constant functor
+      $\sS_*$ along the inclusion $\{S\} \to \Fin$ (omitting the inclusions
+      $\Fin \to V$ and $\Cat_* \to \CAT_*$ from notation). This gives rise to
+      a map of bimodules
       \begin{displaymath}
         \xymatrix{
-          \Fin 
-            \ar@{=}[r] 
-            \ar[d]_{\Sigma_+} 
-            \ar@{}[rd]|{\overset{A}{\Rightarrow}} 
-          & 
-          \Fin \ar[d]^{\sS_*} \\
-          \CAT_* \ar[r] & \CAT_*
+          (\tilde{\cJ} \colon \{S\} \to \CAT_*, Z \circ p_2 \circ r_S %
+            \colon \tilde{\cJ}^e \Rightarrow \sS_*) %
+          \ar[d]^{(\epsilon,\eta)} \\
+          (\cJ \colon \{S\} \to \CAT_*, %
+            Z \circ p_2 \colon \cJ^e \Rightarrow \sS_*)
         }
       \end{displaymath}
-      keeping the notation of Def.~\ref{def_left_lax_transformation_S}. We
-      define a pointed functor
-      \begin{gather*}
-        A_X \colon (\Sigma^X)_+ \to \sS_* \\
-        (j \colon X \to \Sigma) \mapsto %
-          \bigwedge_{x \in X} A_{\abs{j(x)}}
-      \end{gather*}
-      on objects, and let $A_X$ map any map $f \colon j \to k$ in $\Sigma^X$ to
-      the identity.\\
-      For a morphism of finite sets $f \colon X \to Y$ we use the multiplication
-      on $A$ to define a natural transformation $A_X \to A_Y \circ \Sigma_+
-      (f)$:
-      For $j \in \Sigma^X$, we use
+      given by $\epsilon = e_S$ and $\eta$ the appropriate identity. Note that
+      this map is by definition natural in $S$, i.e. commmutes with any action
+      on $S$ and hence induces a map of fixed points.\\
+      We would like to compare the objects in question to actual homotopy
+      colimits, i.e. use \ref{lem_hocolim_name_justification}. For this we
+      note that while $\cJ$ obviously factors through 
       \begin{displaymath}
-        A_X(j) = \bigwedge_{x \in X} A_{\abs{j(x)}} \cong %
-        \bigwedge_{y \in Y} \bigwedge_{x \in f^{-1}(y)} A_{\abs{j(x)}} %
-          \myrightarrow{\bigwedge_{y \in Y} \mu} %
-        \bigwedge_{y \in Y} %
-          A_{\abs{\coprod_{x \in f^{-1}(y)} j(x)}}
+        \CAT \myrightarrow{(-)_+} \CAT_*
       \end{displaymath}
-      Note that as $A$ is commutative, this composition does not depend on the
-      permutation we choose for reshuffling $X$. 
-      Since multiplication is associative, this satisfies the axioms of a left
-      lax transformation (cf.
-      Rem.~\ref{rem_left_lax_transform_functors_J_to_CAT}).\\ We take the
-      liberty of dropping the cardinality signs from the notation and may write
-      $A_X \defas A_{\abs{X}}$ for a finite set $X$.
-    \end{defn}
-    % TODO here and in def above, vary variable name f!
-
-    \begin{defn}\label{def_left_lax_transform_G^A}
-      Given two pointed simplicial sets $X$ and $Y$, we define a \emph{symmetric
-      spetrum} of functions 
+      showing the same for $\tilde{\cJ}$ requires considering the restriction
+      to $\{S\}$ and is an easy exercise: It suffices to show that if a
+      composition in $\tilde{\cJ(S)}$ is zero, then one of the arrows was
+      zero, for then we have a well-defined factorization to $\CAT$.\\
+      % TODO proof this, just for own safety
+      Next we should make sure that the functors to the right of the
+      $\hocolim$ factor as required by the above mentioned Lemma. To this end
+      we note that
       \begin{displaymath}
-        \Hom(X,Y) \in \ob \SpS
+        p_2 \circ r = e \circ p_2
       \end{displaymath}
-      given in degree $n$ by the internal hom-object of pointed simplicial sets
+      with $p_2$ in the respective contexts, and obtain a commutative square
       \begin{displaymath}
-        \Hom(X,Y)_n = \Hom_{\sS_*}(X,Y \wedge S^n)
-      \end{displaymath}
-      (with codomain functorially fibrantly replaced), $\Sigma_n$ acting on the
-      $n$-sphere, and structure maps of assembly type
-      \begin{gather*}
-      \Hom_{\sS_*}(X,Y \wedge S^n) \wedge S^1 \to \Hom_{\sS_*}(X,Y \wedge S(n+1))\\
-      (f \colon X \to Y \wedge S^n) \wedge t \mapsto (x \mapsto f(x) \wedge t).
-      \end{gather*}
-      One may check that this coincides with the internal hom object of
-      symmetric spectra as found in Example 3.38 of \cite{schwede2012symmetric}
-      when applied to $\Sigma^\infty X$ and $\Sigma^\infty Y$; In particular,
-      this definition is functorial in both variables.\\
-      We combine the two above definitions to obtain a left lax transformation
-      \begin{displaymath}
-        G^A \colon \iota \circ \cJ \circ (-)_* \to \Sp^\Sigma,
-      \end{displaymath}
-      or as a diagram
-      \begin{displaymath}
-        \xymatrix{
-          \Fin \ar@{=}[r] \ar[d]_{(-)_*} \ar@{}[rddd]|{\overset{G^A}{\Rightarrow}} & \Fin \ar[ddd]^{\Sp^{\Sigma}} \\
-          V \ar[d]_{\cJ} & \\
-          \Cat_* \ar[d]_{\iota} & \\
-          \CAT_* \ar@{=}[r] & \CAT_*
-        }
-      \end{displaymath}
-      for a \hring~$A$, where $\cJ(-_*) \colon \Fin \to \CAT_*$ is the covariant
-      weak functor defined in
-      Def.~\ref{def_J_and_functors_from_finite_sets_to_pointed_categories}, we
-      postcompose with the inclusion $\iota \colon \Cat_* \to \CAT_*$, and
-      $\SpS$ denotes the constant functor with value in symmetric spectra of
-      simplicial sets: Let $T$ be a finite set. We define a pointed functor
-      \begin{gather*}
-        G^A_T \colon \cJ(T) = (\cI^T)_+ \to \SpS \\
-        (i \colon T \to \cI) \mapsto %
-          \Hom(\bigwedge_{t \in T} S(i(t)), \bigwedge_{t \in T} A_{\abs{i(t)}} )
-      \end{gather*}
-      which sends a morphism $(\alpha_t \colon i(t) \to j(t))_{t \in T}$ in $\cI^T$ to the map
-      \begin{displaymath}
-        \xymatrix{
-          \Hom(\bigwedge\limits_{t \in T} S(i(t)), \bigwedge\limits_{t \in T} A_{\abs{i(t)}})
-            \ar[d]^-{ \operatorname{-} \wedge \bigwedge\limits_{t \in T} S(j(t) \setminus \im \alpha_t) } \\
-          \Hom(\bigwedge\limits_{t \in T} S(i(t)) \wedge %
-            \bigwedge\limits_{t \in T} S(j(t) \setminus \im \alpha_t), %
-            \bigwedge\limits_{t \in T} A_{\abs{i(t)}} \wedge %
-            \bigwedge\limits_{t \in T} S(j(t) \setminus \im \alpha_t))
-            \ar[d]^-{\cong} \\
-          \Hom(\bigwedge\limits_{t \in T} S(i(t)) \wedge S(j(t) \setminus \im \alpha_t), %
-            \bigwedge\limits_{t \in T} A_{\abs{i(t)}} \wedge S(j(t) \setminus \im \alpha_t)) 
-            \ar[d]^-{(\cong, \bigwedge\limits_{t \in T} \sigma^A_{\abs{i(t),j(t)\setminus\im\alpha_t}})} \\
-          \Hom(\bigwedge\limits_{t \in T} S(j(t)), \bigwedge\limits_{t \in T} A_{\abs{i(t)} + \abs{(j(t)\setminus \im \alpha_t)}})
-          % \Hom(\bigwedge\limits_{t \in T} S(j(t)), \bigwedge\limits_{t \in T} A_{\abs{i(t) \coprod (j(t)\setminus \im \alpha_t)}})
-            % \ar[d]^{(\bigwedge\limits_{t \in T} \chi_t)_*} \\
-            \ar@{=}[d] \\
-          \Hom(\bigwedge\limits_{t \in T} S(j(t)), \bigwedge\limits_{t \in T} A_{\abs{j(t)}})
-        }
-      \end{displaymath}
-      where the second map is induced by permutation isomorphisms, the third map
-      is induced by the isomorphism $(j(t) \setminus \im \alpha_t) \coprod i(t)
-      \to j(t)$, given by inclusion and $\alpha$, in the first variable and the
-      respective structure maps in the second variable. Note that we do not
-      apply any shuffle permutation in the end, although symmetric spectrum
-      reflexes are itching - adding a permutation breaks functoriality.\\ This
-      defines a morphism of symmetric spectra as we use morphisms of pointed
-      simplicial sets and functoriality of the $\Hom$ functor. It is
-      straight-forward to verify that this definition is functorial.\\ Given a
-      map of finite sets $f \colon S \to T$, we define a natural transformation
-      \begin{displaymath}
-        G^A_f \colon G^A_S \to G^A_T \circ \cJ(f_*)
-      \end{displaymath}
-      for an object $i \colon S \to \ob \cI$ in $(\cI^S)_+$ using pre- and postcomposition on an element
-      \begin{displaymath}
-        \phi \colon \bigwedge_{s \in S} S(i(s)) \to \bigwedge_{s \in S} A_{\abs{i(s)}}
-      \end{displaymath}
-      and obtaining the following map of pointed simplicial sets:
-      \begin{displaymath}
-        \xymatrix{
-          \bigwedge\limits_{t \in T} S(\coprod\limits_{s \in f^{-1}} i(s)) &&&
-          \bigwedge\limits_{t \in T} A_{\abs{\coprod_{s \in f^{-1}} i(s)}}
+        \xymatrix@C+1em{
+          \hocolim\limits_{\tilde{\cJ}(S)} Z \circ e_S \circ p_2
+            \ar[r]^-{(e_S, \id)}
+            \ar[d]_-{\simeq}
+          &
+          \hocolim\limits_{\cJ(S)} Z \circ p_2
+            \ar[d]^-{\simeq}
           \\
-          \bigwedge\limits_{t \in T} \bigwedge\limits_{s \in f^{-1}} S(i(s))
-            \ar@{=}[u]
-            \ar[r]_-{\cong}
+          \hocolim\limits_{\tilde{\cJ}(S) \setminus {+}} Z \circ e_S
+            \ar[r]
           &
-          \bigwedge\limits_{s \in S} S(i(s))
-            \ar[r]^-{\phi}
-          &
-          \bigwedge\limits_{s \in S} A_{\abs{i(s)}}
-            \ar[r]^-{\cong}
-          &
-          \bigwedge\limits_{t \in T} \bigwedge\limits_{s \in f^{-1}(t)} A_{\abs{i(s)}}
-            \ar[u]_-{\mu}
+          \hocolim\limits_{\cI^S} Z
         }
       \end{displaymath}
-      Here the horizontal isomorphisms are permutations of smash factors, while
-      the right vertical map is the multiplication of $A$. By functoriality this
-      defines a map of symmetric spectra
+      where the vertical maps are equivalences (described in the Lemma
+      mentioned above), and the lower horizontal map is the natural map induced
+      by $e_S: \tilde{\cJ}(S) \to \cJ(S)$. It is easy to check that this
+      diagram indeed commutes, and as $e$ is homotopy cofinal (cf. Rem.
+      \ref{rem_streets_construction_e_is_cofinal}), the lower horizontal arrow
+      is an equivalence as well, which proves the claim for the case of $G$
+      acting trivially on $S$.\\
+      Now we let the $G$ action be arbitrary. We claim that the following
+      equality holds:
       \begin{displaymath}
-        \xymatrix{
-          \Hom(\bigwedge_{s \in S} S(i(s)), 
-          \bigwedge_{s \in S} A_{\abs{i(s)}}) \ar[d]^{(G^A_f)_i} \\%
-          \Hom(\bigwedge_{t \in T} S(\coprod\nolimits_{s \in f^{-1}(t)} i(s)), %
-            \bigwedge_{t \in T} A_{\abs{ \coprod_{s \in f^{-1}(t)} i(s)}}).
-          }
+        \left[ \hocolim_{\tilde{\cJ}(S)} Z \circ e_S \circ p_2 \right]^G = %
+        \hocolim_{\tilde{\cJ}(S)^G} \left[ Z \circ e_S \circ p_2 \right]^G
       \end{displaymath}
-      That this indeed constitutes a natural transformation is a tedious, but
-      not deep exercise in writing large diagrams, playing with the permutations
-      involved and using that multiplication in $A$ is commutative.\\ The data
-      defined above yields a left lax tranformation from the functor $S \mapsto
-      \cJ(S) = (\cI^S)_+$ to the constant functor $\Fin \to \CAT_*$ with value
-      in symmetric spectra.  To verify the axioms (cf.
-      Rem.~\ref{rem_left_lax_transformation}), consider two maps of finite sets
+      where in the right hand term we take $G$-fixed points of each summand
+      of the wedge that constitutes our homotopy colimit in a given simplicial
+      degree. To convince oneself of the validity of the claim it suffices to
+      recall the functoriality of the above construction in $S$.\\
+      Consider further that by construction, $\tilde{\cJ}(S)^G$ is a full
+      subcategory of $\tilde{\cJ}(S)$ (functoriality of $S$ is trivial in
+      morphisms in $\tilde{\cJ}(S)$) and is isomorphic to $\tilde{\cJ}(S/G)$
+      (cf.  Def.~\ref{def_group_acting_on_object_in_V_morphism_phi}) - indeed,
+      we have
       \begin{displaymath}
-        S \myrightarrow{\phi} T \myrightarrow{\psi} U.
+        \ob \tilde{\cJ}(S) = \bigvee_{T \in \ob V} \hom_V (T,S)_+ 
+          \wedge \ob \cJ(T)
       \end{displaymath}
-      Jotting down the composition corresponding to $G^A_\psi \ast
-      \id_{\cJ(\phi_*)} \circ G^A_\phi$ and $G^A_{\psi, \phi}$, one can see that
-      the difference is precisely given by permuting the involved smash factors
-      according to the structure map $\cJ_{\psi,\phi}^{-1}$, hence the first
-      axiom (cf. Rem.~\ref{rem_left_lax_transformation}) is satisfied. The
-      unital property of a left lax transformation is also satisfied as in this
-      case $\cJ((\id_S)_*) = \id_{\cJ(S)}$ and $G^A_{\id_S} = \id_{G^A_S}$, i.e.
-      all morphisms involved are identities.
-    \end{defn}
-
-    Oberve that we are close to having defined a bimodule as in
-    Def.~\ref{def_category_of_bimodules}, except that we need a classical
-    functor (of 1-categories or classical categories). We proceed to rectify
-    this in the following section, using (a pointed version of) Street's first
-    construction which may be found in \cite[p.~225]{street1972two}.
-  \subsection{Rectification}
-    \begin{defn}\label{def_streets_first_construction_functor}
-      Let $\cD$ be a small category, and let $F: \cD \to \Cat_*$ be a lax functor (with values in small pointed categories).
-      Following Street's example, we construct a functor $\tilde{F}: \cD \to \Cat_*$.
-      For $d$ and object of $\cD$ we define the pointed category $\tilde{F}(d)$ to have as objects the set 
+      so $G$ just acts on the set of morphisms, and we can use the isomorphism
+      provided in the definition mentioned above. This gives us the following
+      commutative diagram:
+      % TODO explain where morphism comes from
+      % morphism of simplicial sets, degree wise
+      % TODO this will also show how the above is a bimodule...
+      % it's not - taking fixed points is no good
+      % TODO how is the lower horizontal morphism induced?
+      % stupid answer - degree-wise
+      % come up with a better answer!
+      % TODO how can we apply the same stuff on the RHS?
+      % TODO is \cJ(S)^G \cong \cJ(S/G)?
+      % TODO why are we now in the situation from before?
       \begin{displaymath}
-        \ob \tilde{F}(d) = \bigvee_{d_1 \in \ob \cD} \hom_{\cD}(d_1,d)_+ \wedge \ob F(d_1).
-      \end{displaymath}
-      Let 
-      be two objects in $\tilde{F}(d)$, then a morphism 
-      \begin{displaymath}
-        (\psi, \alpha) \colon (\phi_1,x_1) \to (\phi_0,x_0) \in \hom_{\tilde{F}(d)}((\phi_1,x_1), (\phi_0,x_0))
-      \end{displaymath}  
-      is given by a morphism 
-      \begin{displaymath}
-        \psi: d_0 \to d_1 \in \hom_{\cD}(d_0,d_1)
-      \end{displaymath}  
-      (observe the contraintuitive direction - not a surprise, since $d$ is fixed, so we are using the first variable in $\hom_{\cD}(d_1,d)$) such that 
-      \begin{displaymath}
-        \xymatrix{
-          d_1 \ar[d]_{\phi_1} & d_0 \ar[l]_{\psi} \ar[dl]^{\phi_0} \\
-          d
-        }
-      \end{displaymath}  
-      commutes, and - in order to compare $x_1 \to x_0$, we bring one of them into the context of the other - a morphism 
-      \begin{displaymath}
-        \alpha \colon x_1 \to F(\psi)(x_0);
-      \end{displaymath}  
-      We collapse all morphisms of the form $(\psi,0)$ to the zero morphism (note that $\cD$ is a priori just a category and hence presumably does not have any zero morphisms).
-      Given two morphisms $(\psi_1,\alpha_1)\colon(\phi_2,x_2) \to (\phi_1,x_1)$ and $(\psi_0,\alpha_0)\colon(\phi_1,x_1) \to (\phi_0,x_0)$, we define their composition as the pair $(\psi_1 \circ \psi_0, \beta)$, where $\beta$ is the in this context natural way of comparing $x_2 \to x_0$ and given by
-      \begin{displaymath}
-        x_2 \crightarrow{1.5}{\alpha_1} %
-        F(\psi_1)(x_1) \crightarrow{1.5}{F(\psi_1)(\alpha_0)} %
-        F(\psi_1) \circ F(\psi_0) (x_0) \crightarrow{1.5}{F_{\psi_1,\psi_0}} %
-        F(\psi_1 \circ \psi_0)(x_0)
-      \end{displaymath}
-      This definition reveals itself readily once one jots down the objects and arrows involved. The identity morphism for an object $(\phi \colon d_1 \to d, x \in F(d_1)) \in \tilde{F}(d)$ is given by 
-      \begin{displaymath}
-        (\id_{d_1} \colon d_1 \to d_1,(F_{d_1})_x \colon x \to F(\id_{d_1})(x),
-      \end{displaymath}
-      and it is now straightforward to check the axioms of a category: To verify
-      that $(\id_{d_1},(F_{d_1})_x)$ is the unit morphism one may use naturality
-      of the structure morphisms and the unitality axioms of $F$.\\
-      % TODO remark on associativity axiom above
-      Given a map $f: d \to d^\prime$ in $\cD$, we define a functor
-      \begin{displaymath}
-        \tilde{F}(f) \colon \tilde{F}(d) \to \tilde{F}(d^\prime)
-      \end{displaymath}
-      by mapping an object according to the formula
-      \begin{displaymath}
-        (d_1 \myrightarrow{\phi} d, x \in F(d_1)) \mapsto (d_1 \myrightarrow{\phi} d \myrightarrow{f} d^\prime, x \in F(d_1)),
-      \end{displaymath}
-      and acting as the identity on morphisms.
-    \end{defn}
-    %
-    \begin{defn}\label{def_streets_first_construction_transformation}
-      In keeping with the notation from Def.~\ref{def_streets_first_construction_functor}, we let $F \colon D \to \Cat_*$ be a lax functor.
-      Then for every object $d \in \cD$ there is a pointed functor
-      \begin{displaymath}
-        e_d \colon \tilde{F}(d) \to F(d)
-      \end{displaymath}
-      sending an object $(\phi \colon d_1 \to d, x \in F(d_1)) \in \ob \tilde{F}(d)$ to 
-      \begin{displaymath}
-        e_d(\phi,x) = F(\phi)(x) \in \ob F(d)
-      \end{displaymath}
-      and a morphism 
-      \begin{displaymath}
-        (\psi \colon d_0 \to d_1, \alpha \colon x_1 \to F(\psi)(x_0)) %
-        \colon (\phi_1, x_1) \to (\phi_0, x_0)
-      \end{displaymath}
-      to
-      \begin{displaymath}
-        F(\phi_1)(x_1) \myrightarrow{F(\phi_1)(\alpha)} %
-        F(\phi_1) \circ F(\psi)(x_0) \myrightarrow{F_{\phi_1,\psi}} %
-        F(\phi_1 \circ \psi)(x_0) = F(\phi_0)(x_0),
-      \end{displaymath}
-      where $F_{\phi_1,\psi} \colon F(\phi_1) \circ F(\psi) \to F(\phi_1 \circ
-      \psi)$ is the compositional structure morphism, here evaluated at the
-      object $x_0$.
-      Furthermore, given a map $f \colon d \to d^\prime$, there is a natural transformation
-      \begin{displaymath}
-          \xymatrix{
-            \tilde{F}(d)
-              \ar[r]^{e_d}
-              \ar[d]_{F(f)}
-              % \ar@{}[dr]|*\objectbox{\rotatebox{45}{hey}}
-              \ar@{}[dr]|*\objectbox{\rotatebox{45}{$\overset{e_f}{\Leftarrow}$}}
-            &
-            F(d)
-              \ar[d]^{F(f)}
-            \\
-            \tilde{F}(d^\prime) 
-              \ar[r]_{e_{d^\prime}}
-            &
-            F(d^\prime)
-          }
-      \end{displaymath}
-      given on an object $(\phi,x)$ by
-      \begin{displaymath}
-        F(f) \circ e_d (\phi,x) = F(f) \circ F(\phi) (x) \myrightarrow{F_{f, \phi}} F(f \circ \phi)(x) = e_{d^\prime} \circ F(f) (\phi,x)
-      \end{displaymath}
-      the compositional structure morphism of $F$. Together, the above data
-      constitutes a left lax transformation $e \colon \tilde{F} \to F$. The
-      first axiom degenerates to the compatability of associativity and
-      compositional structure morphisms for $F$, while the unitality condition
-      degenerates to the unitality condition for $F$ (as $F$ is an honest
-      functor, and $e_f$ is given by a structural morphism of $F$).
-    \end{defn}
-      %
-    \begin{rem}\label{rem_streets_construction_e_is_cofinal}
-      In the context of the above
-      Def.~\ref{def_streets_first_construction_transformation}, considering
-      the unital structure morphisms of $F$ for an object $d \in \cD$, which
-      is a natural transformation
-      \begin{displaymath}
-        \id_{F(d)} \to F(\id_d),
-      \end{displaymath}
-      evaluated at an object $x \in \ob F(d)$, we have a morphism
-      \begin{displaymath}
-        \id_{F(d)} (x) = x \to F(\id_d)(x) = e_d(\id_d, x),
-      \end{displaymath}
-      which we may interpret as an object in the comma category $(x \downarrow
-      e_d)$ (cf.  Def.~\ref{def_comma_category}). Given another object of the
-      above comma category $\gamma: x \to F(\phi)(y)$ (a morphism in $F(d)$)
-      for some $(\phi: d_1 \to d, y \in F(d_1)) \in \ob \tilde{F}(d)$, assume
-      that there is a morphism in $x / e_d$
-      \begin{displaymath}
-        (x \myrightarrow{(F_d)_x} F(\id_d)(x)) \to (\gamma: x \to F(\phi)(y)).
-      \end{displaymath}
-      This is given by a $(\psi,\alpha) \colon (\id_d, x) \to (\phi \colon d_1
-      \to d,y)$, i.e. a map $\psi \colon d_1 \to d$ such that $\phi = \psi \circ
-      \id_d = \psi$ and $\alpha \colon x \to F(\psi)(y) = F(\phi)(y)$.
-      Being a morphism in the comma category implies that the diagram
-      \begin{displaymath}
-        \xymatrix{
-          x
-            \ar[r]^-{(F_d)_x}
-            \ar@{=}[d]
+        \xymatrix@C+2em{
+          \left[ \hocolim\limits_{\tilde{\cJ}(S)} Z \circ e_S \circ p_2
+            \right]^G
+            \ar[r]^-{(e_S, \id)}
+            \ar[d]_-{\cong}
           &
-          F(\id_d)(x)
-            \ar[d]^-{e_d(\phi,\alpha)}
+          \left[\hocolim\limits_{\cJ(S)} Z \circ p_2 \right]^G
+            \ar[d]^-{\cong}
           \\
-          x
-            \ar[r]_-{\gamma}
+          \hocolim\limits_{\tilde{\cJ}(S/G)} [Z \circ e_S \circ p_2]^G
+            \ar[r]
           &
-          F(\phi)(y)
+          \hocolim\limits_{\cJ(S/G)} [Z \circ p_2 ]^G
         }
       \end{displaymath}
-      commutes, and plugging in the definition of the functor $e_d$ on
-      morphisms as well as using first naturality and then the unitality
-      property of $F_d$ in the above diagram we may conclude that $\alpha =
-      \gamma$.\\
-      This of course also tells us how to find such a morphism, which
-      proves existence, and we have overall shown that $x \to F(\id_d)(x)$ is an
-      initial object in the comma category $x/e_d$ and the functor $e_d$ is
-      homotopy cofinal (cf. Def.~\ref{def_homotopy_cofinal} and
-      Lem.~\ref{lem_category_contractible_if_has_initial_object}).
-    \end{rem}
-    %
-    \begin{defn}\label{def_streets_construction_right_transformations}
-      We continue our discussion of Street's construction by examining a right lax transformation
-      \begin{displaymath}
-        \rho: F \to F^\prime
-      \end{displaymath}
-      of functors $F,F^\prime \colon \cD \to \Cat_*$.
-      We wish to define a natural transformation $\tilde{\rho}$ of functors $\tilde{F}, \tilde{F^\prime} \colon \cD \to \Cat_*$.
-      For a $d \in \cD$, we define a functor
-      \begin{displaymath}
-        \tilde{\rho}_d: \tilde{F}(d) \to \tilde{F^\prime}(d)
-      \end{displaymath}
-      by mapping an object $(\phi_1: d_1 \to d, x_1 \in F(d_1))$ in $\tilde{F}(d)$ to
-      \begin{displaymath}
-        \tilde{\rho}_d(\phi_1,x_1) = (\phi_1 \colon d_1 \to d, \rho_{d_1}(x_1) \in \ob F^\prime(d_1)) \in \ob \tilde{F^\prime}(d)
-      \end{displaymath}
-      and mapping a morphism $(\psi \colon d_0 \to d_1, \alpha \colon x_1 \to F(\psi)(x_0)) \colon (\phi_1,x_1) \to (\phi_0, x_0)$ to the map $(\phi_1, \rho_{d_1}(x_1)) \to (\phi_0, \rho_{d_0}(x_0))$ given by the tuple consisting of $\psi$ in the first entry and the composition
-      \begin{displaymath}
-        \rho_{d_1}(x_1) \myrightarrow{\rho_{d_1}(\alpha)} %
-        \rho_{d_1} \circ F(\psi)(x_0) \myrightarrow{(\rho_{\psi})_{x_0}} %
-        F^\prime(\psi) \circ \rho_{d_0}(x_0)
-      \end{displaymath}
-      in the second entry. Observe that this defines a pointed functor, as $\rho_{d_1}$ is pointed and sends $\alpha = 0$ to the zero morphism.\\
-      Note that this definition does not depend on $d \in \ob \cD$, indeed it is rather easy to verify that the above defines a natural transformation as desired:
-      Given a morphism $f \colon d \to d^\prime$, recall that $\tilde{F}(f)$ was given by postcomposition in the first entry on objects and the identity on morphisms, while $\tilde{\rho}_d$ only acts on the second entry on objects, and is (in particular) independent of $d$ for morphisms.
-    \end{defn}
-    %
-    \begin{defn}\label{def_comma_category}
-      Given two functors $F:\cC \to \cD$ and $G: \cE \to \cD$, the \emph{comma category} $(F \downarrow G)$ is defined by having objects given by morphisms 
-      \begin{displaymath}
-        f \colon F(c) \to G(e)
-      \end{displaymath}
-      in $\cD$ for some $c \in \ob \cC$ and $e \in \cE$ and morphims 
-      \begin{displaymath}
-        (f \colon F(c) \to G(e)) \to (f^\prime \colon F(c^\prime) \to G(e^\prime) )
-      \end{displaymath}
-      given by a pair $\alpha \colon c \to c^\prime$ in $\cC$, $\beta \colon e \to e^\prime$ in $\cE$ such that the diagram
-      \begin{displaymath}
-          \xymatrix{
-            F(c)
-              \ar[r]^{f}
-              \ar[d]_{F(\alpha)}
-            &
-            G(e)
-              \ar[d]^{F(\beta)}
-            \\
-            F(c^\prime) 
-              \ar[r]_{f^\prime}
-            &
-            G(e^\prime)
-          }
-      \end{displaymath}
-      commutes.
-      % TODO move to right place
-    \end{defn}
-    %
-    \begin{defn}\label{def_homotopy_cofinal}
-      A functor $F: \cC \to \cD$ is homotopy cofinal if for every element $d \in
-      \cD$ the comma category $(d \downarrow F)$ is non-empty and contractible
-      (i.e. its nerve is contractible).  In $(d \downarrow F)$ the symbol $d$
-      stands for the functor from the category with exactly one object and only
-      identity morphism to $\cD$ with value the object $d$.  Recall that a
-      category is non-empty if it has at least one object, and contractible if
-      its nerve (a simplicial set) is contractible.
-      % TODO move to right place
-    \end{defn}
-    %
-    \begin{lem}\label{lem_category_contractible_if_has_initial_object}
-      A category with an initial or final object is contractible.%
-      % TODO move to right place
-      \begin{proof}
-        This follows for instance from the fact that such a category has a left-
-        or right-adjoint functor (respectively) to the singleton category $1$ with
-        exactly one object and one morphism, and that an adjoint pair induces
-        homotopy equivalences between the nerves of the respective categories.
-      \end{proof}
-    \end{lem}
-    %
-    % TODO add lemma about cofinal functor \wedge C is still cofinal?
-    %
-    \begin{lem}\label{lem_homotopy_cofinal_functor_and_hocolim}\cite[Thm.
-      19.6.7]{hirschhorn2009model}
-      Let $F: \cJ \to \sS$ be a diagram, and let $\alpha: \cI \to \cJ$ be a
-      homotopy cofinal functor. Then the natural map
-      \begin{displaymath}
-        \hocolim_{\cI} F \circ \alpha \to \hocolim_{\cJ} F
-      \end{displaymath}
-      is a weak equivalence.
-      % TODO move to right place
-      % TODO prove??
-    \end{lem}
-    %
-  \subsection{The Loday functor for finite sets}
-    We are now finally able to define the Loday functor with input a \hring and
-    a finite set. We proceed to do so, and prove some elementary results about
-    the functor.
-    \begin{defn}\label{def_rectification_of_G^A}
-      Consider the functor 
-      \begin{displaymath}
-        \tilde{\cJ} \colon V \to \Cat_*
-      \end{displaymath}
-      and the left lax transformation 
-      \begin{displaymath}
-        e \colon \tilde{\cJ} \to \cJ
-      \end{displaymath}
-      which we obtain by applying Street's first construction (the pointed
-      version, cf. Defs.~\ref{def_streets_first_construction_functor},
-      \ref{def_streets_first_construction_transformation}) in the context $\cD
-      \defas V$ and $F \defas \cJ$, and let 
-      \begin{displaymath}
-        r \colon \tilde{\cJ}^e = \tilde{\cJ}^{\op} \wedge \tilde{\cJ} 
-          \myrightarrow{e^{\op} \wedge e} \cJ^{\op} \wedge \cJ = \cJ^e,
-      \end{displaymath}
-      while 
-      \begin{displaymath}
-        p_2 \colon \cC^e = \cC^{\op} \wedge \cC \crightarrow{1.3}{\const_{1_+}
-          \wedge \cC} 1_+ \wedge \cC \myrightarrow{\cong} \cC
-      \end{displaymath}
-      is the strict transformation to the constant functor with image $1_+$, the
-      discrete category with one object plus extra basepoint, followed by the
-      isomorphism given by the natural identification $1_+ \wedge \cC \cong \cC$
-      for any pointed category $\cC$ (cf. Lem.~%
-      \ref{lem_hocolim_name_justification}).\\
-      We assemble the above data in a diagram
-      \begin{displaymath}
-        \xymatrix{
-          \Fin
-            \ar@{=}[r] 
-            \ar[d]^{(-)_*} 
-          &
-          \Fin
-            \ar@{=}[r] 
-            \ar[d]^{(-)_*} 
-          &
-          \Fin
-            \ar@{=}[r] 
-            \ar[d]^{(-)_*}
-            \ar@{}[rddd]|{\overset{G^A}{\Rightarrow}}
-          &
-          \Fin 
-            \ar[ddd]^{\Sp^{\Sigma}}
-          \\
-          V 
-            \ar@{=}[r]
-            \ar[d]^{\tilde{\cJ}^e}
-            \ar@{}[rd]|{\overset{r}{\Rightarrow}}
-          & 
-          V 
-            \ar@{=}[r]
-            \ar[d]^{\cJ^e}
-            \ar@{}[rd]|{\overset{p_2}{\Rightarrow}}
-          & 
-          V 
-            \ar[d]^{\cJ}
-          & 
-          %
-          \\
-          \Cat_* 
-            \ar@{=}[r]
-            \ar[d]^{\iota} 
-          & 
-          \Cat_* 
-            \ar@{=}[r]
-            \ar[d]^{\iota} 
-          & 
-          \Cat_* 
-            \ar[d]^{\iota} 
-          & 
-          %
-          \\
-          \CAT_* 
-            \ar@{=}[r]
-          &
-          \CAT_* 
-            \ar@{=}[r]
-          &
-          \CAT_* 
-            \ar@{=}[r]
-          &
-          \CAT_*
-        }
-      \end{displaymath}
-      and obtain a left lax transformation
-      \begin{displaymath}
-      [G^A \circ p_2 \circ r] \colon (\iota \circ \tilde{\cJ}^e \circ (-)_*) = %
-      (\iota \circ \tilde{\cJ} \circ (-)_*)^e \to \Sp^{\Sigma}
-      \end{displaymath}
-      of functors
-      \begin{displaymath}
-        \Fin \to \CAT_*.
-      \end{displaymath}
-      Note that $e^{\op}$ is a right lax transformation, so $r = e \wedge
-      e^{\op}$ does not constitute a left (or right) lax transformation as such.
-      Only when composed with $p_2$ it becomes a left lax transformation, as
-      postcomposing with collapsing down to $1_+$ yields a strict functor,
-      as every morphism in $1_+$ is invertible.
-    \end{defn}
-    %
-      Note that the above precisely constitutes an object in
-      $\operatorname{Bimod}^{\cD}/K$ for $\cD = \Fin$ and $K = \Sp^\Sigma$ the
-      constant functor with value symmetric spectra. By evaluating the functor
-      $\hocolim$ (cf. Def.~\ref{def_hocolim}) on this object we obtain 
-      \begin{displaymath}
-        \hocolim_{\iota \circ \tilde{\cJ} \circ (-)_*} G^A \circ p_2 \circ r 
-          \colon \Fin \times \Delta^{\op} \to \Sp^\Sigma,
-      \end{displaymath}
-      which finally lets us formulate the following
-    %
-    \begin{defn}\label{def_loday_functor_finite_sets}
-      Given a finite set $S$ and a \hring~$A$, we define the \emph{Loday functor
-      of $A$ at $S$} to be given by the symmetric spectrum
-      \begin{displaymath}
-        \Lambda_S A \defas \hocolim_{\tilde{\cJ} (S)} G^A_S \circ p_2 \circ r_S.
-      \end{displaymath}
-      By construction this is functorial in $S$.
-    \end{defn}
-    \begin{lem}\label{lem_loday_functor_fixed_points}
-      Given a finite set $S$, a group $G$ acting on it, and a pointed functor
-      $Z: \cJ(S) = (\cI^S)_+ \to \sS_*$. Then the map
-      \begin{displaymath}
-        \hocolim_{\tilde{\cJ}(S)} Z \circ p_2 \circ r_S \to 
-          \hocolim_{\cJ(S)} Z \circ p_2
-      \end{displaymath}
-      is a weak equivalence on $G$-fixed points.
-      \begin{proof}
-        To obtain the above map, consider the full subcategory $\{S\}$ of $\Fin$
-        and the restictions of $\tilde{\cJ}$, $\cJ$, and the constant functor
-        $\sS_*$ along the inclusion $\{S\} \to \Fin$ (omitting the inclusions
-        $\Fin \to V$ and $\Cat_* \to \CAT_*$ from notation). This gives rise to
-        a map of bimodules
-        \begin{displaymath}
-          \xymatrix{
-            (\tilde{\cJ} \colon \{S\} \to \CAT_*, Z \circ p_2 \circ r_S %
-              \colon \tilde{\cJ}^e \Rightarrow \sS_*) %
-            \ar[d]^{(\epsilon,\eta)} \\
-            (\cJ \colon \{S\} \to \CAT_*, %
-              Z \circ p_2 \colon \cJ^e \Rightarrow \sS_*)
-          }
-        \end{displaymath}
-        given by $\epsilon = e_S$ and $\eta$ the appropriate identity. Note that
-        this map is by definition natural in $S$, i.e. commmutes with any action
-        on $S$ and hence induces a map of fixed points.\\
-        We would like to compare the objects in question to actual homotopy
-        colimits, i.e. use \ref{lem_hocolim_name_justification}. For this we
-        note that while $\cJ$ obviously factors through 
-        \begin{displaymath}
-          \CAT \myrightarrow{(-)_+} \CAT_*
-        \end{displaymath}
-        showing the same for $\tilde{\cJ}$ requires considering the restriction
-        to $\{S\}$ and is an easy exercise: It suffices to show that if a
-        composition in $\tilde{\cJ(S)}$ is zero, then one of the arrows was
-        zero, for then we have a well-defined factorization to $\CAT$.\\
-        % TODO proof this, just for own safety
-        Next we should make sure that the functors to the right of the
-        $\hocolim$ factor as required by the above mentioned Lemma. To this end
-        we note that
-        \begin{displaymath}
-          p_2 \circ r = e \circ p_2
-        \end{displaymath}
-        with $p_2$ in the respective contexts, and obtain a commutative square
-        \begin{displaymath}
-          \xymatrix@C+1em{
-            \hocolim\limits_{\tilde{\cJ}(S)} Z \circ e_S \circ p_2
-              \ar[r]^-{(e_S, \id)}
-              \ar[d]_-{\simeq}
-            &
-            \hocolim\limits_{\cJ(S)} Z \circ p_2
-              \ar[d]^-{\simeq}
-            \\
-            \hocolim\limits_{\tilde{\cJ}(S) \setminus {+}} Z \circ e_S
-              \ar[r]
-            &
-            \hocolim\limits_{\cI^S} Z
-          }
-        \end{displaymath}
-        where the vertical maps are equivalences (described in the Lemma
-        mentioned above), and the lower horizontal map is the natural map induced
-        by $e_S: \tilde{\cJ}(S) \to \cJ(S)$. It is easy to check that this
-        diagram indeed commutes, and as $e$ is homotopy cofinal (cf. Rem.
-        \ref{rem_streets_construction_e_is_cofinal}), the lower horizontal arrow
-        is an equivalence as well, which proves the claim for the case of $G$
-        acting trivially on $S$.\\
-        Now we let the $G$ action be arbitrary. We claim that the following
-        equality holds:
-        \begin{displaymath}
-          \left[ \hocolim_{\tilde{\cJ}(S)} Z \circ e_S \circ p_2 \right]^G = %
-          \hocolim_{\tilde{\cJ}(S)^G} \left[ Z \circ e_S \circ p_2 \right]^G
-        \end{displaymath}
-        where in the right hand term we take $G$-fixed points of each summand
-        of the wedge that constitutes our homotopy colimit in a given simplicial
-        degree. To convince oneself of the validity of the claim it suffices to
-        recall the functoriality of the above construction in $S$.\\
-        Consider further that by construction, $\tilde{\cJ}(S)^G$ is a full
-        subcategory of $\tilde{\cJ}(S)$ (functoriality of $S$ is trivial in
-        morphisms in $\tilde{\cJ}(S)$) and is isomorphic to $\tilde{\cJ}(S/G)$
-        (cf.  Def.~\ref{def_group_acting_on_object_in_V_morphism_phi}) - indeed,
-        we have
-        \begin{displaymath}
-          \ob \tilde{\cJ}(S) = \bigvee_{T \in \ob V} \hom_V (T,S)_+ 
-            \wedge \ob \cJ(T)
-        \end{displaymath}
-        so $G$ just acts on the set of morphisms, and we can use the isomorphism
-        provided in the definition mentioned above. This gives us the following
-        commutative diagram:
-        % TODO explain where morphism comes from
-        % morphism of simplicial sets, degree wise
-        % TODO this will also show how the above is a bimodule...
-        % it's not - taking fixed points is no good
-        % TODO how is the lower horizontal morphism induced?
-        % stupid answer - degree-wise
-        % come up with a better answer!
-        % TODO how can we apply the same stuff on the RHS?
-        % TODO is \cJ(S)^G \cong \cJ(S/G)?
-        % TODO why are we now in the situation from before?
-        \begin{displaymath}
-          \xymatrix@C+2em{
-            \left[ \hocolim\limits_{\tilde{\cJ}(S)} Z \circ e_S \circ p_2
-              \right]^G
-              \ar[r]^-{(e_S, \id)}
-              \ar[d]_-{\cong}
-            &
-            \left[\hocolim\limits_{\cJ(S)} Z \circ p_2 \right]^G
-              \ar[d]^-{\cong}
-            \\
-            \hocolim\limits_{\tilde{\cJ}(S/G)} [Z \circ e_S \circ p_2]^G
-              \ar[r]
-            &
-            \hocolim\limits_{\cJ(S/G)} [Z \circ p_2 ]^G
-          }
-        \end{displaymath}
-      \end{proof}
-    \end{lem}
-    %
-    \begin{lem}\label{lem_loday_functor_preserves_connectivity}
-      The Loday functor (at a finite set) preserves connectivity of commutative ring spectra, sends stable equivalences to point-wise equivalences (check this statement!) and [comparison to smash product].
-      \begin{proof}
-        depends on connectivity of a map $S^1 \wedge A(S^n) \to A(S(n+1))$ - corresponding map in orthogonal spectra context should be structure map. check definition of transformation $G^A$ or rather transformation $A$! Connection of connectivity to ``functors of simplicial sets''?
-      \end{proof}
-    \end{lem}
-    %
-    \begin{cor}\label{cor_loday_at_S_naturally_equivalent_to_tensor_with_S}
-      Let $A$ be a cofibrant? flat? \hring, then Loday of $A$ at $S$ is stably equivalent as a spectrum to $S \otimes A$, and the morphisms are natural in $S$.
-    \end{cor}
-    %
-    \begin{defn}\label{def_loday_functor_in_symmetric_monoidal_category} 
-      Let $(\mathcal{C},\wedge, \mathbb{I})$ be a symmetric monoidal category.\\
-      \comm{TODO complete this}
-    \end{defn}
-    % TODO: where do we use this / want to use this!? find ref if exists, or remove!
-    %
-    \begin{lem}\label{lem_loday_functor_is_simplicial}
-      The Loday functor is a simplicial functor.\\
-      \comm{[loday functor simplicial! add remark? add proof? source ($\Gamma$-spaces)?]}
-    \end{lem}
-    %
+    \end{proof}
+  \end{lem}
+  %
+  \begin{lem}\label{lem_loday_functor_preserves_connectivity}
+    The Loday functor (at a finite set) preserves connectivity of commutative ring spectra, sends stable equivalences to point-wise equivalences (check this statement!) and [comparison to smash product].
+    \begin{proof}
+      depends on connectivity of a map $S^1 \wedge A(S^n) \to A(S(n+1))$ - corresponding map in orthogonal spectra context should be structure map. check definition of transformation $G^A$ or rather transformation $A$! Connection of connectivity to ``functors of simplicial sets''?
+    \end{proof}
+  \end{lem}
+  %
+  \begin{cor}\label{cor_loday_at_S_naturally_equivalent_to_tensor_with_S}
+    Let $A$ be a cofibrant? flat? \hring, then Loday of $A$ at $S$ is stably equivalent as a spectrum to $S \otimes A$, and the morphisms are natural in $S$.
+  \end{cor}
+  %
+  \begin{defn}\label{def_loday_functor_in_symmetric_monoidal_category} 
+    Let $(\mathcal{C},\wedge, \mathbb{I})$ be a symmetric monoidal category.\\
+    \comm{TODO complete this}
+  \end{defn}
+  % TODO: where do we use this / want to use this!? find ref if exists, or remove!
+  %
+  \begin{lem}\label{lem_loday_functor_is_simplicial}
+    The Loday functor is a simplicial functor.\\
+    \comm{[loday functor simplicial! add remark? add proof? source ($\Gamma$-spaces)?]}
+  \end{lem}
+  %
