@@ -1897,6 +1897,8 @@ details on bicategories, confer \cite{benabou1967introduction}.\\
       % come up with a better answer!
       % TODO how can we apply the same stuff on the RHS?
       % TODO is \cJ(S)^G \cong \cJ(S/G)?
+      % Yes, it is - at least on the level of objects.
+      % Not so sure about morphisms though...
       % TODO why are we now in the situation from before?
       \begin{displaymath}
         \xymatrix@C+2em{
@@ -1918,14 +1920,21 @@ details on bicategories, confer \cite{benabou1967introduction}.\\
   \end{lem}
   %
   \begin{lem}\label{lem_loday_functor_preserves_connectivity}
-    The Loday functor (at a finite set) preserves connectivity of commutative ring spectra, sends stable equivalences to point-wise equivalences (check this statement!) and [comparison to smash product].
+    The Loday functor (at a finite set) preserves connectivity of commutative
+    ring spectra, sends stable equivalences to point-wise equivalences (check
+    this statement!) and [comparison to smash product].
     \begin{proof}
-      depends on connectivity of a map $S^1 \wedge A(S^n) \to A(S(n+1))$ - corresponding map in orthogonal spectra context should be structure map. check definition of transformation $G^A$ or rather transformation $A$! Connection of connectivity to ``functors of simplicial sets''?
+      depends on connectivity of a map $S^1 \wedge A(S^n) \to A(S(n+1))$ -
+      corresponding map in orthogonal spectra context should be structure map.
+      check definition of transformation $G^A$ or rather transformation $A$!
+      Connection of connectivity to ``functors of simplicial sets''?
     \end{proof}
   \end{lem}
   %
   \begin{cor}\label{cor_loday_at_S_naturally_equivalent_to_tensor_with_S}
-    Let $A$ be a cofibrant? flat? \hring, then Loday of $A$ at $S$ is stably equivalent as a spectrum to $S \otimes A$, and the morphisms are natural in $S$.
+    Let $A$ be a cofibrant? flat? \hring, then Loday of $A$ at $S$ is stably
+    equivalent as a spectrum to $S \otimes A$, and the morphisms are natural in
+    $S$.
   \end{cor}
   %
   \begin{defn}\label{def_loday_functor_in_symmetric_monoidal_category} 
