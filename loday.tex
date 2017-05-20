@@ -473,11 +473,15 @@ details on bicategories, confer \cite{benabou1967introduction}.\\
     \begin{displaymath}
       \cC(f): \cC(X) = \cC^X \to \cC^Y = \cC(Y)
     \end{displaymath}
-    by assigning to a $(c: X \to \ob \cC) \in \ob \cC^X$ (a tuple, written as a map) the object 
+    by assigning to a $(c: X \to \ob \cC) \in \ob \cC^X$ (a tuple, written as a
+    map) the object 
     \begin{displaymath}
       \cC(f)(c): Y \to \cC, y \mapsto \coprod_{a \in f_2^{-1}(y)} c(f_1(a)).
     \end{displaymath}
-    For a map of tuples $\phi: c \to c^\prime$, the same formula may be used to define $\cC(\phi)$. Recall that $\phi \in \prod_{x \in X} \cC(c(x),c^\prime(x))$. With this, we may define the $y$-th coordinate of $\cC(f)(\phi):\cC(f)(c) \to \cC(f)(c^\prime)$ as the map
+    For a map of tuples $\phi: c \to c^\prime$, the same formula may be used to
+    define $\cC(\phi)$: Recall that $\phi \in \prod_{x \in X}
+    \cC(c(x),c^\prime(x))$. With this, we may define the $y$-th coordinate of
+    $\cC(f)(\phi):\cC(f)(c) \to \cC(f)(c^\prime)$ as the map
     \begin{displaymath}
       \coprod_{a \in f_2^{-1}(y)} c(f_1(a))%
         \crightarrow{2.5}{\coprod_{a \in f_2^{-1}(y)} \phi(f_1(a))}%
@@ -628,7 +632,7 @@ details on bicategories, confer \cite{benabou1967introduction}.\\
       ( X \myrightarrow{f} Y ) \mapsto %
       \left ( (\cI^X)_+ \myrightarrow{\cJ(f_*)} (\cI^Y)_+ \right),
     \end{gather*}
-    where the functor $\cJ(f_*)$ may be described as
+    where the functor $\cJ(f_*)$ may be described (on objects) as
     \begin{displaymath}
       % TODO add arrow Y \to \cI above
       (c: X \to \cI) \mapsto %
@@ -639,6 +643,7 @@ details on bicategories, confer \cite{benabou1967introduction}.\\
         \end{array} %
        \right\}.
     \end{displaymath}
+    % TODO might add remark here pointing out similarity to classic def
     For two composable maps of sets $X \myrightarrow{f} Y \myrightarrow{g} Z$
     the structure natural transformation $\cJ(g) \circ \cJ(Y) \to \cJ(g \circ
     f)$ is given as a reordering: On $c_x \in (\cI^X)_+$, we map (omitting
@@ -933,9 +938,9 @@ details on bicategories, confer \cite{benabou1967introduction}.\\
   % TODO rename variables E,F above - specify further to E constant functor?
 
   \begin{defn}\label{def_category_of_bimodules}
-    Let $\cD$ be a small category, and let $K \colon \cD \to \CAT_*$ be a functor.
-    Recall the following notation: 
-    Given $F \colon \cD \to \CAT_*$, we denote by $F^e \colon \cD \to \CAT_*$
+    Let $\cD$ be a small category, and let $K \colon \cD \to \CAT_*$ be a
+    functor. Recall the following notation: Given $F \colon \cD \to \CAT_*$, we
+    denote by $F^e \colon \cD \to \CAT_*$
     the functor sending $j \mapsto F(j)^e = F(j)^{\op} \wedge F(j)$.
     We proceed to define the category $\operatorname{Bimod}^{\cD} / K$ of
     bimodules (we attempt to motivate the term bimodule in this context
@@ -1011,8 +1016,9 @@ details on bicategories, confer \cite{benabou1967introduction}.\\
     the object $G_j(x_0,x_q)$ of $K$ tensored with the smash product of the
     morphism sets $F(j)(x_i,x_{i-1})$, where the wedge sum is taken over all
     tuples $(x_0, \ldots, x_q) \in (\ob F(j))^{q+1}$.\\
-    Considering functoriality in $\cD$, let $f \colon j \to k$ be a morphism in $\cD$.
-    We start with some $x_i, \ldots, x_q \in \ob F(j)$, and obtain a morphism
+    Considering functoriality in $\cD$, let $f \colon j \to k$ be a morphism in
+    $\cD$. We start with some $x_0, \ldots, x_q \in \ob F(j)$, and obtain a
+    morphism
     \begin{displaymath}
       \xymatrix@R+1em{
         G_j(x_0,x_q) \wedge \bigwedge_{i=1}^q \hom_{F(j)}(x_i,x_{i-1}) %
@@ -1874,8 +1880,14 @@ details on bicategories, confer \cite{benabou1967introduction}.\\
       \end{displaymath}
       where in the right hand term we take $G$-fixed points of each summand
       of the wedge that constitutes our homotopy colimit in a given simplicial
-      degree. To convince oneself of the validity of the claim it suffices to
-      recall the functoriality of the above construction in $S$.\\
+      degree, as well as of the indexing set of the wedge. To convince oneself
+      of the validity of the claim it suffices to recall the functoriality of
+      the above construction in $S$ (and perhaps write out the definition of the
+      notation). Note also that same holds in the context of $\cJ(S)$:
+      \begin{displaymath}
+        \left[ \hocolim_{\cJ(S)} Z \circ p_2 \right]^G = %
+        \hocolim_{\cJ(S)^G} \left[ Z \circ p_2 \right]^G
+      \end{displaymath}
       Consider further that by construction, $\tilde{\cJ}(S)^G$ is a full
       subcategory of $\tilde{\cJ}(S)$ (functoriality of $S$ is trivial in
       morphisms in $\tilde{\cJ}(S)$) and is isomorphic to $\tilde{\cJ}(S/G)$
@@ -1886,20 +1898,40 @@ details on bicategories, confer \cite{benabou1967introduction}.\\
           \wedge \ob \cJ(T)
       \end{displaymath}
       so $G$ just acts on the set of morphisms, and we can use the isomorphism
-      provided in the definition mentioned above. This gives us the following
-      commutative diagram:
-      % TODO explain where morphism comes from
-      % morphism of simplicial sets, degree wise
-      % TODO this will also show how the above is a bimodule...
+      provided in the definition mentioned above.\\
+      Likewise, we would like to point out that we have an isomorphism of
+      categories
+      \begin{displaymath}
+        \phi: \cJ(S)^G \to \cJ(S/G)
+      \end{displaymath}
+      given by projecting down to equivalence classes under the action of $G$:
+      Recall that $\cJ(S) = (\cI^S)_+$, and inspecting functoriality in $S$ we
+      see that being fixed under $G$ means exactly being constant on $G$-orbits.
+      All in all, we get the following picture:
+      % TODO make diagram on simplicial set level and append explanation for
+      % last step
+      This gives us the following commutative diagram:
+      % OK TODO explain where morphism comes from
+      % morphism of simplicial sets, defined degree wise
+      % we should add that we use the iso J(S)^G cong J(S/G) in the term
+      % to make sense of the hocolim over new index category
+      % TODO should check that it respects the simplicial structure
+      % OK TODO this will also show how the above is a bimodule...
       % it's not - taking fixed points is no good
       % TODO how is the lower horizontal morphism induced?
       % stupid answer - degree-wise
       % come up with a better answer!
-      % TODO how can we apply the same stuff on the RHS?
-      % TODO is \cJ(S)^G \cong \cJ(S/G)?
+      % better answer: after switching to "same" situation you have the
+      % same map - now we just have to check that the resulting square commutes
+      % OK TODO how can we apply the same stuff on the RHS?
+      % OK TODO does the equality of pulling ^G in hold there as well?
+      % yes it does. 
+      % OK TODO is \cJ(S)^G \cong \cJ(S/G)?
       % Yes, it is - at least on the level of objects.
       % Not so sure about morphisms though...
-      % TODO why are we now in the situation from before?
+      % depends on def of fixed points, but with strict def it's OK
+      % OK TODO why are we now in the situation from before?
+      % cause we can put a ^G in the index, pull both G's out, and voila
       \begin{displaymath}
         \xymatrix@C+2em{
           \left[ \hocolim\limits_{\tilde{\cJ}(S)} Z \circ e_S \circ p_2
