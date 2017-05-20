@@ -1907,7 +1907,41 @@ details on bicategories, confer \cite{benabou1967introduction}.\\
       given by projecting down to equivalence classes under the action of $G$:
       Recall that $\cJ(S) = (\cI^S)_+$, and inspecting functoriality in $S$ we
       see that being fixed under $G$ means exactly being constant on $G$-orbits.
-      All in all, we get the following picture:
+      All in all, we get the following picture, say in simplicial degree $q$:
+      \begin{displaymath}
+        \noindent\makebox[\textwidth]{
+        \xymatrix@C+2em{
+          \left[ \hocolim\limits_{\tilde{\cJ}(S)} Z \circ e_S \circ p_2
+            \right]^G
+            \ar[r]^-{(e_S, \id)}
+            \ar@{=}[d]
+          &
+          \left[\hocolim\limits_{\cJ(S)} Z \circ p_2 \right]^G
+            \ar@{=}[d]
+          \\
+          \left[\;\;\;\;\;
+            \mathlarger{\mathlarger{\bigvee}}\limits_%
+            {\mathclap{\substack{x_0, \ldots, x_q \\ \in \ob \tilde{\cJ}(S)}}}
+          Z \circ e_S (x_q) \wedge \bigwedge\limits_{j=1}^q
+          \hom_{\tilde{\cJ}(S)}(x_j, x_{j-1})
+          \right]^G
+            \ar@{=}[d]
+          &
+          \left[\;\;\;\;\;
+          \mathlarger{\mathlarger{\bigvee}}\limits_%
+            {\mathclap{\substack{x_0, \ldots, x_q \\ \in \ob \cJ(S)}}}
+          Z (x_q) \wedge \bigwedge\limits_{j=1}^q
+          \hom_{\tilde{\cJ}(S)}(x_j, x_{j-1})
+          \right]^G
+            \ar@{=}[d]
+          \\
+          \hocolim\limits_{\tilde{\cJ}(S/G)} [\tilde{Z} \circ e_S \circ p_2]
+            \ar[r]
+          &
+          \hocolim\limits_{\cJ(S/G)} [\tilde{Z} \circ p_2 ]
+        }
+        }
+      \end{displaymath}
       % TODO make diagram on simplicial set level and append explanation for
       % last step
       This gives us the following commutative diagram:
