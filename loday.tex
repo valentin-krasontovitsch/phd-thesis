@@ -1909,118 +1909,108 @@ details on bicategories, confer \cite{benabou1967introduction}.\\
       see that being fixed under $G$ means exactly being constant on $G$-orbits.
       All in all, we get the following picture, say in simplicial degree $q$:
       \begin{displaymath}
-        \noindent\makebox[\textwidth]{
-        \xymatrix@C+2em@R-1em{
-            \left[ \hocolim\limits_{\tilde{\cJ}(S)} Z \circ e_S \circ p_2
-            \right]^G
-              \ar[r]^-{(e_S, \id)}
-              \ar@{=}[d]
-            &
-            \left[\hocolim\limits_{\cJ(S)} Z \circ p_2 \right]^G
-              \ar@{=}[d]
-          \\
-            \left[\;\;\;\;\;
-            \mathlarger{\mathlarger{\bigvee}}\limits_%
-            {\mathclap{\substack{x_0, \ldots, x_q \\ \in \ob \tilde{\cJ}(S)}}}
-            Z \circ e_S (x_q) \wedge \bigwedge\limits_{j=1}^q
-            \hom_{\tilde{\cJ}(S)}(x_j, x_{j-1})
-            \right]^G
-              \ar@{=}[d]
-            &
-            \left[\;\;\;\;\;
-            \mathlarger{\mathlarger{\bigvee}}\limits_%
-            {\mathclap{\substack{y_0, \ldots, y_q \\ \in \ob \cJ(S)}}}
-            Z (y_q) \wedge \bigwedge\limits_{j=1}^q
-            \hom_{\cJ(S)}(y_j, y_{j-1})
-            \right]^G
-              \ar@{=}[d]
-          \\
-            \mathlarger{\mathlarger{\bigvee}}\limits_%
-            {\mathclap{\substack{x_0, \ldots, x_q \\ \in \ob \tilde{\cJ}(S)^G}}}
-            [ Z \circ e_S (x_q) \wedge \bigwedge\limits_{j=1}^q
-            \hom_{\tilde{\cJ}(S)}(x_j, x_{j-1}) ]^G
-              \ar@{=}[d]
-            &
-            \mathlarger{\mathlarger{\bigvee}}\limits_%
-            {\mathclap{\substack{y_0, \ldots, y_q \\ \in \ob \cJ(S)^G}}}
-            [ Z (y_q) \wedge \bigwedge\limits_{j=1}^q
-            \hom_{\cJ(S)}(y_j, y_{j-1}) ]^G
-              \ar[d]_-{\cong}
-          \\
-            \mathlarger{\mathlarger{\bigvee}}\limits_%
-            {\mathclap{\substack{x_0, \ldots, x_q \\ \in \ob \tilde{\cJ}(S)^G}}}
-            Z \circ e_S (x_q) \wedge \bigwedge\limits_{j=1}^q
-            \hom_{\tilde{\cJ}(S)^G}(x_j, x_{j-1})
-              \ar[d]_-{\cong}
-            &
-            % TODO edit
-            \mathlarger{\mathlarger{\bigvee}}\limits_%
-            {\mathclap{\substack{y_0, \ldots, y_q \\ \in \ob \cJ(S)^G}}}
-            [ Z (y_q) \wedge \bigwedge\limits_{j=1}^q
-            \hom_{\cJ(S)}(y_j, y_{j-1}) ]^G
-              \ar[d]_-{\cong}
-          \\
-            \mathlarger{\mathlarger{\bigvee}}\limits_%
-            {\mathclap{\substack{\tilde{x}_0, \ldots, \tilde{x}_q \\ 
-            \in \ob\tilde{\cJ}(S/G)}}}
-            [ Z \circ \phi^{-1} \circ e_{S/G} (\tilde{x}_q) \wedge \bigwedge\limits_{j=1}^q
-            \hom_{\tilde{\cJ}(S/G)}(\tilde{x}_j, \tilde{x}_{j-1}) ]
-              \ar[d]_-{\cong}
-            &
-            % TODO edit
-            \mathlarger{\mathlarger{\bigvee}}\limits_%
-            {\mathclap{\substack{\tilde{y}_0, \ldots, \tilde{y}_q \\ \in \ob \cJ(S)^G}}}
-            [ Z (\tilde{y}_q) \wedge \bigwedge\limits_{j=1}^q
-            \hom_{\cJ(S)}(\tilde{y}_j, \tilde{y}_{j-1}) ]^G
-              \ar[d]_-{\cong}
-          \\
-            \hocolim\limits_{\tilde{\cJ}(S/G)} [\tilde{Z} \circ e_S \circ p_2]
-              \ar[r]
-            &
-            \hocolim\limits_{\cJ(S/G)} [\tilde{Z} \circ p_2 ]
-        }
-        }
+      \noindent\makebox[\textwidth]{ \xymatrix@C+2em{
+        \left[ \hocolim\limits_{\tilde{\cJ}(S)} Z \circ e_S \circ p_2
+        \right]^G_q
+          \ar[r]^-{(e_S, \id)_q}
+          \ar@{=}[d]
+        &
+        \left[\hocolim\limits_{\cJ(S)} Z \circ p_2 \right]^G_q
+          \ar@{=}[d]
+        \\
+        \left[\;\;\;\;\;
+        \mathlarger{\mathlarger{\bigvee}}\limits_%
+        {\mathclap{\substack{x_0, \ldots, x_q \\ \in \ob \tilde{\cJ}(S)}}}
+        Z \circ e_S (x_q) \wedge \bigwedge\limits_{j=1}^q
+        \hom_{\tilde{\cJ}(S)}(x_j, x_{j-1})
+        \right]^G
+          \ar@{=}[d]
+        &
+        \left[\;\;\;\;\;
+        \mathlarger{\mathlarger{\bigvee}}\limits_%
+        {\mathclap{\substack{y_0, \ldots, y_q \\ \in \ob \cJ(S)}}}
+        Z (y_q) \wedge \bigwedge\limits_{j=1}^q
+        \hom_{\cJ(S)}(y_j, y_{j-1})
+        \right]^G
+          \ar@{=}[d]
+        \\
+        \mathlarger{\mathlarger{\bigvee}}\limits_%
+        {\mathclap{\substack{x_0, \ldots, x_q \\ \in \ob \tilde{\cJ}(S)^G}}}
+        [ Z \circ e_S (x_q) \wedge \bigwedge\limits_{j=1}^q
+        \hom_{\tilde{\cJ}(S)}(x_j, x_{j-1}) ]^G
+          \ar@{=}[d]
+        &
+        \mathlarger{\mathlarger{\bigvee}}\limits_%
+        {\mathclap{\substack{y_0, \ldots, y_q \\ \in \ob \cJ(S)^G}}}
+        [ Z (y_q) \wedge \bigwedge\limits_{j=1}^q
+        \hom_{\cJ(S)}(y_j, y_{j-1}) ]^G
+          \ar@{=}[d]
+        \\
+        \mathlarger{\mathlarger{\bigvee}}\limits_%
+        {\mathclap{\substack{x_0, \ldots, x_q \\ \in \ob \tilde{\cJ}(S)^G}}}
+        Z \circ e_S (x_q) \wedge \bigwedge\limits_{j=1}^q
+        \hom_{\tilde{\cJ}(S)^G}(x_j, x_{j-1})
+          \ar@{=}[d]
+        &
+        \mathlarger{\mathlarger{\bigvee}}\limits_%
+        {\mathclap{\substack{y_0, \ldots, y_q \\ \in \ob \cJ(S)^G}}}
+        Z (y_q) \wedge \bigwedge\limits_{j=1}^q
+        \hom_{\cJ(S)^G}(y_j, y_{j-1})
+          \ar@{=}[d]
+        \\
+        [\hocolim_{\tilde{\cJ}(S)^G} Z \circ e_S \circ p_2]_q
+          \ar[r]_-{(e_S, id)_q}
+        &
+        [\hocolim_{\cJ(S)^G} Z \circ p_2]_q
+        }}
       \end{displaymath}
-      % TODO make diagram on simplicial set level and append explanation for
-      % last step
-      This gives us the following commutative diagram:
-      % OK TODO explain where morphism comes from
-      % morphism of simplicial sets, defined degree wise
-      % we should add that we use the iso J(S)^G cong J(S/G) in the term
-      % to make sense of the hocolim over new index category
-      % TODO should check that it respects the simplicial structure
-      % OK TODO this will also show how the above is a bimodule...
-      % it's not - taking fixed points is no good
-      % TODO how is the lower horizontal morphism induced?
-      % stupid answer - degree-wise
-      % come up with a better answer!
-      % better answer: after switching to "same" situation you have the
-      % same map - now we just have to check that the resulting square commutes
-      % OK TODO how can we apply the same stuff on the RHS?
-      % OK TODO does the equality of pulling ^G in hold there as well?
-      % yes it does. 
-      % OK TODO is \cJ(S)^G \cong \cJ(S/G)?
-      % Yes, it is - at least on the level of objects.
-      % Not so sure about morphisms though...
-      % depends on def of fixed points, but with strict def it's OK
-      % OK TODO why are we now in the situation from before?
-      % cause we can put a ^G in the index, pull both G's out, and voila
+      In the above diagram, the equalities are valid due to the following
+      respective reasons. The first and last are but the definition of the
+      homotopy colimit construction. The second are the first observations we
+      made in this setting. The third is commuting the $G$-fixed points through
+      the smash product and noting that $x_q$ and $y_q$ are fixed under $G$, and
+      that the fixed points of the morphisms are exactly the morphisms in the
+      fixed point category (cf. Def. \ref{def_fixed_points_of_a_category}).\\
+      Now we may apply the isomorphisms that may be found in the following
+      diagram:
       \begin{displaymath}
-        \xymatrix@C+2em{
-          \left[ \hocolim\limits_{\tilde{\cJ}(S)} Z \circ e_S \circ p_2
-            \right]^G
-            \ar[r]^-{(e_S, \id)}
-            \ar[d]_-{\cong}
+        \xymatrix{
+          \tilde{\cJ}(S)^G 
+            \ar[d]^-{\tilde{\phi}}
+            \ar[r]_-{e_S}
           &
-          \left[\hocolim\limits_{\cJ(S)} Z \circ p_2 \right]^G
-            \ar[d]^-{\cong}
+          \cJ(S)^G 
+            \ar[d]^-{\phi}
           \\
-          \hocolim\limits_{\tilde{\cJ}(S/G)} [Z \circ e_S \circ p_2]^G
-            \ar[r]
+          \tilde{\cJ}(S/G)
+            \ar[r]_-{e_{S/G}}
           &
-          \hocolim\limits_{\cJ(S/G)} [Z \circ p_2 ]^G
+          \cJ(S/G)
         }
       \end{displaymath}
+      This diagram is commutative, for ...
+      % TODO name \tilde{\phi} above!
+      % TODO give reason why commutative
+      Finally we obtain ...
+      % TODO fix final diagram
+      \begin{displaymath}
+      \noindent\makebox[\textwidth]{ \xymatrix@C+2em{
+        \hocolim_{\tilde{\cJ}(S)^G} Z \circ e_S \circ p_2
+          \ar[r]^-{(e_S, id)}
+          \ar[d]_-{(\tilde{\phi}, \id)}
+        &
+        \hocolim_{\cJ(S)^G} Z \circ p_2
+          \ar[d]_-{(\phi, \id)}
+        \\
+        \hocolim\limits_{\tilde{\cJ}(S/G)} 
+        Z \circ e_S \circ p_2 \circ (\tilde{\phi}^{-1})^e
+          \ar[r]_-{(e_{S/G}, \id)}
+        &
+        \hocolim\limits_{\cJ(S/G)} \tilde{Z} \circ p_2 \circ (\phi^{-1})^e
+      }}
+      \end{displaymath}
+      which puts us precisely into the case of a trivial action, which we have
+      proved above.
     \end{proof}
   \end{lem}
   %
