@@ -22,7 +22,7 @@ details on bicategories, confer \cite{benabou1967introduction}.\\
   \end{lem}
 
   \begin{defn}\label{def_group_acting_on_object_in_V_morphism_phi}
-    Given a finite set $Y$ with a left action of a group $G$, we define the
+    Given a finite set $Y$ with a left action of a group $G$, we define a $G$-% 
     action on $Y$ through automorphisms in $V$ by mapping $g \mapsto [Y
     \myleftarrow{\id_Y} Y \myrightarrow{g} Y]$, which can easily be seen to be
     a left action. Thus $G$ also acts (from the left) on $V(X,Y)$ for any
@@ -1910,35 +1910,74 @@ details on bicategories, confer \cite{benabou1967introduction}.\\
       All in all, we get the following picture, say in simplicial degree $q$:
       \begin{displaymath}
         \noindent\makebox[\textwidth]{
-        \xymatrix@C+2em{
-          \left[ \hocolim\limits_{\tilde{\cJ}(S)} Z \circ e_S \circ p_2
+        \xymatrix@C+2em@R-1em{
+            \left[ \hocolim\limits_{\tilde{\cJ}(S)} Z \circ e_S \circ p_2
             \right]^G
-            \ar[r]^-{(e_S, \id)}
-            \ar@{=}[d]
-          &
-          \left[\hocolim\limits_{\cJ(S)} Z \circ p_2 \right]^G
-            \ar@{=}[d]
+              \ar[r]^-{(e_S, \id)}
+              \ar@{=}[d]
+            &
+            \left[\hocolim\limits_{\cJ(S)} Z \circ p_2 \right]^G
+              \ar@{=}[d]
           \\
-          \left[\;\;\;\;\;
+            \left[\;\;\;\;\;
             \mathlarger{\mathlarger{\bigvee}}\limits_%
             {\mathclap{\substack{x_0, \ldots, x_q \\ \in \ob \tilde{\cJ}(S)}}}
-          Z \circ e_S (x_q) \wedge \bigwedge\limits_{j=1}^q
-          \hom_{\tilde{\cJ}(S)}(x_j, x_{j-1})
-          \right]^G
-            \ar@{=}[d]
-          &
-          \left[\;\;\;\;\;
-          \mathlarger{\mathlarger{\bigvee}}\limits_%
-            {\mathclap{\substack{x_0, \ldots, x_q \\ \in \ob \cJ(S)}}}
-          Z (x_q) \wedge \bigwedge\limits_{j=1}^q
-          \hom_{\tilde{\cJ}(S)}(x_j, x_{j-1})
-          \right]^G
-            \ar@{=}[d]
+            Z \circ e_S (x_q) \wedge \bigwedge\limits_{j=1}^q
+            \hom_{\tilde{\cJ}(S)}(x_j, x_{j-1})
+            \right]^G
+              \ar@{=}[d]
+            &
+            \left[\;\;\;\;\;
+            \mathlarger{\mathlarger{\bigvee}}\limits_%
+            {\mathclap{\substack{y_0, \ldots, y_q \\ \in \ob \cJ(S)}}}
+            Z (y_q) \wedge \bigwedge\limits_{j=1}^q
+            \hom_{\cJ(S)}(y_j, y_{j-1})
+            \right]^G
+              \ar@{=}[d]
           \\
-          \hocolim\limits_{\tilde{\cJ}(S/G)} [\tilde{Z} \circ e_S \circ p_2]
-            \ar[r]
-          &
-          \hocolim\limits_{\cJ(S/G)} [\tilde{Z} \circ p_2 ]
+            \mathlarger{\mathlarger{\bigvee}}\limits_%
+            {\mathclap{\substack{x_0, \ldots, x_q \\ \in \ob \tilde{\cJ}(S)^G}}}
+            [ Z \circ e_S (x_q) \wedge \bigwedge\limits_{j=1}^q
+            \hom_{\tilde{\cJ}(S)}(x_j, x_{j-1}) ]^G
+              \ar@{=}[d]
+            &
+            \mathlarger{\mathlarger{\bigvee}}\limits_%
+            {\mathclap{\substack{y_0, \ldots, y_q \\ \in \ob \cJ(S)^G}}}
+            [ Z (y_q) \wedge \bigwedge\limits_{j=1}^q
+            \hom_{\cJ(S)}(y_j, y_{j-1}) ]^G
+              \ar[d]_-{\cong}
+          \\
+            \mathlarger{\mathlarger{\bigvee}}\limits_%
+            {\mathclap{\substack{x_0, \ldots, x_q \\ \in \ob \tilde{\cJ}(S)^G}}}
+            Z \circ e_S (x_q) \wedge \bigwedge\limits_{j=1}^q
+            \hom_{\tilde{\cJ}(S)^G}(x_j, x_{j-1})
+              \ar[d]_-{\cong}
+            &
+            % TODO edit
+            \mathlarger{\mathlarger{\bigvee}}\limits_%
+            {\mathclap{\substack{y_0, \ldots, y_q \\ \in \ob \cJ(S)^G}}}
+            [ Z (y_q) \wedge \bigwedge\limits_{j=1}^q
+            \hom_{\cJ(S)}(y_j, y_{j-1}) ]^G
+              \ar[d]_-{\cong}
+          \\
+            \mathlarger{\mathlarger{\bigvee}}\limits_%
+            {\mathclap{\substack{\tilde{x}_0, \ldots, \tilde{x}_q \\ 
+            \in \ob\tilde{\cJ}(S/G)}}}
+            [ Z \circ \phi^{-1} \circ e_{S/G} (\tilde{x}_q) \wedge \bigwedge\limits_{j=1}^q
+            \hom_{\tilde{\cJ}(S/G)}(\tilde{x}_j, \tilde{x}_{j-1}) ]
+              \ar[d]_-{\cong}
+            &
+            % TODO edit
+            \mathlarger{\mathlarger{\bigvee}}\limits_%
+            {\mathclap{\substack{\tilde{y}_0, \ldots, \tilde{y}_q \\ \in \ob \cJ(S)^G}}}
+            [ Z (\tilde{y}_q) \wedge \bigwedge\limits_{j=1}^q
+            \hom_{\cJ(S)}(\tilde{y}_j, \tilde{y}_{j-1}) ]^G
+              \ar[d]_-{\cong}
+          \\
+            \hocolim\limits_{\tilde{\cJ}(S/G)} [\tilde{Z} \circ e_S \circ p_2]
+              \ar[r]
+            &
+            \hocolim\limits_{\cJ(S/G)} [\tilde{Z} \circ p_2 ]
         }
         }
       \end{displaymath}
