@@ -2027,11 +2027,7 @@ details on bicategories, confer \cite{benabou1967introduction}.\\
         }
       \end{displaymath}
       It is easy to check that this diagram in fact commutes (cf. Def.
-      \ref{def_group_acting_on_object_in_V_morphism_phi})
-      % TODO name \tilde{\phi} above!
-      % TODO give reason why commutative
-      Finally we obtain ...
-      % TODO fix final diagram
+      \ref{def_group_acting_on_object_in_V_morphism_phi}), and in summary we get
       \begin{displaymath}
       \noindent\makebox[\textwidth]{ \xymatrix@C+2em{
         \hocolim_{\tilde{\cJ}(S)^G} Z \circ e_S \circ p_2
@@ -2043,12 +2039,19 @@ details on bicategories, confer \cite{benabou1967introduction}.\\
         \\
         \hocolim\limits_{\tilde{\cJ}(S/G)} 
         Z \circ e_S \circ p_2 \circ (\tilde{\phi}^{-1})^e
-          \ar[r]_-{(e_{S/G}, \id)}
+          \ar@{=}[d]
         &
         \hocolim\limits_{\cJ(S/G)} \tilde{Z} \circ p_2 \circ (\phi^{-1})^e
+          \ar@{=}[d]
+        \\
+        \hocolim\limits_{\tilde{\cJ}(S/G)} 
+        (Z \circ \phi^{-1}) \circ e_{S/G} \circ p_2
+          \ar[r]_-{(e_{S/G}, \id)}
+        &
+        \hocolim\limits_{\cJ(S/G)} (Z \circ \phi^{-1}) \circ p_2
       }}
       \end{displaymath}
-      which puts us precisely into the case of a trivial action, which we have
+      which takes us precisely to the case of a trivial action, which we have
       proved above.
     \end{proof}
   \end{lem}
