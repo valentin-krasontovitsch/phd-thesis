@@ -352,6 +352,17 @@
     \mycmd{\mathmakebox[\trollo]{#2}}%
    }
   %
+  % command to be used inside math mode to encapsulate diagrams that are wider
+  % than text-width - causes diagram to get centered and overfull warning to
+  % disappear as the width is manually set to textwidth
+  \newcommand*{\widediagram}[1]{
+    \noindent\makebox[\textwidth]{#1}
+  }
+\newenvironment{widediag}
+  {\list{}{\leftmargin-4cm
+   \rightmargin\leftmargin}%
+   \item\relax}
+  {\endlist}
 
 %%% FACTORS
 

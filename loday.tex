@@ -11,14 +11,35 @@ details on bicategories, confer \cite{benabou1967introduction}.\\
 
 \subsection{Spans of finite sets}
   \begin{defn}\label{def_cateogry_of_spans}
-    The category of spans $V$ has as objects the class of finite sets, while the morphism set $V(X,Y)$ for two finite sets $X,Y$ is given by the set of equivalence classes of diagrams called spans of the form $X \ot A \to Y$. Two such diagrams $X \ot A \to Y$, $X \ot A^\prime \to Y$ are said to be equivalent if there is a bijection $A \to A^\prime$ making the resulting triangles commute. The identity on $X$ is given by $[ X = X = X]$. To compose two maps represented by $[X \ot A \to Y]$ and $[Y \ot B \to Z]$, we take a pullback $A \ot C \to B$ of $A \to Y \ot B$ and compose with the maps $X \to A$, $B \to Z$ to obtain $[X \ot C \to W]$. Since we take equivalence classes of spans, this is well-defined, and it is straight-forward to check that this forms a category using the universal property of pull-backs.
+    The category of spans $V$ has as objects the class of finite sets, while the
+    morphism set $V(X,Y)$ for two finite sets $X,Y$ is given by the set of
+    equivalence classes of diagrams called spans of the form $X \ot A \to Y$.
+    Two such diagrams $X \ot A \to Y$, $X \ot A^\prime \to Y$ are said to be
+    equivalent if there is a bijection $A \to A^\prime$ making the resulting
+    triangles commute. The identity on $X$ is given by $[ X = X = X]$. To
+    compose two maps represented by $[X \ot A \to Y]$ and $[Y \ot B \to Z]$, we
+    take a pullback $A \ot C \to B$ of $A \to Y \ot B$ and compose with the maps
+    $X \to A$, $B \to Z$ to obtain $[X \ot C \to W]$. Since we take equivalence
+    classes of spans, this is well-defined, and it is straight-forward to check
+    that this forms a category using the universal property of pull-backs.
   \end{defn}
 
-  \begin{lem}\label{lem_coproduct_product_in_V}
-    The product and coproduct in V are given by disjoint union.
-    % \begin{proof}
-      % Explain structure morphisms, comment on / explain universal properties
-    % \end{proof}
+  \begin{lem}\label{lem_coproduct_product_in_V}\cite[Lem. 3.1.1]{brun2010covering}
+    The product and coproduct in $V$ are given by disjoint union, where one of the
+    isomoprhisms involved is given by
+    \begin{gather*}
+			V(X, Y \sqcup Z) \to V(X,Y) \times V(X,Z),\\
+			\widediagram{
+				\xymatrix{
+					[ X \myleftarrow{f_1} A \myrightarrow{f_2} Y \sqcup Z ] \ar@{|->}[r]&%
+					(%
+					[X \myleftarrow{f_1} f_2^{-1}(Y) \myrightarrow{f_2} Y],%
+					[X \myleftarrow{f_1} f_2^{-1}(Z) \myrightarrow{f_2} Z]%
+					)
+				}
+			}
+    \end{gather*}
+    using the restrictions of maps to the respective preimages.
   \end{lem}
 
   \begin{defn}\label{def_group_acting_on_object_in_V_morphism_phi}
@@ -28,18 +49,20 @@ details on bicategories, confer \cite{benabou1967introduction}.\\
     a left action. Thus $G$ also acts (from the left) on $V(X,Y)$ for any
     finite set $X$, by functoriality of postcomposition. We define a function
     \begin{gather*}
-      \phi: V(X,Y/G) \to V(X,Y)^G \\
+      V(X,Y/G) \to V(X,Y)^G \\
       [X \ot A \to Y/G] \mapsto [X \ot A \x_{Y/G} Y \to Y].
     \end{gather*}
-    This function is bijective.
+    This function is bijective (cf. \cite[Prop. 3.1.2]{brun2010covering} for a
+    proof). For the reverse map, one chooses a right inverse $q \colon Y/G \to
+    Y$ to the projection $Y \to Y/G$ and maps
+    \begin{gather*}
+      V(X,Y)^G \to V(X,Y/G) \\
+      [X \ot B \to Y] \mapsto [X \ot B \x_{Y} Y/G \to Y]
+    \end{gather*}
+    taking the pullback of $B \myrightarrow{} Y \myleftarrow{q} Y/G$. The fact
+    that we started out with a morphism invariant under the $G$-action can be
+    used to show that this is independent of choice of $q \colon Y/G \to Y$.
   \end{defn}
-
-  % \begin{prop}\label{prop_phi_V(Y,X/G)_to_V(Y,X)^G_is_bijective}
-  %   The function $\phi$ defined above is bijective.
-  %   \begin{proof}
-  %
-  %   \end{proof}
-  % \end{prop}
 
   \begin{defn}\label{def_bicategory}
     A bicategory $\cC$ consists of the following data:
@@ -257,14 +280,19 @@ details on bicategories, confer \cite{benabou1967introduction}.\\
   % TODO add more examples?
 
   \begin{defn}\label{def_bicategory_functor}
-    Given two bicategieres $\cC$, $\cD$ a \emph{lax functor}, or \emph{lax 2-functor}, $F = (F, \phi): \mathcal{C} \to \mathcal{D}$ consists of
+    Given two bicategieres $\cC$, $\cD$ a \emph{lax functor}, or \emph{lax
+    2-functor}, $F = (F, \phi): \mathcal{C} \to \mathcal{D}$ consists of
     \begin{itemize}
       \item a map $F_0: \cC_0 \to \cD_0$ (denoted $F$);
-      \item for each $a,b \in \cC_0$ a functor $F_{a,b}: \cC(a,b) \to \cD(F(a), F(b))$ (also denoted $F$),
-      \item for each pair of composable 1-morphisms $(f,g)$ a 2-morphism $\phi_{g,f}:F(g)\circ F(f)\to F(g\circ f)$,
+      \item for each $a,b \in \cC_0$ a functor $F_{a,b}: \cC(a,b) \to \cD(F(a),
+        F(b))$ (also denoted $F$),
+      \item for each pair of composable 1-morphisms $(f,g)$ a 2-morphism
+        $\phi_{g,f}:F(g)\circ F(f)\to F(g\circ f)$,
       \item for each $a \in \cC_0$, a 2-morphism $\phi_a: 1_{F(a)} \to F(1_a)$,
     \end{itemize}
-    such that $\phi_{g,f}$ and $\phi_a$ are natural in $g,f$ and $a$, respectively, and the following diagrams commute for all composable morphisms $a \myrightarrow{f} b \myrightarrow{g} c \myrightarrow {h} d$:
+    such that $\phi_{g,f}$ and $\phi_a$ are natural in $g,f$ and $a$,
+    respectively, and the following diagrams commute for all composable
+    morphisms $a \myrightarrow{f} b \myrightarrow{g} c \myrightarrow {h} d$:
     \begin{gather*}
       \xymatrix@C+1.5em@R+1em{
         (F(h) \circ F(g)) \circ F(f)
@@ -326,10 +354,16 @@ details on bicategories, confer \cite{benabou1967introduction}.\\
         F(f).
        }
     \end{gather*}
-    A lax functor is called \emph{weak} or \emph{strict} if the structure maps $\phi_{g,f}$ and $\phi_a$ are isomorphisms or identity morphisms, respectively, for all composable $g,f$ and all $a \in \cC_0$. 
-    Note that there is a dual notion of colax functor, which is not used in this work - we will hence drop the word lax from notation. 
-    It is a lengthy but rather straight forward exercise to verify that the composition of two composable 2-functors is again a 2-functor. 
-    We may denote the structure morphisms by the functor, as in $F_{g,f} \defas \phi_{g,f}$ and $F_a \defas \phi_a$, whenever we need the symbol $\phi$ elsewhere.
+    A lax functor is called \emph{weak} or \emph{strict} if the structure maps
+    $\phi_{g,f}$ and $\phi_a$ are isomorphisms or identity morphisms,
+    respectively, for all composable $g,f$ and all $a \in \cC_0$. 
+    Note that there is a dual notion of colax functor, which is not used in this
+    work - we will hence drop the word lax from notation. 
+    It is a lengthy but rather straight forward exercise to verify that the
+    composition of two composable 2-functors is again a 2-functor. 
+    We may denote the structure morphisms by the functor, as in $F_{g,f} \defas
+    \phi_{g,f}$ and $F_a \defas \phi_a$, whenever we need the symbol $\phi$
+    elsewhere.
   \end{defn}
   % TODO make last statement into a Lemma, specifying the structure morphisms of the composition
   % TODO add examples for functors
@@ -1908,9 +1942,9 @@ details on bicategories, confer \cite{benabou1967introduction}.\\
       \begin{displaymath}
         \phi: \cJ(S)^G \to \cJ(S/G)
       \end{displaymath}
-      given by projecting down to equivalence classes under the action of $G$:
-      Recall that $\cJ(S) = (\cI^S)_+$, and inspecting functoriality in $S$ we
-      see that being fixed under $G$ means exactly being constant on $G$-orbits.
+      given by choosing a representative for each $G$ orbit: Recall that $\cJ(S)
+      = (\cI^S)_+$, and inspecting functoriality in $S$ we see that being fixed
+      under $G$ implies being constant on $G$ orbits.
       All in all, we get the following picture, say in simplicial degree $q$:
       \begin{displaymath}
       \noindent\makebox[\textwidth]{ \xymatrix@C+2em{
@@ -1968,7 +2002,7 @@ details on bicategories, confer \cite{benabou1967introduction}.\\
         [\hocolim_{\cJ(S)^G} Z \circ p_2]_q
         }}
       \end{displaymath}
-      In the above diagram, the equalities are valid due to the following
+      In the above diagram, the equalities hold due to the following
       respective reasons. The first and last are but the definition of the
       homotopy colimit construction. The second are the first observations we
       made in this setting. The third is commuting the $G$-fixed points through
@@ -1992,7 +2026,8 @@ details on bicategories, confer \cite{benabou1967introduction}.\\
           \cJ(S/G)
         }
       \end{displaymath}
-      This diagram is commutative, for ...\\
+      It is easy to check that this diagram in fact commutes (cf. Def.
+      \ref{def_group_acting_on_object_in_V_morphism_phi})
       % TODO name \tilde{\phi} above!
       % TODO give reason why commutative
       Finally we obtain ...
