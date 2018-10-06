@@ -32,15 +32,16 @@
     \end{prop}
   \subsection{Differentials}
     \begin{lem}\label{lem_decomp_matrix}\cite[Remark 3.2]{carlsson2011higher}
-      % TODO add $\sigma$ unstable map
+      \comm{TODO add $\sigma$ unstable map - if I remember correctly, you had to suspend once to get it or something like that... or we can just skip it}
       There is a stable splitting %
       $$\sT_+^k \simeq \bigvee_{T \subseteq \{1 \ldots k \} } S^{\abs{T}} \cong %
       \bigvee_{j = 0}^k (S^j)^{\vee\binom{k}{j}}.$$
-      \comm{[geometric torus $(=\bR^n/\bZ^n)$? fix notation!} Given $\alpha \in \M_{n \times k}(\bZ_p),$ this splitting yields the induced stable map of tori
-      $\alpha_+: (\sT^k_p)_+ \to (\sT^n_p)_+$ as a Matrix $M$ with entries indexed by pairs of subsets
+      \comm{[geometric torus $(=\bR^n/\bZ^n)$? fix notation! - is $(\bR^n/\bZ^n)_p \simeq  (\bR_p^n/\bZ_p^n)$?} Given $\alpha \in \M_{n \times k}(\bZ_p),$ this splitting yields the induced stable map of tori
+      $\alpha_+: (\sT^k_p)_+ \to (\sT^n_p)_+$ as a matrix $M$ with entries indexed by pairs of subsets
       $(S,T)$, $S \subseteq \ind{n}, T \subseteq \ind{k}$ with entries%
       $$ M_{S,T} = \left( \sum_{f:T \onto S} \sgn(f) \prod_{j \in T} \alpha_{f(j),j} \right) \eta^{\abs T - \abs S}.$$
-      We will denote this process with a subindexed asterix, i.e. $(\alpha_+)_*$.% bazinga change this!!
+      We will denote this representation $M$ of $\alpha_+$ with a subindexed asterix, i.e. $(\alpha_+)_*$.% bazinga change this!! [no idea what I meant here]
+      Here by $sgn(f)$ for $f \colon T \onto S$ we mean .... \comm{figure out def of signum}
     \end{lem}
     %
     %
